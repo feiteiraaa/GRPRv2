@@ -283,28 +283,6 @@
     "Type": "OptionSetInfo"
   },
   {
-    "DisplayName": "Âmbito da Equipa (Equipas)",
-    "Name": "mtp_team_mtp_teamscope",
-    "OptionSetInfoNameMapping": {
-      "962110000": "Balcão",
-      "962110001": "Carteira",
-      "962110002": "Painel de Controlo",
-      "962110003": "Centro de Contacto"
-    },
-    "OptionSetIsBooleanValued": false,
-    "OptionSetIsGlobal": false,
-    "OptionSetReference": {
-      "OptionSetReferenceItem0": {
-        "OptionSetReferenceColumnName": "mtp_teamscope",
-        "OptionSetReferenceEntityName": "Equipas"
-      }
-    },
-    "OptionSetTypeKey": "PicklistType",
-    "RelatedColumnInvariantName": "mtp_teamscope",
-    "RelatedEntityName": "Equipas",
-    "Type": "OptionSetInfo"
-  },
-  {
     "DisplayName": "Is Default (Equipas)",
     "Name": "team_isdefault",
     "OptionSetInfoNameMapping": {

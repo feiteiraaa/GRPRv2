@@ -2,3 +2,213 @@ Listagens As screen:
 
     LeftSectionComponent_15 As LeftSectionComponent:
 
+    GalleryListagens As gallery.galleryVertical:
+        DelayItemLoading: =true
+        Height: =483
+        Items: =Listagens_1
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =51
+        Width: =Container1_8.Width
+        X: =Container1_8.X
+        Y: =Container1_8.Y+Container1_8.Height
+        ZIndex: =10
+
+        Rectangle3_2 As rectangle:
+            Fill: =RGBA(128, 128, 128, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =970
+            Y: |-
+                =50
+                //If(localseta And ThisItem.IsSelected,126,50)
+            ZIndex: =1
+
+        LabelData As label:
+            PaddingLeft: =15
+            Text: =Text(ThisItem.'Data de referencia',"dd/mm/yyyy")
+            Width: =Label6_24.Width-50
+            X: =50
+            ZIndex: =2
+
+        LabelEstado As label:
+            PaddingLeft: =15
+            Text: =ThisItem.Estado
+            Width: =Label6_25.Width-10
+            X: =Label6_25.X
+            ZIndex: =3
+
+        LabelTipo As label:
+            PaddingLeft: =15
+            Text: =ThisItem.Tipo
+            Width: =Label6_26.Width-10
+            X: =653.3333333333333
+            ZIndex: =4
+
+        Icon10 As icon.Document:
+            Color: =cores.amareloMontepio
+            Height: =LabelData.Height-7
+            Icon: =If(ThisItem.Estado=Estado.Aprovado,Icon.DockCheckProperties,Icon.Document)
+            OnSelect: =Select(Parent)
+            Width: =50
+            Y: =3
+            ZIndex: =5
+
+    Container1_8 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(70, 70, 70, 1)
+        Height: =34
+        Width: =980
+        X: =357
+        Y: =InputPesquisar_1.Y + InputPesquisar_1.Height + 30
+        ZIndex: =11
+
+        Label6_24 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =34
+            PaddingLeft: =10
+            Text: ="Data de Referência"
+            Width: =Container1_8.Width/3
+            ZIndex: =1
+
+        Label6_25 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =34
+            PaddingLeft: =10
+            Text: ="Estado"
+            Width: =Container1_8.Width/3
+            X: =Label6_24.X+Label6_24.Width
+            ZIndex: =2
+
+        Label6_26 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =34
+            PaddingLeft: =10
+            Text: ="Tipo de Listagem"
+            Width: =Container1_8.Width/3
+            X: =653.3333333333333
+            ZIndex: =3
+
+    PesquisarListagens As group:
+        Height: =5
+        Width: =5
+        X: =-317
+        Y: =-21
+        ZIndex: =12
+
+        InputPesquisar_1 As text:
+            BorderColor: =ColorFade(cores.cinzento, 80%)
+            BorderThickness: =1
+            Clear: =true
+            Color: |-
+                =//RGBA(0, 0, 0, 1)
+                cores.cinzento
+            Default: =
+            Fill: =ColorFade(cores.cinzento, 90%)
+            Height: =DynamicBtn_26.Height
+            HintText: ="Pesquisar"
+            HoverBorderColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =
+            PaddingLeft: =40
+            Tooltip: =
+            Width: =290
+            X: =364
+            Y: =151
+            ZIndex: =2
+
+        "Icon1_7 As icon.'3DPrinting'":
+            Color: |-
+                =///RGBA(0, 18, 107, 1)
+                cores.amareloMontepio
+            Height: =25
+            Icon: =Icon.Search
+            OnSelect: =//Select(Parent)
+            Width: =25
+            X: =375
+            Y: =158
+            ZIndex: =3
+
+        DatePicker1_2 As datepicker:
+            DefaultDate: =
+            Format: ="dd/mm/yyyy"
+            Height: =InputPesquisar_1.Height
+            IconBackground: =cores.amareloMontepio
+            InputTextPlaceholder: |-
+                =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
+                "dd/mm/yyyy"
+            OnChange: |-
+                =If(DatePicker1_2.SelectedDate > DatePicker2_2.SelectedDate,
+                
+                Notify("A data inicial deve ser menor do que a data final",NotificationType.Warning, 2000))
+            Width: =165
+            X: =700
+            Y: =InputPesquisar_1.Y
+            ZIndex: =4
+
+        DatePicker2_2 As datepicker:
+            DefaultDate: =
+            Format: ="dd/mm/yyyy"
+            Height: =InputPesquisar_1.Height
+            IconBackground: =cores.amareloMontepio
+            InputTextPlaceholder: |-
+                =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
+                "dd/mm/yyyy"
+            Width: =165
+            X: =910
+            Y: =InputPesquisar_1.Y
+            ZIndex: =5
+
+        Label11_4 As label:
+            FontWeight: =FontWeight.Semibold
+            Size: =14
+            Text: |-
+                ="Datas:"
+            X: =700
+            Y: =107
+            ZIndex: =6
+
+        DynamicBtn_26 As DynamicBtn_25:
+            BtnText: ="Novo Pedido"
+            BtnWidth: =180
+            ButtonIcon: =Icon.AddDocument
+            Visible: =true
+            X: =1120
+            Y: =151
+            ZIndex: =7
+
+        Button7_1 As button:
+            Color: =Color.Transparent
+            DisabledBorderColor: =Color.Transparent
+            DisabledColor: =Color.Transparent
+            DisabledFill: =Color.Transparent
+            Fill: =Color.Transparent
+            Height: =DynamicBtn_26.Height
+            HoverBorderColor: =Color.Transparent
+            HoverColor: =Color.Transparent
+            HoverFill: =Color.Transparent
+            Text: =""
+            Width: =DynamicBtn_26.Width
+            X: =1120
+            Y: =DynamicBtn_26.Y
+            ZIndex: =8
+
+        Label11_5 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: =42
+            Size: =15
+            Text: ="a"
+            Width: =44
+            X: =DatePicker1_2.Width+DatePicker1_2.X
+            Y: =151
+            ZIndex: =9
+
+    Label1_10 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =48
+        Size: =15
+        Text: ="Listagens"
+        Width: =409
+        X: =384
+        Y: =61
+        ZIndex: =13
+
