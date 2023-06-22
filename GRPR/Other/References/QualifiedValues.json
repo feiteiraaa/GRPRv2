@@ -1,0 +1,383 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_uipp_alarmistica_forms",
+      "Namespace": "Alarmisticas (Forms)",
+      "Values": {
+        "Information": "d35e2d19-9f63-43a6-a0f8-5c411e50ddbc"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_aprovacao_forms",
+      "Namespace": "Aprovacaos (Forms)",
+      "Values": {
+        "Information": "a10858ff-b782-4ff9-8b96-92e39c030996"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_atividade_forms",
+      "Namespace": "Atividades (Forms)",
+      "Values": {
+        "Information": "37e74310-f336-429a-b95a-aa9bec90548b"
+      }
+    },
+    {
+      "Kind": "default.cds_contact_forms",
+      "Namespace": "Clientes Potenciais (Forms)",
+      "Values": {
+        "account contact card": "29de27bc-a257-4f29-99cf-bab4a84e688f",
+        "Contact": "1fed44d1-ae68-4a41-bd2b-f13acac4acfa",
+        "contact card": "707fc57b-c5e6-471b-a180-e37ed28a38e2",
+        "Contact Card form": "bc0f68dd-a4b1-4a8f-bed3-c8f5db2f89cf",
+        "Contact Quick Create": "661157fe-2fc9-4eaa-835f-5bfa2f7b64f7",
+        "Contact Quick Form": "bdb0ae1c-32fa-4374-b637-8dafe107bc44",
+        "Contact Reference Panel": "d880c3cf-80e2-42f3-82f9-24d040d09f17",
+        "Information": "894cc46a-b0cb-4ab0-8bf6-200544e46a2d",
+        "Live Persona Card Form": "449faa0e-f471-48ec-87d0-4719909546d2",
+        "Recent Cases and Entitlements": "f3b707fb-3b5f-45f9-9c6b-5e573bb5d19e",
+        "Social Profiles": "7bb87dfd-ec3e-4ed9-8e3e-5725d3067295",
+        "Update Contact": "26843818-6508-4afe-9342-5fae2ebf15ca"
+      }
+    },
+    {
+      "Kind": "default.cds_account_forms",
+      "Namespace": "Clientes (Forms)",
+      "Values": {
+        "Account": "8448b78f-8f42-454e-8e2a-f8196b0419af",
+        "account card": "b028db32-3619-48a5-ac51-cf3f947b0ef3",
+        "Account Card form": "cccff382-2b92-467e-bf1b-3db179512af8",
+        "Account for Interactive experience": "a72c7955-442b-4ea4-9499-b10cd18b4256",
+        "Account Hierarchy Tile Form": "69cff312-cfb6-4289-9631-249ab85d2c62",
+        "Account Quick Create": "c9e7ec2d-efca-4e4c-b3e3-f63c4bba5e4b",
+        "Account Reference Panel": "098ae145-1567-41ec-8398-86dbaac70c9b",
+        "Information": "b053a39a-041a-4356-acef-ddf00182762b",
+        "Social Profiles": "2205c86d-ed88-4a2f-a447-3b86a8781f2e"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_colaboradores_forms",
+      "Namespace": "Colaboradores_1 (Forms)",
+      "Values": {
+        "Information": "49a6fa91-454e-46da-a265-f444f035ed70"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_datasreferencia_forms",
+      "Namespace": "Datas Referências (Forms)",
+      "Values": {
+        "Information": "526aa24b-6980-465a-9f6e-e34f4af92a8d"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_empresasparticipadasdogrupo_forms",
+      "Namespace": "Empresas Participadas do Grupos (Forms)",
+      "Values": {
+        "Information": "0947f3d1-1e25-45b4-9d1d-ce775da0b9d8"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_empresas_forms",
+      "Namespace": "Empresas (Forms)",
+      "Values": {
+        "Information": "28276a1e-438d-407d-8cfa-df2ee177f090"
+      }
+    },
+    {
+      "Kind": "default.cds_team_forms",
+      "Namespace": "Equipas (Forms)",
+      "Values": {
+        "Information": "f5cfab6a-d4c2-4519-b68f-6e7485432e29",
+        "Team": "7ba7fac1-1418-4335-935f-f7f8dfd73fcc",
+        "Team form – Business": "4aabf594-b30a-490d-bf97-89c67c6777fe"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_familiares_forms",
+      "Namespace": "Familiares (Forms)",
+      "Values": {
+        "Information": "aad63d1a-ee85-42d0-a0dc-ae66036be8d8"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_ficheirosauxiliares_forms",
+      "Namespace": "Ficheiros auxiliares (Forms)",
+      "Values": {
+        "Information": "8772f079-b6f5-45ec-84cb-ec31c9981d22"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_legislacao_forms",
+      "Namespace": "Legislaçãos (Forms)",
+      "Values": {
+        "Information": "9d44ddc8-cf01-4144-be67-8113ee28c06f"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_listagementradasesaidas_forms",
+      "Namespace": "Listagem Entradas e Saidas (Forms)",
+      "Values": {
+        "Information": "e18157ef-71d7-4ef1-8a40-8457ba9a07fc"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_listagens_forms",
+      "Namespace": "Listagens_1 (Forms)",
+      "Values": {
+        "Information": "7666142f-6371-4366-893f-ad598c1200f4"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_membrosfamiliaresrespetivas_forms",
+      "Namespace": "Membros-Familiares-Respetivas (Forms)",
+      "Values": {
+        "Information": "0815f527-0d01-4fc5-98d4-ec7073161222"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_membrosparticipadas_forms",
+      "Namespace": "Membros-Participadas (Forms)",
+      "Values": {
+        "Information": "a9e04f34-cfc5-4432-af22-7d3f11422462"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_membros_forms",
+      "Namespace": "Membros_1 (Forms)",
+      "Values": {
+        "Information": "e8252c25-609f-449f-ad85-9fa479ddade1"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_prazos_forms",
+      "Namespace": "Prazos (Forms)",
+      "Values": {
+        "Information": "6ef0aa26-0be6-4fd3-91c6-6097c25f9de3"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_relacoesparentesco_forms",
+      "Namespace": "Relações Parentescos (Forms)",
+      "Values": {
+        "Information": "c5dbf26c-98d9-4f8d-803e-c10f9f6ca4b0"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_roc_forms",
+      "Namespace": "ROCS (Forms)",
+      "Values": {
+        "Information": "dd95b6cc-2950-4f68-a4bf-ac15c4bc3824"
+      }
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Utilizadores (Forms)",
+      "Values": {
+        "Formulário de utilizador – Empresa": "c2413504-7eb2-4c59-a087-95d819866114",
+        "Formulário do Mosaico de Hierarquia de Utilizadores": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452",
+        "Informações": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "User - Admin": "d87b5f59-2175-491c-abf3-090279b1db5b",
+        "Utilizador": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "Utilizador da Aplicação": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8"
+      }
+    },
+    {
+      "Kind": "default.cds_activitypointer_forms",
+      "Namespace": "Atividades_1 (Forms)",
+      "Values": {
+        "Dashboard de Atividades": "a4640db1-4962-4e79-92c6-690e627924d7"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_alarmistica_forms",
+      "Namespace": "Alarmisticas (Formulários)",
+      "Values": {
+        "Information": "d35e2d19-9f63-43a6-a0f8-5c411e50ddbc"
+      }
+    },
+    {
+      "Kind": "default.cds_contact_forms",
+      "Namespace": "Clientes Potenciais (Formulários)",
+      "Values": {
+        "Atualizar Contacto": "26843818-6508-4afe-9342-5fae2ebf15ca",
+        "cartão de contacto": "707fc57b-c5e6-471b-a180-e37ed28a38e2",
+        "Cartão de Contacto da Aplicação para Outlook": "cdbb9298-3b2e-41f3-8f4a-0168d6b09fc4",
+        "cartão de contacto da conta": "29de27bc-a257-4f29-99cf-bab4a84e688f",
+        "ChangePassword": "01707dcb-aeca-4b87-a9e4-a5b199a54ece",
+        "Cliente Potencial - Montepio": "795dec82-e469-4552-8286-47a2cad3856a",
+        "Contact Email": "7c63c2bd-b660-4f92-8584-c7d98025dbbd",
+        "Contact Mobile Phone": "50bac1f4-ccda-4952-affb-58d8b271808a",
+        "Contact NIF": "25de4582-2df7-434f-b6e6-404abf7f263c",
+        "Contact_TestVersion": "4f5d41b7-2427-4ba0-ac3f-676aa876d45f",
+        "Contacto": "1fed44d1-ae68-4a41-bd2b-f13acac4acfa",
+        "Contacto - BackupUI": "f2cf2f7f-919b-4bfe-bab3-ad539158a1d1",
+        "Contacto para a experiência de Sessões Múltiplas": "e06af4d1-2812-45c7-a9c2-9fb73fee7bec",
+        "Contacto para a Experiência de utilização interativa": "cc760212-3eab-4009-b5c3-ea9cf6f3e141",
+        "Contactos - Montepio 2": "2056a1f2-4696-4a82-8f5b-091bbdc4e413",
+        "Criação Rápida de Contacto": "661157fe-2fc9-4eaa-835f-5bfa2f7b64f7",
+        "Dashboard de Contactos": "70ad8b15-e3f3-4d7d-9e4b-16cb4e51b484",
+        "Formulário Breve de Contacto": "bdb0ae1c-32fa-4374-b637-8dafe107bc44",
+        "Formulário de Cartão de Contacto": "bc0f68dd-a4b1-4a8f-bed3-c8f5db2f89cf",
+        "Formulário de Cartão Pessoal em Direto": "449faa0e-f471-48ec-87d0-4719909546d2",
+        "Formulário de Contacto para Cartão de Cliente": "edfc131b-8d2d-ed11-9db2-002248285e57",
+        "Formulário de vista rápida de contacto num membro da equipa do evento": "5d904496-1ba1-4724-a582-f46732305a7f",
+        "Formulário de vista rápida de contas": "3ace4e34-9f50-4e73-ae49-b595d6b48fa4",
+        "Formulário web do perfil": "0bd832d5-9d6a-456d-bdc1-21129e82cc0f",
+        "Incidentes do Cliente": "5194a156-576a-4fa1-bf1a-abf7a41b0e8c",
+        "Incidentes e Elegibilidades Recentes": "f3b707fb-3b5f-45f9-9c6b-5e573bb5d19e",
+        "Informações": "894cc46a-b0cb-4ab0-8bf6-200544e46a2d",
+        "Insights": "7b78aae4-7945-4515-848b-1f86535846d6",
+        "Invite Web Form": "d6190b35-9474-4098-9698-33f6627eb3bf",
+        "Painel de Referência do Contacto": "d880c3cf-80e2-42f3-82f9-24d040d09f17",
+        "Perfil do cliente": "05ea391a-d034-43fe-849b-b4fa3213a2b2",
+        "Perfis de Rede Social": "7bb87dfd-ec3e-4ed9-8e3e-5725d3067295",
+        "Portal Contact": "3fb651a5-cdbf-46c9-87fb-d2c748662bb8",
+        "Profile Web Form - Japanese": "36cc830c-eeab-4a89-a7c9-da2ac6c451a1",
+        "Sales Insights": "293c878f-f068-40a0-ae48-4297e060871c",
+        "TimelineWallControl - Contacto- Principal": "986258b5-2985-4ae0-970a-5e1d108ab793",
+        "Vista de empresa do contacto": "5efdc20d-5ae6-47d2-b4ed-8a929d089d7a",
+        "Vista Rápida de Contactos da Aplicação para Outlook": "3d22ab88-96c8-4b3f-a533-d4827e2925c9"
+      }
+    },
+    {
+      "Kind": "default.cds_account_forms",
+      "Namespace": "Clientes (Formulários)",
+      "Values": {
+        "Account - Email": "c6a4dfd2-9e9e-4003-b3c2-5a823a370796",
+        "Caracterização - UI": "7aca0c0e-6117-4826-a609-9ed22f3a7f7c",
+        "Cartão de Conta do App for Outlook": "fb65cc73-181c-468b-9bb3-82ecde306991",
+        "Casos e Elegibilidades Recentes": "43300723-f867-420b-ab28-976a4d12e6c4",
+        "Client Quick View": "304b53ab-781c-4241-9033-2073bfb051cd",
+        "Client Quick View 2": "725a9efd-a04c-44f6-8998-681cdd1314b7",
+        "Client Quick View 3": "18a7dd97-cce0-4855-ae21-62e1c2f62d8c",
+        "Cliente Quick View 4": "30b03836-09ee-4862-9107-a1c373d0edad",
+        "Cliente Quick View 5": "82119a7f-0fbc-49d4-a7d1-b099daca64fe",
+        "Conta": "8448b78f-8f42-454e-8e2a-f8196b0419af",
+        "Conta para a experiência de Sessões Múltiplas": "ff49442f-8c60-4877-bdae-8fe51e6f4636",
+        "Conta para a Experiência de utilização interativa": "a72c7955-442b-4ea4-9499-b10cd18b4256",
+        "Criação Rápida de Conta": "c9e7ec2d-efca-4e4c-b3e3-f63c4bba5e4b",
+        "Customer Data EWS": "2f14418c-c5f3-4776-9a0f-4fed40dbb8a7",
+        "Dashboard de Contas": "15915835-b87c-49ec-9ffc-bfac3ac44ef1",
+        "Detalhes Cliente para Proposta": "0d2d2ff6-5689-45b0-8549-4557f8e6a34b",
+        "Envolvimento - UI": "a9f427e4-8d2f-47c8-884d-bea1b04a532f",
+        "ficha de conta": "b028db32-3619-48a5-ac51-cf3f947b0ef3",
+        "Formulário Cliente EWS": "fdb79174-894b-4389-a8fa-4b05fdaf06cd",
+        "Formulário de Cartão de Conta": "cccff382-2b92-467e-bf1b-3db179512af8",
+        "Formulário de Conta para Cartão de Cliente": "f5f9a07e-0f28-ed11-9db1-000d3a8d107a",
+        "Formulário do Mosaico de Hierarquia de Contas": "69cff312-cfb6-4289-9631-249ab85d2c62",
+        "Formulário Em Contexto": "face3aa6-99c4-4b7e-af07-55f121cdca86",
+        "Incidentes do Cliente": "48028ae0-bf87-48c9-adf6-3dc9f29d7661",
+        "Informações": "b053a39a-041a-4356-acef-ddf00182762b",
+        "Lista de Atividades - UI": "98819892-a509-4126-86c0-f7c997da8a63",
+        "Painel de Referência da Conta": "098ae145-1567-41ec-8398-86dbaac70c9b",
+        "Perfil do cliente": "e9a9c8a9-e94d-47a9-a6c3-ec37ddb83b99",
+        "Perfis de Rede Social": "2205c86d-ed88-4a2f-a447-3b86a8781f2e",
+        "Portal Account": "f145c04d-9c36-417e-a9f8-5d61e0b09980",
+        "Sales Insights": "cb430327-bcc1-416d-959d-db7592e685af",
+        "TimelineWallControl - Conta- Principal": "6df8e8ce-7655-468c-925e-660d59aa7f4c",
+        "Visão Resumida - DSO": "263eb282-9cd2-4a0d-a3c8-383495517f7b",
+        "Visão Resumida - Testes": "6e26e6df-0d74-4dea-814b-eb7af37ca0f9",
+        "Visão Resumida - UI": "10569e9e-f10c-4f2f-877f-4189033468b8",
+        "Visão Resumida - UI - Gestor Remoto": "51a1792e-3202-4e14-ae81-3b7de74331e8",
+        "Visão Resumida_UI - Insights": "c76fbe30-6195-4364-9196-648fb0cb8265",
+        "Vista Cliente": "d0498d89-4d2b-4251-a348-49438b1853c0",
+        "Vista Rápida de Contas do App for Outlook": "76b81f10-2a08-4f1a-9454-ee38bea94eb5"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_colaboradores_forms",
+      "Namespace": "Colaboradores_1 (Formulários)",
+      "Values": {
+        "Information": "49a6fa91-454e-46da-a265-f444f035ed70"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_datasreferencia_forms",
+      "Namespace": "Datas Referências (Formulários)",
+      "Values": {
+        "Information": "526aa24b-6980-465a-9f6e-e34f4af92a8d"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_empresasparticipadasdogrupo_forms",
+      "Namespace": "Empresas Participadas do Grupos (Formulários)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_uipp_empresas_forms",
+      "Namespace": "Empresas (Formulários)",
+      "Values": {
+        "Information": "28276a1e-438d-407d-8cfa-df2ee177f090"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_familiares_forms",
+      "Namespace": "Familiares (Formulários)",
+      "Values": {
+        "Information": "aad63d1a-ee85-42d0-a0dc-ae66036be8d8"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_legislacao_forms",
+      "Namespace": "Legislaçãos (Formulários)",
+      "Values": {
+        "Information": "9d44ddc8-cf01-4144-be67-8113ee28c06f"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_listagementradasesaidas_forms",
+      "Namespace": "Listagem Entradas e Saidas (Formulários)",
+      "Values": {
+        "Information": "e18157ef-71d7-4ef1-8a40-8457ba9a07fc"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_listagens_forms",
+      "Namespace": "Listagens_1 (Formulários)",
+      "Values": {
+        "Information": "7666142f-6371-4366-893f-ad598c1200f4"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_membrosparticipadas_forms",
+      "Namespace": "Membros-Participadas (Formulários)",
+      "Values": {
+        "Information": "a9e04f34-cfc5-4432-af22-7d3f11422462"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_membros_forms",
+      "Namespace": "Membros_1 (Formulários)",
+      "Values": {
+        "Information": "e8252c25-609f-449f-ad85-9fa479ddade1"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_prazos_forms",
+      "Namespace": "Prazos (Formulários)",
+      "Values": {
+        "Information": "6ef0aa26-0be6-4fd3-91c6-6097c25f9de3"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_relacoesparentesco_forms",
+      "Namespace": "Relações Parentescos (Formulários)",
+      "Values": {
+        "Information": "c5dbf26c-98d9-4f8d-803e-c10f9f6ca4b0"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_roc_forms",
+      "Namespace": "ROCS (Formulários)",
+      "Values": {
+        "Information": "dd95b6cc-2950-4f68-a4bf-ac15c4bc3824"
+      }
+    },
+    {
+      "Kind": "default.cds_uipp_conteudovalidado_forms",
+      "Namespace": "Conteudo Validados (Forms)",
+      "Values": {
+        "Information": "ff1df59c-a1c4-4601-a6d3-bc5ebcdfb297"
+      }
+    }
+  ]
+}

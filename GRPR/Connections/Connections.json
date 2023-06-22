@@ -1,0 +1,124 @@
+{
+  "1e123ecc-1326-48cc-95f2-c45bbd1e0267": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Groups",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/390724148/1.0.1641.3327/office365groups/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365groups",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Groups"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "1e123ecc-1326-48cc-95f2-c45bbd1e0267"
+  },
+  "46144b29-bbdb-4a73-9c2b-bfb6c4c7576d": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Excel Online (Business)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1639/1.0.1639.3319/excelonlinebusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "f8ab50b3-8447-42cd-b80a-84aaef7eeb16"
+    ],
+    "id": "46144b29-bbdb-4a73-9c2b-bfb6c4c7576d"
+  },
+  "b71dc50a-0496-499e-b476-6b1ed08460ce": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "f8ab50b3-8447-42cd-b80a-84aaef7eeb16"
+    ],
+    "id": "b71dc50a-0496-499e-b476-6b1ed08460ce"
+  },
+  "f8ab50b3-8447-42cd-b80a-84aaef7eeb16": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1636/1.0.1636.3297/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "46144b29-bbdb-4a73-9c2b-bfb6c4c7576d": {
+          "value": "shared_excelonlinebusiness_1"
+        },
+        "b71dc50a-0496-499e-b476-6b1ed08460ce": {
+          "value": "shared_sharepointonline"
+        },
+        "fc915a8a-6a62-459c-89db-b336ed01064e": {
+          "value": "shared_commondataserviceforapps_1"
+        },
+        "workflowEntityId": {
+          "value": "d2bc14b9-0af3-ed11-8849-000d3a64981b"
+        },
+        "workflowName": {
+          "value": "120bdb06-a460-4c24-b594-a8b50328e581"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps_1": {
+          "value": "fc915a8a-6a62-459c-89db-b336ed01064e"
+        },
+        "shared_excelonlinebusiness_1": {
+          "value": "46144b29-bbdb-4a73-9c2b-bfb6c4c7576d"
+        },
+        "shared_sharepointonline": {
+          "value": "b71dc50a-0496-499e-b476-6b1ed08460ce"
+        },
+        "workflowEntityId": {
+          "value": "d2bc14b9-0af3-ed11-8849-000d3a64981b"
+        },
+        "workflowName": {
+          "value": "120bdb06-a460-4c24-b594-a8b50328e581"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ColaboradoresImportarExcel"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps_1": "fc915a8a-6a62-459c-89db-b336ed01064e",
+      "shared_excelonlinebusiness_1": "46144b29-bbdb-4a73-9c2b-bfb6c4c7576d",
+      "shared_sharepointonline": "b71dc50a-0496-499e-b476-6b1ed08460ce"
+    },
+    "dependents": [],
+    "id": "f8ab50b3-8447-42cd-b80a-84aaef7eeb16"
+  },
+  "fc915a8a-6a62-459c-89db-b336ed01064e": {
+    "connectionRef": {
+      "apiTier": "Premium",
+      "bypassConsent": true,
+      "displayName": "Microsoft Dataverse",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1639/1.0.1639.3319/commondataserviceforapps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "f8ab50b3-8447-42cd-b80a-84aaef7eeb16"
+    ],
+    "id": "fc915a8a-6a62-459c-89db-b336ed01064e"
+  }
+}

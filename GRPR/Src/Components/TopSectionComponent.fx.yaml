@@ -1,0 +1,20 @@
+TopSectionComponent As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =100
+    TituloTopo: =App.ActiveScreen.Name
+    Width: =1024
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    MainContainerTopSection As groupContainer.manualLayoutContainer:
+        Height: =100
+        Width: =1024
+        ZIndex: =2
+
+        BackgroundTopSection As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Width: =1024
+            ZIndex: =1
+

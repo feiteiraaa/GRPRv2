@@ -1,0 +1,127 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_datasreferencias",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_datasreferencia",
+    "MaxGetRowsCount": 500,
+    "Name": "Datas Referências",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_datasreferencia_AsyncOperations": "System Jobs",
+      "uipp_datasreferencia_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_datasreferencia_DuplicateBaseRecord": "Duplicate Records (uipp_datasreferencia_DuplicateBaseRecord)",
+      "uipp_datasreferencia_DuplicateMatchingRecord": "Duplicate Records (uipp_datasreferencia_DuplicateMatchingRecord)",
+      "uipp_datasreferencia_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_datasreferencia_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_datasreferencia_ProcessSession": "Process Sessions",
+      "uipp_datasreferencia_SyncErrors": "Sync Errors",
+      "uipp_datasreferenciaid": "Datas Referência",
+      "uipp_dia": "Dia",
+      "uipp_id": "ID",
+      "uipp_mes": "Mes",
+      "uipp_periodicidade": "Periodicidade",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Datas Referências",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Datas Referências (Views)",
+    "Name": "_uipp_datasreferencia_views",
+    "RelatedEntityName": "Datas Referências",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1104bc08-8c2b-41fe-ba25-121d75df27df": "Active Datas Referências",
+      "3fe2e66f-886f-4ee9-81a7-84daa5bc1fad": "Datas Referência Lookup View",
+      "8ee711f6-7cae-4a5f-8689-2c763150c847": "Inactive Datas Referências",
+      "98d10fa3-75ca-4f48-af75-dc00e6ffe753": "Datas Referência Associated View",
+      "f0464f0d-69d4-4395-855d-b4fc61a2b541": "Datas Referência Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Datas Referências)",
+    "Name": "uipp_datasreferencia_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Datas Referências"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Datas Referências",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Datas Referências)",
+    "Name": "uipp_datasreferencia_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Datas Referências"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Datas Referências",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Periodicidade",
+    "Name": "uipp_periodicidade",
+    "OptionSetInfoNameMapping": {
+      "847700000": "Trimestral",
+      "847700001": "Anual",
+      "847700002": "Mensal",
+      "847700003": "Semanal",
+      "847700004": "Diário",
+      "847700005": "Quadrienal",
+      "847700006": "Trienal",
+      "847700007": "Quinzenal",
+      "847700008": "Semestral"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_periodicidade",
+        "OptionSetReferenceEntityName": "Datas Referências"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_periodicidade",
+    "RelatedEntityName": "Datas Referências",
+    "Type": "OptionSetInfo"
+  }
+]

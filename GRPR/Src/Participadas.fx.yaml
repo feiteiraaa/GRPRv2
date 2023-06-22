@@ -1,0 +1,474 @@
+Participadas As screen:
+    OnHidden: |-
+        = UpdateContext({ _Associar:false})
+    OnVisible: |-
+        =//UpdateContext({_Associar:false})
+        Refresh('Empresas Participadas do Grupos')
+
+    "'Empresas Participadas' As dataTable.datatable":
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HeadingFill: =cores.cinzento
+        Height: =500
+        Items: |-
+            = Search(
+                    AddColumns(
+                        SortByColumns(
+                            Filter(
+                                'Empresas Participadas do Grupos',
+                                If(
+                                    Checkbox1_2.Value = false,
+                                    ThisRecord.Ativo = true,
+                                    ThisRecord.Ativo = true Or ThisRecord.Ativo = false
+                                )
+                            ),
+                            varSortCol,
+                            varSortDir
+                        ),
+                        "numeroDocumento",
+                        Text('Numero documento'),
+                        "nome",
+                        Text(Nome)
+                    ),
+                    TextInput2_1.Text,
+                    "numeroDocumento",
+                    "nome"
+                )
+        SelectedFill: =cores.amareloMontepio
+        Width: =980
+        X: =364
+        Y: =216
+        ZIndex: =2
+
+        Nome As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Designação"
+            FieldName: ="uipp_nome"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =If(
+                    _Associar,
+                    Navigate(
+                        MembrosDetails,
+                        ScreenTransition.None,
+                        {_AssociateParticipadas: 'Empresas Participadas'.Selected.ID,
+                        _Associated:true
+                        //_EmpresasParticipadas: 'Empresas Participadas'.Selected.ID,
+                        }
+                    ),
+                    Navigate(
+                        ParticipadasDetails,
+                        ScreenTransition.None,
+                        {
+                            _EmpresasParticipadas: 'Empresas Participadas'.Selected.ID,
+                            ColabFormMode: FormMode.View
+                        }
+                    )
+                )
+            Order: =1
+            Text: =ThisItem.Nome
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        "'Numero documento' As dataTableColumn.numberColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="NIPC"
+            FieldName: ="uipp_numerodocumento"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =If(
+                    _Associar,
+                    Navigate(
+                        MembrosDetails,
+                        ScreenTransition.None,
+                        {_AssociateParticipadas: 'Empresas Participadas'.Selected.ID,
+                        _Associated:true
+                        //_EmpresasParticipadas: 'Empresas Participadas'.Selected.ID,
+                        }
+                    ),
+                    Navigate(
+                        ParticipadasDetails,
+                        ScreenTransition.None,
+                        {
+                            _EmpresasParticipadas: 'Empresas Participadas'.Selected.ID,
+                            ColabFormMode: FormMode.View
+                        }
+                    )
+                )
+            Order: =2
+            Text: =ThisItem.'Numero documento'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        "'Participacao efetiva' As dataTableColumn.numberColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Participação efetiva"
+            FieldName: ="uipp_participacaoefetiva"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =If(
+                    _Associar,
+                    Navigate(
+                        MembrosDetails,
+                        ScreenTransition.None,
+                        {_AssociateParticipadas: 'Empresas Participadas'.Selected.ID,
+                        _Associated:true
+                        //_EmpresasParticipadas: 'Empresas Participadas'.Selected.ID,
+                        }
+                    ),
+                    Navigate(
+                        ParticipadasDetails,
+                        ScreenTransition.None,
+                        {
+                            _EmpresasParticipadas: 'Empresas Participadas'.Selected.ID,
+                            ColabFormMode: FormMode.View
+                        }
+                    )
+                )
+            Order: =3
+            Text: =ThisItem.'Participacao efetiva'
+            Width: =237
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        Controlo As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Controlo"
+            FieldName: ="uipp_controlo"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =If(
+                    _Associar,
+                    Navigate(
+                        MembrosDetails,
+                        ScreenTransition.None,
+                        {_AssociateParticipadas: 'Empresas Participadas'.Selected.ID,
+                        _Associated:true
+                        //_EmpresasParticipadas: 'Empresas Participadas'.Selected.ID,
+                        }
+                    ),
+                    Navigate(
+                        ParticipadasDetails,
+                        ScreenTransition.None,
+                        {
+                            _EmpresasParticipadas: 'Empresas Participadas'.Selected.ID,
+                            ColabFormMode: FormMode.View
+                        }
+                    )
+                )
+            Order: =4
+            Text: =ThisItem.Controlo
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        "'Legislacao aplicada' As dataTableColumn.complexTypeColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Legislação"
+            FieldName: ="uipp_Legislacaoaplicada"
+            FieldVariantName: ="complexTypeColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =If(
+                    _Associar,
+                    Navigate(
+                        MembrosDetails,
+                        ScreenTransition.None,
+                        {_AssociateParticipadas: 'Empresas Participadas'.Selected.ID,
+                        _Associated:true
+                        //_EmpresasParticipadas: 'Empresas Participadas'.Selected.ID,
+                        }
+                    ),
+                    Navigate(
+                        ParticipadasDetails,
+                        ScreenTransition.None,
+                        {
+                            _EmpresasParticipadas: 'Empresas Participadas'.Selected.ID,
+                            ColabFormMode: FormMode.View
+                        }
+                    )
+                )
+            Order: =5
+            Text: =ThisItem.'Legislacao aplicada'.'Tipo de enquadramento'
+            Visible: |-
+                =//DRI
+                true
+            Width: =191
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+    Label1_3 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =48
+        Size: =15
+        Text: ="Empresas Participadas do Grupo"
+        Width: =529
+        X: =365
+        Y: =26
+        ZIndex: =3
+
+    Icon7 As icon.ChevronDown:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =20
+        Icon: =Icon.ChevronDown
+        OnSelect: |-
+            =Set(
+                varSortCol,
+                "uipp_nome"
+            );
+            Set(
+                varSortDir,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    SortOrder.Descending,
+                    SortOrder.Ascending
+                )
+            )
+        Width: =20
+        X: =519
+        Y: =228
+        ZIndex: =9
+
+    ActionBar_1 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =9
+
+        TextInput2_1 As text:
+            BorderColor: =ColorFade(cores.cinzento, 80%)
+            BorderThickness: =1
+            Clear: =true
+            Color: |-
+                =//RGBA(0, 0, 0, 1)
+                cores.cinzento
+            Default: =
+            Fill: =ColorFade(cores.cinzento, 90%)
+            HintText: ="Pesquisar"
+            HoverBorderColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =
+            PaddingLeft: =40
+            Tooltip: =
+            Width: =366
+            X: =385
+            Y: =156
+            ZIndex: =4
+
+        "Icon1_2 As icon.'3DPrinting'":
+            Color: |-
+                =///RGBA(0, 18, 107, 1)
+                cores.amareloMontepio
+            Height: =25
+            Icon: =Icon.Search
+            OnSelect: =//Select(Parent)
+            Width: =25
+            X: =395
+            Y: =164
+            ZIndex: =5
+
+        Checkbox1_2 As checkbox:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            CheckboxBackgroundFill: =ColorFade(cores.cinzento, 90%)
+            CheckboxBorderColor: =ColorFade(cores.cinzento, 80%)
+            CheckmarkFill: =cores.cinzento
+            FocusedBorderThickness: =0
+            Height: =40
+            HoverColor: =//RGBA(0, 18, 107, 1)
+            Text: ="Listar eliminados"
+            Width: =215
+            X: =790
+            Y: =156
+            ZIndex: =6
+
+        ParticularesAdd_8 As DynamicBtn:
+            BtnOnSelect: =
+            BtnText: ="Novo"
+            Visible: =If(_Associar,false,true)
+            X: =1166
+            Y: =156
+            ZIndex: =7
+
+        Button2_1 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =Navigate(ParticipadasDetails, ScreenTransition.None, {ColabFormMode: FormMode.New})
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: =If(_Associar,false,true)
+            X: =1165
+            Y: =159
+            ZIndex: =8
+
+    Icon7_1 As icon.ChevronDown:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =20
+        Icon: =Icon.ChevronDown
+        OnSelect: |-
+            =Set(
+                varSortCol,
+                "uipp_numerodocumento"
+            );
+            Set(
+                varSortDir,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    SortOrder.Descending,
+                    SortOrder.Ascending
+                )
+            )
+        Width: =20
+        X: =696
+        Y: =228
+        ZIndex: =10
+
+    Icon7_2 As icon.ChevronDown:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =20
+        Icon: =Icon.ChevronDown
+        OnSelect: |-
+            =Set(
+                varSortCol,
+                "uipp_participacaoefetiva"
+            );
+            Set(
+                varSortDir,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    SortOrder.Descending,
+                    SortOrder.Ascending
+                )
+            )
+        Width: =20
+        X: =935
+        Y: =228
+        ZIndex: =11
+
+    Icon7_3 As icon.ChevronDown:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =20
+        Icon: =Icon.ChevronDown
+        OnSelect: |-
+            =Set(
+                varSortCol,
+                "uipp_controlo"
+            );
+            Set(
+                varSortDir,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    SortOrder.Descending,
+                    SortOrder.Ascending
+                )
+            )
+        Width: =20
+        X: =1115
+        Y: =228
+        ZIndex: =12
+
+    LeftSectionComponent_13 As LeftSectionComponent:
+        ZIndex: =13
+
+    FimPeriodo_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =17
+
+        Label3_2 As label:
+            Color: =cores.cinzento
+            Fill: =RGBA(255, 244, 198, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =34
+            PaddingTop: =0
+            Text: ="Fim de periodo a decorrer"
+            Visible: |-
+                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
+                And     LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Empresas Participadas"
+                    ).Aprovado = false
+                   
+            Width: =961
+            X: =373
+            Y: =74
+            ZIndex: =14
+
+        Label3_3 As label:
+            Color: =cores.cinzento
+            Fill: =RGBA(255, 244, 198, 1)
+            Height: =34
+            PaddingTop: =0
+            Text: ="Confirmo que toda a informação apresentada relativa às partes relacionadas está correta."
+            Visible: |-
+                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
+                And     LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Empresas Participadas"
+                    ).Aprovado = false
+                   
+            Width: =961
+            X: =373
+            Y: =102
+            ZIndex: =15
+
+        Checkbox1_5 As checkbox:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            CheckboxBackgroundFill: =ColorFade(cores.cinzento, 90%)
+            CheckboxBorderColor: =ColorFade(cores.cinzento, 80%)
+            CheckmarkFill: =cores.cinzento
+            Fill: =RGBA(255, 244, 198, 1)
+            FocusedBorderThickness: =0
+            Height: =40
+            HoverColor: =//RGBA(0, 18, 107, 1)
+            OnCheck: |-
+                =Patch(
+                    Aprovacaos,
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Empresas Participadas"
+                    ),
+                    {Aprovado: true}
+                )
+            Text: =""
+            Visible: |-
+                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
+                And     LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Empresas Participadas"
+                    ).Aprovado = false
+                   
+            Width: =48
+            X: =1286
+            Y: =85
+            ZIndex: =16
+

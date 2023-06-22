@@ -1,0 +1,147 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_empresases",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_empresas",
+    "MaxGetRowsCount": 500,
+    "Name": "Empresas",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_ativo": "Ativo",
+      "uipp_bloqueado": "Bloqueado",
+      "uipp_dataaprovacaoca": "Data aprovacao CA",
+      "uipp_datadeinsercao": "Data de insercao",
+      "uipp_datadesaida": "Data de saída",
+      "uipp_designacao": "Designacao",
+      "uipp_empresas_AsyncOperations": "System Jobs",
+      "uipp_empresas_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_empresas_DuplicateBaseRecord": "Duplicate Records (uipp_empresas_DuplicateBaseRecord)",
+      "uipp_empresas_DuplicateMatchingRecord": "Duplicate Records (uipp_empresas_DuplicateMatchingRecord)",
+      "uipp_empresas_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_empresas_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_empresas_ProcessSession": "Process Sessions",
+      "uipp_empresas_SyncErrors": "Sync Errors",
+      "uipp_empresasid": "Empresas",
+      "uipp_id": "ID",
+      "uipp_Legislacaoaplicada": "Legislacao aplicada",
+      "uipp_numerodocumento": "Numero Documento",
+      "uipp_tipodedocumento": "Tipo de documento",
+      "uipp_uipp_membrosfamiliaresrespetivas_ID_Empre": "Membros-Familiares-Respetivas",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Empresas",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Empresas (Views)",
+    "Name": "_uipp_empresas_views",
+    "RelatedEntityName": "Empresas",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "254bf962-5070-4421-bf55-5bba91f6dcc5": "Active Empresas",
+      "78c391ba-7477-4cf1-a76f-a6876cb36919": "Empresas Advanced Find View",
+      "7a019f94-6319-421d-81f6-d7a509662dd8": "Empresas Associated View",
+      "9006ba11-1324-4944-b598-4b57b97371b3": "Inactive Empresas",
+      "ffd4a18e-7607-4734-bdb1-5c020d8f4a28": "Empresas Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Empresas)",
+    "Name": "uipp_empresas_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Empresas"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Empresas",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Empresas)",
+    "Name": "uipp_empresas_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Empresas"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Empresas",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Ativo (Empresas)",
+    "Name": "uipp_empresas_uipp_ativo",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_ativo",
+        "OptionSetReferenceEntityName": "Empresas"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_ativo",
+    "RelatedEntityName": "Empresas",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Bloqueado (Empresas)",
+    "Name": "uipp_empresas_uipp_bloqueado",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_bloqueado",
+        "OptionSetReferenceEntityName": "Empresas"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_bloqueado",
+    "RelatedEntityName": "Empresas",
+    "Type": "OptionSetInfo"
+  }
+]

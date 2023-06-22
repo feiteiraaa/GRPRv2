@@ -1,0 +1,101 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_ficheirosauxiliareses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_ficheirosauxiliares",
+    "MaxGetRowsCount": 500,
+    "Name": "Ficheiros auxiliares",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Proprietário",
+      "{Attachments}": "Attachments",
+      "createdby": "Criado Por",
+      "createdon": "Criado Em",
+      "createdonbehalfby": "Criado Por (Delegado)",
+      "importsequencenumber": "Número de Sequência da Importação",
+      "modifiedby": "Modificado Por",
+      "modifiedon": "Modificado Em",
+      "modifiedonbehalfby": "Modificado Por (Delegado)",
+      "overriddencreatedon": "Registo Criado Em",
+      "owningbusinessunit": "Unidade de Negócio Proprietária",
+      "owningteam": "Equipa Proprietária",
+      "owninguser": "Utilizador Proprietário",
+      "statecode": "Estado",
+      "statuscode": "Razão do Estado",
+      "timezoneruleversionnumber": "Número de Versão da Regra de Fuso Horário",
+      "uipp_ficheirosauxiliares_Annotations": "Notas",
+      "uipp_ficheirosauxiliares_AsyncOperations": "Tarefas de Sistema",
+      "uipp_ficheirosauxiliares_BulkDeleteFailures": "Falhas de Eliminação em Massa",
+      "uipp_ficheirosauxiliares_DuplicateBaseRecord": "Registos Duplicados (uipp_ficheirosauxiliares_DuplicateBaseRecord)",
+      "uipp_ficheirosauxiliares_DuplicateMatchingRecord": "Registos Duplicados (uipp_ficheirosauxiliares_DuplicateMatchingRecord)",
+      "uipp_ficheirosauxiliares_FileAttachments": "FileAttachments",
+      "uipp_ficheirosauxiliares_MailboxTrackingFolders": "Pastas de Monitorização Automática da Caixa de Correio",
+      "uipp_ficheirosauxiliares_PrincipalObjectAttributeAccesses": "Partilha de Campos",
+      "uipp_ficheirosauxiliares_ProcessSession": "Sessões de Processo",
+      "uipp_ficheirosauxiliares_SyncErrors": "Erros de Sincronização",
+      "uipp_ficheirosauxiliaresid": "Ficheiros auxiliares",
+      "uipp_file": "file",
+      "uipp_name": "Name",
+      "utcconversiontimezonecode": "Código de Fuso Horário da Conversão UTC",
+      "versionnumber": "Número da Versão"
+    },
+    "PreferredName": "Ficheiros auxiliares",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Ficheiros auxiliares (Views)",
+    "Name": "_uipp_ficheirosauxiliares_views",
+    "RelatedEntityName": "Ficheiros auxiliares",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0108e14b-3d24-4db5-b024-cab9c092fc62": "Inactive Ficheiros auxiliares",
+      "59c72d0d-eef3-4c1d-bad1-82fe723eca60": "Ficheiros auxiliares Advanced Find View",
+      "6fdf7232-cb16-408a-a02d-896f7021c221": "Ficheiros auxiliares Associated View",
+      "8a51d741-4a67-46fd-b6e0-95856cbc8da7": "Ficheiros auxiliares Lookup View",
+      "eeb5d1a4-ce38-49ee-a2fb-25d87bf869ea": "Active Ficheiros auxiliares"
+    }
+  },
+  {
+    "DisplayName": "Estado (Ficheiros auxiliares)",
+    "Name": "uipp_ficheirosauxiliares_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Ativo",
+      "1": "Inativo"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Ficheiros auxiliares"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Ficheiros auxiliares",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Razão do Estado (Ficheiros auxiliares)",
+    "Name": "uipp_ficheirosauxiliares_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Ativo",
+      "2": "Inativo"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Ficheiros auxiliares"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Ficheiros auxiliares",
+    "Type": "OptionSetInfo"
+  }
+]

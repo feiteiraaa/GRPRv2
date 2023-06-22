@@ -1,0 +1,123 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_prazoses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_prazos",
+    "MaxGetRowsCount": 500,
+    "Name": "Prazos",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_id": "ID",
+      "uipp_ndemeses": "Nº de meses",
+      "uipp_prazos_AsyncOperations": "System Jobs",
+      "uipp_prazos_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_prazos_DuplicateBaseRecord": "Duplicate Records (uipp_prazos_DuplicateBaseRecord)",
+      "uipp_prazos_DuplicateMatchingRecord": "Duplicate Records (uipp_prazos_DuplicateMatchingRecord)",
+      "uipp_prazos_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_prazos_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_prazos_ProcessSession": "Process Sessions",
+      "uipp_prazos_SyncErrors": "Sync Errors",
+      "uipp_prazosid": "Prazos",
+      "uipp_tipo": "Tipo",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Prazos",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Prazos (Views)",
+    "Name": "_uipp_prazos_views",
+    "RelatedEntityName": "Prazos",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "039ddb90-6dd6-46ce-a720-93359f59e902": "Inactive Prazos",
+      "710a50fa-b16b-4ccc-bd06-764e1f166190": "Active Prazos",
+      "748d9016-c856-44ba-bb15-b3b4cf800a98": "Prazos Lookup View",
+      "792043f6-b7e6-493c-a163-a2da7f5c3502": "Prazos Associated View",
+      "83fcc753-c89a-470e-aff7-cf18c581f106": "Prazos Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Prazos)",
+    "Name": "uipp_prazos_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Prazos"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Prazos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Prazos)",
+    "Name": "uipp_prazos_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Prazos"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Prazos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Tipo (prazos)",
+    "Name": "uipp_tipoprazos",
+    "OptionSetInfoNameMapping": {
+      "847700000": "Membros",
+      "847700001": "Familiares",
+      "847700002": "Empresas Respetivas",
+      "847700003": "Colaboradores",
+      "847700004": "ROC",
+      "847700005": "Empresas Participadas"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_tipo",
+        "OptionSetReferenceEntityName": "Prazos"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_tipo",
+    "RelatedEntityName": "Prazos",
+    "Type": "OptionSetInfo"
+  }
+]

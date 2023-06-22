@@ -1,0 +1,275 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_colaboradoreses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_colaboradores",
+    "MaxGetRowsCount": 500,
+    "Name": "Colaboradores_1",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_ativo": "Ativo",
+      "uipp_bloqueado": "Bloqueado",
+      "uipp_cargocategoria": "Cargo (Categoria)",
+      "uipp_cargodescricao": "Cargo (Descricao)",
+      "uipp_colaboradores_AsyncOperations": "System Jobs",
+      "uipp_colaboradores_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_colaboradores_DuplicateBaseRecord": "Duplicate Records (uipp_colaboradores_DuplicateBaseRecord)",
+      "uipp_colaboradores_DuplicateMatchingRecord": "Duplicate Records (uipp_colaboradores_DuplicateMatchingRecord)",
+      "uipp_colaboradores_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_colaboradores_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_colaboradores_ProcessSession": "Process Sessions",
+      "uipp_colaboradores_SyncErrors": "Sync Errors",
+      "uipp_colaboradoresid": "Colaboradores",
+      "uipp_dataaprovacaoca": "Data aprovacao CA",
+      "uipp_datadeinsercao": "Data de insercao",
+      "uipp_datadesaida": "Data de saida",
+      "uipp_grupo": "Grupo",
+      "uipp_id": "ID",
+      "uipp_Legislacaoaplicada": "Legislacao aplicada",
+      "uipp_legislacaoaplicadatexto": "Legislacao aplicada (texto)",
+      "uipp_nome": "Nome",
+      "uipp_numerodocumento": "Numero documento",
+      "uipp_tipodedocumento": "Tipo de documento",
+      "uipp_unidadeorganica": "Unidade organica",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Colaboradores_1",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Colaboradores_1 (Views)",
+    "Name": "_uipp_colaboradores_views",
+    "RelatedEntityName": "Colaboradores_1",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2db2d3f1-b2ef-40e4-b46a-f96e34998c44": "Active Colaboradores",
+      "334a05db-c8ac-4485-8e43-18c9689e3b32": "Inactive Colaboradores",
+      "adb11901-a2e9-413f-839d-55020d9bc053": "Colaboradores Lookup View",
+      "b430f757-bd3d-4627-bb1f-2d38df603706": "Colaboradores Associated View",
+      "d5db534f-743d-4c58-83c7-f52c020c6b95": "Colaboradores Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "cargo (categoria) ",
+    "Name": "uipp_cargocategoria",
+    "OptionSetInfoNameMapping": {
+      "847700000": "Presidente",
+      "847700001": "Vogal Executivo",
+      "847700002": "Não Executivo"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_cargocategoria",
+        "OptionSetReferenceEntityName": "Colaboradores_1"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "uipp_cargocategoria",
+        "OptionSetReferenceEntityName": "Membros-Familiares-Respetivas"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "uipp_cargocategoria",
+        "OptionSetReferenceEntityName": "Membros-Participadas"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_cargocategoria",
+    "RelatedEntityName": "Colaboradores_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Colaboradores_1)",
+    "Name": "uipp_colaboradores_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Colaboradores_1"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Colaboradores_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Colaboradores_1)",
+    "Name": "uipp_colaboradores_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Colaboradores_1"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Colaboradores_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Ativo (Colaboradores_1)",
+    "Name": "uipp_colaboradores_uipp_ativo",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_ativo",
+        "OptionSetReferenceEntityName": "Colaboradores_1"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_ativo",
+    "RelatedEntityName": "Colaboradores_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Bloqueado (Colaboradores_1)",
+    "Name": "uipp_colaboradores_uipp_bloqueado",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_bloqueado",
+        "OptionSetReferenceEntityName": "Colaboradores_1"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_bloqueado",
+    "RelatedEntityName": "Colaboradores_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Grupo",
+    "Name": "uipp_grupo",
+    "OptionSetInfoNameMapping": {
+      "847700000": "Banco Montepio",
+      "847700001": "MGAM"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Colaboradores_1"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Empresas Participadas do Grupos"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "ROCS"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_grupo",
+    "RelatedEntityName": "Colaboradores_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Tipo de Documento",
+    "Name": "uipp_tipodedocumento",
+    "OptionSetInfoNameMapping": {
+      "847700000": "NIF",
+      "847700001": "NIPC"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_tipodedocumento",
+        "OptionSetReferenceEntityName": "Colaboradores_1"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "uipp_tipodedocumento",
+        "OptionSetReferenceEntityName": "Empresas Participadas do Grupos"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "uipp_tipodedocumento",
+        "OptionSetReferenceEntityName": "Empresas"
+      },
+      "OptionSetReferenceItem3": {
+        "OptionSetReferenceColumnName": "uipp_tipodedocumento",
+        "OptionSetReferenceEntityName": "Familiares"
+      },
+      "OptionSetReferenceItem4": {
+        "OptionSetReferenceColumnName": "uipp_tipodedocumento",
+        "OptionSetReferenceEntityName": "Membros_1"
+      },
+      "OptionSetReferenceItem5": {
+        "OptionSetReferenceColumnName": "uipp_tipodedocumento",
+        "OptionSetReferenceEntityName": "ROCS"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_tipodedocumento",
+    "RelatedEntityName": "Colaboradores_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "unidade organica",
+    "Name": "uipp_unidadeorganica",
+    "OptionSetInfoNameMapping": {
+      "847700000": "DRI",
+      "847700001": "DGP",
+      "847700002": "DGC",
+      "847700003": "DCOMP",
+      "847700004": "DAI",
+      "847700005": "DMK",
+      "847700006": "CCOMP",
+      "847700007": "DCRF",
+      "847700008": "CONT-MGAM"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_unidadeorganica",
+        "OptionSetReferenceEntityName": "Colaboradores_1"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_unidadeorganica",
+    "RelatedEntityName": "Colaboradores_1",
+    "Type": "OptionSetInfo"
+  }
+]

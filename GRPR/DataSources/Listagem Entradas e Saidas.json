@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_listagementradasesaidases",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_listagementradasesaidas",
+    "MaxGetRowsCount": 500,
+    "Name": "Listagem Entradas e Saidas",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_dataaprovacaoca": "Data aprovacao CA",
+      "uipp_id": "ID",
+      "uipp_listagem": "Listagem",
+      "uipp_listagementradasesaidas_AsyncOperations": "System Jobs",
+      "uipp_listagementradasesaidas_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_listagementradasesaidas_DuplicateBaseRecord": "Duplicate Records (uipp_listagementradasesaidas_DuplicateBaseRecord)",
+      "uipp_listagementradasesaidas_DuplicateMatchingRecord": "Duplicate Records (uipp_listagementradasesaidas_DuplicateMatchingRecord)",
+      "uipp_listagementradasesaidas_FileAttachments": "FileAttachments",
+      "uipp_listagementradasesaidas_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_listagementradasesaidas_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_listagementradasesaidas_ProcessSession": "Process Sessions",
+      "uipp_listagementradasesaidas_SyncErrors": "Sync Errors",
+      "uipp_listagementradasesaidasid": "Listagem Entradas e Saidas",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Listagem Entradas e Saidas",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Listagem Entradas e Saidas (Views)",
+    "Name": "_uipp_listagementradasesaidas_views",
+    "RelatedEntityName": "Listagem Entradas e Saidas",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "04981bb5-581a-482b-bb92-4a1f079b8335": "Active Listagem Entradas e Saidas",
+      "203e9eaf-c061-4ead-a2b0-26331cf65a70": "Listagem Entradas e Saidas Associated View",
+      "9b2c3b28-1060-4e48-b27f-7bf35f713684": "Listagem Entradas e Saidas Advanced Find View",
+      "e5c38829-75f9-4434-9424-022e469979c3": "Inactive Listagem Entradas e Saidas",
+      "e961eeed-b973-4a44-bb24-855ddd4d8740": "Listagem Entradas e Saidas Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Listagem Entradas e Saidas)",
+    "Name": "uipp_listagementradasesaidas_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Listagem Entradas e Saidas"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Listagem Entradas e Saidas",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Listagem Entradas e Saidas)",
+    "Name": "uipp_listagementradasesaidas_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Listagem Entradas e Saidas"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Listagem Entradas e Saidas",
+    "Type": "OptionSetInfo"
+  }
+]

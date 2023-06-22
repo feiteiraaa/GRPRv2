@@ -1,0 +1,1522 @@
+Particulares As screen:
+    OnVisible: |-
+        =Concurrent(
+            UpdateContext(
+                {
+                    localFiltro: "Membros dos Orgãos Sociais",
+                    localseta: false
+                }
+            ),
+            ResetForm(ColaboradorForm_1),
+            Reset(TextInput2),
+            Refresh(Colaboradores_1),
+            Refresh(ROCS),
+            Refresh(Membros_1)
+        );
+        Set(
+            varSortCol,
+            "uipp_nome"
+        );
+        Set(
+            varSortDir,
+            SortOrder.Descending
+        );
+        UpdateContext({showAttachExcel: false});
+        ClearCollect(
+            CollectMembros,
+            Membros_1
+        );
+        ClearCollect(
+            CollectRoc,
+            ROCS
+        );
+        ClearCollect(
+            CollectColabora,
+            Colaboradores_1
+        );
+        ClearCollect(
+            CollectMFR,
+            'Membros-Familiares-Respetivas'
+        );
+        Reset(Checkbox1);
+        Clear(atividadesMembros);
+        Reset(Checkbox1_1);
+        /*Clear(MembroFamiliar);
+        ForAll(
+            CollectMembros,
+            Collect(
+                MembroFamiliar,
+                AddColumns(
+                    CollectMembros,
+                    "FamiName",
+                    ForAll(
+                        Filter(
+                            CollectMFR,
+                            CollectMFR[@ID_Membro].ID = CollectMembros[@ID] And IsBlank(ID_Empresa.ID)
+                        ).ID_Familiares,
+                        ID_Familiares.Nome
+                    )
+                )
+            )
+        );*/
+        /*ClearCollect(
+            MembroFamilia,
+            ForAll(
+                MembroFamiliar.ID,
+                "FamiName"
+            )
+        )*/
+
+    ROC As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HeadingFill: =cores.cinzento
+        Height: =472
+        Items: |-
+            =If(
+                localFiltro = "ROC",
+                Search(
+                    AddColumns(
+                        SortByColumns(
+                            Filter(
+                                CollectRoc,
+                                If(
+                                    Checkbox1.Value = false,
+                                    ThisRecord.Ativo = true,
+                                    ThisRecord.Ativo = true Or ThisRecord.Ativo = false
+                                )
+                            ),
+                            varSortCol,
+                            varSortDir
+                        ),
+                        "tipoDocumento",
+                        Text('Tipo de documento'),
+                        "grupo",
+                        Text("uipp_Grupo")
+                    ),
+                    TextInput2.Text,
+                    "uipp_nome",
+                    "tipoDocumento",
+                    "grupo"
+                ),
+                Search(
+                    AddColumns(
+                        
+                            Filter(
+                                CollectRoc,
+                                If(
+                                    Checkbox1.Value = false,
+                                    ThisRecord.Ativo = true,
+                                    ThisRecord.Ativo = true Or ThisRecord.Ativo = false
+                                )
+                         
+                        ),
+                        "tipoDocumento",
+                        Text('Tipo de documento'),
+                        "grupo",
+                        Text("uipp_Grupo")
+                    ),
+                    TextInput2.Text,
+                    "uipp_nome",
+                    "tipoDocumento",
+                    "grupo"
+                )
+            )
+        NoDataText: ="Não existem registos a apresentar, de momento"
+        SelectedFill: =cores.amareloMontepio
+        Visible: =localFiltro = "ROC"
+        Width: =980
+        X: =357
+        Y: |-
+            =If(
+                //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador, godMode),
+                Or(Checkbox1_1.Visible),
+                268,
+                200
+            )
+        ZIndex: =2
+
+        "'Legislacao aplicada_Column2' As dataTableColumn.complexTypeColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Legislação"
+            FieldName: ="uipp_Legislacaoaplicada"
+            FieldVariantName: ="complexTypeColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ROCDetails, ScreenTransition.None, {_ROC: ROC.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =6
+            Text: =ThisItem.'Legislacao aplicada'.'Tipo de enquadramento'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =27
+
+        Nome_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Nome"
+            FieldName: ="uipp_nome"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ROCDetails, ScreenTransition.None, {_ROC: ROC.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =1
+            Text: =ThisItem.Nome
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =28
+
+        uipp_numerodocumento_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Nº Doc."
+            FieldName: ="uipp_numerodocumento"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ROCDetails, ScreenTransition.None, {_ROC: ROC.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =4
+            Text: =ThisItem.uipp_numerodocumento
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =30
+
+        uipp_tipodedocumento_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Tipo Doc."
+            FieldName: ="uipp_tipodedocumento"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ROCDetails, ScreenTransition.None, {_ROC: ROC.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =3
+            Text: =ThisItem.uipp_tipodedocumento
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =31
+
+        uipp_tipo_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Tipo"
+            FieldName: ="uipp_tipo"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ROCDetails, ScreenTransition.None, {_ROC: ROC.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =5
+            Text: =ThisItem.uipp_tipo
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =34
+
+    Colaboradores As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HeadingFill: =cores.cinzento
+        Height: =472
+        Items: |-
+            =If(
+                localFiltro = "Colaboradores",
+                Search(
+                    AddColumns(
+                        SortByColumns(
+                            Filter(
+                                CollectColabora,
+                        //ThisRecord.Ativo =
+                                If(
+                                    Checkbox1.Value = false,
+                                    ThisRecord.Ativo = true,
+                                    ThisRecord.Ativo = true Or ThisRecord.Ativo = false
+                                )
+                            ),
+                            varSortCol,
+                            varSortDir
+                        ),
+                        "CargoCategoria",
+                        'Cargo (Categoria)'
+                    ),
+                    TextInput2.Text,
+                    "uipp_nome",
+                    "uipp_cargodescricao"
+                ),
+                Search(
+                    AddColumns(
+                      
+                            Filter(
+                                CollectColabora,
+                        //ThisRecord.Ativo =
+                                If(
+                                    Checkbox1.Value = false,
+                                    ThisRecord.Ativo = true,
+                                    ThisRecord.Ativo = true Or ThisRecord.Ativo = false
+                                )
+                            
+                        ),
+                        "CargoCategoria",
+                        'Cargo (Categoria)'
+                    ),
+                    TextInput2.Text,
+                    "uipp_nome",
+                    "uipp_cargodescricao"
+                )
+            )
+        NoDataText: ="Não existem registos a apresentar, de momento"
+        SelectedFill: =cores.amareloMontepio
+        Visible: =localFiltro = "Colaboradores"
+        Width: =980
+        X: =357
+        Y: |-
+            =If(
+                //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador, godMode),
+                Or(Checkbox1_1.Visible),
+                268,
+                200
+            )
+        ZIndex: =9
+
+        "'Cargo (Categoria)_Column1' As dataTableColumn.complexOptionSetColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Cargo"
+            FieldName: ="uipp_cargocategoria"
+            FieldVariantName: ="complexOptionSetColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ColaboradoresDetails, ScreenTransition.None, {_Colaborador: Colaboradores.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =5
+            Text: =ThisItem.'Cargo (Categoria)'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =11
+
+        "'Legislacao aplicada_Column1' As dataTableColumn.complexTypeColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Legislação"
+            FieldName: ="uipp_Legislacaoaplicada"
+            FieldVariantName: ="complexTypeColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ColaboradoresDetails, ScreenTransition.None, {_Colaborador: Colaboradores.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =10
+            Text: =ThisItem.'Legislacao aplicada'.'Tipo de enquadramento'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =18
+
+        Nome_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Nome"
+            FieldName: ="uipp_nome"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ColaboradoresDetails, ScreenTransition.None, {_Colaborador: Colaboradores.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =3
+            Text: =ThisItem.Nome
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =19
+
+        "'Unidade organica_Column1' As dataTableColumn.complexOptionSetColumn":
+            AutoWidth: =true
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="U. O."
+            FieldName: ="uipp_unidadeorganica"
+            FieldVariantName: ="complexOptionSetColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ColaboradoresDetails, ScreenTransition.None, {_Colaborador: Colaboradores.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =9
+            Text: =ThisItem.'Unidade organica'
+            Width: =211
+            X: =0
+            Y: =0
+            ZIndex: =29
+
+        "'Numero Documento_Column2' As dataTableColumn.textualColumn":
+            AutoWidth: =true
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Nº Doc."
+            FieldName: ="uipp_numerodocumento"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ColaboradoresDetails, ScreenTransition.None, {_Colaborador: Colaboradores.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =8
+            Text: =ThisItem.uipp_numerodocumento
+            Width: =197
+            X: =0
+            Y: =0
+            ZIndex: =32
+
+        "'Tipo Documento_Column2' As dataTableColumn.textualColumn":
+            AutoWidth: =true
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Tipo Doc."
+            FieldName: ="uipp_tipodedocumento"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Navigate(ColaboradoresDetails, ScreenTransition.None, {_Colaborador: Colaboradores.Selected.ID, ColabFormMode: FormMode.View})
+            Order: =7
+            Text: =ThisItem.uipp_tipodedocumento
+            Width: =178
+            X: =0
+            Y: =0
+            ZIndex: =33
+
+    Membros As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =10
+
+        "'Membros dos Orgaos Sociais' As gallery.variableTemplateHeightGallery":
+            DelayItemLoading: =true
+            Height: |
+                =472
+            Items: |-
+                =If(
+                    localFiltro = "Membros dos Orgãos Sociais",
+                    Search(
+                        SortByColumns(
+                            Filter(
+                                CollectMembros,
+                                If(
+                                    Checkbox1.Value = false,
+                                    ThisRecord.Ativo = true,
+                                    ThisRecord.Ativo = true Or ThisRecord.Ativo = false
+                                )
+                            ),
+                            varSortCol,
+                            varSortDir
+                        ),
+                        TextInput2.Text,
+                        "uipp_nome"
+                    ),
+                    Search(
+                        Filter(
+                            CollectMembros,
+                            If(
+                                Checkbox1.Value = false,
+                                ThisRecord.Ativo = true,
+                                ThisRecord.Ativo = true Or ThisRecord.Ativo = false
+                            )
+                        ),
+                        TextInput2.Text,
+                        "uipp_nome"
+                    )
+                )
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: |-
+                =Navigate(MembrosDetails, ScreenTransition.None, {_Membro: 'Membros dos Orgaos Sociais'.Selected.ID,_Allitems:GalleryFamiliaresEmpresas.Selected,_Associated:false,_AssociatedR:false})
+            TemplateSize: =127
+            Visible: =localFiltro = "Membros dos Orgãos Sociais"
+            Width: =980
+            X: =357
+            Y: =Container1.Y + Container1.Height
+            ZIndex: =5
+
+            "'Nome Membro' As label":
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.Nome
+                Width: =336
+                X: =4
+                ZIndex: =1
+
+            "'NIF Membro' As label":
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.'Numero documento'
+                Width: =242
+                X: =346
+                ZIndex: =2
+
+            "'Cargo e Relacao' As label":
+                OnSelect: =Select(Parent)
+                Text: |
+                    =//Filter('Membros-Familiares-Respetivas',ID_Membro.ID=ThisItem.ID 
+                Width: =341
+                X: =598
+                ZIndex: =3
+
+            GalleryFamiliaresEmpresas As gallery.variableTemplateHeightGallery:
+                DelayItemLoading: =true
+                Height: =90
+                Items: |-
+                    =//Search(
+                    Filter(
+                        Ungroup(
+                            Table(
+                                {MyTables: 'Membros-Participadas'},
+                                {MyTables: 'Membros-Familiares-Respetivas'}
+                            ),
+                            "MyTables"
+                        ),
+                        ThisItem.ID = uipp_ID_Membro.ID Or ThisItem.ID = uipp_ChildID.ID
+                    )
+                    /*, TextInput2.Text,
+                            "uipp_nome"
+                        )*/
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: |-
+                    =Navigate(MembrosDetails, ScreenTransition.None, {_Membro: 'Membros dos Orgaos Sociais'.Selected.ID})
+                TemplatePadding: =0
+                TemplateSize: =45
+                Visible: =localseta And ThisItem.IsSelected
+                Width: =951
+                Y: =37
+                ZIndex: =5
+
+                "'Nome e Designacao' As label":
+                    AutoHeight: =true
+                    OnSelect: =Select(Parent)
+                    Text: |-
+                        =Concatenate(
+                            LookUp(
+                                Empresas,
+                                ID = ThisItem.uipp_ID_Empresa.ID
+                            ).Designacao,
+                            LookUp(
+                                'Empresas Participadas do Grupos',
+                                ID = ThisItem.uipp_ParentID.ID
+                            ).Nome,
+                            LookUp(
+                                Familiares,
+                                ID = ThisItem.uipp_ID_Familiares.ID
+                            ).Nome
+                        )
+                    Width: =230
+                    X: =35
+                    Y: =4
+                    ZIndex: =1
+
+                "'NIF Familiares e Empresas' As label":
+                    OnSelect: =Select(Parent)
+                    Text: |-
+                        =//Concatenate(ThisItem.uipp_numerodocumento,ThisItem.uipp_numerodocumento)
+                        Concatenate(
+                            LookUp(
+                                Empresas,
+                                ID = ThisItem.uipp_ID_Empresa.ID
+                            ).'Numero Documento',
+                            LookUp(
+                                'Empresas Participadas do Grupos',
+                                ID = ThisItem.uipp_ParentID.ID
+                            ).'Numero documento',
+                            LookUp(
+                                Familiares,
+                                ID = ThisItem.uipp_ID_Familiares.ID
+                            ).'Numero documento'
+                        )
+                    Width: =242
+                    X: =346
+                    Y: =4
+                    ZIndex: =2
+
+                "'Cargo e Relacao2' As label":
+                    OnSelect: =Select(Parent)
+                    Text: =Concatenate(ThisItem.uipp_ID_GrauParentesco.'Grau de parentesco', ThisItem.uipp_participacao)
+                    Width: =341
+                    X: =599
+                    Y: =4
+                    ZIndex: =3
+
+                "IconPessoaEmpresa As icon.'3DPrinting'":
+                    Color: =cores.amareloMontepio
+                    Height: =25
+                    Icon: =If(IsBlank(ThisItem.uipp_ID_Familiares.ID),Icon.OfficeBuilding,Icon.People)
+                    OnSelect: =Select(Parent)
+                    Width: =25
+                    X: =10
+                    Y: =11
+                    ZIndex: =4
+
+                "'%Participacao' As label":
+                    Height: ='Cargo e Relacao2'.Height
+                    OnSelect: =Select(Parent)
+                    Text: =If(!IsBlank(ThisItem.uipp_participacao),"%")
+                    Width: ='Cargo e Relacao2'.Width/4
+                    X: ='Cargo e Relacao2'.X+50
+                    Y: ='Cargo e Relacao2'.Y
+                    ZIndex: =5
+
+                NomeEliminado As label:
+                    Height: ='Nome e Designacao'.Height
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =2
+                    PaddingLeft: =2
+                    PaddingTop: =7
+                    Text: |-
+                        =If(
+                            LookUp(
+                                Empresas,
+                                ID = ThisItem.uipp_ID_Empresa.ID
+                            ).Ativo Or LookUp(
+                                'Empresas Participadas do Grupos',
+                                ID = ThisItem.uipp_ParentID.ID
+                            ).Ativo Or LookUp(
+                                Familiares,
+                                ID = ThisItem.uipp_ID_Familiares.ID
+                            ).Ativo,
+                            " (Eliminado)"
+                        )
+                    Width: =('Nome e Designacao'.Width/2)-10
+                    X: ='Nome e Designacao'.Width+15
+                    Y: =0//'Nome e Designacao'.Y
+                    ZIndex: =6
+
+            Rectangle3 As rectangle:
+                Fill: =RGBA(128, 128, 128, 1)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =951
+                Y: |-
+                    =//126
+                    If(localseta And ThisItem.IsSelected,126,50)
+                ZIndex: =6
+
+            "Icon3 As icon.'3DPrinting'":
+                Height: =25
+                Icon: |-
+                    =//Icon.ChevronDown
+                    If(localseta And ThisItem.IsSelected,Icon.ChevronUp,Icon.ChevronDown)
+                OnSelect: |-
+                    =UpdateContext({localseta:!localseta})
+                Visible: |-
+                    =If(
+                        CountRows(GalleryFamiliaresEmpresas.AllItems) > 0,
+                        true,
+                        false
+                    )
+                Width: =25
+                X: =929
+                ZIndex: =7
+
+        Container1 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(70, 70, 70, 1)
+            Height: =34
+            Visible: =localFiltro = "Membros dos Orgãos Sociais"
+            Width: =980
+            X: =357
+            Y: |-
+                =If(
+                    //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador, godMode),
+                    Or(Checkbox1_1.Visible),
+                    268,
+                    200
+                )
+            ZIndex: =11
+
+            Label6 As label:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: ="Nome / Designação"
+                Width: =338
+                X: =4
+                ZIndex: =1
+
+            Label6_1 As label:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: ="NIF / NIPC"
+                Width: =240
+                X: =342
+                ZIndex: =2
+
+            Label6_2 As label:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: ="% Participação / Relação Familiar"
+                Width: =346
+                X: =583
+                ZIndex: =3
+
+    "'Top Section Gallery' As groupContainer.manualLayoutContainer":
+        Height: =55
+        Width: =961
+        X: =365
+        Y: =82
+        ZIndex: =14
+
+        "'Top Section Gallery full Bottom' As icon.HorizontalLine":
+            Color: =RGBA(0, 18, 107, 0)
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =3
+            Icon: =Icon.HorizontalLine
+            OnSelect: =
+            Width: =957
+            Y: =48
+            ZIndex: =1
+
+        "'Top Section Gallery bottom 1' As icon.HorizontalLine":
+            Color: =RGBA(0, 18, 107, 0)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(localFiltro = "Membros dos Orgãos Sociais", RGBA(240, 200, 0, 1), RGBA(230, 230, 230, 1))
+            Height: =3
+            Icon: =Icon.HorizontalLine
+            OnSelect: |-
+                =UpdateContext({localFiltro : "Membros dos Orgãos Sociais"})
+            Width: =288
+            X: =14
+            Y: =48
+            ZIndex: =2
+
+        "'Top Section Gallery Text 1' As label":
+            Align: =Align.Center
+            Color: =If(localFiltro = "Membros dos Orgãos Sociais", RGBA(240, 200, 0, 1), RGBA(130, 130, 130, 1))
+            FontWeight: =If(localFiltro = "Lista de Reportes", FontWeight.Bold, FontWeight.Semibold)
+            Height: =45
+            OnSelect: |-
+                =UpdateContext({
+                    localFiltro: "Membros dos Orgãos Sociais"
+                });
+                Set(
+                    varSortCol,
+                    "uipp_nome"
+                );
+                Set(
+                    varSortDir,
+                    SortOrder.Descending
+                )
+            Text: ="Membros de Órgãos Sociais"
+            Width: =288
+            X: =14
+            Y: =3
+            ZIndex: =3
+
+        "'Top Section Gallery bottom 2' As icon.HorizontalLine":
+            Color: =RGBA(0, 18, 107, 0)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(localFiltro = "Colaboradores", RGBA(240, 200, 0, 1), RGBA(230, 230, 230, 1))
+            Height: =3
+            Icon: =Icon.HorizontalLine
+            OnSelect: |-
+                =UpdateContext({localFiltro : "Colaboradores"})
+            Width: =288
+            X: =332
+            Y: =48
+            ZIndex: =4
+
+        "'Top Section Gallery Text 2' As label":
+            Align: =Align.Center
+            Color: =If(localFiltro = "Colaboradores", RGBA(240, 200, 0, 1), RGBA(130, 130, 130, 1))
+            FontWeight: =If(localFiltro = "Pendentes fora de prazo", FontWeight.Bold, FontWeight.Semibold)
+            Height: =45
+            OnSelect: |-
+                =UpdateContext({
+                    localFiltro: "Colaboradores"
+                });
+                Set(
+                    varSortCol,
+                    "uipp_nome"
+                );
+                Set(
+                    varSortDir,
+                    SortOrder.Descending
+                )
+            Text: ="Colaboradores"
+            Width: =288
+            X: =332
+            ZIndex: =5
+
+        "'Top Section Gallery bottom 3' As icon.HorizontalLine":
+            Color: =RGBA(0, 18, 107, 0)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(localFiltro = "ROC", RGBA(240, 200, 0, 1), RGBA(230, 230, 230, 1))
+            Height: =3
+            Icon: =Icon.HorizontalLine
+            OnSelect: |-
+                =UpdateContext({localFiltro : "ROC"})
+            Width: =288
+            X: =654
+            Y: =48
+            ZIndex: =6
+
+        "'Top Section Gallery Text 3' As label":
+            Align: =Align.Center
+            Color: =If(localFiltro = "ROC", RGBA(240, 200, 0, 1), RGBA(130, 130, 130, 1))
+            FontWeight: =If(localFiltro = "A submeter nos próximos 60 dias", FontWeight.Bold, FontWeight.Semibold)
+            Height: =45
+            OnSelect: |-
+                =UpdateContext({
+                    localFiltro: "ROC"
+                });
+                Set(
+                    varSortCol,
+                    "uipp_nome"
+                );
+                Set(
+                    varSortDir,
+                    SortOrder.Descending
+                )
+            Text: ="ROC"
+            Width: =299
+            X: =648
+            Y: =3
+            ZIndex: =7
+
+    Label1_2 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =48
+        Size: =15
+        Text: ="Particulares e empresas respetivas"
+        Width: =529
+        X: =365
+        Y: =26
+        ZIndex: =15
+
+    IconNome As icon.ChevronDown:
+        BorderColor: =RGBA(255, 191, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =20
+        Icon: |-
+            =If(
+                varSortCol <> "uipp_nome",
+                Icon.ChevronDown,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    Icon.ChevronUp,
+                    Icon.ChevronDown
+                )
+            )
+        OnSelect: |-
+            =Set(
+                varSortCol,
+                "uipp_nome"
+            );
+            Set(
+                varSortDir,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    SortOrder.Descending,
+                    SortOrder.Ascending
+                )
+            )
+        Visible: |-
+            =//localFiltro<>"Membros dos Orgãos Sociais"
+            true
+        Width: =20
+        X: |-
+            =//Nome_Column1.X +490
+            If(
+                localFiltro = "Colaboradores",
+                Nome_Column1.X + 490,
+                localFiltro = "ROC",
+                Nome_Column2.X + 520,
+                localFiltro = "Membros dos Orgãos Sociais",
+                Nome_Column2.X + 650
+            )
+        Y: |-
+            =//Nome_Column1.Y + 212
+            If(
+                Checkbox1_1.Visible,
+                Nome_Column1.Y + 212 + Label3_1.Height + Label3.Height,
+                Nome_Column1.Y + 212
+            )
+        ZIndex: =16
+
+    IconCargo As icon.ChevronDown:
+        BorderColor: =RGBA(255, 191, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =20
+        Icon: |-
+            =If(
+                varSortCol <> "uipp_cargocategoria",
+                Icon.ChevronDown,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    Icon.ChevronUp,
+                    Icon.ChevronDown
+                )
+            )
+        OnSelect: |-
+            =Set(
+                varSortCol,
+                "uipp_cargocategoria"
+            );
+            Set(
+                varSortDir,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    SortOrder.Descending,
+                    SortOrder.Ascending
+                )
+            )
+        Visible: =localFiltro = "Colaboradores"
+        Width: =20
+        X: |
+            ='Cargo (Categoria)_Column1'.X +490
+        Y: |-
+            =//'Cargo (Categoria)_Column1'.Y + 212
+            If(
+                Checkbox1_1.Visible,
+                'Cargo (Categoria)_Column1'.Y + 212 + Label3_1.Height + Label3.Height,
+                'Cargo (Categoria)_Column1'.Y + 212
+            )
+        ZIndex: =17
+
+    ActionBar As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =17
+
+        TextInput2 As text:
+            BorderColor: =ColorFade(cores.cinzento, 80%)
+            BorderThickness: =1
+            Clear: =true
+            Color: |-
+                =//RGBA(0, 0, 0, 1)
+                cores.cinzento
+            Default: =
+            Fill: =ColorFade(cores.cinzento, 90%)
+            HintText: ="Pesquisar"
+            HoverBorderColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =
+            PaddingLeft: =40
+            Tooltip: =
+            Width: =366
+            X: =365
+            Y: =145
+            ZIndex: =6
+
+        "Icon1_1 As icon.'3DPrinting'":
+            Color: |-
+                =///RGBA(0, 18, 107, 1)
+                cores.amareloMontepio
+            Height: =25
+            Icon: =Icon.Search
+            OnSelect: =//Select(Parent)
+            Width: =25
+            X: =375
+            Y: =154
+            ZIndex: =7
+
+        Checkbox1 As checkbox:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            CheckboxBackgroundFill: =ColorFade(cores.cinzento, 90%)
+            CheckboxBorderColor: =ColorFade(cores.cinzento, 80%)
+            CheckmarkFill: =cores.cinzento
+            FocusedBorderThickness: =0
+            Height: =40
+            HoverColor: =//RGBA(0, 18, 107, 1)
+            Text: ="Listar eliminados"
+            Width: =215
+            X: =770
+            Y: =146
+            ZIndex: =8
+
+        ParticularesAdd As DynamicBtn:
+            BtnOnSelect: =
+            BtnText: ="Novo"
+            Visible: |-
+                =Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    Or(godMode, DRI, DGP_Editor, DGP_Validador),
+                    
+                    "ROC",
+                    Or(godMode, DRI, DGC_Editor, DGC_Validador),
+                
+                    "Membros dos Orgãos Sociais",
+                    Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                )
+            X: =1166
+            Y: =146
+            ZIndex: =10
+
+        Button2 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    Navigate(ColaboradoresDetails, ScreenTransition.None, {ColabFormMode: FormMode.New}),
+                    "ROC",
+                    Navigate(ROCDetails, ScreenTransition.None, {ColabFormMode: FormMode.New}),
+                    "Membros dos Orgãos Sociais",
+                    Navigate(MembrosDetails, ScreenTransition.None, {ColabFormMode: FormMode.New,_Membro:Blank()})
+                )
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: |-
+                =Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    Or(godMode, DRI, DGP_Editor, DGP_Validador),
+                    
+                    "ROC",
+                    Or(godMode, DRI, DGC_Editor, DGC_Validador),
+                
+                    "Membros dos Orgãos Sociais",
+                    Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                )
+            X: =1166
+            Y: =146
+            ZIndex: =13
+
+    IconUO As icon.ChevronDown:
+        BorderColor: =RGBA(255, 191, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =20
+        Icon: |-
+            =If(
+                varSortCol <> "uipp_unidadeorganica",
+                Icon.ChevronDown,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    Icon.ChevronUp,
+                    Icon.ChevronDown
+                )
+            )
+        OnSelect: |-
+            =Set(
+                varSortCol,
+                "uipp_unidadeorganica"
+            );
+            Set(
+                varSortDir,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    SortOrder.Descending,
+                    SortOrder.Ascending
+                )
+            )
+        Visible: =localFiltro="Colaboradores"
+        Width: =20
+        X: ='Unidade organica_Column1'.X +490
+        Y: |-
+            =//'Unidade organica_Column1'.Y + 212
+            If(
+                Checkbox1_1.Visible,
+                'Unidade organica_Column1'.Y + 212 + Label3_1.Height + Label3.Height,
+                'Unidade organica_Column1'.Y + 212
+            )
+        ZIndex: =18
+
+    FimPeriodo As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        Label3 As label:
+            Color: =cores.cinzento
+            Fill: =RGBA(255, 244, 198, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =34
+            PaddingTop: =0
+            Text: ="Fim de periodo a decorrer"
+            Visible: |-
+                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
+                And Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Colaboradores"
+                    ).Aprovado = false,
+                    "ROC",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "ROC"
+                    ).Aprovado = false,
+                    "Membros dos Orgãos Sociais",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Membros dos Orgãos Sociais"
+                    ).Aprovado = false
+                )
+            Width: =961
+            X: =365
+            Y: =196
+            ZIndex: =3
+
+        Label3_1 As label:
+            Color: =cores.cinzento
+            Fill: =RGBA(255, 244, 198, 1)
+            Height: =34
+            PaddingTop: =0
+            Text: ="Confirmo que toda a informação apresentada relativa às partes relacionadas está correta."
+            Visible: |-
+                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
+                And Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Colaboradores"
+                    ).Aprovado = false,
+                    "ROC",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "ROC"
+                    ).Aprovado = false,
+                    "Membros dos Orgãos Sociais",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Membros dos Orgãos Sociais"
+                    ).Aprovado = false
+                )
+            Width: =961
+            X: =365
+            Y: =224
+            ZIndex: =4
+
+        Checkbox1_1 As checkbox:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            CheckboxBackgroundFill: =ColorFade(cores.cinzento, 90%)
+            CheckboxBorderColor: =ColorFade(cores.cinzento, 80%)
+            CheckmarkFill: =cores.cinzento
+            Fill: =RGBA(255, 244, 198, 1)
+            FocusedBorderThickness: =0
+            Height: =40
+            HoverColor: =//RGBA(0, 18, 107, 1)
+            OnCheck: |-
+                =Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    Patch(
+                        Aprovacaos,
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Colaboradores"
+                        ),
+                        {Aprovado: true}
+                    ),
+                    "ROC",
+                    Patch(
+                        Aprovacaos,
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "ROC"
+                        ),
+                        {Aprovado: true}
+                    ),
+                    "Membros dos Orgãos Sociais",
+                    Patch(
+                        Aprovacaos,
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros dos Orgãos Sociais"
+                        ),
+                        {Aprovado: true}
+                    )
+                )
+            Text: =""
+            Visible: |-
+                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
+                And Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Colaboradores"
+                    ).Aprovado = false,
+                    "ROC",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "ROC"
+                    ).Aprovado = false,
+                    "Membros dos Orgãos Sociais",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Membros dos Orgãos Sociais"
+                    ).Aprovado = false
+                )
+            Width: =48
+            X: =1278
+            Y: =207
+            ZIndex: =12
+
+    IconTipoDoc As icon.ChevronDown:
+        BorderColor: =RGBA(255, 191, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =20
+        Icon: |-
+            =If(
+                varSortCol <> "uipp_tipodedocumento",
+                Icon.ChevronDown,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    Icon.ChevronUp,
+                    Icon.ChevronDown
+                )
+            )
+        OnSelect: |-
+            =Set(
+                varSortCol,
+                "uipp_tipodedocumento"
+            );
+            Set(
+                varSortDir,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    SortOrder.Descending,
+                    SortOrder.Ascending
+                )
+            )
+        Visible: =localFiltro<>"Membros dos Orgãos Sociais"
+        Width: =20
+        X: |-
+            =//'Tipo Documento_Column2'.X +490
+            If(
+                localFiltro = "Colaboradores",
+                'Tipo Documento_Column2'.X +490,
+                localFiltro = "ROC",
+                uipp_tipodedocumento_Column1.X + 520
+            )
+        Y: |-
+            =//'Tipo Documento_Column2'.Y + 212
+            If(
+                Checkbox1_1.Visible,
+                'Tipo Documento_Column2'.Y + 212 + Label3_1.Height + Label3.Height,
+                'Tipo Documento_Column2'.Y + 212
+            )
+        ZIndex: =19
+
+    IconNDoc As icon.ChevronDown:
+        BorderColor: =RGBA(255, 191, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =20
+        Icon: |-
+            =If(
+                varSortCol <> "uipp_numerodocumento",
+                Icon.ChevronDown,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    Icon.ChevronUp,
+                    Icon.ChevronDown
+                )
+            )
+        OnSelect: |-
+            =Set(
+                varSortCol,
+                "uipp_numerodocumento"
+            );
+            Set(
+                varSortDir,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    SortOrder.Descending,
+                    SortOrder.Ascending
+                )
+            )
+        Visible: |
+            =localFiltro<>"Membros dos Orgãos Sociais"
+        Width: =20
+        X: |-
+            =//'Numero Documento_Column2'.X +490
+            If(
+                localFiltro = "Colaboradores",
+                'Numero Documento_Column2'.X +490,
+                localFiltro = "ROC",
+                uipp_numerodocumento_Column1.X + 520/*,
+                localFiltro = "Membros dos Orgãos Sociais",
+                900*/
+            )
+        Y: |-
+            =//'Numero Documento_Column2'.Y + 212
+            If(
+                Checkbox1_1.Visible,
+                'Numero Documento_Column2'.Y + 212 + Label3_1.Height + Label3.Height,
+                'Numero Documento_Column2'.Y + 212
+            )
+        ZIndex: =20
+
+    IconTipo As icon.ChevronDown:
+        BorderColor: =RGBA(255, 191, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =20
+        Icon: |-
+            =If(
+                varSortCol <> "uipp_tipo",
+                Icon.ChevronDown,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    Icon.ChevronUp,
+                    Icon.ChevronDown
+                )
+            )
+        OnSelect: |-
+            =Set(
+                varSortCol,
+                "uipp_tipo"
+            );
+            Set(
+                varSortDir,
+                If(
+                    varSortDir = SortOrder.Ascending,
+                    SortOrder.Descending,
+                    SortOrder.Ascending
+                )
+            )
+        Visible: =localFiltro="ROC"
+        Width: =20
+        X: |
+            =uipp_tipo_Column1.X +520
+        Y: |-
+            =//'Tipo Documento_Column2'.Y + 212
+            If(
+                Checkbox1_1.Visible,
+                'Tipo Documento_Column2'.Y + 212 + Label3_1.Height + Label3.Height,
+                'Tipo Documento_Column2'.Y + 212
+            )
+        ZIndex: =21
+
+    ImportBtn As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =27
+
+        ParticularesAdd_6 As DynamicBtn:
+            BtnOnSelect: =
+            BtnText: ="Importar Colaboradores"
+            BtnWidth: =285
+            ButtonIcon: =Icon.AddDocument
+            Visible: |-
+                =Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    Or(godMode, DRI, DGP_Editor, DGP_Validador),
+                    
+                    "ROC",
+                    Or(godMode, DRI, DGC_Editor, DGC_Validador),
+                
+                    "Membros dos Orgãos Sociais",
+                    Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                )
+            X: =1041
+            Y: =30
+            ZIndex: =22
+
+        Button2_22 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =UpdateContext({
+                    showAttachExcel: true
+                })
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: |-
+                =Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    Or(godMode, DRI, DGP_Editor, DGP_Validador),
+                    
+                    "ROC",
+                    Or(godMode, DRI, DGC_Editor, DGC_Validador),
+                
+                    "Membros dos Orgãos Sociais",
+                    Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                )
+            Width: =285
+            X: =1041
+            Y: =30
+            ZIndex: =23
+
+    LeftSectionComponent_2 As LeftSectionComponent:
+        ZIndex: =30
+
+    ImportModal As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =30
+
+        ImageAttach As image:
+            Visible: =false
+            X: =540
+            Y: =69
+            ZIndex: =24
+
+        ModalConfirmation_3 As ModalConfirmation:
+            LeftBtnIcon: =Icon.Import
+            LeftBtnText: ="Importar"
+            ModalIcon: =Icon.AddDocument
+            ModalIconColor: =cores.amareloMontepio
+            ModalText: ="Arraste o ficheiro ou clique aqui"
+            RightBtnFill: =cores.rosa
+            RightBtnText: ="Cancelar"
+            Visible: =showAttachExcel
+            ZIndex: =25
+
+        Button2_23 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =UpdateContext({
+                    showAttachExcel: false
+                });
+                Reset('Attach Control')
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: =showAttachExcel
+            Width: =161
+            X: =719
+            Y: =438
+            ZIndex: =26
+
+        Button2_24 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            DisplayMode: |-
+                =If(
+                    CountRows('Attach Control'.Attachments) = 0,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =Concurrent(
+                    ColaboradoresImportarExcel.Run({
+                        file:{
+                            contentBytes: First('Attach Control'.Attachments).Value,
+                            name: First('Attach Control'.Attachments).Name
+                        }
+                    }),
+                
+                    UpdateContext({
+                        showAttachExcel: false
+                    }),
+                    
+                    Reset('Attach Control')
+                );
+                
+                Notify("Importação em curso!", NotificationType.Information, 4000)
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: =showAttachExcel
+            Width: =161
+            X: =490
+            Y: =438
+            ZIndex: =27
+
+        Label9 As label:
+            Align: =Align.Center
+            DisabledFill: =Color.White
+            Fill: =Color.White
+            Height: =87
+            HoverFill: =Color.White
+            PaddingTop: =20
+            PressedFill: =Color.White
+            Text: |-
+                ="Arraste o ficheiro ou clique aqui
+                " &
+                If(
+                    CountRows('Attach Control'.Attachments) <> 0,
+                    First('Attach Control'.Attachments).Name,
+                    "(vazio)"
+                )
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =showAttachExcel
+            Width: =363
+            X: =501
+            Y: =340
+            ZIndex: =28
+
+        "'Attach Control' As attachments":
+            BorderColor: =cores.cinzento
+            BorderThickness: =1
+            Color: =Color.Transparent
+            Fill: =Color.Transparent
+            Height: =87
+            HoverBorderColor: =cores.cinzento
+            HoverColor: =Color.Transparent
+            HoverFill: =Color.Transparent
+            IsInDataCard: =true
+            ItemHoverColor: =RGBA(0, 0, 0, 0)
+            ItemHoverFill: =Color.Transparent
+            Items: =Blank()
+            MaxAttachments: =1
+            MaxAttachmentsText: ="Foi atingido o número máximo de ficheiros."
+            NoAttachmentsText: =""
+            OnAddFile: |-
+                =Set(varDemo,JSON(ImageAttach.Image,JSONFormat.IncludeBinaryData));
+                
+                Set(varBase64Only,Mid(varDemo,Find(",",varDemo)+1,Len(varDemo)-Find(",",varDemo)-1));
+                
+                /*If(
+                    IsBlank(First(globalReportAttach).Name),
+                    ClearCollect(
+                        globalReportAttach,
+                        {
+                            Name: Last('Attach Control'.Attachments).Name,
+                            Content: varBase64Only
+                        }
+                    ),
+                    Collect(
+                        globalReportAttach,
+                        {
+                            Name: Last('Attach Control'.Attachments).Name,
+                            Content: varBase64Only
+                        }
+                    )
+                )*/
+            TabIndex: =
+            Tooltip: =
+            Visible: =showAttachExcel
+            Width: =362
+            X: =502
+            Y: =340
+            ZIndex: =29
+

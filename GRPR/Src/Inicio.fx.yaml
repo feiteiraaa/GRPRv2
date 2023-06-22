@@ -1,0 +1,628 @@
+Inicio As screen:
+    OnVisible: |-
+        = UpdateContext({ _Associar:false});
+         //Set(DRI,true)
+
+    TopSectionComponent_1 As TopSectionComponent:
+        X: =342
+        ZIndex: =2
+
+    Label1 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =48
+        Size: =15
+        Text: ="Bem vindo(a), " & User().FullName
+        Width: =692
+        X: =365
+        Y: =26
+        ZIndex: =3
+
+    Gallery2 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderThickness: =0.5
+        DelayItemLoading: =true
+        Fill: =RGBA(219, 219, 219, 1)
+        Height: =431
+        Items: |-
+            =SortByColumns(
+                With(
+                    {
+                        records: Ungroup(
+                            Table(
+                                {Atividades: Atividades},
+                                {Atividades: Listagens_1}
+                            ),
+                            "Atividades"
+                        )
+                    },
+                    ForAll(
+                        Sequence(CountRows(records)),
+                        Patch(
+                            Last(
+                                FirstN(
+                                    records,
+                                    Value
+                                )
+                            ),
+                            {rowNumber: Value}
+                        )
+                    )
+                ),
+                "createdon",
+                SortOrder.Descending
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =55
+        Visible: |-
+            =Or(
+                godMode,
+                DRI,
+                DGC_Editor,
+                DGC_Validador
+            
+            )
+        Width: =692
+        X: =365
+        Y: =136
+        ZIndex: =4
+
+        Rectangle1_1 As rectangle:
+            Fill: |-
+                =If(
+                    Mod(ThisItem.rowNumber, 2) = 0,
+                    RGBA(219, 219, 219, 1),
+                    Color.White
+                )
+            Height: =50
+            OnSelect: =Select(Parent)
+            Width: =692
+            Y: =1
+            ZIndex: =1
+
+        Label5 As label:
+            Color: =RGBA(77, 77, 77, 1)
+            Height: =53
+            OnSelect: =Select(Parent)
+            PaddingLeft: =20
+            PaddingRight: =0
+            Size: =12
+            Text: |-
+                =If(IsBlank(
+                    ThisItem.uipp_titulo),
+                    "Listagens", "Atividades"
+                 )
+            Width: =133
+            ZIndex: =2
+
+        Label3_4 As label:
+            Color: =RGBA(77, 77, 77, 1)
+            Height: =53
+            OnSelect: =Select(Parent)
+            PaddingLeft: =10
+            PaddingRight: =0
+            Size: =12
+            Text: =ThisItem.uipp_titulo
+            Width: =378
+            X: =133
+            ZIndex: =3
+
+        Label3_5 As label:
+            Color: =RGBA(77, 77, 77, 1)
+            Height: =53
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: |-
+                =Text(ThisItem.uipp_data, "dd-mm-yyyy hh:mm AM/PM")
+            Width: =181
+            X: =511
+            ZIndex: =4
+
+    Label1_1 As label:
+        Color: =RGBA(128, 128, 128, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =15
+        Text: ="Notificações"
+        Width: =270
+        X: =365
+        Y: =93
+        ZIndex: =5
+
+    Label7 As label:
+        Height: =299
+        Text: |-
+            ="DRI: " & DRI &
+            "
+            DGC Editor: " & DGC_Editor &
+            "
+            DCRF Editor: " & DCRF_Editor &
+            "
+            DGP Editor: " & DGP_Editor &
+            "
+            GCONT Editor: " & GCONT_Editor &
+            "
+            DGC Validador: " & DGC_Validador &
+            "
+            DGP Validador: " & DGP_Validador &
+            "
+            DCRF Validador: " & DCRF_Validador &
+            "
+            GCONT Validador: " & GCONT_Validador &
+            "
+            DCOMP Consulta: " & DCOMP_Consulta &
+            "
+            DAI Consulta: " & DAI_Consulta &
+            "
+            DMK Consulta: " & DMK_Consulta &
+            "
+            CCOMP Consulta: " & CCOMP_Consulta &
+            "
+            God: " & godMode
+        Visible: |-
+            =//godMode
+            false
+        Width: =227
+        X: =1139
+        ZIndex: =6
+
+    Label1_7 As label:
+        Color: =cores.cinzento
+        Height: =25
+        PaddingTop: =0
+        Text: |-
+            ="("&
+            If(
+                DRI,
+                "DRI",
+            
+                DGC_Editor,
+                "DGC - Editor",
+                DCRF_Editor,
+                "DCRF - Editor",
+                DGP_Editor,
+                "DGP - Editor",
+                GCONT_Editor,
+                "GCONT - Editor",
+            
+                DGC_Validador,
+                "DGC - Validador",
+                DCRF_Validador,
+                "DCRF - Validador",
+                DGP_Validador,
+                "DGP - Validador",
+                GCONT_Validador,
+                "GCONT - Validador",
+            
+                DCOMP_Consulta,
+                "DCOMP - Consulta",
+                DAI_Consulta,
+                "DAI - Consulta",
+                DMK_Consulta,
+                "DMK - Consulta",
+                CCOMP_Consulta,
+                "CCOMP - Consulta",
+            
+                godMode,
+                "Unipartner"
+            )
+            &")"
+        Width: =194
+        X: =365
+        Y: =65
+        ZIndex: =7
+
+    Label10 As label:
+        Text: =appVersion
+        Width: =51
+        X: =1315
+        Y: =728
+        ZIndex: =8
+
+    LeftSectionComponent_1 As LeftSectionComponent:
+        ZIndex: =9
+
+    FimPeriodoKPI As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =15
+
+        Label8 As label:
+            Align: =Align.Center
+            Color: =cores.azulTitulo
+            Fill: =ColorFade(cores.cinzento, 90%)
+            FontWeight: =FontWeight.Semibold
+            Height: =63
+            Text: ="Fim do próximo periodo"
+            Visible: |-
+                =Or(
+                    godMode,
+                    DRI,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DCRF_Editor,
+                    DCRF_Validador,
+                    DGP_Editor,
+                    DGP_Validador,
+                    GCONT_Editor,
+                    GCONT_Validador,
+                    DCOMP_Consulta,
+                    DAI_Consulta,
+                    DMK_Consulta,
+                    CCOMP_Consulta
+                )
+            Width: =191
+            X: =1138
+            Y: =138
+            ZIndex: =10
+
+        Label8_1 As label:
+            Align: =Align.Center
+            Fill: =ColorFade(cores.cinzento, 90%)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =18
+            Text: |
+                =DateDiff(Text(Now(),"yyyy-mm-dd","pt-PT"),Text(DateTimeValue(Label8_3.Text),"yyyy-mm-dd","pt-PT"))
+            Visible: |-
+                =Or(
+                    godMode,
+                    DRI,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DCRF_Editor,
+                    DCRF_Validador,
+                    DGP_Editor,
+                    DGP_Validador,
+                    GCONT_Editor,
+                    GCONT_Validador,
+                    DCOMP_Consulta,
+                    DAI_Consulta,
+                    DMK_Consulta,
+                    CCOMP_Consulta
+                )
+            Width: =191
+            X: =1138
+            Y: =201
+            ZIndex: =11
+
+        Label8_2 As label:
+            Align: =Align.Center
+            Fill: =ColorFade(cores.cinzento, 90%)
+            FontWeight: =FontWeight.Lighter
+            Height: =50
+            Size: =12
+            Text: ="dias restantes"
+            Visible: |-
+                =Or(
+                    godMode,
+                    DRI,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DCRF_Editor,
+                    DCRF_Validador,
+                    DGP_Editor,
+                    DGP_Validador,
+                    GCONT_Editor,
+                    GCONT_Validador,
+                    DCOMP_Consulta,
+                    DAI_Consulta,
+                    DMK_Consulta,
+                    CCOMP_Consulta
+                )
+            Width: =191
+            X: =1138
+            Y: =237
+            ZIndex: =12
+
+        Label8_3 As label:
+            Align: =Align.Center
+            Fill: =ColorFade(cores.cinzento, 90%)
+            FontWeight: =FontWeight.Semibold
+            Height: =50
+            Size: =15
+            Text: |-
+                =With(
+                    LookUp(
+                        Sort(Sort('Datas Referências', Mes, SortOrder.Ascending), Dia, SortOrder.Ascending),
+                        Mes >= Month(Now())
+                        And
+                        If(
+                            Mes = Month(Now()),
+                            Dia >= Day(Now()),
+                            true
+                        )
+                    ),
+                    //Text(Date(Year(Now()), Mes, Dia), DateTimeFormat.ShortDate, "pt-PT")
+                    Text(Date(Year(Now()), Mes, Dia), "yyyy/mm/dd", "pt-PT")
+                )
+            Visible: |-
+                =Or(
+                    godMode,
+                    DRI,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DCRF_Editor,
+                    DCRF_Validador,
+                    DGP_Editor,
+                    DGP_Validador,
+                    GCONT_Editor,
+                    GCONT_Validador,
+                    DCOMP_Consulta,
+                    DAI_Consulta,
+                    DMK_Consulta,
+                    CCOMP_Consulta
+                )
+            Width: =191
+            X: =1138
+            Y: =277
+            ZIndex: =13
+
+    FimPeriodoDecorrer As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        "Gallery1 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+            DelayItemLoading: =true
+            Fill: =ColorFade(cores.cinzento, 90%)
+            Height: =171
+            Items: =Aprovacaos
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: |+
+                =Gallery2.Width/4
+                
+            Visible: =Or(godMode,DRI)
+            Width: =Gallery2.Width
+            X: =365
+            Y: =580
+            ZIndex: =1
+
+            "Icon10_1 As icon.'3DPrinting'":
+                Color: |-
+                    =If(
+                        ThisItem.Aprovado = true,
+                        Color.Green,
+                        cores.cinzento
+                    )
+                Height: =40
+                Icon: |-
+                    =If(
+                        ThisItem.Aprovado = true,
+                        Icon.CheckBadge,
+                        Icon.CancelBadge
+                    )
+                Width: =40
+                X: =67
+                Y: =64
+                ZIndex: =1
+
+            Label14_1 As label:
+                Align: =Align.Center
+                Height: =47
+                Text: =ThisItem.Tabela
+                X: =12
+                Y: =111
+                ZIndex: =2
+
+        Label12 As label:
+            Align: =Align.Center
+            Color: =cores.azulTitulo
+            FontWeight: =FontWeight.Semibold
+            Text: ="Fim de periodo a decorrer"
+            Visible: =Or(godMode,DRI)
+            Width: =235
+            X: =594
+            Y: =587
+            ZIndex: =17
+
+    DownloadListagem As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =20
+
+        Label8_7 As label:
+            Align: =Align.Center
+            Color: =cores.azulTitulo
+            Fill: =ColorFade(cores.cinzento, 90%)
+            FontWeight: =FontWeight.Semibold
+            Height: =56
+            Text: ="Listagem ativa"
+            Visible: |-
+                =Or(
+                    godMode,
+                    DRI,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DGC_Editor,
+                    DCRF_Editor,
+                    DGP_Editor,
+                    GCONT_Editor,
+                    DCOMP_Consulta,
+                    DAI_Consulta,
+                    DMK_Consulta,
+                    CCOMP_Consulta
+                )
+            Width: =191
+            X: =1138
+            Y: =359
+            ZIndex: =14
+
+        Label8_4 As label:
+            Align: =Align.Center
+            Fill: =ColorFade(cores.cinzento, 90%)
+            Height: =96
+            Text: |-
+                ="Submetido a " &LookUp(
+                    Sort(
+                        Listagens_1,
+                        'Criado Em',
+                        SortOrder.Descending
+                    ),
+                    !IsBlank(ThisRecord.'Data de Aprovacao CA')
+                ).'Criado Em'
+            Visible: |-
+                =Or(
+                    godMode,
+                    DRI,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DGC_Editor,
+                    DCRF_Editor,
+                    DGP_Editor,
+                    GCONT_Editor,
+                    DCOMP_Consulta,
+                    DAI_Consulta,
+                    DMK_Consulta,
+                    CCOMP_Consulta
+                )
+            Width: =191
+            X: =1138
+            Y: =479
+            ZIndex: =15
+
+        Icon9 As icon.Download:
+            Color: =cores.amareloMontepio
+            Fill: =ColorFade(cores.cinzento, 90%)
+            Icon: =Icon.Download
+            Visible: |-
+                =Or(
+                    godMode,
+                    DRI,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DGC_Editor,
+                    DCRF_Editor,
+                    DGP_Editor,
+                    GCONT_Editor,
+                    DCOMP_Consulta,
+                    DAI_Consulta,
+                    DMK_Consulta,
+                    CCOMP_Consulta
+                )
+            Width: =191
+            X: =1138
+            Y: =415
+            ZIndex: =16
+
+    FimPeriodoDecorrerDate As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =22
+
+        Rectangle4 As rectangle:
+            Fill: =ColorFade(cores.cinzento, 90%)
+            Height: =171
+            Visible: |-
+                =Or(
+                    godMode,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DCRF_Editor,
+                    DCRF_Validador,
+                    DGP_Editor,
+                    DGP_Validador,
+                    GCONT_Editor,
+                    GCONT_Validador
+                )
+            Width: =692
+            X: =365
+            Y: =580
+            ZIndex: =18
+
+        Label14 As label:
+            Align: =Align.Center
+            Color: =cores.azulTitulo
+            FontWeight: =FontWeight.Semibold
+            Text: ="Fim de periodo a decorrer"
+            Visible: |-
+                =Or(
+                    godMode,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DCRF_Editor,
+                    DCRF_Validador,
+                    DGP_Editor,
+                    DGP_Validador,
+                    GCONT_Editor,
+                    GCONT_Validador
+                )
+            Width: =230
+            X: =596
+            Y: =587
+            ZIndex: =19
+
+        Label15 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =88
+            Text: ="Por favor valide que toda a informação está correta relativamente às partes relacionadas até fim do prazo."
+            VerticalAlign: =VerticalAlign.Top
+            Visible: |-
+                =Or(
+                    godMode,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DCRF_Editor,
+                    DCRF_Validador,
+                    DGP_Editor,
+                    DGP_Validador,
+                    GCONT_Editor,
+                    GCONT_Validador
+                )
+            Width: =597
+            X: =413
+            Y: =660
+            ZIndex: =20
+
+        Label16 As label:
+            Align: =Align.Center
+            Text: |-
+                =DateDiff(
+                    Text(
+                        Now(),
+                        "yyyy-mm-dd",
+                        "pt-PT"
+                    ),
+                    Text(
+                        DateTimeValue(Label8_3.Text),
+                        "yyyy-mm-dd",
+                        "pt-PT"
+                    )
+                ) & "d " & 
+                DateDiff(
+                    Now(),
+                    DateValue(
+                        Text(
+                            DateAdd(Now(), 1, TimeUnit.Days),
+                            "yyyy-mm-dd"
+                        ) & " 12:00 AM"
+                    ),
+                    TimeUnit.Hours
+                ) & "h " & "restantes"
+            Visible: |-
+                =Or(
+                    godMode,
+                    DGC_Editor,
+                    DGC_Validador,
+                    DCRF_Editor,
+                    DCRF_Validador,
+                    DGP_Editor,
+                    DGP_Validador,
+                    GCONT_Editor,
+                    GCONT_Validador
+                )
+            Width: =232
+            X: =595
+            Y: =613
+            ZIndex: =21
+

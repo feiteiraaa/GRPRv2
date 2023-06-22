@@ -1,0 +1,151 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_atividades",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_atividade",
+    "MaxGetRowsCount": 500,
+    "Name": "Atividades",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "_uipp_autor_value": "Autor",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_atividade_AsyncOperations": "System Jobs",
+      "uipp_atividade_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_atividade_DuplicateBaseRecord": "Duplicate Records (uipp_atividade_DuplicateBaseRecord)",
+      "uipp_atividade_DuplicateMatchingRecord": "Duplicate Records (uipp_atividade_DuplicateMatchingRecord)",
+      "uipp_atividade_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_atividade_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_atividade_ProcessSession": "Process Sessions",
+      "uipp_atividade_SyncErrors": "Sync Errors",
+      "uipp_atividadeid": "Atividade",
+      "uipp_data": "Data",
+      "uipp_id": "ID",
+      "uipp_item": "Item",
+      "uipp_itemcolumns": "ItemColumns",
+      "uipp_itemguid": "ItemGUID",
+      "uipp_itemid": "ItemID",
+      "uipp_listadaatividade": "Lista da atividade",
+      "uipp_tipodealteracao": "Tipo de alteracao",
+      "uipp_titulo": "Titulo",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Atividades",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Atividades (Views)",
+    "Name": "_uipp_atividade_views",
+    "RelatedEntityName": "Atividades",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "18607bbd-45a3-4787-b1e7-065a4f033321": "Atividade Advanced Find View",
+      "68dd06cf-44fd-46c5-a9fc-789b10e7161f": "Atividade Associated View",
+      "75b46097-8ea8-43c5-9f96-23fab2fedcb2": "Active Atividades",
+      "7677bafb-fcf3-481f-b308-69a419beecfe": "Atividade Lookup View",
+      "c10414a7-8873-48de-b4ca-29a8227162e1": "Inactive Atividades"
+    }
+  },
+  {
+    "DisplayName": "Status (Atividades)",
+    "Name": "uipp_atividade_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Atividades"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Atividades",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Atividades)",
+    "Name": "uipp_atividade_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Atividades"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Atividades",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "lista da atividade",
+    "Name": "uipp_listadaatividade",
+    "OptionSetInfoNameMapping": {
+      "847700000": "Membros",
+      "847700001": "Familiares",
+      "847700002": "Empresas Respetivas",
+      "847700003": "Colaboradores",
+      "847700004": "ROC",
+      "847700005": "Empresas Participadas"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_listadaatividade",
+        "OptionSetReferenceEntityName": "Atividades"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_listadaatividade",
+    "RelatedEntityName": "Atividades",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "tipo de alteracao",
+    "Name": "uipp_tipodealteracao",
+    "OptionSetInfoNameMapping": {
+      "847700000": "Inserção",
+      "847700001": "Edição",
+      "847700002": "Eliminação"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_tipodealteracao",
+        "OptionSetReferenceEntityName": "Atividades"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_tipodealteracao",
+    "RelatedEntityName": "Atividades",
+    "Type": "OptionSetInfo"
+  }
+]

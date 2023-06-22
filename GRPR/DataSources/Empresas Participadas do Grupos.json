@@ -1,0 +1,152 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_empresasparticipadasdogrupos",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_empresasparticipadasdogrupo",
+    "MaxGetRowsCount": 500,
+    "Name": "Empresas Participadas do Grupos",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_ativo": "Ativo",
+      "uipp_bloqueado": "Bloqueado",
+      "uipp_controlo": "Controlo",
+      "uipp_dataaprovacaoca": "Data aprovacao CA",
+      "uipp_datadeinsercao": "Data de insercao",
+      "uipp_datadesaida": "Data de saida",
+      "uipp_empresasparticipadasdogrupo_AsyncOperations": "System Jobs",
+      "uipp_empresasparticipadasdogrupo_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_empresasparticipadasdogrupo_connections1": "Connections (uipp_empresasparticipadasdogrupo_connections1)",
+      "uipp_empresasparticipadasdogrupo_connections2": "Connections (uipp_empresasparticipadasdogrupo_connections2)",
+      "uipp_empresasparticipadasdogrupo_DuplicateBaseRecord": "Duplicate Records (uipp_empresasparticipadasdogrupo_DuplicateBaseRecord)",
+      "uipp_empresasparticipadasdogrupo_DuplicateMatchingRecord": "Duplicate Records (uipp_empresasparticipadasdogrupo_DuplicateMatchingRecord)",
+      "uipp_empresasparticipadasdogrupo_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_empresasparticipadasdogrupo_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_empresasparticipadasdogrupo_ProcessSession": "Process Sessions",
+      "uipp_empresasparticipadasdogrupo_SyncErrors": "Sync Errors",
+      "uipp_empresasparticipadasdogrupoid": "Empresas Participadas do Grupo",
+      "uipp_grupo": "Grupo",
+      "uipp_Legislacaoaplicada": "Legislacao aplicada",
+      "uipp_name": "ID",
+      "uipp_nome": "Nome",
+      "uipp_numerodocumento": "Numero documento",
+      "uipp_participacaoefetiva": "Participacao efetiva",
+      "uipp_tipodedocumento": "Tipo de documento",
+      "uipp_uipp_membrosparticipadas_ParentID_uipp_em": "Membros-Participadas",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Empresas Participadas do Grupos",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Empresas Participadas do Grupos (Views)",
+    "Name": "_uipp_empresasparticipadasdogrupo_views",
+    "RelatedEntityName": "Empresas Participadas do Grupos",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0fc53f36-740b-47ea-b7c5-4fa6a259a330": "Empresas Participadas do Grupo Lookup View",
+      "138d0ec1-0893-438a-8caa-725929a2dcb2": "Inactive Empresas Participadas do Grupos",
+      "35f9d28a-03bf-47f6-a546-39dbddaa9d84": "Active Empresas Participadas do Grupos",
+      "a47737a8-ac37-4388-a86c-1281af525b29": "Empresas Participadas do Grupo Advanced Find View",
+      "ddc7a9a3-4b84-487a-808f-1da2925341d9": "Empresas Participadas do Grupo Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Empresas Participadas do Grupos)",
+    "Name": "uipp_empresasparticipadasdogrupo_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Empresas Participadas do Grupos"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Empresas Participadas do Grupos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Empresas Participadas do Grupos)",
+    "Name": "uipp_empresasparticipadasdogrupo_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Empresas Participadas do Grupos"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Empresas Participadas do Grupos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Ativo (Empresas Participadas do Grupos)",
+    "Name": "uipp_empresasparticipadasdogrupo_uipp_ativo",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_ativo",
+        "OptionSetReferenceEntityName": "Empresas Participadas do Grupos"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_ativo",
+    "RelatedEntityName": "Empresas Participadas do Grupos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Bloqueado (Empresas Participadas do Grupos)",
+    "Name": "uipp_empresasparticipadasdogrupo_uipp_bloqueado",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_bloqueado",
+        "OptionSetReferenceEntityName": "Empresas Participadas do Grupos"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_bloqueado",
+    "RelatedEntityName": "Empresas Participadas do Grupos",
+    "Type": "OptionSetInfo"
+  }
+]

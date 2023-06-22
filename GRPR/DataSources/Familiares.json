@@ -1,0 +1,147 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_familiareses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_familiares",
+    "MaxGetRowsCount": 500,
+    "Name": "Familiares",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_ativo": "Ativo",
+      "uipp_bloqueado": "Bloqueado",
+      "uipp_dataaprovacaoca": "Data aprovacao CA",
+      "uipp_datadeinsercao": "Data de insercao",
+      "uipp_datadesaida": "Data de saida",
+      "uipp_familiares_AsyncOperations": "System Jobs",
+      "uipp_familiares_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_familiares_DuplicateBaseRecord": "Duplicate Records (uipp_familiares_DuplicateBaseRecord)",
+      "uipp_familiares_DuplicateMatchingRecord": "Duplicate Records (uipp_familiares_DuplicateMatchingRecord)",
+      "uipp_familiares_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_familiares_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_familiares_ProcessSession": "Process Sessions",
+      "uipp_familiares_SyncErrors": "Sync Errors",
+      "uipp_familiaresid": "Familiares",
+      "uipp_id": "ID",
+      "uipp_Legislacaoaplicada": "Legislacao aplicada",
+      "uipp_nome": "Nome",
+      "uipp_numerodocumento": "Numero documento",
+      "uipp_tipodedocumento": "Tipo de documento",
+      "uipp_uipp_membrosfamiliaresrespetivas_ID_Famil": "Membros-Familiares-Respetivas",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Familiares",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Familiares (Views)",
+    "Name": "_uipp_familiares_views",
+    "RelatedEntityName": "Familiares",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "38ecedc1-2bb8-4f80-b98f-f9a346e1c9ee": "Active Familiares",
+      "6ed034e9-5da0-4ac3-8c2c-ab5c52de9911": "Inactive Familiares",
+      "9646c977-9418-45d8-9d28-9d70977e4d5d": "Familiares Associated View",
+      "d8376475-825c-4a78-ada1-1718b124d490": "Familiares Advanced Find View",
+      "e9a87403-17c0-4823-afd2-2bd6b22136b5": "Familiares Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Familiares)",
+    "Name": "uipp_familiares_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Familiares"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Familiares",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Familiares)",
+    "Name": "uipp_familiares_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Familiares"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Familiares",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Ativo (Familiares)",
+    "Name": "uipp_familiares_uipp_ativo",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_ativo",
+        "OptionSetReferenceEntityName": "Familiares"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_ativo",
+    "RelatedEntityName": "Familiares",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Bloqueado (Familiares)",
+    "Name": "uipp_familiares_uipp_bloqueado",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_bloqueado",
+        "OptionSetReferenceEntityName": "Familiares"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_bloqueado",
+    "RelatedEntityName": "Familiares",
+    "Type": "OptionSetInfo"
+  }
+]

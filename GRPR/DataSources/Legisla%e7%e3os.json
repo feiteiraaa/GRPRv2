@@ -1,0 +1,127 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_legislacaos",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_legislacao",
+    "MaxGetRowsCount": 500,
+    "Name": "Legislaçãos",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_competenciadecisao": "Competencia Decisao",
+      "uipp_descritivo": "Descritivo",
+      "uipp_id": "ID",
+      "uipp_legislacao_AsyncOperations": "System Jobs",
+      "uipp_legislacao_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_legislacao_DuplicateBaseRecord": "Duplicate Records (uipp_legislacao_DuplicateBaseRecord)",
+      "uipp_legislacao_DuplicateMatchingRecord": "Duplicate Records (uipp_legislacao_DuplicateMatchingRecord)",
+      "uipp_legislacao_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_legislacao_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_legislacao_ProcessSession": "Process Sessions",
+      "uipp_legislacao_SyncErrors": "Sync Errors",
+      "uipp_legislacaoid": "Legislação",
+      "uipp_parecerdecad": "Parecer de CAD",
+      "uipp_tipodeenquadramento": "Tipo de enquadramento",
+      "uipp_uipp_colaboradores_Legislacaoaplicada_uip": "Colaboradores",
+      "uipp_uipp_empresas_Legislacaoaplicada_uipp_leg": "Empresas",
+      "uipp_uipp_empresasparticipadasdogrupo_Legislac": "Empresas Participadas do Grupos",
+      "uipp_uipp_familiares_Legislacaoaplicada_uipp_l": "Familiares",
+      "uipp_uipp_membros_Legislacaoaplicada_uipp_legi": "Membros",
+      "uipp_uipp_roc_Legislacaoaplicada_uipp_legislac": "ROCS",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Legislaçãos",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Legislaçãos (Views)",
+    "Name": "_uipp_legislacao_views",
+    "RelatedEntityName": "Legislaçãos",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0f186054-05d5-4c3a-ab46-2406efb465ab": "Active Legislaçãos",
+      "421886ab-16ac-4d5f-b49a-39509738eeab": "Legislação Associated View",
+      "576d48fe-0945-4b67-826a-67da89df8d07": "Inactive Legislaçãos",
+      "ea56d4f2-a2f8-4157-92c7-4a35230ee685": "Legislação Advanced Find View",
+      "eee2f94b-e0dc-4b2b-9792-372128c7d4ca": "Legislação Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Legislaçãos)",
+    "Name": "uipp_legislacao_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Legislaçãos"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Legislaçãos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Legislaçãos)",
+    "Name": "uipp_legislacao_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Legislaçãos"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Legislaçãos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Parecer de CAD (Legislaçãos)",
+    "Name": "uipp_legislacao_uipp_parecerdecad",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_parecerdecad",
+        "OptionSetReferenceEntityName": "Legislaçãos"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_parecerdecad",
+    "RelatedEntityName": "Legislaçãos",
+    "Type": "OptionSetInfo"
+  }
+]

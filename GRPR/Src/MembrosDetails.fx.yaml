@@ -1,0 +1,3820 @@
+MembrosDetails As screen:
+    OnVisible: |
+        =UpdateContext(
+            {
+                _Associar: false,
+                _AssociarR: false,
+                localShowModal: false,
+                localShowData: If(
+                    IsBlank(_Membro),
+                    true,
+                    false
+                ),
+                localShowLeg: If(
+                    _Associated,
+                    true,
+                    false
+                ),
+                localShowEliminacao: If(
+                    _AssociatedR,
+                    true,
+                    false
+                ),
+                localShowRelacao: false,
+                localShowPrazo: false,
+                localShowNewForm: false,
+                localBloquear: true
+            }
+        );
+        Refresh('Membros-Familiares-Respetivas');
+        Refresh('Membros-Participadas');
+        ClearCollect(
+            ligacaoParticipada,
+            Filter(
+                'Membros-Participadas',
+                'Child ID'.ID = _Membro
+            )
+        );
+        ClearCollect(
+            ligacaoParticipadas,
+            AddColumns(
+                ligacaoParticipada,
+                "Designacao",
+                LookUp(
+                    'Empresas Participadas do Grupos',
+                    ID = ligacaoParticipada[@'Parent ID'].ID
+                ).Nome
+            )
+        );
+        ClearCollect(
+            ligacaoRespetiva0,
+            Filter(
+                'Membros-Familiares-Respetivas',
+                ID_Membro.ID = _Membro
+            )
+        );
+        ClearCollect(
+            ligacaoRespetiva,
+            Filter(
+                ligacaoRespetiva0,
+                IsBlank(ID_Familiares.ID)
+            )
+        );
+        ClearCollect(
+            ligacaoRespetivas,
+            AddColumns(
+                ligacaoRespetiva,
+                "Designacao",
+                LookUp(
+                    Empresas,
+                    ID = ligacaoRespetiva[@ID_Membro].ID
+                ).Designacao
+            )
+        );
+        ClearCollect(
+            ligacaoFamiliar0,
+            Filter(
+                'Membros-Familiares-Respetivas',
+                ID_Membro.ID = _Membro
+            )
+        );
+        ClearCollect(
+            ligacaoFamiliar,
+            Filter(
+                ligacaoFamiliar0,
+                IsBlank(ID_Empresa.ID)
+            )
+        );
+        ClearCollect(
+            ligacaoFamiliares,
+            AddColumns(
+                ligacaoFamiliar,
+                "NomeF",
+                LookUp(
+                    Familiares,
+                    ID = ligacaoFamiliar[@ID_Familiares].ID
+                ).Nome,
+                "NumDoc",
+                LookUp(
+                    Familiares,
+                    ID = ligacaoFamiliar[@ID_Familiares].ID
+                ).'Numero documento',
+                "Ativo",
+                LookUp(
+                    Familiares,
+                    ID = ligacaoFamiliar[@ID_Familiares].ID
+                ).Ativo
+            )
+        );
+        Refresh('Membros-Familiares-Respetivas');
+        Refresh('Membros-Participadas');
+        Clear(atividadesFami)
+
+    "'Mid Section_Membros' As groupContainer.manualLayoutContainer":
+        Height: =580
+        Width: =978
+        X: =368
+        Y: =LabelMembroName.Y +50
+        ZIndex: =3
+
+        "'Informacao Content' As groupContainer.manualLayoutContainer":
+            Height: =300
+            Visible: =localShowData
+            Width: =Parent.Width
+            Y: =Infomacao.Y + Infomacao.Height
+            ZIndex: =1
+
+            Informacao As form:
+                DataSource: =Membros_1
+                DefaultMode: |-
+                    =If(
+                        localShowNewForm,
+                        FormMode.Edit,
+                        IsBlank(_Membro),
+                        ColabFormMode,
+                        FormMode.View
+                    )
+                Height: =Parent.Height-DynamicBtn_14.Height
+                Item: =LookUp(Membros_1, _Membro = ThisRecord.ID)
+                Width: =Parent.Width*0.95
+                X: =24
+                Y: =50
+                ZIndex: =1
+
+                Nome_DataCard1 As typedDataCard.textualEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_nome"
+                    Default: =ThisItem.Nome
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_nome")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@Membros_1], DataSourceInfo.MaxLength, "uipp_nome")
+                    Required: =true
+                    Update: =DataCardValue3.Text
+                    Width: =266
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey3 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue3 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        HoverBorderColor: =cores.cinzento
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage1 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue3.Y + DataCardValue3.Height
+                        ZIndex: =3
+
+                    StarVisible1 As label:
+                        Align: =Align.Center
+                        Color: =cores.cinzento
+                        Height: =DataCardKey3.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey3.Y
+                        ZIndex: =4
+
+                "'Tipo de documento_DataCard2' As typedDataCard.comboBoxOptionSetSingleEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_tipodedocumento"
+                    Default: =ThisItem.'Tipo de documento'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_tipodedocumento")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =true
+                    Update: =DataCardValue4.Selected.Value
+                    Width: =266
+                    X: =1
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey4 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue4 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        ChevronBackground: |
+                            =cores.amareloMontepio
+                        DefaultSelectedItems: =[Parent.Default]
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        HoverFill: |
+                            =cores.amareloMontepio
+                        IsSearchable: =false
+                        Items: =Choices('Tipo de Documento')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedFill: =cores.amareloMontepio
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: |
+                            =cores.amareloMontepio
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage2 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue4.Y + DataCardValue4.Height
+                        ZIndex: =3
+
+                    StarVisible2 As label:
+                        Align: =Align.Center
+                        Color: =cores.cinzento
+                        Height: =DataCardKey4.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey4.Y
+                        ZIndex: =4
+
+                "'Numero documento_DataCard1' As typedDataCard.numberEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_numerodocumento"
+                    Default: =ThisItem.'Numero documento'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_numerodocumento")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =true
+                    Update: =Value(DataCardValue5.Text)
+                    Width: =266
+                    X: =2
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey5 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Número do documento"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue5 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Format: =TextFormat.Number
+                        HoverBorderColor: =cores.cinzento
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage3 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue5.Y + DataCardValue5.Height
+                        ZIndex: =3
+
+                    StarVisible3 As label:
+                        Align: =Align.Center
+                        Color: =cores.cinzento
+                        Height: =DataCardKey5.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey5.Y
+                        ZIndex: =4
+
+                "'Data de insercao_DataCard1' As typedDataCard.dateTimeEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_datadeinsercao"
+                    Default: =ThisItem.'Data de insercao'
+                    DisplayMode: |-
+                        =If(
+                            IsBlank(_Membro),
+                            Parent.DisplayMode,
+                            DisplayMode.View
+                        )
+                    DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_datadeinsercao")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DateValue1.SelectedDate
+                    Visible: |
+                        =ColabFormMode<>FormMode.New
+                    Width: =266
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey6 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Data de inserção"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DateValue1 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultDate: =If(IsBlank(_Membro),Text(Today(),"yyyy-mm-dd"),Parent.Default)
+                        DisplayMode: =Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Format: |-
+                            =Text(
+                                Parent.Default,
+                                "dd-mm-yyyy",
+                                "pt-PT"
+                            )
+                        IsEditable: =true
+                        PaddingBottom: =0
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =(Parent.Width - 60)
+                        X: =30
+                        Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage4 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DateValue1.Y + DateValue1.Height
+                        ZIndex: =6
+
+                    StarVisible4 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey6.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey6.Y
+                        ZIndex: =7
+
+                "'Data aprovacao CA_DataCard1' As typedDataCard.dateTimeEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_dataaprovacaoca"
+                    Default: =ThisItem.'Data aprovacao CA'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_dataaprovacaoca")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DateValue2.SelectedDate
+                    Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
+                    Width: =266
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey7 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Data de Aprovação em CA"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DateValue2 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultDate: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Format: |-
+                            =Text(
+                                Parent.Default,
+                                "dd-mm-yyyy",
+                                "pt-PT"
+                            )
+                        IsEditable: =true
+                        PaddingBottom: =0
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =(Parent.Width - 60) / 2
+                        X: =30
+                        Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage5 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DateValue2.Y + DateValue2.Height
+                        ZIndex: =6
+
+                    StarVisible5 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey7.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey7.Y
+                        ZIndex: =7
+
+                "'Legislacao aplicada_DataCard3' As typedDataCard.comboBoxEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_Legislacaoaplicada"
+                    Default: =ThisItem.'Legislacao aplicada'
+                    DisplayMode: =If(DRI And (localShowNewForm Or IsBlank(_Membro)) ,DisplayMode.Edit,DisplayMode.View)
+                    DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_Legislacaoaplicada")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue6.Selected
+                    Visible: |-
+                        =If(
+                            DRI,
+                            true,
+                            IsBlank(_Membro) And !DRI,
+                            false
+                        )
+                    Width: =266
+                    X: =2
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey8 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Legislação aplicada"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue6 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        ChevronBackground: =cores.amareloMontepio
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["uipp_tipodeenquadramento"]
+                        DisplayMode: =Parent.DisplayMode
+                        HoverFill: =cores.amareloMontepio
+                        IsSearchable: =false
+                        Items: |-
+                            =Choices([@Membros_1].'Legislacao aplicada')
+                            //[@Legislaçãos].uipp_tipodeenquadramento
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedFill: =cores.amareloMontepio
+                        SearchFields: =["uipp_tipodeenquadramento"]
+                        SearchItems: =[]
+                        SelectionFill: =cores.amareloMontepio
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey8.Y + DataCardKey8.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage6 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue6.Y + DataCardValue6.Height
+                        ZIndex: =3
+
+                    StarVisible6 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey8.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey8.Y
+                        ZIndex: =4
+
+                "'Data de saida_DataCard1' As typedDataCard.dateTimeEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_datadesaida"
+                    Default: =ThisItem.'Data de saida'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_datadesaida")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DateValue3.SelectedDate 
+                    Visible: =!IsBlank(ThisItem.'Data de saida')
+                    Width: =266
+                    X: =0
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey30 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Data de saída"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DateValue3 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultDate: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Format: |-
+                            =Text(
+                                Parent.Default,
+                                "dd-mm-yyyy",
+                                "pt-PT"
+                            )
+                        IsEditable: =true
+                        PaddingBottom: =0
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =(Parent.Width - 60) / 2
+                        X: =30
+                        Y: =DataCardKey30.Y + DataCardKey30.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage30 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DateValue3.Y + DateValue3.Height
+                        ZIndex: =6
+
+                    StarVisible30 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey30.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey30.Y
+                        ZIndex: =7
+
+            EditarMembrosInfo As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =4
+
+                DynamicBtn_14 As DynamicBtn:
+                    BtnText: =If(localShowNewForm Or IsBlank(_Membro), "Guardar" ,"Editar")
+                    ButtonIcon: =If(localShowNewForm Or IsBlank(_Membro),Icon.Save ,Icon.Edit)
+                    Height: =40
+                    Visible: =Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Width: =160
+                    X: =Parent.X+800
+                    Y: =7
+                    ZIndex: =2
+
+                edit_btn_2 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =If(
+                            localShowNewForm Or Informacao.Mode = FormMode.New,
+                            If(
+                                Len(DataCardValue5.Text) = 9,
+                                If(
+                                    SubmitForm(Informacao),
+                                    Notify(
+                                        "O registo foi submetido com sucesso!",
+                                        NotificationType.Success
+                                    );
+                                    
+                                    ResetForm(Informacao);
+                                    UpdateContext(
+                                        {
+                                            localShowData: false,
+                                            localShowNewForm: !localShowNewForm
+                                        }
+                                    );
+                                    /*If(
+                                        Informacao.Mode = FormMode.New,
+                                        Navigate(
+                                            Particulares,
+                                            ScreenTransition.None
+                                        )
+                                    )*/
+                                    Back(),
+                                    Notify(
+                                        "Por favor, tente novamente.",
+                                        NotificationType.Error
+                                    )
+                                ),
+                                Notify(
+                                    "Por favor, preencha o número do documento corretamente.",
+                                    NotificationType.Error
+                                )
+                            ),
+                            UpdateContext(
+                                {localShowNewForm: !localShowNewForm
+                                //localFormMode: FormMode.New
+                        }
+                            )
+                        );
+                        Refresh(Membros_1)
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: =Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    X: =DynamicBtn_14.X
+                    Y: =DynamicBtn_14.Y
+                    ZIndex: =3
+
+            CancelMembroInfo As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =6
+
+                DynamicBtn_23 As DynamicBtn:
+                    BtnText: ="Cancelar"
+                    ButtonIcon: =Icon.Cancel
+                    Height: =40
+                    Visible: =localShowNewForm Or IsBlank(_Membro)
+                    Width: =160
+                    X: =Parent.X+600
+                    Y: =7
+                    ZIndex: =4
+
+                cancel_btn_6 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =UpdateContext({localShowNewForm: false});
+                        If(
+                            IsBlank(_Membro),
+                            Navigate(
+                                Particulares,
+                                ScreenTransition.None
+                            )
+                        );
+                        ResetForm(Informacao);
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: =localShowNewForm Or IsBlank(_Membro)
+                    X: =DynamicBtn_23.X
+                    Y: =DynamicBtn_23.Y
+                    ZIndex: =5
+
+        Infomacao As groupContainer.manualLayoutContainer:
+            Height: =50
+            Width: =Parent.Width
+            ZIndex: =2
+
+            "'Info Bottom_5' As icon.HorizontalLine":
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(220, 220, 220, 1)
+                Color: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(220, 220, 220, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(220, 220, 220, 1)
+                Fill: =RGBA(220, 220, 220, 1)
+                FocusedBorderColor: =RGBA(220, 220, 220, 1)
+                Height: =2
+                HoverBorderColor: =RGBA(220, 220, 220, 1)
+                HoverColor: =RGBA(220, 220, 220, 1)
+                HoverFill: =RGBA(220, 220, 220, 1)
+                Icon: =Icon.HorizontalLine
+                PressedBorderColor: =RGBA(220, 220, 220, 1)
+                PressedColor: =RGBA(220, 220, 220, 1)
+                PressedFill: =RGBA(220, 220, 220, 1)
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+            "'Info Label_5' As label":
+                AutoHeight: =true
+                Color: =RGBA(50, 86, 160, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: |-
+                    =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+                Text: ="Informação"
+                Width: =500
+                ZIndex: =2
+
+            "'Info Circle_5' As circle":
+                BorderColor: =RGBA(250, 191, 0, 1)
+                BorderThickness: =2
+                Fill: =If(localShowData, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Height: =30
+                Width: =30
+                X: =Parent.Width - (30 + 'Info Circle_5'.Width)
+                Y: =5
+                ZIndex: =3
+
+            "'Info Icon_5' As icon.Add":
+                Color: =If(localShowData, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Height: ='Info Circle_5'.Height
+                Icon: =If(localShowData, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |-
+                    =UpdateContext(
+                        {
+                            localShowData: !localShowData,
+                            localShowLeg: false,
+                            localShowPrazo: false,
+                            localShowRelacao: false,
+                            localShowEliminacao: false,
+                            localShowNewForm: false,
+                            localShowEditForm: false,
+                            _Associated: false,
+                            _AssociatedR: false
+                        }
+                    )
+                Width: ='Info Circle_5'.Width
+                X: =Parent.Width - (30 + 'Info Circle_5'.Width)
+                Y: =5
+                ZIndex: =4
+
+        "'Empresas Grupo Content' As groupContainer.manualLayoutContainer":
+            Height: =330
+            Visible: =localShowLeg //Or _Associated
+            Width: =Parent.Width
+            Y: ='Empresas Grupo'.Y + 'Empresas Grupo'.Height
+            ZIndex: =3
+
+            "'empresas do grupo' As dataTable.datatable":
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                HeadingFill: =cores.cinzento
+                Height: =Parent.Height-60
+                Items: |-
+                    =ligacaoParticipadas
+                    //'Membros-Participadas'
+                NoDataText: ="Não existe nenhuma empresa participada do grupo associada ao membro "& LabelMembroName.Text
+                SelectedFill: =cores.amareloMontepio
+                Visible: =!_Associated And !localShowEditForm
+                Width: =Parent.Width * 0.95
+                X: =24
+                Y: =DynamicBtn_15.Y+50
+                ZIndex: =1
+
+                "'Cargo (Categoria)_Column2' As dataTableColumn.complexOptionSetColumn":
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Cargo (Categoria)"
+                    FieldName: ="uipp_cargocategoria"
+                    FieldVariantName: ="complexOptionSetColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: |-
+                        =If(
+                            "(Eliminado)" in LabelMembroName.Text,
+                            Navigate(
+                                ParticipadasDetails,
+                                ScreenTransition.None,
+                                {
+                                    _EmpresasParticipadas: 'empresas do grupo'.Selected.'Parent ID'.ID,
+                                    ColabFormMode: FormMode.View
+                                }
+                            )
+                        )
+                    Order: =12
+                    Text: =ThisItem.'Cargo (Categoria)'
+                    Width: =151
+                    X: =451
+                    Y: =0
+                    ZIndex: =13
+
+                "'Cargo (Descricao)_Column1' As dataTableColumn.textualColumn":
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Cargo (Descrição)"
+                    FieldName: ="uipp_cargodescricao"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: |-
+                        =If(
+                            "(Eliminado)" in LabelMembroName.Text,
+                            Navigate(
+                                ParticipadasDetails,
+                                ScreenTransition.None,
+                                {
+                                    _EmpresasParticipadas: 'empresas do grupo'.Selected.'Parent ID'.ID,
+                                    ColabFormMode: FormMode.View
+                                }
+                            )
+                        )
+                    Order: =13
+                    Text: =ThisItem.'Cargo (Descricao)'
+                    Width: =184
+                    X: =0
+                    Y: =0
+                    ZIndex: =14
+
+                Participacao_Column1 As dataTableColumn.numberColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Participação"
+                    FieldName: ="uipp_participacao"
+                    FieldVariantName: ="numberColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: |-
+                        =If(
+                            "(Eliminado)" in LabelMembroName.Text,
+                            Navigate(
+                                ParticipadasDetails,
+                                ScreenTransition.None,
+                                {
+                                    _EmpresasParticipadas: 'empresas do grupo'.Selected.'Parent ID'.ID,
+                                    ColabFormMode: FormMode.View
+                                }
+                            )
+                        )
+                    Order: =14
+                    Text: =ThisItem.uipp_participacao
+                    Width: =123
+                    X: =797
+                    Y: =0
+                    ZIndex: =15
+
+                Designacao_Column1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Designação"
+                    FieldName: ="Designacao"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: |-
+                        =If(
+                            "(Eliminado)" in LabelMembroName.Text,
+                            Navigate(
+                                ParticipadasDetails,
+                                ScreenTransition.None,
+                                {
+                                    _EmpresasParticipadas: 'empresas do grupo'.Selected.'Parent ID'.ID,
+                                    ColabFormMode: FormMode.View
+                                }
+                            )
+                        )
+                    Order: =6
+                    Text: =ThisItem.'Parent ID'.Nome
+                    Width: =478
+                    X: =0
+                    Y: =0
+                    ZIndex: =19
+
+                uipp_id_Column2 As dataTableColumn.textualColumn:
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="uipp_id"
+                    FieldName: ="uipp_id"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    Order: =15
+                    Text: =ThisItem.uipp_id
+                    Visible: =false
+                    Width: =100
+                    X: =0
+                    Y: =0
+                    ZIndex: =25
+
+            EliminarMembrosPart As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =5
+
+                DynamicBtn_15 As DynamicBtn:
+                    BtnText: =If(_Associated Or localShowEditForm,"Cancelar","Desassociar")
+                    BtnWidth: =170
+                    ButtonIcon: =If(_Associated Or localShowEditForm,Icon.Cancel,Icon.HorizontalLine)
+                    Height: =40
+                    Visible: |-
+                        =If(
+                            CountRows(ligacaoParticipadas) = 0 And !_Associated,
+                            false,
+                            true
+                        ) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Width: =170
+                    X: =Parent.X+600
+                    Y: =7
+                    ZIndex: =2
+
+                elim_btn_2 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =If(
+                            _Associated Or localShowEditForm,
+                            UpdateContext(
+                                {
+                                    _Associated: false,
+                                    localShowLeg: false,
+                                    localShowEditForm: false
+                                }
+                            ),
+                            UpdateContext({localShowModal: true})
+                        );
+                        Refresh('Membros-Participadas')
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: |-
+                        =If(
+                            CountRows(ligacaoParticipadas) = 0 And !_Associated,
+                            false,
+                            true
+                        ) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Width: =170
+                    X: =DynamicBtn_15.X
+                    Y: =DynamicBtn_15.Y
+                    ZIndex: =3
+
+            AssociarMembrosPart As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =7
+
+                DynamicBtn_16 As DynamicBtn:
+                    BtnText: =If(_Associated Or localShowEditForm,"Guardar","Associar")
+                    ButtonIcon: =If(_Associated Or localShowEditForm,Icon.Save,Icon.Add)
+                    Height: =40
+                    Visible: =Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Width: =160
+                    X: =Parent.X+800
+                    Y: =7
+                    ZIndex: =4
+
+                ass_btn_3 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =If(
+                            _Associated Or localShowEditForm,
+                            If(
+                                SubmitForm(EmpresasParticipadas),
+                                Notify(
+                                    "O registo foi submetido com sucesso!",
+                                    NotificationType.Success
+                                );
+                                ResetForm(EmpresasParticipadas);
+                                UpdateContext(
+                                    {
+                                        _Associated: false,
+                                        localShowLeg: false,
+                                        localShowEditForm:false
+                                    }
+                                );
+                                Navigate(Particulares),
+                                Notify(
+                                    "Por favor, tente novamente.",
+                                    NotificationType.Error
+                                );
+                                UpdateContext(
+                                    {
+                                        _Associated: false,
+                                        localShowLeg: false,
+                                        localShowEditForm:false
+                                    }
+                                )
+                            ),
+                            Notify(
+                                "Por favor, selecione na tabela a 'Empresa Participada do Grupo' ao qual deseja associar o membro " & LabelMembroName.Text & ".",
+                                NotificationType.Information
+                            );
+                            Navigate(
+                                Participadas,
+                                ScreenTransition.None,
+                                {_Associar: true}
+                            )
+                        );
+                        Refresh('Membros-Participadas')
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: =Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    X: =DynamicBtn_16.X
+                    Y: =DynamicBtn_16.Y
+                    ZIndex: =5
+
+            EmpresasParticipadas As form:
+                DataSource: ='Membros-Participadas'
+                DefaultMode: |-
+                    =If(
+                        localShowEditForm,
+                        FormMode.Edit,
+                        FormMode.New
+                    )
+                Height: =Parent.Height-60
+                Item: |-
+                    =If(
+                        localShowEditForm,
+                        LookUp(
+                            'Membros-Participadas',
+                            //ThisRecord.ID = 'empresas do grupo'.Selected.'Parent ID'.ID
+                            ThisRecord.ID = 'empresas do grupo'.Selected.ID
+                        )
+                    )
+                NumberOfColumns: =2
+                Visible: =_Associated Or localShowEditForm
+                Width: =Parent.Width * 0.95
+                X: =24
+                Y: =DynamicBtn_15.Y+80
+                ZIndex: =10
+
+                "'Cargo (Categoria)_DataCard1' As typedDataCard.comboBoxOptionSetSingleEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_cargocategoria"
+                    Default: =ThisItem.'Cargo (Categoria)'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'Membros-Participadas'],DataSourceInfo.DisplayName,"uipp_cargocategoria")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =true
+                    Update: =DataCardValue7.Selected.Value
+                    Width: =464
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey31 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue7 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        ChevronBackground: =cores.amareloMontepio
+                        DefaultSelectedItems: =[Parent.Default]
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        HoverFill: =cores.amareloMontepio
+                        IsSearchable: =false
+                        Items: =Choices('cargo (categoria) ')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedFill: =cores.amareloMontepio
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: =cores.amareloMontepio
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey31.Y + DataCardKey31.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage31 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue7.Y + DataCardValue7.Height
+                        ZIndex: =3
+
+                    StarVisible31 As label:
+                        Align: =Align.Center
+                        Color: =cores.cinzento
+                        Height: =DataCardKey31.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey31.Y
+                        ZIndex: =4
+
+                "'Cargo (Descricao)_DataCard1' As typedDataCard.textualEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_cargodescricao"
+                    Default: =ThisItem.'Cargo (Descricao)'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'Membros-Participadas'],DataSourceInfo.DisplayName,"uipp_cargodescricao")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@'Membros-Participadas'], DataSourceInfo.MaxLength, "uipp_cargodescricao")
+                    Required: =false
+                    Update: =DataCardValue8.Text
+                    Width: =464
+                    X: =1
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey32 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue8 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        HoverBorderColor: =cores.cinzento
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey32.Y + DataCardKey32.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage32 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue8.Y + DataCardValue8.Height
+                        ZIndex: =3
+
+                    StarVisible32 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey32.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey32.Y
+                        ZIndex: =4
+
+                Participacao_DataCard1 As typedDataCard.numberEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_participacao"
+                    Default: =ThisItem.Participacao
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'Membros-Participadas'],DataSourceInfo.DisplayName,"uipp_participacao")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =true
+                    Update: =Value(DataCardValue31.Text)
+                    Width: =464
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey34 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue31 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Format: =TextFormat.Number
+                        HoverBorderColor: =cores.cinzento
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey34.Y + DataCardKey34.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage34 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue31.Y + DataCardValue31.Height
+                        ZIndex: =3
+
+                    StarVisible34 As label:
+                        Align: =Align.Center
+                        Color: =cores.cinzento
+                        Height: =DataCardKey34.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey34.Y
+                        ZIndex: =4
+
+                "'Parent ID_DataCard1' As typedDataCard.comboBoxEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_ParentID"
+                    Default: =ThisItem.'Parent ID'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'Membros-Participadas'],DataSourceInfo.DisplayName,"uipp_ParentID")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue33.Selected
+                    Visible: =false
+                    Width: =464
+                    X: =0
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey36 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue33 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: |-
+                            =//Parent.Default
+                            If(
+                                localShowEditForm,
+                                Parent.Default,
+                                LookUp(
+                                    'Empresas Participadas do Grupos',
+                                    ID = _AssociateParticipadas
+                                )
+                            )
+                        DisplayFields: =["uipp_name"]
+                        DisplayMode: =Parent.DisplayMode
+                        Items: =Choices([@'Membros-Participadas'].uipp_ParentID)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["uipp_name"]
+                        SearchItems: =Search(Choices([@'Membros-Participadas'].uipp_ParentID),DataCardValue33.SearchText,"uipp_name")
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey36.Y + DataCardKey36.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage36 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue33.Y + DataCardValue33.Height
+                        ZIndex: =3
+
+                    StarVisible36 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey36.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey36.Y
+                        ZIndex: =4
+
+                "'Child ID_DataCard1' As typedDataCard.comboBoxEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_ChildID"
+                    Default: =ThisItem.'Child ID'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'Membros-Participadas'],DataSourceInfo.DisplayName,"uipp_ChildID")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue32.Selected
+                    Visible: =false
+                    Width: =464
+                    X: =0
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey35 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue32 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: |-
+                            =//Parent.Default
+                            LookUp(Membros_1,ID=_Membro)
+                        DisplayFields: =["uipp_id"]
+                        DisplayMode: =Parent.DisplayMode
+                        Items: =Choices([@'Membros-Participadas'].uipp_ChildID)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["uipp_id"]
+                        SearchItems: =Search(Choices([@'Membros-Participadas'].uipp_ChildID),DataCardValue32.SearchText,"uipp_id")
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey35.Y + DataCardKey35.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage35 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue32.Y + DataCardValue32.Height
+                        ZIndex: =3
+
+                    StarVisible35 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey35.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey35.Y
+                        ZIndex: =4
+
+            LabelDesignacao As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =DynamicBtn_16.Height
+                Text: |-
+                    ="Designação: " & LookUp('Empresas Participadas do Grupos',ID=_AssociateParticipadas).Nome
+                Visible: =_Associated
+                Width: =700
+                X: =24
+                Y: =DynamicBtn_16.Height + 15
+                ZIndex: =11
+
+            DetalhesMembrosPart As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =12
+
+                DynamicBtn_24 As DynamicBtn:
+                    BtnText: ="Detalhes"
+                    ButtonIcon: =Icon.DocumentWithContent
+                    Height: =40
+                    Visible: |-
+                        ='empresas do grupo'.Visible And If(
+                            CountRows(ligacaoParticipadas) = 0,
+                            false,
+                            true
+                        ) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Width: =160
+                    X: =Parent.X+200
+                    Y: =7
+                    ZIndex: =6
+
+                elim_btn_5 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =Navigate(ParticipadasDetails, ScreenTransition.None, {_EmpresasParticipadas: 'empresas do grupo'.Selected.'Parent ID'.ID, ColabFormMode: FormMode.View})
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: |-
+                        ='empresas do grupo'.Visible And If(
+                            CountRows(ligacaoParticipadas) = 0,
+                            false,
+                            true
+                        ) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    X: =DynamicBtn_24.X
+                    Y: =DynamicBtn_24.Y
+                    ZIndex: =7
+
+            EditMembrosPart As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =12
+
+                DynamicBtn_28 As DynamicBtn:
+                    BtnText: =If(_AssociatedR Or localShowEditForm,"Cancelar","Editar")
+                    ButtonIcon: =If(_AssociatedR Or localShowEditForm,Icon.Cancel,Icon.Edit)
+                    Height: =40
+                    Visible: |-
+                        =If(
+                            CountRows(ligacaoParticipadas) = 0,
+                            false,
+                            true
+                        ) And 'empresas do grupo'.Visible And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Width: =160
+                    X: =Parent.X+400
+                    Y: =7
+                    ZIndex: =8
+
+                edit_btn_6 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =If(
+                            _AssociatedR Or localShowEditForm,
+                            UpdateContext(
+                                {
+                                    _Associated: false,
+                                    localShowLeg: false,
+                                    localShowEditForm:false,
+                                    _Associar:false
+                                }
+                            ),
+                            UpdateContext(
+                                {
+                                    localShowEditForm: true
+                                    
+                                }
+                            )
+                        )
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: |-
+                        =If(
+                            CountRows(ligacaoParticipadas) = 0,
+                            false,
+                            true
+                        ) And 'empresas do grupo'.Visible And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    X: =DynamicBtn_28.X
+                    Y: =DynamicBtn_28.Y
+                    ZIndex: =9
+
+        "'Empresas Grupo' As groupContainer.manualLayoutContainer":
+            Height: =50
+            Visible: =!IsBlank(_Membro)
+            Width: =Parent.Width
+            Y: =If(localShowData, 'Informacao Content'.Y + 'Informacao Content'.Height, 'Informacao Content'.Y)
+            ZIndex: =4
+
+            "'Info Bottom_6' As icon.HorizontalLine":
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(220, 220, 220, 1)
+                Color: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(220, 220, 220, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(220, 220, 220, 1)
+                Fill: =RGBA(220, 220, 220, 1)
+                FocusedBorderColor: =RGBA(220, 220, 220, 1)
+                Height: =2
+                HoverBorderColor: =RGBA(220, 220, 220, 1)
+                HoverColor: =RGBA(220, 220, 220, 1)
+                HoverFill: =RGBA(220, 220, 220, 1)
+                Icon: =Icon.HorizontalLine
+                PressedBorderColor: =RGBA(220, 220, 220, 1)
+                PressedColor: =RGBA(220, 220, 220, 1)
+                PressedFill: =RGBA(220, 220, 220, 1)
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+            "'Info Label_6' As label":
+                AutoHeight: =true
+                Color: =RGBA(50, 86, 160, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: |-
+                    =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+                Text: ="Empresas Participadas do Grupo"
+                Width: =500
+                ZIndex: =2
+
+            "'Info Circle_6' As circle":
+                BorderColor: =RGBA(250, 191, 0, 1)
+                BorderThickness: =2
+                Fill: =If(localShowLeg, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Height: =30
+                Width: =30
+                X: =Parent.Width - (30 + 'Info Circle_6'.Width)
+                Y: =5
+                ZIndex: =3
+
+            "'Info Icon_6' As icon.Add":
+                Color: =If(localShowLeg, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Height: ='Info Circle_6'.Height
+                Icon: =If(localShowLeg, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |
+                    =UpdateContext(
+                        {
+                            localShowLeg: !localShowLeg,
+                            localShowData: false,
+                            localShowPrazo: false,
+                            localShowRelacao: false,
+                            localShowEliminacao: false,
+                            localShowNewForm: false,
+                            localShowEditForm: false,
+                            _Associated: false,
+                            _AssociatedR: false
+                        }
+                    );
+                Width: ='Info Circle_6'.Width
+                X: =Parent.Width - (30 + 'Info Circle_6'.Width)
+                Y: =5
+                ZIndex: =4
+
+        "'Empresas Respetivas Content' As groupContainer.manualLayoutContainer":
+            Height: =310
+            Visible: =localShowEliminacao
+            Width: =Parent.Width
+            Y: ='Empresas Respetivas'.Y + 'Empresas Respetivas'.Height
+            ZIndex: =5
+
+            "'empresas respetivas' As dataTable.datatable":
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                HeadingFill: =cores.cinzento
+                Height: =Parent.Height-60
+                Items: |-
+                    =ligacaoRespetivas
+                    //'Membros-Familiares-Respetivas'
+                NoDataText: ="Não existe nenhuma empresa respetiva associada ao membro "& LabelMembroName.Text
+                SelectedFill: =cores.amareloMontepio
+                Visible: =!_AssociatedR And !localShowEditForm
+                Width: =Parent.Width * 0.95
+                X: =24
+                Y: =DynamicBtn_17.Y+50
+                ZIndex: =1
+
+                Designacao_Column2 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Designação"
+                    FieldName: ="Designacao"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: |-
+                        =If(
+                            "(Eliminado)" in LabelMembroName.Text,
+                            Navigate(
+                                Respetivas,
+                                ScreenTransition.None,
+                                {
+                                    _selectedRespetivas: 'empresas respetivas'.Selected.ID_Empresa.ID,
+                                    localFormRespetivas: true
+                                }
+                            )
+                        )
+                    Order: =1
+                    Text: |-
+                        =//LookUp(Empresas,ID = ThisItem.ID_Empresa.ID).Designacao
+                        //ThisItem.ID_Empresa.ID
+                        //ThisItem.ID_Empresa.Designacao
+                        ThisItem.ID_Empresa.Designacao
+                    Width: =478
+                    X: =0
+                    Y: =0
+                    ZIndex: =20
+
+                uipp_cargocategoria_Column2 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Cargo (Categoria)"
+                    FieldName: ="uipp_cargocategoria"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: |-
+                        =If(
+                            "(Eliminado)" in LabelMembroName.Text,
+                            Navigate(
+                                Respetivas,
+                                ScreenTransition.None,
+                                {
+                                    _selectedRespetivas: 'empresas respetivas'.Selected.ID_Empresa.ID,
+                                    localFormRespetivas: true
+                                }
+                            )
+                        )
+                    Order: =2
+                    Text: =ThisItem.'Cargo (Categoria)'
+                    Width: =151
+                    X: =0
+                    Y: =0
+                    ZIndex: =21
+
+                uipp_cargodescricao_Column2 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Cargo (Descrição)"
+                    FieldName: ="uipp_cargodescricao"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: |-
+                        =If(
+                            "(Eliminado)" in LabelMembroName.Text,
+                            Navigate(
+                                Respetivas,
+                                ScreenTransition.None,
+                                {
+                                    _selectedRespetivas: 'empresas respetivas'.Selected.ID_Empresa.ID,
+                                    localFormRespetivas: true
+                                }
+                            )
+                        )
+                    Order: =3
+                    Text: =ThisItem.'Cargo (Descrição)'
+                    Width: =169
+                    X: =0
+                    Y: =0
+                    ZIndex: =22
+
+                uipp_participacao_Column2 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Participação"
+                    FieldName: ="uipp_participacao"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: |-
+                        =If(
+                            "(Eliminado)" in LabelMembroName.Text,
+                            Navigate(
+                                Respetivas,
+                                ScreenTransition.None,
+                                {
+                                    _selectedRespetivas: 'empresas respetivas'.Selected.ID_Empresa.ID,
+                                    localFormRespetivas: true
+                                }
+                            )
+                        )
+                    Order: =4
+                    Text: =ThisItem.uipp_participacao
+                    Width: =123
+                    X: =0
+                    Y: =0
+                    ZIndex: =23
+
+                uipp_id_Column1 As dataTableColumn.textualColumn:
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="uipp_id"
+                    FieldName: ="uipp_id"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    Order: =5
+                    Text: =ThisItem.uipp_id
+                    Visible: =false
+                    Width: =100
+                    X: =0
+                    Y: =0
+                    ZIndex: =24
+
+            EliminarMembrosResp As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =5
+
+                DynamicBtn_17 As DynamicBtn:
+                    BtnText: ="Eliminar"
+                    ButtonIcon: =Icon.Trash
+                    Height: =40
+                    Visible: |-
+                        =!_AssociarR And !localShowEditForm And !FormRespetivas.Visible And If(
+                            CountRows(ligacaoRespetivas) = 0,
+                            false,
+                            true
+                        ) And Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Width: =160
+                    X: =Parent.X+200
+                    Y: =7
+                    ZIndex: =2
+
+                elim_btn_3 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =UpdateContext({localShowModal: true})
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: |-
+                        =!_AssociarR And !localShowEditForm And !FormRespetivas.Visible And If(
+                            CountRows(ligacaoRespetivas) = 0,
+                            false,
+                            true
+                        ) And Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    X: =DynamicBtn_17.X
+                    Y: =DynamicBtn_17.Y
+                    ZIndex: =3
+
+            EditMembrosResp As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =7
+
+                DynamicBtn_18 As DynamicBtn:
+                    BtnText: =If(_AssociatedR Or localShowEditForm,"Cancelar","Editar")
+                    ButtonIcon: =If(_AssociatedR Or localShowEditForm,Icon.Cancel,Icon.Edit)
+                    Height: =40
+                    Visible: |-
+                        =If(
+                            CountRows(ligacaoRespetivas) = 0,
+                            false,
+                            true
+                        ) And Not("(Eliminado)" in LabelMembroName.Text) And Or(
+                            godMode,
+                            DRI,
+                            DGC_Editor,
+                            DGC_Validador,
+                            GCONT_Editor,
+                            GCONT_Validador
+                        )
+                    Width: =160
+                    X: =Parent.X+600
+                    Y: =7
+                    ZIndex: =4
+
+                edit_btn_4 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =If(
+                            _AssociatedR Or localShowEditForm,
+                            UpdateContext(
+                                {
+                                    _AssociatedR: false,
+                                    localShowEliminacao: false,
+                                    localShowEditForm:false,
+                                    _AssociarR:false
+                                }
+                            ),
+                            UpdateContext(
+                                {
+                                    localShowEditForm: true
+                                    
+                                }
+                            )
+                        )
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: |-
+                        =If(
+                            CountRows(ligacaoRespetivas) = 0,
+                            false,
+                            true
+                        ) And Not("(Eliminado)" in LabelMembroName.Text) And Or(
+                            godMode,
+                            DRI,
+                            DGC_Editor,
+                            DGC_Validador,
+                            GCONT_Editor,
+                            GCONT_Validador
+                        )
+                    X: =DynamicBtn_18.X
+                    Y: =DynamicBtn_18.Y
+                    ZIndex: =5
+
+            FormRespetivas As form:
+                DataSource: ='Membros-Familiares-Respetivas'
+                DefaultMode: |-
+                    =If(
+                        localShowEditForm,
+                        FormMode.Edit,
+                        FormMode.New
+                    )
+                Height: =Parent.Height-90
+                Item: |-
+                    =If(
+                        localShowEditForm,
+                        LookUp(
+                            'Membros-Familiares-Respetivas',
+                            ThisRecord.ID = 'empresas respetivas'.Selected.ID
+                        )
+                    )
+                NumberOfColumns: =2
+                Visible: =_AssociatedR Or localShowEditForm
+                Width: =Parent.Width * 0.95
+                X: =24
+                Y: =DynamicBtn_17.Y+80
+                ZIndex: =10
+
+                "'Cargo (Categoria)_DataCard2' As typedDataCard.comboBoxOptionSetSingleEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_cargocategoria"
+                    Default: =ThisItem.'Cargo (Categoria)'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'Membros-Familiares-Respetivas'],DataSourceInfo.DisplayName,"uipp_cargocategoria")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =true
+                    Update: =DataCardValue36.Selected.Value
+                    Width: =464
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey42 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue36 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        ChevronBackground: =cores.amareloMontepio
+                        DefaultSelectedItems: =[Parent.Default]
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        HoverFill: =cores.amareloMontepio
+                        IsSearchable: =false
+                        Items: =Choices('cargo (categoria) ')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedFill: |
+                            =cores.amareloMontepio
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: |
+                            =cores.amareloMontepio
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey42.Y + DataCardKey42.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage42 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue36.Y + DataCardValue36.Height
+                        ZIndex: =3
+
+                    StarVisible42 As label:
+                        Align: =Align.Center
+                        Color: =cores.cinzento
+                        Height: =DataCardKey42.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey42.Y
+                        ZIndex: =4
+
+                "'Cargo (Descrição)_DataCard1' As typedDataCard.textualEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_cargodescricao"
+                    Default: =ThisItem.'Cargo (Descrição)'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'Membros-Familiares-Respetivas'],DataSourceInfo.DisplayName,"uipp_cargodescricao")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@'Membros-Familiares-Respetivas'], DataSourceInfo.MaxLength, "uipp_cargodescricao")
+                    Required: =false
+                    Update: =DataCardValue38.Text
+                    Width: =464
+                    X: =1
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey44 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue38 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        HoverBorderColor: =cores.cinzento
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey44.Y + DataCardKey44.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage44 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue38.Y + DataCardValue38.Height
+                        ZIndex: =3
+
+                    StarVisible44 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey44.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey44.Y
+                        ZIndex: =4
+
+                Participação_DataCard1 As typedDataCard.numberEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_participacao"
+                    Default: =ThisItem.Participação
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'Membros-Familiares-Respetivas'],DataSourceInfo.DisplayName,"uipp_participacao")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =true
+                    Update: =Value(DataCardValue40.Text)
+                    Width: =464
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey46 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Participação (%)"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue40 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Format: =TextFormat.Number
+                        HoverBorderColor: =cores.cinzento
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey46.Y + DataCardKey46.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage46 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue40.Y + DataCardValue40.Height
+                        ZIndex: =3
+
+                    StarVisible46 As label:
+                        Align: =Align.Center
+                        Color: =cores.cinzento
+                        Height: =DataCardKey46.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey46.Y
+                        ZIndex: =4
+
+                ID_Empresa_DataCard1 As typedDataCard.comboBoxEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_ID_Empresa"
+                    Default: =ThisItem.ID_Empresa
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'Membros-Familiares-Respetivas'],DataSourceInfo.DisplayName,"uipp_ID_Empresa")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue41.Selected
+                    Visible: =false
+                    Width: =464
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey47 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue41 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: |-
+                            =//Parent.Default
+                            If(
+                                FormRespetivas.Mode = FormMode.New,
+                                LookUp(
+                                    Empresas,
+                                    ID = _AssociateRespetivas
+                                ),
+                                Parent.Default
+                            )
+                        DisplayFields: =["uipp_id"]
+                        DisplayMode: =Parent.DisplayMode
+                        Items: =Choices([@'Membros-Familiares-Respetivas'].uipp_ID_Empresa)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["uipp_id"]
+                        SearchItems: =Search(Choices([@'Membros-Familiares-Respetivas'].uipp_ID_Empresa),DataCardValue41.SearchText,"uipp_id")
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey47.Y + DataCardKey47.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage47 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue41.Y + DataCardValue41.Height
+                        ZIndex: =3
+
+                    StarVisible47 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey47.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey47.Y
+                        ZIndex: =4
+
+                ID_Membro_DataCard1 As typedDataCard.comboBoxEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_ID_Membro"
+                    Default: =ThisItem.ID_Membro
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'Membros-Familiares-Respetivas'],DataSourceInfo.DisplayName,"uipp_ID_Membro")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue42.Selected
+                    Visible: =false
+                    Width: =464
+                    X: =0
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey48 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue42 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: |-
+                            =//Parent.Default
+                            LookUp(Membros_1,ID=_Membro)
+                        DisplayFields: =["uipp_id"]
+                        DisplayMode: =Parent.DisplayMode
+                        Items: =Choices([@'Membros-Familiares-Respetivas'].uipp_ID_Membro)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["uipp_id"]
+                        SearchItems: =Search(Choices([@'Membros-Familiares-Respetivas'].uipp_ID_Membro),DataCardValue42.SearchText,"uipp_id")
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey48.Y + DataCardKey48.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage48 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue42.Y + DataCardValue42.Height
+                        ZIndex: =3
+
+                    StarVisible48 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey48.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey48.Y
+                        ZIndex: =4
+
+            NewMembrosResp As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =10
+
+                DynamicBtn_19 As DynamicBtn:
+                    BtnText: =If(_AssociatedR Or localShowEditForm,"Guardar","Novo")
+                    ButtonIcon: =If(_AssociatedR Or localShowEditForm,Icon.Save,Icon.Add)
+                    Height: =40
+                    Visible: |-
+                        =Not("(Eliminado)" in LabelMembroName.Text) And Or(
+                            godMode,
+                            DRI,
+                            DGC_Editor,
+                            DGC_Validador,
+                            GCONT_Editor,
+                            GCONT_Validador
+                        )
+                    Width: =160
+                    X: =Parent.X+800
+                    Y: =7
+                    ZIndex: =6
+
+                elim_btn_4 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =If(
+                            _AssociatedR Or localShowEditForm,
+                            If(
+                                SubmitForm(FormRespetivas),
+                                Notify(
+                                    "O registo foi submetido com sucesso!",
+                                    NotificationType.Success
+                                );
+                                ResetForm(FormRespetivas);
+                                UpdateContext(
+                                    {
+                                        _AssociatedR: false,
+                                        localShowEliminacao: false,
+                                        localShowEditForm: false,
+                                        _AssociarR:false
+                                    }
+                                );
+                                Navigate(
+                                    Particulares,
+                                    ScreenTransition.None
+                                ),
+                                Notify(
+                                    "Por favor, tente novamente.",
+                                    NotificationType.Error
+                                );
+                                UpdateContext(
+                                    {
+                                        _AssociatedR: false,
+                                        localShowEliminacao: false,
+                                        localShowEditForm: false,
+                                        _AssociarR:false
+                                    }
+                                )
+                            ),
+                            Notify(
+                                "Por favor, selecione na tabela a 'Empresa Respetiva' ao qual deseja associar o membro " & LabelMembroName.Text & " ou clique em '+Novo' para criar uma nova empresa.",
+                                NotificationType.Information
+                            );
+                            Navigate(
+                                Respetivas,
+                                ScreenTransition.None,
+                                {_AssociarR: true}
+                            )
+                        );
+                        Refresh('Membros-Familiares-Respetivas')
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: |-
+                        =Not("(Eliminado)" in LabelMembroName.Text) And Or(
+                            godMode,
+                            DRI,
+                            DGC_Editor,
+                            DGC_Validador,
+                            GCONT_Editor,
+                            GCONT_Validador
+                        )
+                    X: =DynamicBtn_19.X
+                    Y: =DynamicBtn_19.Y
+                    ZIndex: =7
+
+            LabelDesignacao_1 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =DynamicBtn_16.Height
+                Text: |-
+                    ="Designação: " & LookUp(Empresas,ID=_AssociateRespetivas).Designacao
+                Visible: =_AssociatedR
+                Width: =700
+                X: =40
+                Y: =DynamicBtn_16.Height + 15
+                ZIndex: =11
+
+            DetailMembroResp As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =13
+
+                DynamicBtn_27 As DynamicBtn:
+                    BtnText: ="Detalhes"
+                    ButtonIcon: =Icon.DocumentWithContent
+                    Height: =40
+                    Visible: |-
+                        ='empresas respetivas'.Visible And If(
+                            CountRows(ligacaoRespetivas) = 0,
+                            false,
+                            true
+                        ) And Not("(Eliminado)" in LabelMembroName.Text) And Or(
+                            godMode,
+                            DRI,
+                            DGC_Editor,
+                            DGC_Validador,
+                            GCONT_Editor,
+                            GCONT_Validador
+                        )
+                    Width: =160
+                    X: =Parent.X+400
+                    Y: =7
+                    ZIndex: =8
+
+                elim_btn_7 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =//Navigate(ParticipadasDetails, ScreenTransition.None, {_EmpresasParticipadas: 'empresas do grupo'.Selected.'Parent ID'.ID, ColabFormMode: FormMode.View})
+                        Navigate(Respetivas,ScreenTransition.None,{_selectedRespetivas:'empresas respetivas'.Selected.ID_Empresa.ID,localFormRespetivas: true})
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: |-
+                        ='empresas respetivas'.Visible And If(
+                            CountRows(ligacaoRespetivas) = 0,
+                            false,
+                            true
+                        ) And Not("(Eliminado)" in LabelMembroName.Text) And Or(
+                            godMode,
+                            DRI,
+                            DGC_Editor,
+                            DGC_Validador,
+                            GCONT_Editor,
+                            GCONT_Validador
+                        )
+                    X: =DynamicBtn_27.X
+                    Y: =DynamicBtn_27.Y
+                    ZIndex: =9
+
+        "'Empresas Respetivas' As groupContainer.manualLayoutContainer":
+            Height: =50
+            Visible: =!IsBlank(_Membro)
+            Width: =Parent.Width
+            Y: =If(localShowLeg, 'Empresas Grupo Content'.Y + 'Empresas Grupo Content'.Height, 'Empresas Grupo Content'.Y)
+            ZIndex: =6
+
+            "'Info Bottom_7' As icon.HorizontalLine":
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(220, 220, 220, 1)
+                Color: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(220, 220, 220, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(220, 220, 220, 1)
+                Fill: =RGBA(220, 220, 220, 1)
+                FocusedBorderColor: =RGBA(220, 220, 220, 1)
+                Height: =2
+                HoverBorderColor: =RGBA(220, 220, 220, 1)
+                HoverColor: =RGBA(220, 220, 220, 1)
+                HoverFill: =RGBA(220, 220, 220, 1)
+                Icon: =Icon.HorizontalLine
+                PressedBorderColor: =RGBA(220, 220, 220, 1)
+                PressedColor: =RGBA(220, 220, 220, 1)
+                PressedFill: =RGBA(220, 220, 220, 1)
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+            "'Info Label_7' As label":
+                AutoHeight: =true
+                Color: =RGBA(50, 86, 160, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: |-
+                    =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+                Text: ="Empresas Respetivas"
+                Width: =500
+                ZIndex: =2
+
+            "'Info Circle_7' As circle":
+                BorderColor: =RGBA(250, 191, 0, 1)
+                BorderThickness: =2
+                Fill: =If(localShowEliminacao, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Height: =30
+                Width: =30
+                X: =Parent.Width - (30 + 'Info Circle_7'.Width)
+                Y: =5
+                ZIndex: =3
+
+            "'Info Icon_7' As icon.Add":
+                Color: =If(localShowEliminacao, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Height: ='Info Circle_7'.Height
+                Icon: =If(localShowEliminacao, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |-
+                    =UpdateContext(
+                        {
+                            localShowEliminacao: !localShowEliminacao,
+                            localShowData: false,
+                            localShowLeg: false,
+                            localShowPrazo: false,
+                            localShowRelacao: false,
+                            localShowNewForm: false,
+                            localShowEditForm: false,
+                            _Associated: false,
+                            _AssociatedR: false
+                        }
+                    )
+                Width: ='Info Circle_7'.Width
+                X: =Parent.Width - (30 + 'Info Circle_7'.Width)
+                Y: =5
+                ZIndex: =4
+
+        "'Familiares Content' As groupContainer.manualLayoutContainer":
+            Height: =340
+            Visible: =localShowRelacao
+            Width: =Parent.Width
+            Y: =Familiares1.Y + Familiares1.Height
+            ZIndex: =7
+
+            Membros_Familiares As group:
+                Height: =5
+                Width: =5
+                X: =-357
+                Y: =40
+                ZIndex: =2
+
+                "'Membros dos Orgaos Sociais_1' As gallery.variableTemplateHeightGallery":
+                    DelayItemLoading: =true
+                    Height: ='Familiares Content'.Height
+                    Items: |-
+                        =//ligacaoFamiliares
+                        Search(
+                                //SortByColumns(
+                            Filter(
+                                ligacaoFamiliares,
+                                If(
+                                    Checkbox1_3.Value = false,
+                                    ThisRecord.Ativo = true,
+                                    ThisRecord.Ativo = true Or ThisRecord.Ativo = false
+                                )
+                                   /* ),
+                                    varSortCol,
+                                    varSortDir*/
+                            ),
+                            TextInput2_2.Text,
+                            "NomeF"
+                        )
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    OnSelect: =
+                    TemplateSize: =127
+                    Width: =Parent.Width * 0.95
+                    X: =24
+                    Y: =Container1_1.Y +30
+                    ZIndex: =1
+
+                    "'Nome Membro_1' As label":
+                        OnSelect: |-
+                            =//Select(Parent)
+                            Navigate(
+                                MembrosFamiDetails,
+                                ScreenTransition.None,
+                                {
+                                    _MembroF: _Membro,
+                                    //_Allitems: GalleryFamiliaresEmpresas_1.Selected,
+                                    _Familiar: 'Membros dos Orgaos Sociais_1'.Selected.ID_Familiares.ID,
+                                    //_AssociatedR: false,
+                                    _Allitems2: 'Membros dos Orgaos Sociais_1'.Selected
+                                }
+                            )
+                        Text: =ThisItem.NomeF
+                        Width: =336
+                        X: =4
+                        ZIndex: =1
+
+                    "'NIF Membro_1' As label":
+                        OnSelect: |-
+                            =//Select(Parent)
+                            Navigate(
+                                MembrosFamiDetails,
+                                ScreenTransition.None,
+                                {
+                                    _MembroF: _Membro,
+                                    //_Allitems: GalleryFamiliaresEmpresas_1.Selected,
+                                    _Familiar: 'Membros dos Orgaos Sociais_1'.Selected.ID_Familiares.ID,
+                                    //_AssociatedR: false,
+                                    _Allitems2: 'Membros dos Orgaos Sociais_1'.Selected
+                                }
+                            )
+                        Text: =ThisItem.NumDoc
+                        Width: =242
+                        X: =346
+                        ZIndex: =2
+
+                    "'Cargo e Relacao_1' As label":
+                        OnSelect: |-
+                            =//Select(Parent)
+                            Navigate(
+                                MembrosFamiDetails,
+                                ScreenTransition.None,
+                                {
+                                    _MembroF: _Membro,
+                                    //_Allitems: GalleryFamiliaresEmpresas_1.Selected,
+                                    _Familiar: 'Membros dos Orgaos Sociais_1'.Selected.ID_Familiares.ID,
+                                    //_AssociatedR: false,
+                                    _Allitems2: 'Membros dos Orgaos Sociais_1'.Selected
+                                }
+                            )
+                        Text: |-
+                            =//Filter('Membros-Familiares-Respetivas',ID_Membro.ID=ThisItem.ID 
+                            ThisItem.ID_GrauParentesco.'Grau de parentesco'
+                        Width: =341
+                        X: =598
+                        ZIndex: =3
+
+                    GalleryFamiliaresEmpresas_1 As gallery.variableTemplateHeightGallery:
+                        DelayItemLoading: =true
+                        Height: =90
+                        Items: |-
+                            =Filter(
+                                'Membros-Familiares-Respetivas',
+                                ThisItem.ID_Familiares.ID = ID_Familiares.ID And IsBlank(ID_GrauParentesco.ID)
+                                //And ID_GrauParentesco.ID = Blank()
+                            )
+                        Layout: =Layout.Vertical
+                        LoadingSpinner: =LoadingSpinner.Data
+                        OnSelect: |
+                            =Navigate(Respetivas,ScreenTransition.None,{_selectedRespetivas:GalleryFamiliaresEmpresas_1.Selected.ID_Empresa.ID,localFormRespetivas: true})
+                        TemplatePadding: =0
+                        TemplateSize: =45
+                        Visible: =localseta And ThisItem.IsSelected
+                        Width: =951
+                        Y: =37
+                        ZIndex: =5
+
+                        "'Nome e Designacao_1' As label":
+                            OnSelect: |
+                                =Select(Parent)
+                            Text: =LookUp(Empresas,ID=ThisItem.ID_Empresa.ID).Designacao
+                            Width: =300
+                            X: =35
+                            Y: =4
+                            ZIndex: =1
+
+                        "'NIF Familiares e Empresas_1' As label":
+                            OnSelect: =Select(Parent)
+                            Text: |-
+                                =//Concatenate(ThisItem.uipp_numerodocumento,ThisItem.uipp_numerodocumento)
+                                LookUp(Empresas,ID=ThisItem.ID_Empresa.ID).'Numero Documento'
+                            Width: =242
+                            X: =346
+                            Y: =4
+                            ZIndex: =2
+
+                        "'Cargo e Relacao2_1' As label":
+                            OnSelect: =Select(Parent)
+                            Text: =ThisItem.Participação&" %"
+                            Width: =341
+                            X: =599
+                            Y: =4
+                            ZIndex: =3
+
+                        "IconPessoaEmpresa_1 As icon.'3DPrinting'":
+                            Color: =cores.amareloMontepio
+                            Height: =25
+                            Icon: =Icon.OfficeBuilding
+                            OnSelect: =Select(Parent)
+                            Width: =25
+                            X: =10
+                            Y: =11
+                            ZIndex: =5
+
+                    Rectangle3_1 As rectangle:
+                        Fill: =RGBA(128, 128, 128, 1)
+                        Height: =1
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.Width
+                        Y: |-
+                            =//126
+                            If(localseta And ThisItem.IsSelected,126,50)
+                        ZIndex: =6
+
+                    "Icon3_1 As icon.'3DPrinting'":
+                        Height: =25
+                        Icon: |-
+                            =//Icon.ChevronDown
+                            If(localseta And ThisItem.IsSelected,Icon.ChevronUp,Icon.ChevronDown)
+                        OnSelect: |-
+                            =UpdateContext({localseta:!localseta})
+                        Visible: |-
+                            =If(
+                                CountRows(GalleryFamiliaresEmpresas_1.AllItems) > 0,
+                                true,
+                                false
+                            )
+                        Width: =25
+                        X: =894.0999999999999
+                        ZIndex: =7
+
+                Container1_1 As groupContainer.manualLayoutContainer:
+                    Fill: =RGBA(70, 70, 70, 1)
+                    Height: =34
+                    Width: =Parent.Width * 0.95
+                    X: =24
+                    Y: =DynamicBtn_21.Y+50
+                    ZIndex: =3
+
+                    Label6_3 As label:
+                        Color: =RGBA(255, 255, 255, 1)
+                        Height: =34
+                        Text: ="Nome / Designação"
+                        Width: =338
+                        X: =4
+                        ZIndex: =1
+
+                    Label6_4 As label:
+                        Color: =RGBA(255, 255, 255, 1)
+                        Height: =34
+                        Text: ="NIF / NIPC"
+                        Width: =240
+                        X: =342
+                        ZIndex: =2
+
+                    Label6_5 As label:
+                        Color: =RGBA(255, 255, 255, 1)
+                        Height: =34
+                        Text: ="% Participação / Relação Familiar"
+                        Width: =346
+                        X: =583
+                        ZIndex: =3
+
+            TextInput2_2 As text:
+                BorderColor: =ColorFade(cores.cinzento, 80%)
+                BorderThickness: =1
+                Clear: =true
+                Color: |-
+                    =//RGBA(0, 0, 0, 1)
+                    cores.cinzento
+                Default: =
+                Fill: =ColorFade(cores.cinzento, 90%)
+                HintText: ="Pesquisar"
+                HoverBorderColor: =RGBA(128, 128, 128, 1)
+                HoverFill: =
+                PaddingLeft: =40
+                Tooltip: =
+                Width: =366
+                X: =38
+                Y: =7
+                ZIndex: =8
+
+            NewMembrosFami As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =8
+
+                DynamicBtn_21 As DynamicBtn:
+                    BtnText: ="Novo"
+                    Height: =40
+                    Visible: =Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Width: =160
+                    X: =Parent.X+800
+                    Y: =7
+                    ZIndex: =6
+
+                edit_btn_5 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =39
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =Navigate(MembrosFamiDetails, ScreenTransition.None, {ColabFormMode: FormMode.New,_Familiar:Blank(),_MembroF:_Membro})
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: =Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    X: =DynamicBtn_21.X
+                    Y: =DynamicBtn_21.Y
+                    ZIndex: =7
+
+            "Icon1_4 As icon.'3DPrinting'":
+                Color: |-
+                    =///RGBA(0, 18, 107, 1)
+                    cores.amareloMontepio
+                Height: =25
+                Icon: =Icon.Search
+                OnSelect: =//Select(Parent)
+                Width: =25
+                X: =48
+                Y: =16
+                ZIndex: =9
+
+            Checkbox1_3 As checkbox:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                CheckboxBackgroundFill: =ColorFade(cores.cinzento, 90%)
+                CheckboxBorderColor: =ColorFade(cores.cinzento, 80%)
+                CheckmarkFill: =cores.cinzento
+                FocusedBorderThickness: =0
+                Height: =40
+                HoverColor: =//RGBA(0, 18, 107, 1)
+                Text: ="Listar eliminados"
+                Width: =215
+                X: =443
+                Y: =8
+                ZIndex: =10
+
+        Familiares1 As groupContainer.manualLayoutContainer:
+            Height: =50
+            Visible: =!IsBlank(_Membro)
+            Width: =Parent.Width
+            Y: =If(localShowEliminacao, 'Empresas Respetivas Content'.Y + 'Empresas Respetivas Content'.Height, 'Empresas Respetivas Content'.Y)
+            ZIndex: =8
+
+            "'Info Bottom_8' As icon.HorizontalLine":
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(220, 220, 220, 1)
+                Color: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(220, 220, 220, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(220, 220, 220, 1)
+                Fill: =RGBA(220, 220, 220, 1)
+                FocusedBorderColor: =RGBA(220, 220, 220, 1)
+                Height: =2
+                HoverBorderColor: =RGBA(220, 220, 220, 1)
+                HoverColor: =RGBA(220, 220, 220, 1)
+                HoverFill: =RGBA(220, 220, 220, 1)
+                Icon: =Icon.HorizontalLine
+                PressedBorderColor: =RGBA(220, 220, 220, 1)
+                PressedColor: =RGBA(220, 220, 220, 1)
+                PressedFill: =RGBA(220, 220, 220, 1)
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+            "'Info Label_8' As label":
+                AutoHeight: =true
+                Color: =RGBA(50, 86, 160, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: |-
+                    =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+                Text: ="Familiares"
+                Width: =500
+                ZIndex: =2
+
+            "'Info Circle_8' As circle":
+                BorderColor: =RGBA(250, 191, 0, 1)
+                BorderThickness: =2
+                Fill: =If(localShowRelacao, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Height: =30
+                Width: =30
+                X: =Parent.Width - (30 + 'Info Circle_8'.Width)
+                Y: =5
+                ZIndex: =3
+
+            "'Info Icon_8' As icon.Add":
+                Color: =If(localShowRelacao, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Height: ='Info Circle_8'.Height
+                Icon: =If(localShowRelacao, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |-
+                    =UpdateContext(
+                        {
+                            localShowRelacao: !localShowRelacao,
+                            localShowData: false,
+                            localShowLeg: false,
+                            localShowPrazo: false,
+                            localShowEliminacao: false,
+                            localShowNewForm: false,
+                            localShowEditForm: false,
+                            _Associated: false,
+                            _AssociatedR: false,
+                            localseta:false
+                        }
+                    );
+                    Reset(Checkbox1_3);
+                Width: ='Info Circle_8'.Width
+                X: =Parent.Width - (30 + 'Info Circle_8'.Width)
+                Y: =5
+                ZIndex: =4
+
+        "'Atividades Content' As groupContainer.manualLayoutContainer":
+            Height: =330
+            Visible: =localShowPrazo
+            Width: =Parent.Width
+            Y: ='Atividades Info'.Y + 'Atividades Info'.Height
+            ZIndex: =9
+
+            GalleryAtividadesMembros As gallery.variableTemplateHeightGallery:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =0.5
+                DelayItemLoading: =true
+                Fill: =RGBA(219, 219, 219, 1)
+                Height: |-
+                    =//'Atividades Content'.Height - (Container1_2.Height + Container1_2.Y)
+                    If(
+                        CountRows(atividadesMembros) * Label3_7.Height < 'Atividades Content'.Height - (Container1_2.Height + Container1_2.Y),
+                        CountRows(atividadesMembros) * Label3_7.Height,
+                        'Atividades Content'.Height - (Container1_2.Height + Container1_2.Y)
+                    )
+                Items: |-
+                    =SortByColumns(
+                        With(
+                            {records: atividadesMembros
+                                /*Ungroup(
+                                    Table(
+                                    {Atividades: Atividades},
+                                    {Atividades: Listagens_1}
+                            ),
+                            "Atividades"
+                            )*/
+                    },
+                            ForAll(
+                                Sequence(CountRows(records)),
+                                Patch(
+                                    Last(
+                                        FirstN(
+                                            records,
+                                            Value
+                                        )
+                                    ),
+                                    {rowNumber: Value}
+                                )
+                            )
+                        ),
+                        "createdon",
+                        SortOrder.Descending
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =55
+                Visible: |-
+                    =Or(
+                        godMode,
+                        DRI,
+                        DGC_Editor,
+                        DGC_Validador
+                    
+                    ) And CountRows(atividadesMembros) <> 0
+                Width: =Parent.Width * 0.95
+                X: =24
+                Y: =Container1_2.Height + Container1_2.Y
+                ZIndex: =1
+
+                Rectangle1_2 As rectangle:
+                    Fill: |-
+                        =If(
+                            Mod(ThisItem.rowNumber, 2) = 0,
+                            RGBA(219, 219, 219, 1),
+                            Color.White
+                        )
+                    Height: =50
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.Width
+                    Y: =1
+                    ZIndex: =1
+
+                Label5_1 As label:
+                    Color: =RGBA(77, 77, 77, 1)
+                    Height: =53
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =15
+                    Size: =12
+                    Text: |-
+                        =Text(ThisItem.'Created On', "dd-mm-yyyy hh:mm AM/PM")
+                    Width: =Label6_6.Width
+                    X: =Label6_6.X
+                    ZIndex: =2
+
+                Label3_6 As label:
+                    Color: =RGBA(77, 77, 77, 1)
+                    Height: =53
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =10
+                    PaddingRight: =0
+                    Size: =12
+                    Text: =ThisItem.uipp_titulo
+                    Width: =Label6_7.Width
+                    X: =Label6_7.X
+                    ZIndex: =3
+
+                Label3_7 As label:
+                    Color: =RGBA(77, 77, 77, 1)
+                    Height: =53
+                    OnSelect: =Select(Parent)
+                    Size: =12
+                    Text: =ThisItem.'Created By'.'Nome Completo'
+                    Width: =Label6_8.Width
+                    X: =Label6_8.X
+                    ZIndex: =4
+
+            Container1_2 As groupContainer.manualLayoutContainer:
+                Fill: =RGBA(70, 70, 70, 1)
+                Height: =34
+                Visible: =CountRows(atividadesMembros) <> 0
+                Width: =Parent.Width * 0.95
+                X: =24
+                Y: =15
+                ZIndex: =2
+
+                Label6_6 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =34
+                    Text: ="Data"
+                    Width: =180
+                    X: =4
+                    ZIndex: =1
+
+                Label6_7 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =34
+                    Text: ="Atividade"
+                    Width: =500
+                    X: =Label6_6.Width+5
+                    ZIndex: =2
+
+                Label6_8 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =34
+                    Text: ="Autor"
+                    Width: =Container1_2.Width-(Label6_7.Width+Label6_6.Width) -10
+                    X: =Label6_7.Width+Label6_6.Width+10
+                    ZIndex: =3
+
+            Label17_1 As label:
+                Align: =Align.Center
+                Height: =Container1_3.Height
+                Size: =11
+                Text: |-
+                    ="De momento, não existe atividade associada ao membro " & LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).Nome & "."
+                Visible: =CountRows(atividadesMembros) = 0
+                Width: =Container1_3.Width
+                X: =Container1_3.X
+                Y: =Container1_3.Y
+                ZIndex: =3
+
+        "'Atividades Info' As groupContainer.manualLayoutContainer":
+            Height: =50
+            Visible: =!IsBlank(_Membro)
+            Width: =Parent.Width
+            Y: =If(localShowRelacao, 'Familiares Content'.Y + 'Familiares Content'.Height, 'Familiares Content'.Y)
+            ZIndex: =10
+
+            "'Info Bottom_9' As icon.HorizontalLine":
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(220, 220, 220, 1)
+                Color: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(220, 220, 220, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(220, 220, 220, 1)
+                Fill: =RGBA(220, 220, 220, 1)
+                FocusedBorderColor: =RGBA(220, 220, 220, 1)
+                Height: =2
+                HoverBorderColor: =RGBA(220, 220, 220, 1)
+                HoverColor: =RGBA(220, 220, 220, 1)
+                HoverFill: =RGBA(220, 220, 220, 1)
+                Icon: =Icon.HorizontalLine
+                PressedBorderColor: =RGBA(220, 220, 220, 1)
+                PressedColor: =RGBA(220, 220, 220, 1)
+                PressedFill: =RGBA(220, 220, 220, 1)
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+            "'Info Label_9' As label":
+                AutoHeight: =true
+                Color: =RGBA(50, 86, 160, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: |-
+                    =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+                Text: ="Atividade"
+                Width: =500
+                ZIndex: =2
+
+            "'Info Circle_9' As circle":
+                BorderColor: =RGBA(250, 191, 0, 1)
+                BorderThickness: =2
+                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Height: =30
+                Width: =30
+                X: =Parent.Width - (30 + 'Info Circle_9'.Width)
+                Y: =5
+                ZIndex: =3
+
+            "'Info Icon_9' As icon.Add":
+                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Height: ='Info Circle_9'.Height
+                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |-
+                    =UpdateContext(
+                        {
+                            localShowPrazo: !localShowPrazo,
+                            localShowData: false,
+                            localShowLeg: false,
+                            localShowEliminacao: false,
+                            localShowRelacao: false,
+                            localShowNewForm: false,
+                            localShowEditForm: false,
+                            _Associated: false,
+                            _AssociatedR: false
+                        }
+                    );
+                    ClearCollect(
+                        atividadesMembros,
+                        FirstN(
+                            Filter(
+                                Atividades,
+                                ItemID = _Membro And 'Lista da atividade' = 'lista da atividade'.Membros
+                            ),
+                            20
+                        )
+                    )
+                Width: ='Info Circle_9'.Width
+                X: =Parent.Width - (30 + 'Info Circle_9'.Width)
+                Y: =5
+                ZIndex: =4
+
+    LabelMembros As label:
+        FontWeight: =FontWeight.Bold
+        Height: =48
+        Text: |-
+            =//LookUp(Membros_1,ID=_Membro).Nome
+            "Membros de Órgãos Sociais"
+        Width: =529
+        X: =365
+        Y: =26
+        ZIndex: =4
+
+    LeftSectionComponent_12 As LeftSectionComponent:
+        ZIndex: =5
+
+    LabelMembroName As label:
+        AutoHeight: =true
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            =If(
+                !IsBlank(_Membro),
+                If(
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).Ativo,
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).Nome,
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).Nome & " (Eliminado)"
+                ),
+                "Criar novo Membro de Órgãos Sociais"
+            )
+        Width: =Parent.Width/2
+        X: =365
+        Y: =124
+        ZIndex: =8
+
+    ModalConfirmation_7 As ModalConfirmation:
+        ModalText: |
+            =If(
+                localShowLeg,
+                "Tem certeza de que deseja dissociar a empresa " & 'empresas do grupo'.Selected.Designacao & " do membro " & LabelMembroName.Text & " ?",
+                localShowEliminacao,
+                "Tem certeza de que deseja eliminar a empresa " & 'empresas respetivas'.Selected.ID_Empresa.Designacao & " do membro " & LabelMembroName.Text & " ?",
+                //!localShowData And !localShowLeg And !localShowEliminacao And !localShowRelacao And !localShowPrazo And !localShowNewForm And !_AssociarR And !_Associar,
+                "Tem certeza de que deseja eliminar o membro " & LabelMembroName.Text & " ?"
+            )
+        Visible: =localShowModal
+        ZIndex: =9
+
+    EliminarMembro As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =9
+
+        DynamicBtn_13 As DynamicBtn:
+            BtnText: ="Eliminar"
+            ButtonIcon: =Icon.Trash
+            Height: =40
+            Visible: =!IsBlank(_Membro) And Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+            Width: =160
+            X: =1186
+            Y: =74
+            ZIndex: =6
+
+        elim_btn_1 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =UpdateContext(
+                    {
+                        _Associar: false,
+                        _AssociarR: false,
+                        localShowModal: true,
+                        localShowData: false,
+                        localShowLeg: false,
+                        localShowEliminacao:false,
+                        localShowRelacao: false,
+                        localShowPrazo: false,
+                        localShowNewForm: false
+                    }
+                );
+                ClearCollect(//Filtrar todos os IDs de familiares associados ao membro
+                    RespetivasOutrosFami,
+                    ForAll(
+                        ligacaoFamiliares.ID_Familiares,
+                        ID_Familiares.ID
+                    )
+                );
+                ClearCollect(//Filtrar registos que estejam associados ao membro ou aos familiares deste membro
+                    RespetivasOutrosFamiResp0,
+                    Filter(
+                        'Membros-Familiares-Respetivas',
+                        ThisRecord.ID_Membro.ID = _Membro Or ThisRecord.ID_Familiares.ID in RespetivasOutrosFami[@Value]
+                    )
+                );
+                ClearCollect(//Filtrar apenas relações de empresas respetivas
+                    RespetivasMembroFamiResp,
+                    Filter(
+                        RespetivasOutrosFamiResp0,
+                        IsBlank(ID_GrauParentesco.ID)
+                    )
+                );
+                ClearCollect(//Filtrar empresas respetivas que não estejam associadas ao membro que quero excluir
+                    RespetivasOutros0,
+                    Filter(
+                        'Membros-Familiares-Respetivas',
+                        ThisRecord.ID_Membro.ID <> _Membro
+                    )
+                );
+                ClearCollect(//Filtrar empresas respetivas que não estejam associadas ao familiar do membro que quero excluir
+                    RespetivasOutros01,
+                    Filter(
+                        RespetivasOutros0,
+                        Not(ThisRecord.ID_Familiares.ID in RespetivasOutrosFami[@Value])
+                    )
+                );
+                ClearCollect(//filtrar apenas relações de empresas respetivas
+                    RespetivasOutros1,
+                    Filter(
+                        RespetivasOutros01,
+                        IsBlank(ID_GrauParentesco.ID)
+                    )
+                );
+                Clear(RespetivasOutros2);
+                ForAll(
+                    RespetivasMembroFamiResp,// For all empresas respetivas pertencentes ao membro e/ou familiares
+                    Collect(
+                        RespetivasOutros2,
+                        Filter(
+                            RespetivasOutros1,// Filtrar relações de outros membros e familiares com empresas respetivas que tenha associado a mesma empresa desse membro e/ou familiar
+                            RespetivasMembroFamiResp[@ID_Empresa].ID = ThisRecord.ID_Empresa.ID
+                        ).uipp_ID_Empresa
+                    )
+                );
+                ClearCollect( //Filtrar as empresas que não posso inativar
+                    RespetivasOutros,
+                    Distinct(
+                        ForAll(
+                            RespetivasOutros2.ID_Empresa,
+                            ID_Empresa.ID
+                        ),
+                        Value
+                    )
+                );
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: =!IsBlank(_Membro) And Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+            X: =1186
+            Y: =74
+            ZIndex: =7
+
+    elim_components_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =15
+
+        cancelar_btn_1 As button:
+            Align: =Align.Left
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(51, 51, 51, 1)
+            Fill: =cores.rosa
+            FontWeight: =FontWeight.Normal
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =cores.rosa
+            OnSelect: |-
+                =UpdateContext({
+                    localShowModal: false
+                })
+            PaddingLeft: =50
+            PressedColor: =Color.Black
+            PressedFill: =cores.rosa
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Text: ="CANCELAR"
+            Visible: =localShowModal
+            Width: =165
+            X: =717
+            Y: =440
+            ZIndex: =10
+
+        confirm_btn_1 As button:
+            Align: =Align.Left
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(51, 51, 51, 1)
+            Fill: =RGBA(237, 237, 237, 1)
+            FontWeight: =FontWeight.Normal
+            HoverBorderColor: =
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =ColorFade(RGBA(70, 70, 70, 1),80%)
+            OnSelect: |-
+                =If(
+                    localShowLeg,
+                    Remove(
+                        'Membros-Participadas',
+                        'empresas do grupo'.Selected
+                    ),
+                    localShowEliminacao,
+                    Remove(
+                        'Membros-Familiares-Respetivas',
+                        'empresas respetivas'.Selected
+                    );
+                    If(
+                        IsBlank(
+                            Filter(
+                                'Membros-Familiares-Respetivas',
+                                ID_Empresa.ID = 'empresas respetivas'.Selected.ID
+                            )
+                        ),
+                        If(
+                            Patch(
+                                Empresas,
+                                LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = 'empresas respetivas'.Selected.ID
+                                ),
+                                {
+                                    Ativo: false,
+                                    Bloqueado: true,
+                                    'Data de saída': Now()
+                                }
+                            ).Ativo = false,
+                            //Back();
+                            Notify(
+                                "Empresa Respetiva foi eliminada com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
+                        ),
+                        Notify(
+                            "Empresa Respetiva foi dissociada com sucesso, mas permanece ativa por estar associada a outro registo",
+                            NotificationType.Success
+                        )
+                    ),
+                    If(
+                        Patch(
+                            Membros_1,
+                            LookUp(
+                                Membros_1,
+                                ThisRecord.ID = _Membro
+                            ),
+                            {
+                                Ativo: false,
+                                //Bloqueado: true,
+                                'Data de saida': Now()
+                            }
+                        ).Ativo = false,
+                        Notify(
+                            "Membro eliminado com sucesso!",
+                            NotificationType.Success
+                        ),
+                        Notify(
+                            "Por favor, tente novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
+                    );
+                    ForAll(
+                        ligacaoFamiliares,
+                        If(
+                            Patch(
+                                Familiares,
+                                LookUp(
+                                    Familiares,
+                                    ThisRecord.ID = ligacaoFamiliares[@ID_Familiares].ID
+                                ),
+                                {
+                                    Ativo: false,
+                                    //Bloqueado: true,
+                                    'Data de saida': Now()
+                                }
+                            ).Ativo = false,
+                            Notify(
+                                "Familiares associados ao membro eliminado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
+                        )
+                    );
+                    If(
+                        IsBlank(RespetivasOutros),
+                    //If true = não tenho nem familiar nem membro associado; If false = tenho membro ou familiar associado,
+                        ForAll(
+                            RespetivasMembroFamiResp,
+                            If(
+                                Patch(
+                                    Empresas,
+                                    LookUp(
+                                        Empresas,
+                                        ThisRecord.ID = RespetivasMembroFamiResp[@ID_Empresa].ID
+                                    ),
+                                    {
+                                        Ativo: false,
+                                        //Bloqueado: true,
+                                        'Data de saída': Now()
+                                    }
+                                ).Ativo = false,
+                                Notify(
+                                    "A empresa respetiva " & RespetivasMembroFamiResp[@ID_Empresa].Designacao & " estava associada apenas ao Familiar eliminado, portanto foi eliminada com sucesso!",
+                                    NotificationType.Success
+                                ),
+                                Notify(
+                                    "Falha ao eliminar a empresa respetiva " & RespetivasMembroFamiResp[@ID_Empresa].Designacao & " associada apenas ao Familiar eliminado, tente novamente na secção 'Empresas Respetivas'ou contacte o administrador da solução!",
+                                    NotificationType.Error
+                                )
+                            )
+                        ),
+                        ForAll(
+                            RespetivasMembroFamiResp,
+                            If(
+                                Not(RespetivasMembroFamiResp[@ID_Empresa].ID in RespetivasOutros.Value),
+                                If(
+                                    Patch(
+                                        Empresas,
+                                        LookUp(
+                                            Empresas,
+                                            ThisRecord.ID = RespetivasMembroFamiResp[@ID_Empresa].ID
+                                        ),
+                                        {
+                                            Ativo: false,
+                                            //Bloqueado: true,
+                                            'Data de saída': Now()
+                                        }
+                                    ).Ativo = false,
+                                    Notify(
+                                        "A empresa respetiva " & RespetivasMembroFamiResp[@ID_Empresa].Designacao & " associada ao Membro e/ou familiar(es) foi eliminada com sucesso!",
+                                        NotificationType.Success
+                                    ),
+                                    Notify(
+                                        "Falha ao eliminar a empresa respetiva " & RespetivasMembroFamiResp[@ID_Empresa].Designacao & " associada apenas ao Membro e/ou familiar(es), tente novamente na secção 'Empresas Respetivas'ou contacte o administrador da solução!",
+                                        NotificationType.Error
+                                    )
+                                )
+                            )
+                        )
+                    )
+                );
+                UpdateContext({localShowModal: false});
+                Navigate(
+                    Particulares,
+                    ScreenTransition.None
+                )
+            PaddingLeft: =50
+            PressedColor: =Color.Black
+            PressedFill: =ColorFade(RGBA(70, 70, 70, 1),90%)
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Text: ="Confirmar"
+            Visible: =localShowModal
+            Width: =165
+            X: =486
+            Y: =440
+            ZIndex: =11
+
+        Icon8_2 As icon.Check:
+            Color: =cores.amareloMontepio
+            Height: =30
+            Icon: =Icon.Check
+            OnSelect: |-
+                =/*If(
+                    ColabFormMode = FormMode.View,
+                    If(
+                        Patch(
+                            'Empresas Participadas do Grupos',
+                            LookUp('Empresas Participadas do Grupos', ThisRecord.ID = _EmpresasParticipadas),
+                            {
+                                Ativo: false,
+                                Bloqueado: true,
+                                'Data de saida': Now()
+                            }
+                        ).Ativo = false,
+                        Back();
+                        Notify("Registo de Empresas Participadas do grupo Eliminado com sucesso!", NotificationType.Success);
+                        UpdateContext({
+                            localShowModal: false
+                        }),
+                        Notify("Por favor, tente novamente ou contacte o administrador da solução!", NotificationType.Error)
+                    ),
+                    UpdateContext({
+                        ColabFormMode: FormMode.View
+                    })
+                )*/
+            Visible: =localShowModal
+            Width: =30
+            X: =496
+            Y: =445
+            ZIndex: =12
+
+        Icon8_3 As icon.Check:
+            Color: =cores.amareloMontepio
+            Height: =30
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({
+                    localShowModal: false
+                })
+            Visible: =localShowModal
+            Width: =30
+            X: =726
+            Y: =445
+            ZIndex: =13
+
+    Back As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =16
+
+        BackBtn_5 As BackBtn:
+            X: =365
+            Y: =74
+
+        elim_btn_6 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =BackBtn_5.Height
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: =Navigate(Particulares,ScreenTransition.None)
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Width: =BackBtn_5.Width
+            X: =BackBtn_5.X
+            Y: =BackBtn_5.Y
+            ZIndex: =2
+
+    BloquearMembro As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =17
+
+        DynamicBtn_37 As DynamicBtn:
+            BtnText: |-
+                =If(
+                    LookUp(
+                        Membros_1,
+                        ThisRecord.ID = _Membro
+                    ).Bloqueado,
+                    
+                    "Desbloquear",
+                    "Bloquear"
+                )
+            BtnWidth: =180
+            ButtonIcon: |-
+                =If(
+                    LookUp(
+                        Membros_1,
+                        ThisRecord.ID = _Membro
+                    ).Bloqueado,
+                    Icon.Unlock,
+                    Icon.Lock
+                )
+            Height: =40
+            Visible: ="(Eliminado)" in LabelMembroName.Text
+            Width: =180
+            X: =1150
+            Y: =74
+            ZIndex: =14
+
+        elim_btn_13 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |
+                =If(
+                    LookUp(
+                        Membros_1,
+                        ThisRecord.ID = _Membro
+                    ).Bloqueado,
+                    If(
+                        Patch(
+                            Membros_1,
+                            LookUp(
+                                Membros_1,
+                                ThisRecord.ID = _Membro
+                            ),
+                            {Bloqueado: false}
+                        ).Bloqueado = false,
+                        Notify(
+                            "Membro desbloqueado com sucesso!",
+                            NotificationType.Success
+                        ),
+                        Notify(
+                            "Por favor, tente desbloquear o Membro novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
+                    ),
+                    If(
+                        Patch(
+                            Membros_1,
+                            LookUp(
+                                Membros_1,
+                                ThisRecord.ID = _Membro
+                            ),
+                            {Bloqueado: true}
+                        ).Bloqueado = true,
+                        Notify(
+                            "Membro bloqueado com sucesso!",
+                            NotificationType.Success
+                        ),
+                        Notify(
+                            "Por favor, tente bloquear o Membro novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
+                    )
+                );
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: ="(Eliminado)" in LabelMembroName.Text
+            Width: =180
+            X: =DynamicBtn_37.X
+            Y: =DynamicBtn_37.Y
+            ZIndex: =15
+

@@ -1,0 +1,168 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_rocs",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_roc",
+    "MaxGetRowsCount": 500,
+    "Name": "ROCS",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_ativo": "Ativo",
+      "uipp_bloqueado": "Bloqueado",
+      "uipp_dataaprovacaoca": "Data aprovacao CA",
+      "uipp_datadeinsercao": "Data de insercao",
+      "uipp_datadesaida": "Data de saida",
+      "uipp_grupo": "Grupo",
+      "uipp_id": "ID",
+      "uipp_Legislacaoaplicada": "Legislacao aplicada",
+      "uipp_nome": "Nome",
+      "uipp_numerodocumento": "Numero Documento",
+      "uipp_roc_AsyncOperations": "System Jobs",
+      "uipp_roc_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_roc_DuplicateBaseRecord": "Duplicate Records (uipp_roc_DuplicateBaseRecord)",
+      "uipp_roc_DuplicateMatchingRecord": "Duplicate Records (uipp_roc_DuplicateMatchingRecord)",
+      "uipp_roc_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_roc_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_roc_ProcessSession": "Process Sessions",
+      "uipp_roc_SyncErrors": "Sync Errors",
+      "uipp_rocid": "ROC",
+      "uipp_tipo": "Tipo",
+      "uipp_tipodedocumento": "Tipo de documento",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "ROCS",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "ROCS (Views)",
+    "Name": "_uipp_roc_views",
+    "RelatedEntityName": "ROCS",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "37a8264e-d1b6-4146-a87d-9c8c424ab52b": "ROC Advanced Find View",
+      "8cd7b62f-efe7-4afb-9cfd-869aacadfff2": "ROC Lookup View",
+      "a6e5d33c-fa5c-4d92-9fda-0c121b459e47": "Active ROCS",
+      "da2e1f1c-beb3-43ef-a4b8-da742669e4c5": "ROC Associated View",
+      "e79d3be8-e01d-4a95-8e2b-ec6b44b616a0": "Inactive ROCS"
+    }
+  },
+  {
+    "DisplayName": "Status (ROCS)",
+    "Name": "uipp_roc_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "ROCS"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "ROCS",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (ROCS)",
+    "Name": "uipp_roc_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "ROCS"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "ROCS",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Ativo (ROCS)",
+    "Name": "uipp_roc_uipp_ativo",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_ativo",
+        "OptionSetReferenceEntityName": "ROCS"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_ativo",
+    "RelatedEntityName": "ROCS",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Bloqueado (ROCS)",
+    "Name": "uipp_roc_uipp_bloqueado",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_bloqueado",
+        "OptionSetReferenceEntityName": "ROCS"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_bloqueado",
+    "RelatedEntityName": "ROCS",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "TipoPessoa",
+    "Name": "uipp_tipopessoa",
+    "OptionSetInfoNameMapping": {
+      "847700000": "Singular",
+      "847700001": "Coletivo"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_tipo",
+        "OptionSetReferenceEntityName": "ROCS"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_tipo",
+    "RelatedEntityName": "ROCS",
+    "Type": "OptionSetInfo"
+  }
+]

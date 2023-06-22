@@ -1,0 +1,105 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_membrosfamiliaresrespetivases",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_membrosfamiliaresrespetivas",
+    "MaxGetRowsCount": 500,
+    "Name": "Membros-Familiares-Respetivas",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_cargocategoria": "Cargo (Categoria)",
+      "uipp_cargodescricao": "Cargo (Descrição)",
+      "uipp_id": "ID",
+      "uipp_ID_Empresa": "ID_Empresa",
+      "uipp_ID_Familiares": "ID_Familiares",
+      "uipp_ID_GrauParentesco": "ID_GrauParentesco",
+      "uipp_ID_Membro": "ID_Membro",
+      "uipp_membrosfamiliaresrespetivas_AsyncOperations": "System Jobs",
+      "uipp_membrosfamiliaresrespetivas_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_membrosfamiliaresrespetivas_DuplicateBaseRecord": "Duplicate Records (uipp_membrosfamiliaresrespetivas_DuplicateBaseRecord)",
+      "uipp_membrosfamiliaresrespetivas_DuplicateMatchingRecord": "Duplicate Records (uipp_membrosfamiliaresrespetivas_DuplicateMatchingRecord)",
+      "uipp_membrosfamiliaresrespetivas_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_membrosfamiliaresrespetivas_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_membrosfamiliaresrespetivas_ProcessSession": "Process Sessions",
+      "uipp_membrosfamiliaresrespetivas_SyncErrors": "Sync Errors",
+      "uipp_membrosfamiliaresrespetivasid": "Membros-Familiares-Respetivas",
+      "uipp_name": "Name",
+      "uipp_participacao": "Participação",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Membros-Familiares-Respetivas",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Membros-Familiares-Respetivas (Views)",
+    "Name": "_uipp_membrosfamiliaresrespetivas_views",
+    "RelatedEntityName": "Membros-Familiares-Respetivas",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "379ebb15-d22f-4763-85dc-df6a0dd853c8": "Membros-Familiares-Respetivas Advanced Find View",
+      "4931186e-f4e1-48db-8cfd-c3b653e039f6": "Membros-Familiares-Respetivas Associated View",
+      "5e541f3b-5587-436e-92b2-11d75b39f3cb": "Active Membros-Familiares-Respetivas",
+      "b84794c9-11c0-46a6-9624-f62cd4245088": "Membros-Familiares-Respetivas Lookup View",
+      "e6c412b7-e32d-49a7-99b4-bcbb0f0aa8f9": "Inactive Membros-Familiares-Respetivas"
+    }
+  },
+  {
+    "DisplayName": "Status (Membros-Familiares-Respetivas)",
+    "Name": "uipp_membrosfamiliaresrespetivas_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Membros-Familiares-Respetivas"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Membros-Familiares-Respetivas",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Membros-Familiares-Respetivas)",
+    "Name": "uipp_membrosfamiliaresrespetivas_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Membros-Familiares-Respetivas"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Membros-Familiares-Respetivas",
+    "Type": "OptionSetInfo"
+  }
+]

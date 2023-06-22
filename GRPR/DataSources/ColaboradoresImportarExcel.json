@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "e6a11628-c44c-4212-a287-7d932581a24c",
+    "Name": "ColaboradoresImportarExcel",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "d2bc14b9-0af3-ed11-8849-000d3a64981b"
+  }
+]

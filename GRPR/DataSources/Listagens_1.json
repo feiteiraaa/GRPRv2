@@ -1,0 +1,154 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_listagenses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_listagens",
+    "MaxGetRowsCount": 500,
+    "Name": "Listagens_1",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "_uipp_autor_value": "Autor",
+      "_uipp_validadopor_value": "Validado por",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_comentarios": "Comentarios",
+      "uipp_datadeaprovacaoca": "Data de Aprovacao CA",
+      "uipp_datadereferencia": "Data de referencia",
+      "uipp_datadevalidacao": "Data de validacao",
+      "uipp_estado": "Estado",
+      "uipp_estado_aprovacao_ca": "Estado_Aprovacao_CA",
+      "uipp_id": "ID",
+      "uipp_listagem": "Listagem",
+      "uipp_listagens_AsyncOperations": "System Jobs",
+      "uipp_listagens_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_listagens_DuplicateBaseRecord": "Duplicate Records (uipp_listagens_DuplicateBaseRecord)",
+      "uipp_listagens_DuplicateMatchingRecord": "Duplicate Records (uipp_listagens_DuplicateMatchingRecord)",
+      "uipp_listagens_FileAttachments": "FileAttachments",
+      "uipp_listagens_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_listagens_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_listagens_ProcessSession": "Process Sessions",
+      "uipp_listagens_SyncErrors": "Sync Errors",
+      "uipp_listagensid": "Listagens",
+      "uipp_referenciadapropostaaca": "Referencia da Proposta a CA",
+      "uipp_tipo": "Tipo",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Listagens_1",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Listagens_1 (Views)",
+    "Name": "_uipp_listagens_views",
+    "RelatedEntityName": "Listagens_1",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2d2f57c9-db53-45a1-b9ce-a5804fcdd8a3": "Inactive Listagens",
+      "2dc99fc4-1f77-4a2e-b3a7-14e1168b003f": "Listagens Associated View",
+      "3898aa3e-6b01-415a-8fc1-2186a69aa0b3": "Listagens Advanced Find View",
+      "51403088-9d17-433b-82cd-727bb54220f5": "Listagens Lookup View",
+      "72db655f-1905-4f5c-acff-fc1561754262": "Active Listagens"
+    }
+  },
+  {
+    "DisplayName": "Estado",
+    "Name": "uipp_estado",
+    "OptionSetInfoNameMapping": {
+      "847700000": "Pendente",
+      "847700001": "Aprovado",
+      "847700002": "Rejeitado"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_estado",
+        "OptionSetReferenceEntityName": "Listagens_1"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "uipp_estado_aprovacao_ca",
+        "OptionSetReferenceEntityName": "Listagens_1"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_estado",
+    "RelatedEntityName": "Listagens_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Listagens_1)",
+    "Name": "uipp_listagens_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Listagens_1"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Listagens_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Listagens_1)",
+    "Name": "uipp_listagens_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Listagens_1"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Listagens_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Tipo",
+    "Name": "uipp_tipo",
+    "OptionSetInfoNameMapping": {
+      "847700000": "Manual",
+      "847700001": "Automático"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_tipo",
+        "OptionSetReferenceEntityName": "Listagens_1"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_tipo",
+    "RelatedEntityName": "Listagens_1",
+    "Type": "OptionSetInfo"
+  }
+]

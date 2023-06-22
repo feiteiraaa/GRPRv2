@@ -1,0 +1,906 @@
+ROCDetails As screen:
+    OnVisible: |-
+        =UpdateContext({
+            localShowModal: false,
+            localShowPrazo:false
+        })
+
+    BackBtn_3 As BackBtn:
+        X: =365
+        Y: =74
+        ZIndex: =2
+
+    Label1_5 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =48
+        Text: ="Particulares e empresas respetivas"
+        Width: =529
+        X: =365
+        Y: =26
+        ZIndex: =3
+
+    ROCForm As form:
+        DataSource: =ROCS
+        DefaultMode: =ColabFormMode
+        Height: =437
+        Item: =LookUp(ROCS, _ROC = ThisRecord.ID)
+        Width: =969
+        X: =365
+        Y: =162
+        ZIndex: =5
+
+        Nome_DataCard2 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_nome"
+            Default: =ThisItem.Nome
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ROCS],DataSourceInfo.DisplayName,"uipp_nome")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ROCS], DataSourceInfo.MaxLength, "uipp_nome")
+            Required: =true
+            Update: =DataCardValue15.Text
+            Width: =323
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey20 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue15 As text:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                HoverBorderColor: =ColorFade(cores.cinzento, 15%)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey20.Y + DataCardKey20.Height + 5
+                ZIndex: =2
+
+            ErrorMessage18 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue15.Y + DataCardValue15.Height
+                ZIndex: =3
+
+            StarVisible18 As label:
+                Align: =Align.Center
+                Color: =Color.Red
+                Height: =DataCardKey20.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey20.Y
+                ZIndex: =4
+
+        Grupo_DataCard2 As typedDataCard.comboBoxOptionSetSingleEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_grupo"
+            Default: =ThisItem.Grupo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ROCS],DataSourceInfo.DisplayName,"uipp_grupo")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue13.Selected.Value
+            Width: =323
+            X: =1
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey18 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue13 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                ChevronBackground: =cores.amareloMontepio
+                ChevronHoverBackground: =ColorFade(cores.amareloMontepio, -20%)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                HoverFill: =cores.amareloMontepio
+                IsSearchable: =false
+                Items: =Choices(Grupo)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedFill: =cores.cinzento
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey18.Y + DataCardKey18.Height + 5
+                ZIndex: =2
+
+            ErrorMessage16 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue13.Y + DataCardValue13.Height
+                ZIndex: =3
+
+            StarVisible16 As label:
+                Align: =Align.Center
+                Color: =Color.Red
+                Height: =DataCardKey18.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey18.Y
+                ZIndex: =4
+
+        "'Tipo de documento_DataCard1' As typedDataCard.comboBoxOptionSetSingleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_tipodedocumento"
+            Default: =ThisItem.'Tipo de documento'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ROCS],DataSourceInfo.DisplayName,"uipp_tipodedocumento")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue16.Selected.Value
+            Width: =323
+            X: =2
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey21 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue16 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                ChevronBackground: =cores.amareloMontepio
+                ChevronHoverBackground: =ColorFade(cores.amareloMontepio, -20%)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                HoverFill: =cores.amareloMontepio
+                IsSearchable: =false
+                Items: =Choices('Tipo de Documento')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedFill: =cores.cinzento
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey21.Y + DataCardKey21.Height + 5
+                ZIndex: =2
+
+            ErrorMessage19 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue16.Y + DataCardValue16.Height
+                ZIndex: =3
+
+            StarVisible19 As label:
+                Align: =Align.Center
+                Color: =Color.Red
+                Height: =DataCardKey21.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey21.Y
+                ZIndex: =4
+
+        "'Numero Documento_DataCard1' As typedDataCard.numberEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_numerodocumento"
+            Default: =ThisItem.'Numero Documento'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ROCS],DataSourceInfo.DisplayName,"uipp_numerodocumento")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =Value(DataCardValue17.Text)
+            Width: =323
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey22 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                Height: =34
+                Text: ="Número do documento"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue17 As text:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Format: =TextFormat.Number
+                HoverBorderColor: =ColorFade(cores.cinzento, 15%)
+                HoverColor: =cores.cinzento
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PaddingLeft: =5
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey22.Y + DataCardKey22.Height + 5
+                ZIndex: =2
+
+            ErrorMessage20 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue17.Y + DataCardValue17.Height
+                ZIndex: =3
+
+            StarVisible20 As label:
+                Align: =Align.Center
+                Color: =Color.Red
+                Height: =DataCardKey22.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey22.Y
+                ZIndex: =4
+
+        "'Legislacao aplicada_DataCard2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_Legislacaoaplicada"
+            Default: =ThisItem.'Legislacao aplicada'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ROCS],DataSourceInfo.DisplayName,"uipp_Legislacaoaplicada")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue14.Selected
+            Width: =323
+            X: =1
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey19 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                Height: =34
+                Text: ="Legislação aplicada"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue14 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                ChevronBackground: =cores.amareloMontepio
+                ChevronHoverBackground: =ColorFade(cores.amareloMontepio, -20%)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["uipp_tipodeenquadramento"]
+                DisplayMode: =Parent.DisplayMode
+                HoverFill: =cores.amareloMontepio
+                IsSearchable: =false
+                Items: |-
+                    =Choices([@ROCS].'Legislacao aplicada')
+                    //[@Legislaçãos].uipp_tipodeenquadramento
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedFill: =cores.cinzento
+                SearchFields: =["uipp_tipodeenquadramento"]
+                SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey19.Y + DataCardKey19.Height + 5
+                ZIndex: =2
+
+            ErrorMessage17 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue14.Y + DataCardValue14.Height
+                ZIndex: =3
+
+            StarVisible17 As label:
+                Align: =Align.Center
+                Height: =DataCardKey19.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey19.Y
+                ZIndex: =4
+
+        Ativo_DataCard2 As typedDataCard.comboBoxOptionSetSingleEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_ativo"
+            Default: =ThisItem.Ativo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ROCS],DataSourceInfo.DisplayName,"uipp_ativo")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue2.Selected.Value
+            Visible: =false
+            Width: =323
+            X: =2
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey2 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue2 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                IsSearchable: =false
+                Items: =Choices('Ativo (ROCS)')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage27 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue2.Y + DataCardValue2.Height
+                ZIndex: =3
+
+            StarVisible27 As label:
+                Align: =Align.Center
+                Height: =DataCardKey2.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey2.Y
+                ZIndex: =4
+
+    "'ROCEdit Save Btn' As group":
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =9
+
+        DynamicBtn_6 As DynamicBtn:
+            BtnText: |-
+                =If(
+                    ColabFormMode <> FormMode.View,
+                    "Guardar",
+                    "Edit"
+                )
+            ButtonIcon: |-
+                =If(
+                    ColabFormMode <> FormMode.View,
+                    Icon.Save,
+                    Icon.Edit
+                )
+            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador)
+            X: =1174
+            Y: =74
+            ZIndex: =6
+
+        Button2_6 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =If(
+                    ColabFormMode <> FormMode.View,
+                    If(
+                        SubmitForm(ROCForm),
+                        Back();
+                        Notify("Registo de Colaborador criado com sucesso!", NotificationType.Success),
+                        Notify("Por favor, tente novamente ou contacte o administrador da solução!", NotificationType.Error)
+                    ),
+                    UpdateContext({
+                        ColabFormMode: FormMode.Edit
+                    })
+                );
+                Refresh(ROCS)
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador)
+            X: =1174
+            Y: =75
+            ZIndex: =7
+
+    "'ROC Delete Cancel Btn' As group":
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =11
+
+        DynamicBtn_5 As DynamicBtn:
+            BtnText: |-
+                =If(
+                    ColabFormMode = FormMode.View,
+                    "Eliminar",
+                    "Cancelar"
+                )
+            ButtonIcon: |-
+                =If(
+                    ColabFormMode = FormMode.View,
+                    Icon.Trash,
+                    Icon.Cancel
+                )
+            Height: =40
+            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador)
+            Width: =160
+            X: =1001
+            Y: =74
+            ZIndex: =8
+
+        Button2_5 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =If(
+                    DynamicBtn_5.BtnText = "Cancelar",
+                    UpdateContext({
+                        ColabFormMode: FormMode.View
+                    }),
+                    UpdateContext({
+                        localShowModal: true
+                    })
+                )
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador)
+            X: =1001
+            Y: =74
+            ZIndex: =10
+
+    ModalDelete_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =14
+
+        ModalConfirmation_5 As ModalConfirmation:
+            ModalText: ="Tem certeza de que deseja eliminar o registo de ''"& DataCardValue15.Text &"'' ?"
+            Visible: =localShowModal
+            ZIndex: =11
+
+        Button2_19 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =If(
+                    ColabFormMode = FormMode.View,
+                    If(
+                        Patch(
+                            ROCS,
+                            LookUp(ROCS, ThisRecord.ID = _ROC),
+                            {
+                                Ativo: false,
+                                Bloqueado: true,
+                                'Data de saida': Now()
+                            }
+                        ).Ativo = false,
+                        Back();
+                        Notify("Registo de ROC Eliminado com sucesso!", NotificationType.Success);
+                        UpdateContext({
+                            localShowModal: false
+                        }),
+                        Notify("Por favor, tente novamente ou contacte o administrador da solução!", NotificationType.Error)
+                    ),
+                    UpdateContext({
+                        ColabFormMode: FormMode.View
+                    })
+                )
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador)
+            X: =485
+            Y: =440
+            ZIndex: =12
+
+        Button2_21 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =UpdateContext({
+                    localShowModal: false
+                })
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador)
+            X: =718
+            Y: =440
+            ZIndex: =13
+
+    HtmlText1_1 As htmlViewer:
+        HtmlText: |-
+            ="<b>" & DataCardValue15.Text & "</b> " &
+            If(
+                !DataCardValue2.Selected.Value,
+                " (eliminado)",
+                ""
+            )
+        Size: =14
+        Visible: =ColabFormMode <> FormMode.New
+        Width: =291
+        X: =365
+        Y: =124
+        ZIndex: =15
+
+    LeftSectionComponent_10 As LeftSectionComponent:
+        ZIndex: =16
+
+    "'Atividades Content_4' As groupContainer.manualLayoutContainer":
+        Height: =170
+        Visible: =localShowPrazo
+        Width: ='Atividades Info_4'.Width
+        X: ='Atividades Info_4'.X
+        Y: ='Atividades Info_4'.Y + 'Atividades Info_4'.Height
+        ZIndex: =17
+
+        GalleryAtividadesMembros_4 As gallery.variableTemplateHeightGallery:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =0.5
+            DelayItemLoading: =true
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: |-
+                =//'Atividades Content'.Height - (Container1_2.Height + Container1_2.Y)
+                If(
+                    CountRows(atividadesROC) * Label3_15.Height < 'Atividades Content_4'.Height - (Container1_6.Height + Container1_6.Y),
+                    CountRows(atividadesROC) * Label3_15.Height,
+                    'Atividades Content_4'.Height - (Container1_6.Height + Container1_6.Y)
+                )
+            Items: |-
+                =SortByColumns(
+                    With(
+                        {records: atividadesROC
+                            /*Ungroup(
+                                Table(
+                                {Atividades: Atividades},
+                                {Atividades: Listagens_1}
+                        ),
+                        "Atividades"
+                        )*/
+                },
+                        ForAll(
+                            Sequence(CountRows(records)),
+                            Patch(
+                                Last(
+                                    FirstN(
+                                        records,
+                                        Value
+                                    )
+                                ),
+                                {rowNumber: Value}
+                            )
+                        )
+                    ),
+                    "createdon",
+                    SortOrder.Descending
+                )
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =55
+            Visible: |-
+                =Or(
+                    godMode,
+                    DRI,
+                    DGC_Editor,
+                    DGC_Validador
+                
+                ) And CountRows(atividadesROC) <> 0
+            Width: =Parent.Width * 0.95
+            X: =24
+            Y: =Container1_6.Height + Container1_6.Y
+            ZIndex: =1
+
+            Rectangle1_6 As rectangle:
+                Fill: |-
+                    =If(
+                        Mod(ThisItem.rowNumber, 2) = 0,
+                        RGBA(219, 219, 219, 1),
+                        Color.White
+                    )
+                Height: =50
+                OnSelect: =Select(Parent)
+                Width: =Parent.Width
+                Y: =1
+                ZIndex: =1
+
+            Label5_5 As label:
+                Color: =RGBA(77, 77, 77, 1)
+                Height: =53
+                OnSelect: =Select(Parent)
+                PaddingLeft: =15
+                Size: =12
+                Text: |-
+                    =Text(ThisItem.'Created On', "dd-mm-yyyy hh:mm AM/PM")
+                Width: =Label6_18.Width
+                X: =Label6_18.X
+                ZIndex: =2
+
+            Label3_14 As label:
+                Color: =RGBA(77, 77, 77, 1)
+                Height: =53
+                OnSelect: =Select(Parent)
+                PaddingLeft: =10
+                PaddingRight: =0
+                Size: =12
+                Text: =ThisItem.uipp_titulo
+                Width: =Label6_19.Width
+                X: =Label6_19.X
+                ZIndex: =3
+
+            Label3_15 As label:
+                Color: =RGBA(77, 77, 77, 1)
+                Height: =53
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: =ThisItem.'Created By'.'Nome Completo'
+                Width: =Label6_20.Width
+                X: =Label6_20.X
+                ZIndex: =4
+
+        Container1_6 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(70, 70, 70, 1)
+            Height: =34
+            Visible: =CountRows(atividadesROC) <> 0
+            Width: =Parent.Width * 0.95
+            X: =24
+            Y: =15
+            ZIndex: =2
+
+            Label6_18 As label:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: ="Data"
+                Width: =180
+                X: =4
+                ZIndex: =1
+
+            Label6_19 As label:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: ="Atividade"
+                Width: =500
+                X: =Label6_18.Width+5
+                ZIndex: =2
+
+            Label6_20 As label:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: ="Autor"
+                Width: =Container1_6.Width-(Label6_19.Width+Label6_18.Width) -10
+                X: =Label6_19.Width+Label6_18.Width+10
+                ZIndex: =3
+
+        Label17_4 As label:
+            Align: =Align.Center
+            Height: =Container1_3.Height
+            Size: =11
+            Text: |-
+                ="De momento, não existe atividade associada ao ROC " & LookUp(
+                    ROCS,
+                    ID = _ROC
+                ).Nome & "."
+            Visible: =CountRows(atividadesROC) = 0
+            Width: =Container1_3.Width
+            X: =Container1_3.X
+            Y: =Container1_3.Y
+            ZIndex: =3
+
+    "'Atividades Info_4' As groupContainer.manualLayoutContainer":
+        Height: =50
+        Visible: =ColabFormMode = FormMode.View
+        Width: =EmpresasRespetivas.Width
+        X: =EmpresasRespetivas.X
+        Y: =EmpresasRespetivas.Height+EmpresasRespetivas.Y+10
+        ZIndex: =18
+
+        "'Info Bottom_15' As icon.HorizontalLine":
+            AutoDisableOnSelect: =false
+            BorderColor: =RGBA(220, 220, 220, 1)
+            Color: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(220, 220, 220, 1)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(220, 220, 220, 1)
+            Fill: =RGBA(220, 220, 220, 1)
+            FocusedBorderColor: =RGBA(220, 220, 220, 1)
+            Height: =2
+            HoverBorderColor: =RGBA(220, 220, 220, 1)
+            HoverColor: =RGBA(220, 220, 220, 1)
+            HoverFill: =RGBA(220, 220, 220, 1)
+            Icon: =Icon.HorizontalLine
+            PressedBorderColor: =RGBA(220, 220, 220, 1)
+            PressedColor: =RGBA(220, 220, 220, 1)
+            PressedFill: =RGBA(220, 220, 220, 1)
+            Width: =Parent.Width
+            Y: =40
+            ZIndex: =1
+
+        "'Info Label_15' As label":
+            AutoHeight: =true
+            Color: =RGBA(50, 86, 160, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            OnSelect: |-
+                =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+            Text: ="Atividade"
+            Width: =500
+            ZIndex: =2
+
+        "'Info Circle_15' As circle":
+            BorderColor: =RGBA(250, 191, 0, 1)
+            BorderThickness: =2
+            Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+            Height: =30
+            Width: =30
+            X: =Parent.Width - (30 + 'Info Circle_15'.Width)
+            Y: =5
+            ZIndex: =3
+
+        "'Info Icon_15' As icon.Add":
+            Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+            Height: ='Info Circle_15'.Height
+            Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+            OnSelect: |-
+                =UpdateContext({localShowPrazo: !localShowPrazo});
+                ClearCollect(
+                    atividadesROC,
+                    FirstN(
+                        Filter(
+                            Atividades,
+                            ItemID = _ROC And 'Lista da atividade' = 'lista da atividade'.ROC
+                        ),
+                        20
+                    )
+                )
+            Width: ='Info Circle_15'.Width
+            X: =Parent.Width - (30 + 'Info Circle_15'.Width)
+            Y: =5
+            ZIndex: =4
+

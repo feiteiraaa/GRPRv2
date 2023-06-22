@@ -1,0 +1,290 @@
+LeftSectionComponent As CanvasComponent:
+    ConfigApp: |-
+        =//ConfigApp
+        Configuracoes
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =768
+    SelectedMenu: =App.ActiveScreen
+    TabelaMenu: |-
+        =Table(
+            {
+                selected: true,
+                icon: Icon.Home,
+                text: "Inicio",
+                Navigate: Inicio,
+                VisivelPara: true
+            },/*
+            {
+                selected: false,
+                icon: Icon.Bug,
+                text: "Developer",
+                Navigate: Developer,
+                VisivelPara: godMode
+            },*/
+            {
+                selected: false,
+                icon: Icon.People,
+                text: "Particulares e empresas respetivas",
+                Navigate: Particulares,
+                VisivelPara: Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
+            },
+                {
+                selected: false,
+                icon: Icon.OfficeBuilding,
+                text: "Empresas respetivas",
+                Navigate: Respetivas,
+                VisivelPara: Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
+            },
+            {
+                selected: false,
+                icon: Icon.OfficeBuilding,
+                text: "Empresas participadas do grupo",
+                Navigate: Participadas,
+                VisivelPara: Or(godMode, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
+            },
+            {
+                selected: false,
+                icon: Icon.Information,
+                text: "Atividade",
+                Navigate: Atividade,
+                VisivelPara: true//Or(godMode, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
+            },
+            {
+                selected: false,
+                icon: Icon.Notebook,
+                text: "Listagens",
+                Navigate: Listagens,
+                VisivelPara: Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta)
+            },
+            {
+                selected: false,
+                icon: Icon.Settings,
+                text: "Configurações",
+                Navigate: Configuracoes,
+                VisivelPara: Or(godMode, DRI)
+            }
+        )
+    VisibleConfigApp: |-
+        =//Adicionar permissões
+        true
+    Width: =342
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    MainContainerLeftSection As groupContainer.manualLayoutContainer:
+        Height: =768
+        Width: =342
+        ZIndex: =1
+
+        background As text:
+            BorderThickness: =0
+            Default: =""
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(70, 70, 70, 1)
+            Height: =768
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =20
+            RadiusTopLeft: =0
+            RadiusTopRight: =20
+            Width: =342
+            ZIndex: =1
+
+        AppInfo As groupContainer.manualLayoutContainer:
+            Height: =178
+            Width: =342
+            ZIndex: =3
+
+            ImgCompany As image:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Height: =60
+                Image: ='Montepio Logo'
+                Width: =60
+                X: =20
+                Y: =28
+                ZIndex: =1
+
+            lbCompanyName As label:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =Color.White
+                Height: =60
+                Size: =20
+                Text: ="Banco Montepio"
+                Width: =223
+                X: =90
+                Y: =28
+                ZIndex: =2
+
+            lbAppName As label:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =Color.White
+                Height: =60
+                Size: =18
+                Text: ="Gestão e Registo de Partes Relacionadas"
+                Width: =333
+                X: =9
+                Y: =96
+                ZIndex: =3
+
+        UserInfo As groupContainer.manualLayoutContainer:
+            Height: =90
+            Width: =342
+            Y: =678
+            ZIndex: =4
+
+            ImgUser As image:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Height: =70
+                Image: =User().Image
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Width: =70
+                X: =16
+                Y: =10
+                ZIndex: =1
+
+            lbUserName As label:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(230, 230, 230, 1)
+                FontWeight: =FontWeight.Lighter
+                Height: =70
+                Text: =User().FullName
+                Width: =238
+                X: =96
+                Y: =8
+                ZIndex: =2
+
+    MenuGallery As gallery.galleryVertical:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Height: =529
+        Items: =LeftSectionComponent.TabelaMenu
+        Layout: =Layout.Vertical
+        ShowNavigation: =true
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =94
+        Width: =342
+        Y: =153
+        ZIndex: =2
+
+        GalleryItemBackground As text:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Default: =""
+            DisplayMode: =DisplayMode.View
+            Fill: =If(ThisItem.Navigate = LeftSectionComponent.SelectedMenu, Color.White, RGBA(70, 70, 70, 1))
+            Height: =51
+            HoverBorderColor: =RGBA(32, 54, 71, 1)
+            HoverFill: =RGBA(205, 209, 213, 1)
+            OnSelect: =Select(Parent)
+            Width: =316
+            X: =16
+            Y: =20
+            ZIndex: =2
+
+        GalleryItemBackgroundEdge As text:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Default: =""
+            DisplayMode: =DisplayMode.View
+            Fill: =If(ThisItem.Navigate = LeftSectionComponent.SelectedMenu, Color.White, RGBA(70, 70, 70, 1))
+            Height: =80
+            HoverBorderColor: =RGBA(32, 54, 71, 1)
+            HoverFill: =RGBA(205, 209, 213, 1)
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =35
+            X: =307
+            Y: =5
+            ZIndex: =3
+
+        GalleryMenuItemIcon As icon.Add:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =If(ThisItem.Navigate = LeftSectionComponent.SelectedMenu, RGBA(240, 200, 0, 1), RGBA(230, 230, 230, 1))
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            Icon: =ThisItem.icon
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.VisivelPara
+            Width: =30
+            X: =25
+            Y: =32
+            ZIndex: =6
+
+        GalleryMenuItemText As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =If(ThisItem.Navigate = LeftSectionComponent.SelectedMenu, RGBA(240, 200, 0, 1), RGBA(230, 230, 230, 1))
+            DisplayMode: =DisplayMode.View
+            Height: =60
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =14
+            Text: =ThisItem.text
+            Visible: =ThisItem.VisivelPara
+            Width: =250
+            X: =69
+            Y: =16
+            ZIndex: =7
+
+        ButtonEnter As button:
+            DisabledBorderColor: =ColorFade(Self.Fill, -15%)
+            DisabledFill: =RGBA(100, 118, 132, 0)
+            Fill: =RGBA(100, 118, 132, 0)
+            Height: =91
+            HoverBorderColor: =RGBA(100, 118, 132, 0)
+            HoverColor: =RGBA(100, 118, 132, 0)
+            HoverFill: =RGBA(100, 118, 132, 0)
+            OnSelect: |-
+                =Select(Parent);
+                Navigate(ThisItem.Navigate)
+            PressedBorderColor: =RGBA(100, 118, 132, 0)
+            PressedColor: =RGBA(100, 118, 132, 0)
+            PressedFill: =RGBA(100, 118, 132, 0)
+            Text: =""
+            Visible: =ThisItem.VisivelPara
+            Width: =326
+            X: =16
+            Y: =1
+            ZIndex: =8
+
+        GalleryBottomEdge As text:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Default: =""
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(70, 70, 70, 1)
+            Height: =20
+            HoverBorderColor: =RGBA(32, 54, 71, 1)
+            HoverFill: =RGBA(205, 209, 213, 1)
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =If(ThisItem.Navigate = LeftSectionComponent.SelectedMenu, 20, 0)
+            Width: =36
+            X: =306
+            Y: =71
+            ZIndex: =9
+
+        GalleryTopEdge As text:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Default: =""
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(70, 70, 70, 1)
+            Height: =20
+            HoverBorderColor: =RGBA(32, 54, 71, 1)
+            HoverFill: =RGBA(205, 209, 213, 1)
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =If(ThisItem.Navigate = LeftSectionComponent.SelectedMenu, 20, 0)
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =36
+            X: =306
+            ZIndex: =10
+

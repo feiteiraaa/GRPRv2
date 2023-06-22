@@ -1,0 +1,91 @@
+ModalConfirmation_2 As CanvasComponent:
+    Fill: =RGBA(77, 77, 77, 0.3)
+    Height: =App.Height
+    LeftBtnIcon: =Icon.Check
+    LeftBtnText: ="Confirmar"
+    ModalIcon: =Icon.Error
+    ModalIconColor: =Color.Red
+    ModalText: ="Deseja eliminar o registo?"
+    RightBtnFill: =ColorFade(Color.Red, 0.9)
+    RightBtnIcon: =Icon.Cancel
+    RightBtnText: ="CANCELAR"
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Label4_1 As label:
+        Align: =Align.Center
+        Height: =99
+        Text: =ModalConfirmation_2.ModalText
+        Width: =374
+        X: =496
+        Y: =341
+        ZIndex: =2
+
+    "Icon4_1 As icon.'3DPrinting'":
+        Color: =ModalConfirmation_2.ModalIconColor
+        Icon: =ModalConfirmation_2.ModalIcon
+        X: =651
+        Y: =271
+        ZIndex: =3
+
+    Button1_4 As button:
+        Align: =Align.Left
+        BorderThickness: =0
+        Color: =RGBA(51, 51, 51, 1)
+        Fill: =ColorFade(RGBA(70, 70, 70, 1),90%)
+        FontWeight: =FontWeight.Normal
+        HoverColor: =RGBA(70, 70, 70, 1)
+        HoverFill: =ColorFade(RGBA(70, 70, 70, 1), 85%)
+        OnSelect: =
+        PaddingLeft: =50
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Text: =ModalConfirmation_2.LeftBtnText
+        Width: =165
+        X: =486
+        Y: =440
+        ZIndex: =4
+
+    "Icon2_4 As icon.'3DPrinting'":
+        Color: =RGBA(255, 191, 0, 1)
+        Height: =30
+        Icon: =ModalConfirmation_2.LeftBtnIcon
+        Width: =30
+        X: =496
+        Y: =445
+        ZIndex: =5
+
+    Button1_5 As button:
+        Align: =Align.Left
+        BorderThickness: =0
+        Color: =RGBA(70, 70, 70, 1)
+        Fill: =ModalConfirmation_2.RightBtnFill
+        FontWeight: =FontWeight.Normal
+        HoverColor: =RGBA(70, 70, 70, 1)
+        HoverFill: =ModalConfirmation_2.RightBtnFill
+        OnSelect: =
+        PaddingLeft: =50
+        PressedFill: =ModalConfirmation_2.RightBtnFill
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Text: =ModalConfirmation_2.RightBtnText
+        Width: =165
+        X: =715
+        Y: =440
+        ZIndex: =6
+
+    "Icon2_5 As icon.'3DPrinting'":
+        Color: =RGBA(255, 191, 0, 1)
+        Height: =30
+        Icon: =ModalConfirmation_2.RightBtnIcon
+        Width: =30
+        X: =725
+        Y: =445
+        ZIndex: =7
+

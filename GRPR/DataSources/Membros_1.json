@@ -1,0 +1,148 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_membroses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_membros",
+    "MaxGetRowsCount": 500,
+    "Name": "Membros_1",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_ativo": "Ativo",
+      "uipp_bloqueado": "Bloqueado",
+      "uipp_dataaprovacaoca": "Data aprovacao CA",
+      "uipp_datadeinsercao": "Data de insercao",
+      "uipp_datadesaida": "Data de saida",
+      "uipp_id": "ID",
+      "uipp_Legislacaoaplicada": "Legislacao aplicada",
+      "uipp_membros_AsyncOperations": "System Jobs",
+      "uipp_membros_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_membros_DuplicateBaseRecord": "Duplicate Records (uipp_membros_DuplicateBaseRecord)",
+      "uipp_membros_DuplicateMatchingRecord": "Duplicate Records (uipp_membros_DuplicateMatchingRecord)",
+      "uipp_membros_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_membros_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_membros_ProcessSession": "Process Sessions",
+      "uipp_membros_SyncErrors": "Sync Errors",
+      "uipp_membrosid": "Membros",
+      "uipp_nome": "Nome",
+      "uipp_numerodocumento": "Numero documento",
+      "uipp_tipodedocumento": "Tipo de documento",
+      "uipp_uipp_membrosfamiliaresrespetivas_ID_Membr": "Membros-Familiares-Respetivas",
+      "uipp_uipp_membrosparticipadas_ChildID_uipp_mem": "Membros-Participadas",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Membros_1",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Membros_1 (Views)",
+    "Name": "_uipp_membros_views",
+    "RelatedEntityName": "Membros_1",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "17728226-0f50-42d0-99a2-24ecb3fdae7d": "Membros Advanced Find View",
+      "1777fee4-2fa0-4156-af96-5ee7f33405db": "Membros Lookup View",
+      "66afc4e0-65ca-44aa-9249-1f133734b762": "Membros Associated View",
+      "e345715d-bfd2-4c8d-8201-c4af0a33ff60": "Active Membros",
+      "e90353cb-756f-42ca-9eb7-37e3e2c5760d": "Inactive Membros"
+    }
+  },
+  {
+    "DisplayName": "Status (Membros_1)",
+    "Name": "uipp_membros_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Membros_1"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Membros_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Membros_1)",
+    "Name": "uipp_membros_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Membros_1"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Membros_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Ativo (Membros_1)",
+    "Name": "uipp_membros_uipp_ativo",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_ativo",
+        "OptionSetReferenceEntityName": "Membros_1"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_ativo",
+    "RelatedEntityName": "Membros_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Bloqueado (Membros_1)",
+    "Name": "uipp_membros_uipp_bloqueado",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_bloqueado",
+        "OptionSetReferenceEntityName": "Membros_1"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_bloqueado",
+    "RelatedEntityName": "Membros_1",
+    "Type": "OptionSetInfo"
+  }
+]

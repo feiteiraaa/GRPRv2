@@ -1,0 +1,123 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_membrosparticipadases",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_membrosparticipadas",
+    "MaxGetRowsCount": 500,
+    "Name": "Membros-Participadas",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_ativo": "Ativo",
+      "uipp_cargocategoria": "Cargo (Categoria)",
+      "uipp_cargodescricao": "Cargo (Descricao)",
+      "uipp_ChildID": "Child ID",
+      "uipp_id": "ID",
+      "uipp_membrosparticipadas_AsyncOperations": "System Jobs",
+      "uipp_membrosparticipadas_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_membrosparticipadas_DuplicateBaseRecord": "Duplicate Records (uipp_membrosparticipadas_DuplicateBaseRecord)",
+      "uipp_membrosparticipadas_DuplicateMatchingRecord": "Duplicate Records (uipp_membrosparticipadas_DuplicateMatchingRecord)",
+      "uipp_membrosparticipadas_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_membrosparticipadas_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_membrosparticipadas_ProcessSession": "Process Sessions",
+      "uipp_membrosparticipadas_SyncErrors": "Sync Errors",
+      "uipp_membrosparticipadasid": "Membros-Participadas",
+      "uipp_ParentID": "Parent ID",
+      "uipp_participacao": "Participacao",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Membros-Participadas",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Membros-Participadas (Views)",
+    "Name": "_uipp_membrosparticipadas_views",
+    "RelatedEntityName": "Membros-Participadas",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "00293a3d-86d5-4260-9631-14f234b444ab": "Membros-Participadas Associated View",
+      "132a8687-c616-40e1-aca5-57dddd350032": "Membros-Participadas Advanced Find View",
+      "2be8ee64-e77d-49ac-a443-5b21ad98a6c8": "Inactive Membros-Participadas",
+      "b7a878de-a615-46f5-9607-ed1b8fcb1768": "Active Membros-Participadas",
+      "ccdac5e0-665a-4c03-8ba4-f74cf82f0c05": "Membros-Participadas Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Membros-Participadas)",
+    "Name": "uipp_membrosparticipadas_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Membros-Participadas"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Membros-Participadas",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Membros-Participadas)",
+    "Name": "uipp_membrosparticipadas_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Membros-Participadas"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Membros-Participadas",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Ativo (Membros-Participadas)",
+    "Name": "uipp_membrosparticipadas_uipp_ativo",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_ativo",
+        "OptionSetReferenceEntityName": "Membros-Participadas"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_ativo",
+    "RelatedEntityName": "Membros-Participadas",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,249 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |+
+        =Concurrent(
+            Set(appVersion, "0.3"),
+            With(
+                {records: 
+                    //substituir pelos dados das notificações
+        CustomGallerySample},
+                ForAll(
+                    Sequence(CountRows(records)),
+                    Patch(
+                        Last(
+                            FirstN(
+                                records,
+                                Value
+                            )
+                        ),
+                        {rowNumber: Value}
+                    )
+                );
+                Set(
+                    Notificacoes,
+                    records
+                )
+            ),
+            Set(
+                cores,
+                {
+                    amareloMontepio: RGBA(
+                        255,
+                        191,
+                        0,
+                        1
+                    ),
+                    cinzento: RGBA(
+                        70,
+                        70,
+                        70,
+                        1
+                    ),
+                    rosa: ColorFade(
+                        Color.Red,
+                        0.9
+                    ),
+                    azulTitulo: RGBA(50, 86, 160, 1)
+                }
+            ),
+            Set(
+                godMode,
+                If(
+                    Or(
+                        "gvfeiteira" in User().Email,
+                        "ldsales.ex@montepio.pt" in User().Email,
+                        "lssales" in User().Email,
+                        "cnpedroso" in User().Email,
+                        "pvveras" in User().Email
+                    ),
+                    true,
+                    false
+                )
+            ),
+            Set(
+                DRI,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-DRI-Gestor"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                DGC_Editor,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-DGC-Editor"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                DCRF_Editor,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-DCRF-Editor"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                DGP_Editor,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-DGP-Editor"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                GCONT_Editor,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-GCONT-Editor"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                DGC_Validador,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-DGC-Validador"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                DGP_Validador,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-DGP-Validador"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                DCRF_Validador,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-DCRF-Validador"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                GCONT_Validador,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-GCONT-Validador"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                DCOMP_Consulta,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-DCOMP-Consulta"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                DAI_Consulta,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-DAI-Consulta"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                DMK_Consulta,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-DMK-Consulta"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            ),
+            Set(
+                CCOMP_Consulta,
+                If(
+                    CountRows(
+                        Filter(
+                            Office365Groups.ListOwnedGroupsV3().value,
+                            displayName = "GRPR-CCOMP-Consulta"
+                        )
+                    ) < 1,
+                    false,
+                    true
+                )
+            )
+        );
+        Set(
+            varSortCol,
+            "uipp_nome"
+        );
+        Set(
+            varSortDir,
+            SortOrder.Descending
+        );
+        
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

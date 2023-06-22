@@ -1,0 +1,99 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_relacoesparentescos",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_relacoesparentesco",
+    "MaxGetRowsCount": 500,
+    "Name": "Relações Parentescos",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_graudeparentesco": "Grau de parentesco",
+      "uipp_id": "ID",
+      "uipp_relacoesparentesco_AsyncOperations": "System Jobs",
+      "uipp_relacoesparentesco_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_relacoesparentesco_DuplicateBaseRecord": "Duplicate Records (uipp_relacoesparentesco_DuplicateBaseRecord)",
+      "uipp_relacoesparentesco_DuplicateMatchingRecord": "Duplicate Records (uipp_relacoesparentesco_DuplicateMatchingRecord)",
+      "uipp_relacoesparentesco_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_relacoesparentesco_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_relacoesparentesco_ProcessSession": "Process Sessions",
+      "uipp_relacoesparentesco_SyncErrors": "Sync Errors",
+      "uipp_relacoesparentescoid": "Relações Parentesco",
+      "uipp_uipp_membrosfamiliaresrespetivas_ID_GrauP": "Membros-Familiares-Respetivas",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Relações Parentescos",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Relações Parentescos (Views)",
+    "Name": "_uipp_relacoesparentesco_views",
+    "RelatedEntityName": "Relações Parentescos",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "af7ba2b0-0bf9-499a-9e8c-dd1ed49025e4": "Active Relações Parentescos",
+      "c3e86116-78dc-4642-8bc8-832e45d92267": "Relações Parentesco Associated View",
+      "c7ce9868-40bd-4979-811e-85ee276da808": "Inactive Relações Parentescos",
+      "d6a2d739-717d-44bb-8f4d-3f5ad5bf436d": "Relações Parentesco Lookup View",
+      "d9754764-7e40-4c66-8083-7e6179109a24": "Relações Parentesco Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Relações Parentescos)",
+    "Name": "uipp_relacoesparentesco_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Relações Parentescos"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Relações Parentescos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Relações Parentescos)",
+    "Name": "uipp_relacoesparentesco_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Relações Parentescos"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Relações Parentescos",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,119 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "uipp_aprovacaos",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "uipp_aprovacao",
+    "MaxGetRowsCount": 500,
+    "Name": "Aprovacaos",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_aprovacao_AsyncOperations": "System Jobs",
+      "uipp_aprovacao_BulkDeleteFailures": "Bulk Delete Failures",
+      "uipp_aprovacao_DuplicateBaseRecord": "Duplicate Records (uipp_aprovacao_DuplicateBaseRecord)",
+      "uipp_aprovacao_DuplicateMatchingRecord": "Duplicate Records (uipp_aprovacao_DuplicateMatchingRecord)",
+      "uipp_aprovacao_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "uipp_aprovacao_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "uipp_aprovacao_ProcessSession": "Process Sessions",
+      "uipp_aprovacao_SyncErrors": "Sync Errors",
+      "uipp_aprovacaoid": "Aprovacao",
+      "uipp_aprovado": "Aprovado",
+      "uipp_name": "Name",
+      "uipp_tabela": "Tabela",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Aprovacaos",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Aprovacaos (Views)",
+    "Name": "_uipp_aprovacao_views",
+    "RelatedEntityName": "Aprovacaos",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0fcd2b91-d9a6-4b44-9376-d445956b3f6f": "Aprovacao Lookup View",
+      "3ad9f1d5-7ab7-49df-ba2f-7258b0c62e52": "Active Aprovacaos",
+      "3df369cf-a5a3-45b6-8b9b-60404a630ccc": "Inactive Aprovacaos",
+      "897cb014-aebd-4039-8d4d-e3150c0af1c1": "Aprovacao Associated View",
+      "fd8d7d07-e8d9-4876-84bb-30c89d70f574": "Aprovacao Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Aprovacaos)",
+    "Name": "uipp_aprovacao_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Aprovacaos"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Aprovacaos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Aprovacaos)",
+    "Name": "uipp_aprovacao_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Aprovacaos"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Aprovacaos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Aprovado (Aprovacaos)",
+    "Name": "uipp_aprovacao_uipp_aprovado",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_aprovado",
+        "OptionSetReferenceEntityName": "Aprovacaos"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "uipp_aprovado",
+    "RelatedEntityName": "Aprovacaos",
+    "Type": "OptionSetInfo"
+  }
+]

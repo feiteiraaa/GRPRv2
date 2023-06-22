@@ -1,0 +1,38 @@
+Developer As screen:
+
+    Label2 As label:
+        Text: ="cor do botão"
+        X: =375
+        Y: =145
+        ZIndex: =2
+
+    TextInput1 As text:
+        Default: ="Text input"
+        X: =525
+        Y: =145
+        ZIndex: =3
+
+    Label2_1 As label:
+        Text: ="cor do botão"
+        X: =375
+        Y: =203
+        ZIndex: =4
+
+    TextInput1_1 As text:
+        Default: ="Text input"
+        X: =525
+        Y: =203
+        ZIndex: =5
+
+    TextInput1_2 As text:
+        Default: ="Text input"
+        Height: =402
+        Mode: =TextMode.MultiLine
+        Width: =344
+        X: =978
+        Y: =93
+        ZIndex: =6
+
+    LeftSectionComponent_17 As LeftSectionComponent:
+        ZIndex: =7
+

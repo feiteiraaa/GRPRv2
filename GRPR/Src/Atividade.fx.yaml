@@ -1,0 +1,520 @@
+Atividade As screen:
+    OnVisible: |
+        =Concurrent(
+            Reset(InputPesquisar),
+            Refresh(Atividades)
+        );
+        
+        ClearCollect(CollectAtividades, Atividades);
+
+    Label1_9 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =48
+        Size: =15
+        Text: ="Atividade"
+        Width: =409
+        X: =364
+        Y: =41
+        ZIndex: =10
+
+    AtividadeTable As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HeadingFill: =cores.cinzento
+        Height: |
+            =472
+        Items: |+
+            =SortByColumns(
+                    Filter (
+            
+                        CollectAtividades, 
+                        If(!IsBlank(InputPesquisar.Text), InputPesquisar.Text in ThisRecord.Titulo, true)
+                        And
+                        If(!IsBlank(DatePicker1.SelectedDate),  
+                            ThisRecord.'Created On' >= DatePicker1.SelectedDate, true)
+                        And
+                        If(!IsBlank(DatePicker2.SelectedDate),
+                             ThisRecord.'Created On' <= DateAdd( DatePicker2.SelectedDate, 1, TimeUnit.Days), true)
+                        And 
+                        If(DatePicker1.SelectedDate = DatePicker2.SelectedDate, 
+                        ThisRecord.'Created On' >= DatePicker1.SelectedDate
+                        Or
+                          ThisRecord.'Created On'  < DateAdd( DatePicker2.SelectedDate, 1, TimeUnit.Days), true)
+                       
+                
+                
+                ),"uipp_data",varSortDir
+            )
+            
+        SelectedFill: =cores.amareloMontepio
+        Width: =980
+        X: =357
+        Y: =200
+        ZIndex: =11
+
+        "'Criado Por_Column1' As dataTableColumn.complexTypeColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Criado Por"
+            FieldName: ="createdby"
+            FieldVariantName: ="complexTypeColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =UpdateContext({ShowDetails: true})
+            Order: =9
+            Text: =ThisItem.'Created By'.'Nome Completo'
+            Width: =100
+            X: =657
+            Y: =0
+            ZIndex: =3
+
+        Atividade_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Atividade"
+            FieldName: ="uipp_atividadeid"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =UpdateContext({ShowDetails: true})
+            Order: =5
+            Text: =ThisItem.Titulo
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        Data_Column1 As dataTableColumn.dateTimeColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data"
+            FieldName: ="uipp_data"
+            FieldVariantName: ="dateTimeColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =UpdateContext({ShowDetails: true})
+            Order: =7
+            Text: |-
+                =Text(DateTimeValue(ThisItem.'Criado Em'), "dd/mm/yyyy hh:mm")
+            Width: =222
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+        uipp_tipodealteracao_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Tipo de Alteração"
+            FieldName: ="uipp_tipodealteracao"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.uipp_tipodealteracao
+            Width: =161
+            X: =0
+            Y: =0
+            ZIndex: =8
+
+    LeftSectionComponent_11 As LeftSectionComponent:
+        ZIndex: =13
+
+    PopUp As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =29
+
+        Rectangle2 As rectangle:
+            Fill: =RGBA(77, 77, 77, 0.31)
+            Height: =768
+            Visible: =ShowDetails
+            Width: =1366
+            ZIndex: =12
+
+        RectDetails As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =384
+            Visible: =ShowDetails
+            Width: =1014
+            X: =176
+            Y: =191
+            ZIndex: =14
+
+        Button4 As button:
+            Fill: =cores.amareloMontepio
+            HoverColor: =ColorFade(cores.cinzento, 90%)
+            HoverFill: =ColorFade(cores.cinzento, 90%)
+            OnSelect: |-
+                =UpdateContext({ShowDetails:false})
+            PressedBorderColor: =ColorFade(cores.cinzento, 90%)
+            Text: ="Fechar"
+            Visible: =ShowDetails
+            X: =561
+            Y: =510
+            ZIndex: =15
+
+        Label18 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Size: =14
+            Text: =AtividadeTable.Selected.Titulo
+            Visible: =ShowDetails
+            Width: =843
+            X: =342
+            Y: =200
+            ZIndex: =16
+
+        Label19 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =cores.amareloMontepio
+            FontWeight: =FontWeight.Semibold
+            Size: =14
+            Text: |-
+                ="Atividade: "
+            Visible: =ShowDetails
+            Width: =154
+            X: =188
+            Y: =200
+            ZIndex: =17
+
+        Label18_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Text: =AtividadeTable.Selected.'Created By'.'Nome Completo'
+            Visible: =ShowDetails
+            Width: =349
+            X: =342
+            Y: =252
+            ZIndex: =18
+
+        Label19_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =cores.amareloMontepio
+            FontWeight: =FontWeight.Semibold
+            Size: =12
+            Text: |-
+                ="Criado Por: "
+            Visible: =ShowDetails
+            Width: =154
+            X: =188
+            Y: =252
+            ZIndex: =19
+
+        Label18_2 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Text: |-
+                =Text(DateTimeValue(AtividadeTable.Selected.Data), "dd/mm/yyyy hh:mm")
+            Visible: =ShowDetails
+            Width: =349
+            X: =836
+            Y: =252
+            ZIndex: =20
+
+        Label19_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =cores.amareloMontepio
+            FontWeight: =FontWeight.Semibold
+            Size: =12
+            Text: |-
+                ="Data: "
+            Visible: =ShowDetails
+            Width: =154
+            X: =682
+            Y: =252
+            ZIndex: =21
+
+        Label18_3 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Text: =AtividadeTable.Selected.'Tipo de alteracao'
+            Visible: =ShowDetails
+            Width: =349
+            X: =342
+            Y: =299
+            ZIndex: =22
+
+        Label19_3 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =cores.amareloMontepio
+            FontWeight: =FontWeight.Semibold
+            Size: =12
+            Text: |-
+                ="Tipo de alteração: "
+            Visible: =ShowDetails
+            Width: =154
+            X: =188
+            Y: =299
+            ZIndex: =23
+
+        Label18_4 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Text: =AtividadeTable.Selected.'Lista da atividade'
+            Visible: =ShowDetails
+            Width: =349
+            X: =836
+            Y: =299
+            ZIndex: =24
+
+        Label19_4 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =cores.amareloMontepio
+            FontWeight: =FontWeight.Semibold
+            Size: =12
+            Text: |-
+                ="Lista da Atividade: "
+            Visible: =ShowDetails
+            Width: =154
+            X: =682
+            Y: =299
+            ZIndex: =25
+
+        Label19_5 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =cores.amareloMontepio
+            FontWeight: =FontWeight.Semibold
+            Size: =12
+            Text: |-
+                ="Alterações:"
+            Visible: =ShowDetails
+            Width: =154
+            X: =188
+            Y: =355
+            ZIndex: =27
+
+        ContainerAlteracoes As groupContainer.verticalAutoLayoutContainer:
+            Height: =152
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            Visible: =ShowDetails
+            Width: =847
+            X: =342
+            Y: =355
+            ZIndex: =28
+
+            Label18_5 As label:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                DisplayMode: =DisplayMode.View
+                Height: =ContainerAlteracoes.Height
+                Overflow: =Overflow.Scroll
+                Text: |-
+                    =Substitute(
+                        Substitute(Substitute(Concat(ForAll(Split(
+                                AtividadeTable.Selected.Item,
+                                Char(34)
+                            ), ThisRecord.Value),  ThisRecord.Value, " "), "[", ""), "]", ""), ",", Char(13))
+                    
+                    
+                    //AtividadeTable.Selected.Item
+                    
+                    
+                    /*If(
+                        ("[" & Char(34)) in AtividadeTable.Selected.Item,
+                        Last(FirstN(
+                            ForAll(Split(
+                                AtividadeTable.Selected.Item,
+                                Char(34)
+                            ), {Result: ThisRecord.Value})
+                        , 2)).Result)*/
+                    
+                    
+                    
+                    /*If(
+                        ("[" & Char(34)) in AtividadeTable.Selected.Item,
+                        Last(FirstN(
+                            ForAll(Split(
+                                AtividadeTable.Selected.Item,
+                                Char(34)
+                            ), {Result: ThisRecord.Value})
+                        , 2)).Result,
+                        (Char(34) & "," & Char(34)) in AtividadeTable.Selected.Item,
+                        Last(FirstN(
+                            ForAll(Split(
+                                AtividadeTable.Selected.Item,
+                                Char(34)
+                            ), {Result: ThisRecord.Value})
+                            ,4)).Result,
+                    
+                        (Char(34) & "]") = AtividadeTable.Selected.Item,
+                        " ",
+                       AtividadeTable.Selected.Item
+                        
+                        
+                         ) */
+                    
+                    /*If(
+                        ("[" & Char(34)) in AtividadeTable.Selected.Item,
+                        First(
+                            ForAll(Split(
+                                AtividadeTable.Selected.Item,
+                                Char(34)
+                            ), {Result: ThisRecord.Value})
+                        ).Result,
+                        (Char(34) & "," & Char(34)) in AtividadeTable.Selected.Item,
+                        Last(
+                            ForAll(Split(
+                                AtividadeTable.Selected.Item,
+                                Char(34)
+                            ), {Result: ThisRecord.Value})
+                        ).Result,
+                        (Char(34) & "]") = AtividadeTable.Selected.Item,
+                        " ",
+                       AtividadeTable.Selected.Item
+                        
+                    )*/
+                VerticalAlign: =VerticalAlign.Top
+                Visible: =ShowDetails
+                Width: =ContainerAlteracoes.Width
+                X: =ContainerAlteracoes.X
+                Y: =ContainerAlteracoes.Y
+                ZIndex: =1
+
+    Pesquisa As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =49
+
+        InputPesquisar As text:
+            BorderColor: =ColorFade(cores.cinzento, 80%)
+            BorderThickness: =1
+            Clear: =true
+            Color: |-
+                =//RGBA(0, 0, 0, 1)
+                cores.cinzento
+            Default: =
+            Fill: =ColorFade(cores.cinzento, 90%)
+            Height: =DynamicBtn_1.Height
+            HintText: ="Pesquisar"
+            HoverBorderColor: =RGBA(128, 128, 128, 1)
+            HoverFill: =
+            PaddingLeft: =40
+            Tooltip: =
+            Width: =290
+            X: =364
+            Y: =151
+            ZIndex: =1
+
+        "Icon1_6 As icon.'3DPrinting'":
+            Color: |-
+                =///RGBA(0, 18, 107, 1)
+                cores.amareloMontepio
+            Height: =25
+            Icon: =Icon.Search
+            OnSelect: =//Select(Parent)
+            Width: =25
+            X: =375
+            Y: =158
+            ZIndex: =2
+
+        DatePicker1 As datepicker:
+            DefaultDate: =
+            Format: ="dd/mm/yyyy"
+            Height: =InputPesquisar.Height
+            IconBackground: =cores.amareloMontepio
+            InputTextPlaceholder: |-
+                =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
+                "dd/mm/yyyy"
+            OnChange: |-
+                =If(DatePicker1.SelectedDate > DatePicker2.SelectedDate,
+                
+                Notify("A data inicial deve ser menor do que a data final",NotificationType.Warning, 2000))
+            Width: =150
+            X: =700
+            Y: =InputPesquisar.Y
+            ZIndex: =3
+
+        DatePicker2 As datepicker:
+            DefaultDate: =
+            Format: ="dd/mm/yyyy"
+            Height: =InputPesquisar.Height
+            IconBackground: =cores.amareloMontepio
+            InputTextPlaceholder: |-
+                =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
+                "dd/mm/yyyy"
+            Width: =150
+            X: =890
+            Y: =InputPesquisar.Y
+            ZIndex: =4
+
+        Label11 As label:
+            FontWeight: =FontWeight.Semibold
+            Size: =14
+            Text: |-
+                ="Datas:"
+            X: =700
+            Y: =107
+            ZIndex: =5
+
+        DynamicBtn_1 As DynamicBtn:
+            BtnText: ="Exportar"
+            ButtonIcon: =Icon.Download
+            Visible: =false
+            X: =1177
+            Y: =151
+            ZIndex: =6
+
+        Button7 As button:
+            Color: =Color.Transparent
+            DisabledBorderColor: =Color.Transparent
+            DisabledColor: =Color.Transparent
+            DisabledFill: =Color.Transparent
+            Fill: =Color.Transparent
+            Height: =DynamicBtn_1.Height
+            HoverBorderColor: =Color.Transparent
+            HoverColor: =Color.Transparent
+            HoverFill: =Color.Transparent
+            Text: =""
+            Visible: =false
+            Width: =DynamicBtn_1.Width
+            X: =DynamicBtn_1.X
+            Y: =DynamicBtn_1.Y
+            ZIndex: =7
+
+        Icon1 As icon.Filter:
+            Color: =cores.amareloMontepio
+            Fill: =ColorFade(cores.cinzento, 90%)
+            Height: =InputPesquisar.Height
+            Icon: =Icon.Filter
+            OnSelect: =Navigate(SearchAtividade)
+            PaddingBottom: =3
+            PaddingLeft: =3
+            PaddingRight: =3
+            PaddingTop: =3
+            Width: =50
+            X: =1080
+            Y: =InputPesquisar.Y
+            ZIndex: =8
+
+        Label11_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: =42
+            Size: =15
+            Text: ="a"
+            Width: =39
+            X: =851
+            Y: =151
+            ZIndex: =9
+
