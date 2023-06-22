@@ -464,11 +464,11 @@ Inicio As screen:
                 ="Submetido a " &LookUp(
                     Sort(
                         Listagens_1,
-                        'Criado Em',
+                        'Created On',
                         SortOrder.Descending
                     ),
                     !IsBlank(ThisRecord.'Data de Aprovacao CA')
-                ).'Criado Em'
+                ).'Created On'
             Visible: |-
                 =Or(
                     godMode,
@@ -563,6 +563,7 @@ Inicio As screen:
             ZIndex: =19
 
         Label15 As label:
+            Align: =Align.Center
             FontWeight: =FontWeight.Semibold
             Height: =88
             Text: ="Por favor valide que toda a informação está correta relativamente às partes relacionadas até fim do prazo."

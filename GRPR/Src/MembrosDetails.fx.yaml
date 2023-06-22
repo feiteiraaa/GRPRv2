@@ -245,6 +245,7 @@ MembrosDetails As screen:
                         BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                         ChevronBackground: |
                             =cores.amareloMontepio
+                        ChevronHoverBackground: =cores.amareloMontepio
                         DefaultSelectedItems: =[Parent.Default]
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode

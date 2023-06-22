@@ -2594,7 +2594,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cargo e Relacao",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3533,7 +3533,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Checkbox1_1",
-      "ParentIndex": 13,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3835,7 +3835,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Colaboradores",
-      "ParentIndex": 16,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4056,7 +4056,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container1",
-      "ParentIndex": 17,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4285,7 +4285,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GalleryFamiliaresEmpresas",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4776,7 +4776,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon3",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4996,7 +4996,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconCargo",
-      "ParentIndex": 21,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5216,7 +5216,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconNDoc",
-      "ParentIndex": 20,
+      "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5429,7 +5429,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconNome",
-      "ParentIndex": 18,
+      "ParentIndex": 22,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5842,7 +5842,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconTipo",
-      "ParentIndex": 23,
+      "ParentIndex": 21,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6062,7 +6062,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconTipoDoc",
-      "ParentIndex": 19,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6282,7 +6282,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconUO",
-      "ParentIndex": 22,
+      "ParentIndex": 20,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7392,7 +7392,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label3_1",
-      "ParentIndex": 14,
+      "ParentIndex": 23,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9871,7 +9871,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "NIF Membro",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10427,7 +10427,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Nome Membro",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11722,7 +11722,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Rectangle3",
-      "ParentIndex": 1,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11904,7 +11904,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ROC",
-      "ParentIndex": 15,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

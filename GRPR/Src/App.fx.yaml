@@ -2,7 +2,7 @@ App As appinfo:
     BackEnabled: =false
     OnStart: |+
         =Concurrent(
-            Set(appVersion, "0.3"),
+            Set(appVersion, "1.0"),
             With(
                 {records: 
                     //substituir pelos dados das notificações

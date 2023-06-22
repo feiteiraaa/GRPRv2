@@ -48,7 +48,7 @@ Configuracoes As screen:
 
                 Mes_Column1 As dataTableColumn.numberColumn:
                     DisplayMode: =DisplayMode.Edit
-                    FieldDisplayName: ="Mes"
+                    FieldDisplayName: ="Mês"
                     FieldName: ="uipp_mes"
                     FieldVariantName: ="numberColumn"
                     Height: =Parent.Height
@@ -254,6 +254,7 @@ Configuracoes As screen:
                     DataCardValue26 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                         ChevronBackground: =cores.amareloMontepio
+                        ChevronHoverBackground: =cores.amareloMontepio
                         DefaultSelectedItems: =[Parent.Default]
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
@@ -489,7 +490,7 @@ Configuracoes As screen:
 
                 "'Competencia Decisao_Column1' As dataTableColumn.textualColumn":
                     DisplayMode: =DisplayMode.Edit
-                    FieldDisplayName: ="Competencia Decisao"
+                    FieldDisplayName: ="Competência da Decisão"
                     FieldName: ="uipp_competenciadecisao"
                     FieldVariantName: ="textualColumn"
                     Height: =Parent.Height
@@ -503,7 +504,7 @@ Configuracoes As screen:
 
                 Descritivo_Column1 As dataTableColumn.textualColumn:
                     DisplayMode: =DisplayMode.Edit
-                    FieldDisplayName: ="Descritivo"
+                    FieldDisplayName: ="Descrição"
                     FieldName: ="uipp_descritivo"
                     FieldVariantName: ="textualColumn"
                     Height: =Parent.Height
@@ -1107,7 +1108,7 @@ Configuracoes As screen:
 
                 "'Nº de meses_Column1' As dataTableColumn.numberColumn":
                     DisplayMode: =DisplayMode.Edit
-                    FieldDisplayName: ="Nº de meses"
+                    FieldDisplayName: ="Número de meses"
                     FieldName: ="uipp_ndemeses"
                     FieldVariantName: ="numberColumn"
                     Height: =Parent.Height
@@ -1243,7 +1244,7 @@ Configuracoes As screen:
                         AutoHeight: =true
                         Color: =cores.cinzento
                         Height: =34
-                        Text: =Parent.DisplayName
+                        Text: ="Número de meses"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
