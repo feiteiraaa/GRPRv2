@@ -43,7 +43,7 @@ Respetivas As screen:
 
         Designacao_Column3_1 As dataTableColumn.textualColumn:
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Designacao"
+            FieldDisplayName: ="Designação"
             FieldName: ="uipp_designacao"
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
@@ -109,7 +109,7 @@ Respetivas As screen:
 
         "'Numero Documento_Column1_1' As dataTableColumn.numberColumn":
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Numero Documento"
+            FieldDisplayName: ="Número do Documento"
             FieldName: ="uipp_numerodocumento"
             FieldVariantName: ="numberColumn"
             Height: =Parent.Height
@@ -137,7 +137,7 @@ Respetivas As screen:
 
         "'Legislacao aplicada_Column3_1' As dataTableColumn.complexTypeColumn":
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Legislacao aplicada"
+            FieldDisplayName: ="Legislação aplicada"
             FieldName: ="uipp_Legislacaoaplicada"
             FieldVariantName: ="complexTypeColumn"
             Height: =Parent.Height
@@ -334,7 +334,7 @@ Respetivas As screen:
                 )
             )
         Width: =20
-        X: =Icon7_8.X+'Tipo de documento_Column1_1'.X+20
+        X: =Icon7_8.X + 'Tipo de documento_Column1_1'.X + 20
         Y: =228
         ZIndex: =10
 
@@ -486,6 +486,7 @@ Respetivas As screen:
 
             StarVisible39 As label:
                 Align: =Align.Center
+                Color: =Color.Red
                 Height: =DataCardKey39.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -526,6 +527,7 @@ Respetivas As screen:
             DataCardValue37 As combobox:
                 BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                 ChevronBackground: =cores.amareloMontepio
+                ChevronHoverFill: =cores.amareloMontepio
                 DefaultSelectedItems: =[Parent.Default]
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
@@ -561,6 +563,7 @@ Respetivas As screen:
 
             StarVisible43 As label:
                 Align: =Align.Center
+                Color: =Color.Red
                 Height: =DataCardKey43.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -634,6 +637,7 @@ Respetivas As screen:
 
             StarVisible41 As label:
                 Align: =Align.Center
+                Color: =Color.Red
                 Height: =DataCardKey41.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -718,6 +722,7 @@ Respetivas As screen:
 
             StarVisible40 As label:
                 Align: =Align.Center
+                Color: =Color.Red
                 Height: =DataCardKey40.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -1111,7 +1116,7 @@ Respetivas As screen:
                 PaddingLeft: =15
                 Size: =12
                 Text: |-
-                    =Text(ThisItem.'Created On', "dd-mm-yyyy hh:mm AM/PM")
+                    =Text(ThisItem.'Created On', "dd-mm-yyyy hh:mm")
                 Width: =Label6_12.Width
                 X: =Label6_12.X
                 ZIndex: =2

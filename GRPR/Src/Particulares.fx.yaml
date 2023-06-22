@@ -827,13 +827,7 @@ Particulares As screen:
                 localFiltro = "Membros dos Orgãos Sociais",
                 Nome_Column2.X + 650
             )
-        Y: |-
-            =//Nome_Column1.Y + 212
-            If(
-                Checkbox1_1.Visible,
-                Nome_Column1.Y + 212 + Label3_1.Height + Label3.Height,
-                Nome_Column1.Y + 212
-            )
+        Y: =207
         ZIndex: =16
 
     IconCargo As icon.ChevronDown:

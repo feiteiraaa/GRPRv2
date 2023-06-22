@@ -257,6 +257,7 @@ SearchAtividade As screen:
             ZIndex: =1
 
             CheckboxMinhaAtividade As checkbox:
+                FocusedBorderThickness: =0
                 Text: ="Minha Atividade"
                 Width: =203
                 X: =48
@@ -438,6 +439,7 @@ SearchAtividade As screen:
                 IsSearchable: =false
                 Items: =Choices('tipo de alteracao')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedFill: =//RGBA(0, 18, 107, 1)
                 SearchFields: =["Value"]
                 SearchItems: =[]
                 SelectMultiple: =false

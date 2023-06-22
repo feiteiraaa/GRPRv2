@@ -337,7 +337,7 @@ Inicio As screen:
                         )
                     ),
                     //Text(Date(Year(Now()), Mes, Dia), DateTimeFormat.ShortDate, "pt-PT")
-                    Text(Date(Year(Now()), Mes, Dia), "yyyy/mm/dd", "pt-PT")
+                    Text(Date(Year(Now()), Mes, Dia), "dd/mm/yyyy", "pt-PT")
                 )
             Visible: |-
                 =Or(
@@ -435,6 +435,7 @@ Inicio As screen:
             Fill: =ColorFade(cores.cinzento, 90%)
             FontWeight: =FontWeight.Semibold
             Height: =56
+            PaddingBottom: =0
             Text: ="Listagem ativa"
             Visible: |-
                 =Or(
@@ -453,7 +454,7 @@ Inicio As screen:
                 )
             Width: =191
             X: =1138
-            Y: =359
+            Y: =363
             ZIndex: =14
 
         Label8_4 As label:
@@ -492,7 +493,9 @@ Inicio As screen:
         Icon9 As icon.Download:
             Color: =cores.amareloMontepio
             Fill: =ColorFade(cores.cinzento, 90%)
+            FocusedBorderThickness: =0
             Icon: =Icon.Download
+            TabIndex: =0
             Visible: |-
                 =Or(
                     godMode,

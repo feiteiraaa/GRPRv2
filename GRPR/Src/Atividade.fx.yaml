@@ -429,6 +429,7 @@ Atividade As screen:
             ZIndex: =2
 
         DatePicker1 As datepicker:
+            BorderColor: =cores.cinzento
             DefaultDate: =
             Format: ="dd/mm/yyyy"
             Height: =InputPesquisar.Height
@@ -446,6 +447,7 @@ Atividade As screen:
             ZIndex: =3
 
         DatePicker2 As datepicker:
+            BorderColor: =cores.cinzento
             DefaultDate: =
             Format: ="dd/mm/yyyy"
             Height: =InputPesquisar.Height

@@ -225,6 +225,8 @@ MembrosFamiDetails As screen:
                         BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                         ChevronBackground: |
                             =cores.amareloMontepio
+                        ChevronHoverBackground: |
+                            =cores.amareloMontepio
                         DefaultSelectedItems: =[Parent.Default]
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
@@ -384,6 +386,8 @@ MembrosFamiDetails As screen:
                     DataCardValue44 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                         ChevronBackground: =cores.amareloMontepio
+                        ChevronHoverBackground: |
+                            =cores.amareloMontepio
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["uipp_graudeparentesco"]
                         DisplayMode: =Parent.DisplayMode
