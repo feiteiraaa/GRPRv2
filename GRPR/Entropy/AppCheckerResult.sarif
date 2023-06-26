@@ -22166,6 +22166,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.varLastApproved"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varLastApproved",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varLastApproved",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.Loading_icon"
                 }
               ],

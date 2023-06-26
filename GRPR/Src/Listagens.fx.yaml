@@ -1,11 +1,12 @@
 Listagens As screen:
+    OnVisible: =Set(varLastApproved,Text(First(SortByColumns(Filter(Listagens_1,ThisRecord.Estado=[@Estado].Aprovado),"uipp_datadereferencia",SortOrder.Descending)).'Data de referencia',"dd/mm/yyyy"))
 
     LeftSectionComponent_15 As LeftSectionComponent:
 
     GalleryListagens As gallery.galleryVertical:
         DelayItemLoading: =true
         Height: =483
-        Items: =Listagens_1
+        Items: =SortByColumns(Listagens_1,"uipp_datadereferencia",SortOrder.Descending)
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =51
@@ -32,6 +33,8 @@ Listagens As screen:
             ZIndex: =2
 
         LabelEstado As label:
+            Color: =If(LabelEstado.Text="Aprovado",Color.Green,LabelEstado.Text="Pendente",cores.amareloMontepio,Color.Red)
+            FontWeight: =FontWeight.Semibold
             PaddingLeft: =15
             Text: =ThisItem.Estado
             Width: =Label6_25.Width-10
