@@ -3533,7 +3533,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Checkbox1_1",
-      "ParentIndex": 17,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4996,7 +4996,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconCargo",
-      "ParentIndex": 18,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5429,7 +5429,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconNome",
-      "ParentIndex": 16,
+      "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6062,7 +6062,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconTipoDoc",
-      "ParentIndex": 19,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

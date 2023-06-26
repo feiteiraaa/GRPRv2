@@ -823,7 +823,7 @@ Particulares As screen:
                 localFiltro = "Colaboradores",
                 Nome_Column1.Width + 330,
                 localFiltro = "ROC",
-                Nome_Column2.X + 520,
+                Nome_Column2.Width + 330,
                 localFiltro = "Membros dos Orgãos Sociais",
                 Nome_Column2.X + 650
             )
@@ -1195,7 +1195,7 @@ Particulares As screen:
                 localFiltro = "Colaboradores",
                 'Tipo Documento_Column2'.Width +IconCargo.X,
                 localFiltro = "ROC",
-                uipp_tipodedocumento_Column1.X + 520
+                uipp_tipodedocumento_Column1.Width + IconNome.X
             )
         Y: |-
             =//'Tipo Documento_Column2'.Y + 212
@@ -1242,7 +1242,8 @@ Particulares As screen:
                 localFiltro = "Colaboradores",
                 'Numero Documento_Column2'.Width + IconTipoDoc.X,
                 localFiltro = "ROC",
-                uipp_numerodocumento_Column1.X + 520/*,
+                uipp_numerodocumento_Column1.Width + IconTipoDoc.X
+                /*,
                 localFiltro = "Membros dos Orgãos Sociais",
                 900*/
             )
@@ -1285,7 +1286,7 @@ Particulares As screen:
         Visible: =localFiltro="ROC"
         Width: =20
         X: |
-            =uipp_tipo_Column1.X +520
+            =uipp_tipo_Column1.Width +IconNDoc.X
         Y: |-
             =//'Tipo Documento_Column2'.Y + 212
             If(
