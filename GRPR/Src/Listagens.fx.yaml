@@ -1,4 +1,9 @@
 Listagens As screen:
+    OnHidden: |+
+        =Reset(DatePicker1_2);
+        Reset(DatePicker2_2);
+        
+        
     OnVisible: =Set(varLastApproved,Text(First(SortByColumns(Filter(Listagens_1,ThisRecord.Estado=[@Estado].Aprovado),"uipp_datadereferencia",SortOrder.Descending)).'Data de referencia',"dd/mm/yyyy"))
 
     LeftSectionComponent_15 As LeftSectionComponent:
@@ -168,9 +173,14 @@ Listagens As screen:
                 =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
                 "dd/mm/yyyy"
             OnChange: |-
-                =If(DatePicker1_2.SelectedDate > DatePicker2_2.SelectedDate,
-                
-                Notify("A data inicial deve ser menor do que a data final",NotificationType.Warning, 2000))
+                =If(
+                    DatePicker1_2.SelectedDate > DatePicker2_2.SelectedDate And !IsBlank(DatePicker2_2.SelectedDate ),
+                    Notify(
+                        "A data inicial deve ser menor do que a data final",
+                        NotificationType.Warning,
+                        2000
+                    )
+                )
             Width: =165
             X: =700
             Y: =InputPesquisar_1.Y
@@ -184,6 +194,15 @@ Listagens As screen:
             InputTextPlaceholder: |-
                 =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
                 "dd/mm/yyyy"
+            OnChange: |-
+                =If(
+                    DatePicker1_2.SelectedDate > DatePicker2_2.SelectedDate Or IsBlank(DatePicker1_2.SelectedDate ),
+                    Notify(
+                        "A data inicial deve ser menor do que a data final",
+                        NotificationType.Warning,
+                        2000
+                    )
+                )
             Width: =165
             X: =910
             Y: =InputPesquisar_1.Y
