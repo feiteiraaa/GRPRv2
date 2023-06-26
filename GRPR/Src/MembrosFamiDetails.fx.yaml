@@ -62,7 +62,8 @@ MembrosFamiDetails As screen:
                 RespetivasOutros2.ID_Empresa,
                 ID_Empresa.ID
             )
-        )
+        );
+        Set(DRI,true)
 
     BackBtn_6 As BackBtn:
         X: =365
@@ -481,7 +482,7 @@ MembrosFamiDetails As screen:
                         Format: |-
                             =Text(
                                 Parent.Default,
-                                "dd-mm-yyyy",
+                                "dd/mm/yyyy",
                                 "pt-PT"
                             )
                         IsEditable: =true
@@ -534,6 +535,8 @@ MembrosFamiDetails As screen:
                             DRI,
                             true,
                             IsBlank(_Familiar) And !DRI,
+                            false,
+                            IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
                             false
                         )
                     Width: =266

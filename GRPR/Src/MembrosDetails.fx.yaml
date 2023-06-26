@@ -539,6 +539,8 @@ MembrosDetails As screen:
                             DRI,
                             true,
                             IsBlank(_Membro) And !DRI,
+                            false,
+                            IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
                             false
                         )
                     Width: =266
