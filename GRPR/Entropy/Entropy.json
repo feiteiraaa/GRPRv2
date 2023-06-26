@@ -435,7 +435,6 @@
     "elim_components_1": 1111,
     "elim_components_2": 203,
     "elim_components_3": 458,
-    "elim_components_4": 1132,
     "elim_group": 736,
     "Eliminacao Content": 668,
     "Eliminar": 204,
@@ -941,6 +940,7 @@
     "Nome_DataCard2": 474,
     "Nome_DataCard4": 536,
     "NomeEliminado": 356,
+    "novoPedido": 1132,
     "Numero documento": 219,
     "Numero Documento_Column1_1": 393,
     "Numero Documento_Column2": 333,
@@ -1135,7 +1135,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/26/2023 11:50:16",
+  "HeaderLastSavedDateTimeUTC": "06/26/2023 11:50:47",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "1e123ecc-1326-48cc-95f2-c45bbd1e0267": "\"/providers/microsoft.powerapps/apis/shared_office365groups/connections/e8fd59d5bf124c1a854db37e5255ed08\"",
@@ -1606,12 +1606,6 @@
       "Icon8_6": 2,
       "Icon8_7": 3
     },
-    "elim_components_4": {
-      "cancelar_btn_4": 0,
-      "confirm_btn_4": 2,
-      "Icon8_8": 1,
-      "Icon8_9": 3
-    },
     "elim_group": {
       "Button3": 2,
       "cancel_btn": 0,
@@ -1709,6 +1703,12 @@
     "NewMembrosResp": {
       "DynamicBtn_19": 0,
       "elim_btn_4": 1
+    },
+    "novoPedido": {
+      "cancelar_btn_4": 0,
+      "confirm_btn_4": 2,
+      "Icon8_8": 1,
+      "Icon8_9": 3
     },
     "Particualres Edit Save Btn_2": {
       "Button2_2": 1,
@@ -2235,7 +2235,6 @@
     "elim_components_1": {},
     "elim_components_2": {},
     "elim_components_3": {},
-    "elim_components_4": {},
     "elim_group": {},
     "Eliminacao Content": {},
     "Eliminar": {},
@@ -2741,6 +2740,7 @@
     "Nome_DataCard2": {},
     "Nome_DataCard4": {},
     "NomeEliminado": {},
+    "novoPedido": {},
     "Numero documento": {},
     "Numero Documento_Column1_1": {},
     "Numero Documento_Column2": {},
@@ -3359,7 +3359,6 @@
     "elim_components_1": 314,
     "elim_components_2": 469,
     "elim_components_3": 676,
-    "elim_components_4": 897,
     "elim_group": 1048,
     "Eliminacao Content": 983,
     "Eliminar": 328,
@@ -3865,6 +3864,7 @@
     "Nome_DataCard2": 558,
     "Nome_DataCard4": 731,
     "NomeEliminado": 91,
+    "novoPedido": 897,
     "Numero documento": 711,
     "Numero Documento_Column1_1": 632,
     "Numero Documento_Column2": 67,

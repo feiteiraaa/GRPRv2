@@ -296,7 +296,7 @@ Listagens As screen:
             Y: =BtnReset_1.Y
             ZIndex: =10
 
-    elim_components_4 As group:
+    novoPedido As group:
         Height: =5
         Width: =5
         X: =40
