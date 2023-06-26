@@ -1042,7 +1042,7 @@ MembrosDetails As screen:
                     Height: =40
                     Visible: |-
                         =If(
-                            CountRows(ligacaoParticipadas) = 0 And !_Associated,
+                            CountRows(ligacaoParticipadas) = 0 And !_Associated And DynamicBtn_15.BtnText <> "Cancelar",
                             false,
                             true
                         ) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
@@ -1079,7 +1079,7 @@ MembrosDetails As screen:
                     Text: =""
                     Visible: |-
                         =If(
-                            CountRows(ligacaoParticipadas) = 0 And !_Associated,
+                            CountRows(ligacaoParticipadas) = 0 And !_Associated And DynamicBtn_15.BtnText <> "Cancelar",
                             false,
                             true
                         ) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
@@ -1956,7 +1956,7 @@ MembrosDetails As screen:
                     Height: =40
                     Visible: |-
                         =If(
-                            CountRows(ligacaoRespetivas) = 0,
+                            CountRows(ligacaoRespetivas) = 0 And DynamicBtn_18.BtnText <> "Cancelar",
                             false,
                             true
                         ) And Not("(Eliminado)" in LabelMembroName.Text) And Or(
@@ -2005,7 +2005,7 @@ MembrosDetails As screen:
                     Text: =""
                     Visible: |-
                         =If(
-                            CountRows(ligacaoRespetivas) = 0,
+                            CountRows(ligacaoRespetivas) = 0 And DynamicBtn_18.BtnText <> "Cancelar",
                             false,
                             true
                         ) And Not("(Eliminado)" in LabelMembroName.Text) And Or(

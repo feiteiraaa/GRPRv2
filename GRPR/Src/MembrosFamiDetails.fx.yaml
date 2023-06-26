@@ -1861,7 +1861,7 @@ MembrosFamiDetails As screen:
                     Height: =40
                     Visible: |-
                         =If(
-                            CountRows(RespetivasFamiliar) = 0,
+                            CountRows(RespetivasFamiliar) = 0 And DynamicBtn_32.BtnText <> "Cancelar",
                             false,
                             true
                         ) And Not("[Eliminado]" in LabelMembroName_1.Text) And Or(
@@ -1910,7 +1910,7 @@ MembrosFamiDetails As screen:
                     Text: =""
                     Visible: |-
                         =If(
-                            CountRows(RespetivasFamiliar) = 0,
+                            CountRows(RespetivasFamiliar) = 0 And DynamicBtn_32.BtnText <> "Cancelar",
                             false,
                             true
                         ) And Not("[Eliminado]" in LabelMembroName_1.Text) And Or(
