@@ -108,7 +108,8 @@ MembrosDetails As screen:
         );
         Refresh('Membros-Familiares-Respetivas');
         Refresh('Membros-Participadas');
-        Clear(atividadesFami)
+        Clear(atividadesFami);
+        Set(DRI,false)
 
     "'Mid Section_Membros' As groupContainer.manualLayoutContainer":
         Height: =580
@@ -541,7 +542,8 @@ MembrosDetails As screen:
                             IsBlank(_Membro) And !DRI,
                             false,
                             IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
-                            false
+                            false,
+                            true
                         )
                     Width: =266
                     X: =2
@@ -731,7 +733,7 @@ MembrosDetails As screen:
                                             localShowData: false,
                                             localShowNewForm: !localShowNewForm
                                         }
-                                    );
+                                    ),
                                     /*If(
                                         Informacao.Mode = FormMode.New,
                                         Navigate(
@@ -739,7 +741,7 @@ MembrosDetails As screen:
                                             ScreenTransition.None
                                         )
                                     )*/
-                                    Back(),
+                                    //Back(),
                                     Notify(
                                         "Por favor, tente novamente.",
                                         NotificationType.Error

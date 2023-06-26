@@ -537,7 +537,8 @@ MembrosFamiDetails As screen:
                             IsBlank(_Familiar) And !DRI,
                             false,
                             IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
-                            false
+                            false,
+                            true
                         )
                     Width: =266
                     X: =2

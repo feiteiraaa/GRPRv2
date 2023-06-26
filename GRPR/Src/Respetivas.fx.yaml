@@ -663,7 +663,8 @@ Respetivas As screen:
                     localFormRespetivasNew And !DRI,
                     false,
                     IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
-                    false
+                    false,
+                    true
                 )
             Width: =490
             X: =1

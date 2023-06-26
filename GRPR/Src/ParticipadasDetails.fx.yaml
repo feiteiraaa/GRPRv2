@@ -387,7 +387,10 @@ ParticipadasDetails As screen:
                     DRI,
                     true,
                     IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
-                    false
+                    false,
+                    ColabFormMode = FormMode.New And !DRI,
+                    false,
+                    true
                 )
             Width: =484
             X: =0
