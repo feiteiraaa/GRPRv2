@@ -174,6 +174,8 @@ ParticipadasDetails As screen:
 
             DataCardKey56 As label:
                 AutoHeight: =true
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
                 Height: =34
                 Text: =Parent.DisplayName
                 Width: =Parent.Width - 60
@@ -222,6 +224,8 @@ ParticipadasDetails As screen:
 
             StarVisible56 As label:
                 Align: =Align.Center
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
                 Height: =DataCardKey56.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
