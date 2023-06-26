@@ -94,7 +94,7 @@ ParticipadasDetails As screen:
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             MaxLength: =DataSourceInfo([@'Empresas Participadas do Grupos'], DataSourceInfo.MaxLength, "uipp_nome")
-            Required: =false
+            Required: =true
             Update: =DataCardValue9.Text
             Width: =484
             X: =0
@@ -157,6 +157,79 @@ ParticipadasDetails As screen:
                 Y: =DataCardKey9.Y
                 ZIndex: =4
 
+        "'Tipo de documento_DataCard4' As typedDataCard.comboBoxOptionSetSingleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_tipodedocumento"
+            Default: =ThisItem.'Tipo de documento'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Empresas Participadas do Grupos'],DataSourceInfo.DisplayName,"uipp_tipodedocumento")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue50.Selected.Value
+            Width: =490
+            X: =1
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey56 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue50 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                ChevronBackground: =cores.amareloMontepio
+                ChevronHoverBackground: =cores.amareloMontepio
+                ChevronHoverFill: =
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                HoverFill: =cores.amareloMontepio
+                IsSearchable: =false
+                Items: =Choices('Tipo de Documento')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedFill: =cores.amareloMontepio
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey56.Y + DataCardKey56.Height + 5
+                ZIndex: =3
+
+            ErrorMessage56 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue50.Y + DataCardValue50.Height
+                ZIndex: =4
+
+            StarVisible56 As label:
+                Align: =Align.Center
+                Height: =DataCardKey56.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey56.Y
+                ZIndex: =5
+
         "'Numero documento_DataCard2' As typedDataCard.numberEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="uipp_numerodocumento"
@@ -165,11 +238,11 @@ ParticipadasDetails As screen:
             DisplayName: =DataSourceInfo([@'Empresas Participadas do Grupos'],DataSourceInfo.DisplayName,"uipp_numerodocumento")
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            Required: =false
+            Required: =true
             Update: =Value(DataCardValue10.Text)
             Width: =484
-            X: =1
-            Y: =0
+            X: =0
+            Y: =1
             ZIndex: =1
 
             DataCardKey10 As label:
@@ -239,7 +312,7 @@ ParticipadasDetails As screen:
             Required: =false
             Update: =Value(DataCardValue27.Text)
             Width: =484
-            X: =0
+            X: =1
             Y: =1
             ZIndex: =1
 
@@ -310,8 +383,8 @@ ParticipadasDetails As screen:
             Required: =false
             Update: =Value(DataCardValue28.Text)
             Width: =484
-            X: =1
-            Y: =1
+            X: =0
+            Y: =2
             ZIndex: =1
 
             DataCardKey12 As label:
@@ -393,7 +466,7 @@ ParticipadasDetails As screen:
                     true
                 )
             Width: =484
-            X: =0
+            X: =1
             Y: =2
             ZIndex: =1
 

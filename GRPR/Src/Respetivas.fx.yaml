@@ -527,7 +527,8 @@ Respetivas As screen:
             DataCardValue37 As combobox:
                 BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                 ChevronBackground: =cores.amareloMontepio
-                ChevronHoverFill: =cores.amareloMontepio
+                ChevronHoverBackground: =cores.amareloMontepio
+                ChevronHoverFill: =
                 DefaultSelectedItems: =[Parent.Default]
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
