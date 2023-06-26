@@ -365,7 +365,7 @@ MembrosFamiDetails As screen:
                             IsBlank(_Familiar) And !DRI,
                             false
                         )*/true
-                    Width: =309
+                    Width: =266
                     X: =0
                     Y: =1
                     ZIndex: =1
