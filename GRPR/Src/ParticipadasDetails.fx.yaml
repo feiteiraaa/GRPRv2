@@ -325,7 +325,9 @@ ParticipadasDetails As screen:
                 Color: =cores.cinzento
                 FontWeight: =FontWeight.Semibold
                 Height: =34
-                Text: =Parent.DisplayName
+                Text: |-
+                    =//Parent.DisplayName
+                    "Participação Efetiva (%)"
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
@@ -396,7 +398,9 @@ ParticipadasDetails As screen:
                 Color: =cores.cinzento
                 FontWeight: =FontWeight.Semibold
                 Height: =34
-                Text: =Parent.DisplayName
+                Text: |-
+                    =//Parent.DisplayName
+                    "Controlo (%)"
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
