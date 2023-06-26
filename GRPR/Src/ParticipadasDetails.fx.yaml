@@ -382,6 +382,13 @@ ParticipadasDetails As screen:
             Height: =50
             Required: =false
             Update: =DataCardValue29.Selected
+            Visible: |-
+                =If(
+                    DRI,
+                    true,
+                    IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
+                    false
+                )
             Width: =484
             X: =0
             Y: =2
