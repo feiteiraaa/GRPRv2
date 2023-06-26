@@ -320,7 +320,7 @@ Configuracoes As screen:
                             Icon.Trash
                         )
                     Height: =40
-                    Visible: =CountRows('Datas Referências') <> 0
+                    Visible: =!IsBlank('Datas Referências')
                     Width: =160
                     X: =598
                     Y: =7
@@ -345,7 +345,7 @@ Configuracoes As screen:
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
-                    Visible: =CountRows('Datas Referências') <> 0
+                    Visible: =!IsBlank('Datas Referências')
                     X: =DynamicBtn_7.X
                     Y: =DynamicBtn_7.Y
                     ZIndex: =5
@@ -870,7 +870,7 @@ Configuracoes As screen:
                         )*/
                         Icon.Trash
                     Height: =40
-                    Visible: =!localShowLegForm And CountRows(Legislaçãos) <> 0
+                    Visible: =!localShowLegForm And !IsBlank(Legislaçãos)
                     Width: =160
                     X: =416
                     Y: =6
@@ -896,7 +896,7 @@ Configuracoes As screen:
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
-                    Visible: =!localShowLegForm And CountRows(Legislaçãos) <> 0
+                    Visible: =!localShowLegForm And !IsBlank(Legislaçãos)
                     X: =416
                     Y: =6
                     ZIndex: =8
@@ -922,7 +922,7 @@ Configuracoes As screen:
                             Icon.Cancel,
                             Icon.Edit
                         )
-                    Visible: =CountRows(Legislaçãos) <> 0
+                    Visible: =!IsBlank(Legislaçãos)
                     X: =604
                     Y: =7
                     ZIndex: =2
@@ -962,7 +962,7 @@ Configuracoes As screen:
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
-                    Visible: =CountRows(Legislaçãos) <> 0
+                    Visible: =!IsBlank(Legislaçãos)
                     X: =604
                     Y: =7
                     ZIndex: =7
@@ -1321,7 +1321,7 @@ Configuracoes As screen:
                         )*/
                         Icon.Trash
                     Height: =40
-                    Visible: =!localShowEliminacaoForm And CountRows(Prazos) <> 0
+                    Visible: =!localShowEliminacaoForm And !IsBlank(Prazos)
                     Width: =160
                     X: =416
                     Y: =6
@@ -1342,7 +1342,7 @@ Configuracoes As screen:
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
-                    Visible: =!localShowEliminacaoForm And CountRows(Prazos) <> 0
+                    Visible: =!localShowEliminacaoForm And !IsBlank(Prazos)
                     X: =DynamicBtn_9.X
                     Y: =DynamicBtn_9.Y
                     ZIndex: =4
@@ -1358,7 +1358,7 @@ Configuracoes As screen:
                     BtnOnSelect: =
                     BtnText: =If(localShowEliminacaoForm, "Cancelar", "Editar")
                     ButtonIcon: =If(localShowEliminacaoForm, Icon.Cancel, Icon.Edit)
-                    Visible: =CountRows(Prazos) <> 0
+                    Visible: =!IsBlank(Prazos)
                     X: =604
                     Y: =7
                     ZIndex: =5
@@ -1384,7 +1384,7 @@ Configuracoes As screen:
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
-                    Visible: =CountRows(Prazos) <> 0
+                    Visible: =!IsBlank(Prazos)
                     X: =ParticularesAdd_4.X
                     Y: =ParticularesAdd_4.Y
                     ZIndex: =6
@@ -1695,7 +1695,7 @@ Configuracoes As screen:
                         )*/
                         If(localShowParentescoForm, Icon.Cancel, Icon.Trash)
                     Height: =40
-                    Visible: =CountRows('Relações Parentescos') <> 0
+                    Visible: =!IsBlank('Relações Parentescos')
                     Width: =160
                     X: =604
                     Y: =7
@@ -1720,7 +1720,7 @@ Configuracoes As screen:
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
-                    Visible: =CountRows('Relações Parentescos') <> 0
+                    Visible: =!IsBlank('Relações Parentescos')
                     X: =604
                     Y: =7
                     ZIndex: =4
@@ -1984,7 +1984,7 @@ Configuracoes As screen:
                         
                         If(localShowAlarmisticaForm, Icon.Cancel, Icon.Trash)
                     Height: =40
-                    Visible: = CountRows(Alarmisticas) <> 0
+                    Visible: =!IsBlank(Alarmisticas)
                     Width: =160
                     X: =604
                     Y: =7
@@ -2011,7 +2011,7 @@ Configuracoes As screen:
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
-                    Visible: = CountRows(Alarmisticas) <> 0
+                    Visible: =!IsBlank(Alarmisticas)
                     X: =604
                     Y: =7
                     ZIndex: =4
