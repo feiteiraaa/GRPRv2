@@ -1,6 +1,9 @@
 Listagens As screen:
     OnHidden: |+
-        =Reset(DatePicker1_2);
+        =UpdateContext({
+            localShowModal: false
+        });
+        Reset(DatePicker1_2);
         Reset(DatePicker2_2);
         
         
@@ -125,6 +128,11 @@ Listagens As screen:
         Y: =61
         ZIndex: =14
 
+    ModalConfirmation_10 As ModalConfirmation:
+        ModalText: ="Tem certeza de que deseja gerar uma nova listagem manual ?"
+        Visible: =localShowModal
+        ZIndex: =15
+
     PesquisarListagens As group:
         Height: =5
         Width: =5
@@ -236,6 +244,10 @@ Listagens As screen:
             HoverBorderColor: =Color.Transparent
             HoverColor: =Color.Transparent
             HoverFill: =Color.Transparent
+            OnSelect: |-
+                =UpdateContext({
+                    localShowModal: true
+                })
             Text: =""
             Width: =DynamicBtn_26.Width
             X: =1120
@@ -283,4 +295,86 @@ Listagens As screen:
             X: =BtnReset_1.X
             Y: =BtnReset_1.Y
             ZIndex: =10
+
+    elim_components_4 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =20
+
+        cancelar_btn_4 As button:
+            Align: =Align.Left
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(51, 51, 51, 1)
+            Fill: =cores.rosa
+            FontWeight: =FontWeight.Normal
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =cores.rosa
+            OnSelect: |-
+                =UpdateContext({
+                    localShowModal: false
+                })
+            PaddingLeft: =50
+            PressedColor: =Color.Black
+            PressedFill: =cores.rosa
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Text: ="CANCELAR"
+            Visible: =localShowModal
+            Width: =165
+            X: =717
+            Y: =440
+            ZIndex: =16
+
+        Icon8_8 As icon.Check:
+            Color: =cores.amareloMontepio
+            Height: =30
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({
+                    localShowModal: false
+                })
+            Visible: =localShowModal
+            Width: =30
+            X: =726
+            Y: =445
+            ZIndex: =17
+
+        confirm_btn_4 As button:
+            Align: =Align.Left
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(51, 51, 51, 1)
+            Fill: =RGBA(237, 237, 237, 1)
+            FontWeight: =FontWeight.Normal
+            HoverBorderColor: =
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =ColorFade(RGBA(70, 70, 70, 1),80%)
+            OnSelect: =
+            PaddingLeft: =50
+            PressedColor: =Color.Black
+            PressedFill: =ColorFade(RGBA(70, 70, 70, 1),90%)
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Text: ="Confirmar"
+            Visible: =localShowModal
+            Width: =165
+            X: =486
+            Y: =440
+            ZIndex: =18
+
+        Icon8_9 As icon.Check:
+            Color: =cores.amareloMontepio
+            Height: =30
+            Icon: =Icon.Check
+            OnSelect: =
+            Visible: =localShowModal
+            Width: =30
+            X: =496
+            Y: =445
+            ZIndex: =19
 
