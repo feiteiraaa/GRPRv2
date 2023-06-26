@@ -42,6 +42,7 @@ Respetivas As screen:
         ZIndex: =1
 
         Designacao_Column3_1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
             DisplayMode: =DisplayMode.Edit
             FieldDisplayName: ="Designação"
             FieldName: ="uipp_designacao"
@@ -74,7 +75,7 @@ Respetivas As screen:
                 )
             Order: =3
             Text: =ThisItem.Designacao
-            Width: =100
+            Width: =247
             X: =0
             Y: =0
             ZIndex: =3
@@ -312,7 +313,7 @@ Respetivas As screen:
                 )
             )
         Width: =20
-        X: =Designacao_Column3_1.X+550
+        X: =Designacao_Column3_1.Width+320
         Y: =228
         ZIndex: =9
 
@@ -334,7 +335,7 @@ Respetivas As screen:
                 )
             )
         Width: =20
-        X: =Icon7_8.X + 'Tipo de documento_Column1_1'.X + 20
+        X: =Icon7_8.X + 'Tipo de documento_Column1_1'.Width 
         Y: =228
         ZIndex: =10
 
@@ -356,7 +357,7 @@ Respetivas As screen:
                 )
             )
         Width: =20
-        X: = 'Numero Documento_Column1_1'.X + Icon7_8.X +23
+        X: = 'Numero Documento_Column1_1'.Width + Icon7_9.X +15
         Y: =228
         ZIndex: =11
 
