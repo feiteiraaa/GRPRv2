@@ -63,7 +63,7 @@ MembrosFamiDetails As screen:
                 ID_Empresa.ID
             )
         );
-        Set(DRI,true)
+        //Set(DRI,true)
 
     BackBtn_6 As BackBtn:
         X: =365

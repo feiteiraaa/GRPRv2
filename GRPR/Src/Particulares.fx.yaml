@@ -571,13 +571,13 @@ Particulares As screen:
                             LookUp(
                                 Empresas,
                                 ID = ThisItem.uipp_ID_Empresa.ID
-                            ).Ativo Or LookUp(
+                            ).Ativo = false Or LookUp(
                                 'Empresas Participadas do Grupos',
                                 ID = ThisItem.uipp_ParentID.ID
-                            ).Ativo Or LookUp(
+                            ).Ativo = false Or LookUp(
                                 Familiares,
                                 ID = ThisItem.uipp_ID_Familiares.ID
-                            ).Ativo,
+                            ).Ativo= false,
                             " (Eliminado)"
                         )
                     Width: =('Nome e Designacao'.Width/2)-10
