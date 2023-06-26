@@ -67,7 +67,8 @@ Listagens As screen:
             Height: =34
             PaddingLeft: =10
             Text: ="Data de Referência"
-            Width: =Container1_8.Width/3
+            Width: =(Container1_8.Width-Icon10.Width)/3
+            X: =Icon10.Width
             ZIndex: =1
 
         Label6_25 As label:
@@ -75,7 +76,7 @@ Listagens As screen:
             Height: =34
             PaddingLeft: =10
             Text: ="Estado"
-            Width: =Container1_8.Width/3
+            Width: =(Container1_8.Width-Icon10.Width)/3
             X: =Label6_24.X+Label6_24.Width
             ZIndex: =2
 
@@ -84,8 +85,8 @@ Listagens As screen:
             Height: =34
             PaddingLeft: =10
             Text: ="Tipo de Listagem"
-            Width: =Container1_8.Width/3
-            X: =653.3333333333333
+            Width: =(Container1_8.Width-Icon10.Width)/3
+            X: =Label6_25.X+Label6_25.Width
             ZIndex: =3
 
     PesquisarListagens As group:
