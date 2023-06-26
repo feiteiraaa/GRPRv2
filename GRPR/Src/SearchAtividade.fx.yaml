@@ -142,7 +142,7 @@ SearchAtividade As screen:
                 =UpdateContext({ShowAtividadeAvancada: true})
             Order: =5
             Text: |-
-                =Text(DateTimeValue(ThisItem.'Criado Em'), "dd/mm/yyyy hh:mm")
+                =Text(DateTimeValue(ThisItem.'Created On'), "dd/mm/yyyy hh:mm")
             Width: =201
             X: =549
             Y: =0

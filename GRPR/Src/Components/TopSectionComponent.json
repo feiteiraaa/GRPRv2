@@ -61,7 +61,7 @@
             "Name": "BackgroundTopSection",
             "Parent": "MainContainerTopSection",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 1065,
+            "PublishOrderIndex": 1086,
             "Rules": [
               {
                 "Category": "Design",
@@ -222,7 +222,7 @@
         "Name": "MainContainerTopSection",
         "Parent": "TopSectionComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1064,
+        "PublishOrderIndex": 1085,
         "Rules": [
           {
             "Category": "Design",

@@ -97,7 +97,7 @@ Atividade As screen:
                 =UpdateContext({ShowDetails: true})
             Order: =7
             Text: |-
-                =Text(DateTimeValue(ThisItem.'Criado Em'), "dd/mm/yyyy hh:mm")
+                =Text(DateTimeValue(ThisItem.'Created On'), "dd/mm/yyyy hh:mm")
             Width: =222
             X: =0
             Y: =0
