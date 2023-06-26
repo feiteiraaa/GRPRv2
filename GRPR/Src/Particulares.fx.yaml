@@ -821,13 +821,18 @@ Particulares As screen:
             =//Nome_Column1.X +490
             If(
                 localFiltro = "Colaboradores",
-                Nome_Column1.X + 490,
+                Nome_Column1.Width + 330,
                 localFiltro = "ROC",
                 Nome_Column2.X + 520,
                 localFiltro = "Membros dos Orgãos Sociais",
                 Nome_Column2.X + 650
             )
-        Y: =207
+        Y: |-
+            =If(
+                Checkbox1_1.Visible,
+                Nome_Column1.Y + 212 + Label3_1.Height + Label3.Height,
+                Nome_Column1.Y + 212
+            )
         ZIndex: =16
 
     IconCargo As icon.ChevronDown:
@@ -860,7 +865,7 @@ Particulares As screen:
         Visible: =localFiltro = "Colaboradores"
         Width: =20
         X: |
-            ='Cargo (Categoria)_Column1'.X +490
+            ='Cargo (Categoria)_Column1'.Width + IconNome.X
         Y: |-
             =//'Cargo (Categoria)_Column1'.Y + 212
             If(
@@ -1009,7 +1014,7 @@ Particulares As screen:
             )
         Visible: =localFiltro="Colaboradores"
         Width: =20
-        X: ='Unidade organica_Column1'.X +490
+        X: ='Unidade organica_Column1'.Width +IconNDoc.X
         Y: |-
             =//'Unidade organica_Column1'.Y + 212
             If(
@@ -1188,7 +1193,7 @@ Particulares As screen:
             =//'Tipo Documento_Column2'.X +490
             If(
                 localFiltro = "Colaboradores",
-                'Tipo Documento_Column2'.X +490,
+                'Tipo Documento_Column2'.Width +IconCargo.X,
                 localFiltro = "ROC",
                 uipp_tipodedocumento_Column1.X + 520
             )
@@ -1235,7 +1240,7 @@ Particulares As screen:
             =//'Numero Documento_Column2'.X +490
             If(
                 localFiltro = "Colaboradores",
-                'Numero Documento_Column2'.X +490,
+                'Numero Documento_Column2'.Width + IconTipoDoc.X,
                 localFiltro = "ROC",
                 uipp_numerodocumento_Column1.X + 520/*,
                 localFiltro = "Membros dos Orgãos Sociais",
