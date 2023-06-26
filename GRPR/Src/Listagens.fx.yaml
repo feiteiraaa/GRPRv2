@@ -51,7 +51,7 @@ Listagens As screen:
         Icon10 As icon.Document:
             Color: =cores.amareloMontepio
             Height: =LabelData.Height-7
-            Icon: =If(ThisItem.Estado=Estado.Aprovado,Icon.DockCheckProperties,Icon.Document)
+            Icon: =If(ThisItem.Estado=Estado.Aprovado And LabelData.Text=varLastApproved,Icon.DockCheckProperties,Icon.Document)
             OnSelect: =Select(Parent)
             Width: =50
             Y: =3
