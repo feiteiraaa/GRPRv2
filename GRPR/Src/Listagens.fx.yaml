@@ -2,6 +2,7 @@ Listagens As screen:
     OnVisible: =Set(varLastApproved,Text(First(SortByColumns(Filter(Listagens_1,ThisRecord.Estado=[@Estado].Aprovado),"uipp_datadereferencia",SortOrder.Descending)).'Data de referencia',"dd/mm/yyyy"))
 
     LeftSectionComponent_15 As LeftSectionComponent:
+        ZIndex: =11
 
     GalleryListagens As gallery.galleryVertical:
         DelayItemLoading: =true
@@ -14,11 +15,13 @@ Listagens As screen:
                         Listagens_1,
                         ThisRecord.Estado in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text
                     ),
+                    !IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate),
+                    Filter(
+                        Listagens_1,
+                        ThisRecord.'Data de referencia' >= DatePicker1_2.SelectedDate And ThisRecord.'Data de referencia' <= DatePicker2_2.SelectedDate
+                    ),
                     Listagens_1
-                )
-                //SortByColumns(Listagens_1,"uipp_datadereferencia",SortOrder.Descending)
-                //,InputPesquisar_1.Text,"uipp_estado",InputPesquisar_1.Text,"uipp_tipo")
-            ,
+                ),
                 "uipp_datadereferencia",
                 SortOrder.Descending
             )
@@ -28,7 +31,7 @@ Listagens As screen:
         Width: =Container1_8.Width
         X: =Container1_8.X
         Y: =Container1_8.Y+Container1_8.Height
-        ZIndex: =10
+        ZIndex: =12
 
         Rectangle3_2 As rectangle:
             Fill: =RGBA(128, 128, 128, 1)
@@ -78,7 +81,7 @@ Listagens As screen:
         Width: =980
         X: =357
         Y: =InputPesquisar_1.Y + InputPesquisar_1.Height + 30
-        ZIndex: =11
+        ZIndex: =13
 
         Label6_24 As label:
             Color: =RGBA(255, 255, 255, 1)
@@ -107,12 +110,22 @@ Listagens As screen:
             X: =Label6_25.X+Label6_25.Width
             ZIndex: =3
 
+    Label1_10 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =48
+        Size: =15
+        Text: ="Listagens"
+        Width: =409
+        X: =384
+        Y: =61
+        ZIndex: =14
+
     PesquisarListagens As group:
         Height: =5
         Width: =5
-        X: =-317
-        Y: =-21
-        ZIndex: =12
+        X: =40
+        Y: =40
+        ZIndex: =16
 
         InputPesquisar_1 As text:
             BorderColor: =ColorFade(cores.cinzento, 80%)
@@ -124,7 +137,7 @@ Listagens As screen:
             Default: =
             Fill: =ColorFade(cores.cinzento, 90%)
             Height: =DynamicBtn_26.Height
-            HintText: ="Pesquisar"
+            HintText: ="Pesquisar Estado e Tipo"
             HoverBorderColor: =RGBA(128, 128, 128, 1)
             HoverFill: =
             PaddingLeft: =40
@@ -132,7 +145,7 @@ Listagens As screen:
             Width: =290
             X: =364
             Y: =151
-            ZIndex: =2
+            ZIndex: =1
 
         "Icon1_7 As icon.'3DPrinting'":
             Color: |-
@@ -144,7 +157,7 @@ Listagens As screen:
             Width: =25
             X: =375
             Y: =158
-            ZIndex: =3
+            ZIndex: =2
 
         DatePicker1_2 As datepicker:
             DefaultDate: =
@@ -161,7 +174,7 @@ Listagens As screen:
             Width: =165
             X: =700
             Y: =InputPesquisar_1.Y
-            ZIndex: =4
+            ZIndex: =3
 
         DatePicker2_2 As datepicker:
             DefaultDate: =
@@ -174,7 +187,7 @@ Listagens As screen:
             Width: =165
             X: =910
             Y: =InputPesquisar_1.Y
-            ZIndex: =5
+            ZIndex: =4
 
         Label11_4 As label:
             FontWeight: =FontWeight.Semibold
@@ -183,7 +196,7 @@ Listagens As screen:
                 ="Datas:"
             X: =700
             Y: =107
-            ZIndex: =6
+            ZIndex: =5
 
         DynamicBtn_26 As DynamicBtn_25:
             BtnText: ="Novo Pedido"
@@ -192,7 +205,7 @@ Listagens As screen:
             Visible: =true
             X: =1120
             Y: =151
-            ZIndex: =7
+            ZIndex: =6
 
         Button7_1 As button:
             Color: =Color.Transparent
@@ -208,7 +221,7 @@ Listagens As screen:
             Width: =DynamicBtn_26.Width
             X: =1120
             Y: =DynamicBtn_26.Y
-            ZIndex: =8
+            ZIndex: =7
 
         Label11_5 As label:
             Align: =Align.Center
@@ -219,15 +232,36 @@ Listagens As screen:
             Width: =44
             X: =DatePicker1_2.Width+DatePicker1_2.X
             Y: =151
+            ZIndex: =8
+
+        BtnReset_1 As DynamicBtn:
+            BtnText: ="Limpar"
+            ButtonIcon: =Icon.ClearDrawing
+            Visible: =!IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate)
+            X: =DatePicker2_2.X
+            Y: =Button7_1.Y -50
             ZIndex: =9
 
-    Label1_10 As label:
-        FontWeight: =FontWeight.Bold
-        Height: =48
-        Size: =15
-        Text: ="Listagens"
-        Width: =409
-        X: =384
-        Y: =61
-        ZIndex: =13
+        Button5_1 As button:
+            BorderColor: =Color.Transparent
+            Color: =Color.Transparent
+            DisabledBorderColor: =Color.Transparent
+            DisabledColor: =Color.Transparent
+            DisabledFill: =Color.Transparent
+            Fill: =Color.Transparent
+            Height: =BtnReset_1.Height
+            HoverColor: =Color.Transparent
+            HoverFill: =Color.Transparent
+            OnSelect: |+
+                =Reset(DatePicker1_2);
+                Reset(DatePicker2_2);
+                
+                
+            PressedColor: =Color.Transparent
+            Text: =""
+            Visible: =!IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate)
+            Width: =BtnReset_1.Width
+            X: =BtnReset_1.X
+            Y: =BtnReset_1.Y
+            ZIndex: =10
 
