@@ -6,7 +6,22 @@ Listagens As screen:
     GalleryListagens As gallery.galleryVertical:
         DelayItemLoading: =true
         Height: =483
-        Items: =SortByColumns(Listagens_1,"uipp_datadereferencia",SortOrder.Descending)
+        Items: |-
+            =SortByColumns(
+                If(
+                    !IsBlank(InputPesquisar_1.Text),
+                    Filter(
+                        Listagens_1,
+                        ThisRecord.Estado in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text
+                    ),
+                    Listagens_1
+                )
+                //SortByColumns(Listagens_1,"uipp_datadereferencia",SortOrder.Descending)
+                //,InputPesquisar_1.Text,"uipp_estado",InputPesquisar_1.Text,"uipp_tipo")
+            ,
+                "uipp_datadereferencia",
+                SortOrder.Descending
+            )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =51
