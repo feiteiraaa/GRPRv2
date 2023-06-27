@@ -1,7 +1,7 @@
 Inicio As screen:
     OnVisible: |-
         = UpdateContext({ _Associar:false});
-         //Set(DRI,true)
+         Set(GCONT_Editor,true)
 
     TopSectionComponent_1 As TopSectionComponent:
         X: =342
