@@ -708,6 +708,7 @@ Particulares As screen:
                     SortOrder.Descending
                 )
             Text: ="Membros de Órgãos Sociais"
+            Tooltip: =If('Top Section Gallery Text 1'.DisplayMode = DisplayMode.View, "Acesso negado")
             Width: =288
             X: =14
             Y: =3
@@ -745,6 +746,7 @@ Particulares As screen:
                     SortOrder.Descending
                 )
             Text: ="Colaboradores"
+            Tooltip: =If('Top Section Gallery Text 2'.DisplayMode = DisplayMode.View, "Acesso negado")
             Width: =288
             X: =332
             ZIndex: =5
@@ -781,6 +783,7 @@ Particulares As screen:
                     SortOrder.Descending
                 )
             Text: ="ROC"
+            Tooltip: =If('Top Section Gallery Text 3'.DisplayMode = DisplayMode.View, "Acesso negado")
             Width: =299
             X: =648
             Y: =3
