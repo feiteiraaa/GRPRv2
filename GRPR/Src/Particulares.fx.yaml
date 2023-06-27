@@ -24,7 +24,14 @@ Particulares As screen:
         UpdateContext({showAttachExcel: false});
         ClearCollect(
             CollectMembros,
-            Membros_1
+            If(
+                GCONT_Editor Or GCONT_Validador,
+                Filter(
+                    Membros_1,
+                    ThisRecord.Grupo = [@Grupo].MGAM
+                ),
+                Membros_1
+            )
         );
         ClearCollect(
             CollectRoc,

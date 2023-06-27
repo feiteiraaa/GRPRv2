@@ -198,6 +198,10 @@
       "OptionSetReferenceItem2": {
         "OptionSetReferenceColumnName": "uipp_grupo",
         "OptionSetReferenceEntityName": "ROCS"
+      },
+      "OptionSetReferenceItem3": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Membros_1"
       }
     },
     "OptionSetTypeKey": "PicklistType",
