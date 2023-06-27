@@ -728,6 +728,7 @@ Particulares As screen:
         "'Top Section Gallery Text 2' As label":
             Align: =Align.Center
             Color: =If(localFiltro = "Colaboradores", RGBA(240, 200, 0, 1), RGBA(130, 130, 130, 1))
+            DisplayMode: =If(DRI Or DCOMP_Consulta Or DAI_Consulta Or DGP_Validador Or DGP_Editor, DisplayMode.Edit, DisplayMode.View)
             FontWeight: =If(localFiltro = "Pendentes fora de prazo", FontWeight.Bold, FontWeight.Semibold)
             Height: =45
             OnSelect: |-
@@ -763,6 +764,7 @@ Particulares As screen:
         "'Top Section Gallery Text 3' As label":
             Align: =Align.Center
             Color: =If(localFiltro = "ROC", RGBA(240, 200, 0, 1), RGBA(130, 130, 130, 1))
+            DisplayMode: =If(DRI Or DCOMP_Consulta Or DAI_Consulta Or DGC_Validador Or DGC_Editor, DisplayMode.Edit, DisplayMode.View)
             FontWeight: =If(localFiltro = "A submeter nos próximos 60 dias", FontWeight.Bold, FontWeight.Semibold)
             Height: =45
             OnSelect: |-
