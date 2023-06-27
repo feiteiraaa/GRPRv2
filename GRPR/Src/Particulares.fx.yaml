@@ -1322,7 +1322,7 @@ Particulares As screen:
             BtnWidth: =285
             ButtonIcon: =Icon.AddDocument
             Visible: |-
-                =Switch(
+                =/*Switch(
                     localFiltro,
                     "Colaboradores",
                     Or(godMode, DRI, DGP_Editor, DGP_Validador),
@@ -1332,7 +1332,8 @@ Particulares As screen:
                 
                     "Membros dos Orgãos Sociais",
                     Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
-                )
+                );*/
+                localFiltro= "Colaboradores"
             X: =1041
             Y: =30
             ZIndex: =22
@@ -1355,7 +1356,7 @@ Particulares As screen:
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
             Visible: |-
-                =Switch(
+                =/*Switch(
                     localFiltro,
                     "Colaboradores",
                     Or(godMode, DRI, DGP_Editor, DGP_Validador),
@@ -1365,7 +1366,8 @@ Particulares As screen:
                 
                     "Membros dos Orgãos Sociais",
                     Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
-                )
+                );*/
+                localFiltro= "Colaboradores"
             Width: =285
             X: =1041
             Y: =30
