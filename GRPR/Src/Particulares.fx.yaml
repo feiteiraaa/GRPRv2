@@ -1618,7 +1618,10 @@ Particulares As screen:
                         ),
                         {Aprovado: true}
                     )
-                )
+                );
+                UpdateContext({
+                    localShowModal: false
+                });
             PaddingLeft: =50
             PressedColor: =Color.Black
             PressedFill: =ColorFade(RGBA(70, 70, 70, 1),90%)
