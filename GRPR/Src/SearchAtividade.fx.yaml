@@ -542,6 +542,7 @@ SearchAtividade As screen:
         BtnReset As DynamicBtn:
             BtnText: ="Limpar"
             ButtonIcon: =Icon.ClearDrawing
+            Visible: =!ShowPesquisaAtividade
             X: =982
             Y: =74
             ZIndex: =20
@@ -561,6 +562,7 @@ SearchAtividade As screen:
                 
             PressedColor: =Color.Transparent
             Text: =""
+            Visible: =!ShowPesquisaAtividade
             Width: =BtnReset.Width
             X: =BtnReset.X
             Y: =BtnReset.Y

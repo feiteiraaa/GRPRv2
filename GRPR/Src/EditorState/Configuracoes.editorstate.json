@@ -5167,7 +5167,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Competencia Decisao_Column1",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5805,7 +5805,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Data Content",
-      "ParentIndex": 1,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15754,7 +15754,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Eliminacao Content",
-      "ParentIndex": 5,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22710,7 +22710,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Info Eliminacao Container",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25504,7 +25504,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Info Legislacao  Container",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25691,7 +25691,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Info Prazo Container",
-      "ParentIndex": 8,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25875,7 +25875,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Info Relacao Container",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -26467,7 +26467,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Legislacao Content",
-      "ParentIndex": 3,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -27439,7 +27439,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Nº de meses_Column1",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -29390,7 +29390,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Relacao Content",
-      "ParentIndex": 7,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -32666,7 +32666,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Tipo de enquadramento_Column1",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -32924,7 +32924,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Tipo_Column1",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

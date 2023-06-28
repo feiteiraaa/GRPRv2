@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "4d9a3b73-e6d1-4177-ad2e-51b62ee73bd0",
+    "Name": "Listagens-NovoPedido",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "dfab05a9-9215-ee11-8f6d-6045bd8c9741"
+  }
+]
