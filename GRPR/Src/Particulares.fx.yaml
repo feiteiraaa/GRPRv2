@@ -692,7 +692,7 @@ Particulares As screen:
         "'Top Section Gallery Text 1' As label":
             Align: =Align.Center
             Color: =If(localFiltro = "Membros dos Orgãos Sociais", RGBA(240, 200, 0, 1), RGBA(130, 130, 130, 1))
-            DisplayMode: =If(DRI Or DCOMP_Consulta Or DAI_Consulta Or DGC_Validador Or DGC_Editor Or GCONT_Editor Or GCONT_Validador, DisplayMode.Edit, DisplayMode.View)
+            DisplayMode: =If(DRI Or DCOMP_Consulta Or DAI_Consulta Or DGC_Validador Or DGC_Editor Or GCONT_Editor Or GCONT_Validador Or godMode, DisplayMode.Edit, DisplayMode.View)
             FontWeight: =If(localFiltro = "Lista de Reportes", FontWeight.Bold, FontWeight.Semibold)
             Height: =45
             OnSelect: |-
