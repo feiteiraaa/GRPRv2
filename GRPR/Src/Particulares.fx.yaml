@@ -1068,7 +1068,7 @@ Particulares As screen:
                     "Membros dos Orgãos Sociais",
                     LookUp(
                         Aprovacaos,
-                        ThisRecord.Tabela = "Membros dos Orgãos Sociais"
+                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
                     ).Aprovado = false
                 )
             Width: =961
@@ -1099,7 +1099,7 @@ Particulares As screen:
                     "Membros dos Orgãos Sociais",
                     LookUp(
                         Aprovacaos,
-                        ThisRecord.Tabela = "Membros dos Orgãos Sociais"
+                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
                     ).Aprovado = false
                 )
             Width: =961
@@ -1165,7 +1165,7 @@ Particulares As screen:
                     "Membros dos Orgãos Sociais",
                     LookUp(
                         Aprovacaos,
-                        ThisRecord.Tabela = "Membros dos Orgãos Sociais"
+                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
                     ).Aprovado = false
                 )
             Width: =48
