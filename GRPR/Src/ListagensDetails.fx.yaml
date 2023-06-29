@@ -522,7 +522,6 @@ ListagensDetails As screen:
 
     ImageValidacaoDRI As image:
         Image: =ValidacaoDRI
-        Visible: =false
         Width: =973
         X: =364
         Y: =132
@@ -530,6 +529,7 @@ ListagensDetails As screen:
 
     ImageEmCurso As image:
         Image: =EmCurso
+        Visible: =false
         Width: =973
         X: =364
         Y: =132
