@@ -54,7 +54,8 @@ App As appinfo:
                         "ldsales.ex@montepio.pt" in User().Email,
                         "lssales" in User().Email,
                         "cnpedroso" in User().Email,
-                        "pvveras" in User().Email
+                        "pvveras" in User().Email,
+                        "grdias" in User().Email
                     ),
                     true,
                     false
