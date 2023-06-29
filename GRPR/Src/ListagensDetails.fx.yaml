@@ -543,3 +543,33 @@ ListagensDetails As screen:
         Y: =132
         ZIndex: =7
 
+    LabelValidacaoDRI As label:
+        Align: =Align.Center
+        Color: =cores.cinzento
+        FontWeight: =FontWeight.Semibold
+        Text: ="Validação DRI"
+        Width: =300
+        X: =364
+        Y: =162
+        ZIndex: =8
+
+    LabelEmCurso As label:
+        Align: =Align.Center
+        Color: =cores.cinzento
+        FontWeight: =FontWeight.Semibold
+        Text: ="Aprovação em curso"
+        Width: =300
+        X: =LabelValidacaoDRI.X+LabelValidacaoDRI.Width+30
+        Y: =LabelValidacaoDRI.Y
+        ZIndex: =9
+
+    LabelFinalizado As label:
+        Align: =Align.Center
+        Color: =cores.cinzento
+        FontWeight: =FontWeight.Semibold
+        Text: ="Finalizado"
+        Width: =300
+        X: =LabelEmCurso.X+LabelEmCurso.Width+40
+        Y: =LabelEmCurso.Y
+        ZIndex: =10
+
