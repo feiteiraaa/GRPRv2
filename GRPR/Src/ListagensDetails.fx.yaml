@@ -73,8 +73,7 @@ ListagensDetails As screen:
             Size: =15
             Text: ="Listagem " & If(GalleryListagens.Selected.LabelTipo exactin "Manual" , Text("Manual"), Text(GalleryListagens.Selected.Periodicidade)) & " de " & Text(GalleryListagens.Selected.LabelData)
             Width: =409
-            X: =25
-            Y: =55
+            Y: =45
             ZIndex: =4
 
         btnBack As group:
@@ -347,6 +346,7 @@ ListagensDetails As screen:
 
         Rectangle5 As rectangle:
             Height: =37
+            Visible: =false
             Width: =284
             X: =25
             Y: =103
@@ -354,6 +354,7 @@ ListagensDetails As screen:
 
         Rectangle5_1 As rectangle:
             Height: =37
+            Visible: =false
             Width: =284
             X: =336
             Y: =103
@@ -361,6 +362,7 @@ ListagensDetails As screen:
 
         Rectangle5_2 As rectangle:
             Height: =37
+            Visible: =false
             Width: =284
             X: =647
             Y: =103
@@ -378,6 +380,7 @@ ListagensDetails As screen:
                 Height: =62
                 Icon: =Icon.HorizontalLine
                 Rotation: =10
+                Visible: =false
                 Width: =138
                 X: =198
                 Y: =78
@@ -388,6 +391,7 @@ ListagensDetails As screen:
                 Height: =62
                 Icon: =Icon.HorizontalLine
                 Rotation: =170
+                Visible: =false
                 Width: =138
                 X: =198
                 Y: =102
@@ -398,6 +402,7 @@ ListagensDetails As screen:
                 Height: =62
                 Icon: =Icon.HorizontalLine
                 Rotation: =10
+                Visible: =false
                 Width: =138
                 X: =509
                 Y: =78
@@ -408,6 +413,7 @@ ListagensDetails As screen:
                 Height: =62
                 Icon: =Icon.HorizontalLine
                 Rotation: =170
+                Visible: =false
                 Width: =138
                 X: =509
                 Y: =102
@@ -418,6 +424,7 @@ ListagensDetails As screen:
                 Height: =62
                 Icon: =Icon.HorizontalLine
                 Rotation: =10
+                Visible: =false
                 Width: =138
                 X: =244
                 Y: =78
@@ -428,6 +435,7 @@ ListagensDetails As screen:
                 Height: =61
                 Icon: =Icon.HorizontalLine
                 Rotation: =172
+                Visible: =false
                 Width: =138
                 X: =244
                 Y: =103
@@ -438,6 +446,7 @@ ListagensDetails As screen:
                 Height: =62
                 Icon: =Icon.HorizontalLine
                 Rotation: =10
+                Visible: =false
                 Width: =138
                 X: =553
                 Y: =78
@@ -448,6 +457,7 @@ ListagensDetails As screen:
                 Height: =61
                 Icon: =Icon.HorizontalLine
                 Rotation: =172
+                Visible: =false
                 Width: =138
                 X: =553
                 Y: =103
@@ -456,6 +466,7 @@ ListagensDetails As screen:
             Circle1 As circle:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =14
+                Visible: =false
                 Width: =51
                 X: =321
                 Y: =114
@@ -464,6 +475,7 @@ ListagensDetails As screen:
             Circle1_1 As circle:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =14
+                Visible: =false
                 Width: =51
                 X: =620
                 Y: =114
@@ -472,6 +484,7 @@ ListagensDetails As screen:
             Circle1_2 As circle:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =14
+                Visible: =false
                 Width: =92
                 X: =244
                 Y: =95
@@ -480,6 +493,7 @@ ListagensDetails As screen:
             Circle1_3 As circle:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =14
+                Visible: =false
                 Width: =51
                 X: =270
                 Y: =129
@@ -488,6 +502,7 @@ ListagensDetails As screen:
             Circle1_4 As circle:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =14
+                Visible: =false
                 Width: =51
                 X: =583
                 Y: =95
@@ -496,6 +511,7 @@ ListagensDetails As screen:
             Circle1_5 As circle:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =14
+                Visible: =false
                 Width: =51
                 X: =583
                 Y: =129
@@ -503,4 +519,11 @@ ListagensDetails As screen:
 
     LeftSectionComponent_20 As LeftSectionComponent:
         ZIndex: =4
+
+    Image7 As image:
+        Image: =ValidacaoDRI
+        Width: =973
+        X: =364
+        Y: =132
+        ZIndex: =5
 

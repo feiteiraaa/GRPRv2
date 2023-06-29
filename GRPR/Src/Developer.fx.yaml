@@ -36,3 +36,11 @@ Developer As screen:
     LeftSectionComponent_17 As LeftSectionComponent:
         ZIndex: =7
 
+    Image3 As image:
+        Height: =60
+        Image: =EmCurso
+        Width: =1032
+        X: =269
+        Y: =435
+        ZIndex: =9
+
