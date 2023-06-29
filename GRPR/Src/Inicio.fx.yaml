@@ -115,7 +115,7 @@ Inicio As screen:
             OnSelect: =Select(Parent)
             Size: =12
             Text: |-
-                =Text(ThisItem.uipp_data, "dd-mm-yyyy hh:mm AM/PM")
+                =Text(ThisItem.createdon, "dd-mm-yyyy hh:mm AM/PM")
             Width: =181
             X: =511
             ZIndex: =4
@@ -265,8 +265,7 @@ Inicio As screen:
             FontWeight: =FontWeight.Bold
             Height: =50
             Size: =18
-            Text: |
-                =DateDiff(Text(Now(),"yyyy-mm-dd","pt-PT"),Text(DateTimeValue(Label8_3.Text),"yyyy-mm-dd","pt-PT"))
+            Text: =DateDiff(Text(Now(),"yyyy-mm-dd","pt-PT"),Text(DateTimeValue(Label8_3.Text),"yyyy-mm-dd","pt-PT"))
             Visible: |-
                 =Or(
                     godMode,
