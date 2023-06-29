@@ -61,7 +61,7 @@
             "Name": "BackgroundTopSection",
             "Parent": "MainContainerTopSection",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 1115,
+            "PublishOrderIndex": 1146,
             "Rules": [
               {
                 "Category": "Design",
@@ -222,7 +222,7 @@
         "Name": "MainContainerTopSection",
         "Parent": "TopSectionComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1114,
+        "PublishOrderIndex": 1145,
         "Rules": [
           {
             "Category": "Design",
@@ -404,7 +404,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638235568728379781",
+    "LastModifiedTimestamp": "638236288476249469",
     "Name": "TopSectionComponent",
     "Rules": [
       {
@@ -479,7 +479,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638235568728379781",
+  "LastModifiedTimestamp": "638236288476249469",
   "Name": "d47652eca9704263bc96b9dc8cda1101",
   "OverridableProperties": {},
   "TemplateOriginalName": "d95cd9480f5345a98f020d370eb25377",

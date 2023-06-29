@@ -1,0 +1,350 @@
+ListagensDetails As screen:
+
+    DetalhesListagem As groupContainer.manualLayoutContainer:
+        Height: =677
+        Width: =973
+        X: =364
+        Y: =61
+        ZIndex: =1
+
+        "'Info Informacao Container' As groupContainer.manualLayoutContainer":
+            Height: =50
+            Width: =Parent.Width
+            Y: =164
+            ZIndex: =1
+
+            "'Info Bottom_17' As icon.HorizontalLine":
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(220, 220, 220, 1)
+                Color: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(220, 220, 220, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(220, 220, 220, 1)
+                Fill: =RGBA(220, 220, 220, 1)
+                FocusedBorderColor: =RGBA(220, 220, 220, 1)
+                Height: =2
+                HoverBorderColor: =RGBA(220, 220, 220, 1)
+                HoverColor: =RGBA(220, 220, 220, 1)
+                HoverFill: =RGBA(220, 220, 220, 1)
+                Icon: =Icon.HorizontalLine
+                PressedBorderColor: =RGBA(220, 220, 220, 1)
+                PressedColor: =RGBA(220, 220, 220, 1)
+                PressedFill: =RGBA(220, 220, 220, 1)
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+            "'Info Label_17' As label":
+                AutoHeight: =true
+                Color: =RGBA(50, 86, 160, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: |-
+                    =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+                Text: ="Informação"
+                Width: =500
+                Y: =10
+                ZIndex: =2
+
+            "'Info Circle_17' As circle":
+                BorderColor: =RGBA(250, 191, 0, 1)
+                BorderThickness: =2
+                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Height: =30
+                Width: =30
+                X: =Parent.Width - (30 + 'Info Circle_17'.Width)
+                Y: =5
+                ZIndex: =3
+
+            "'Info Icon_17' As icon.Add":
+                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Height: ='Info Circle_17'.Height
+                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |
+                    =UpdateContext({localShowPrazo: !localShowPrazo,localShowData:false,localShowLeg:false,localShowEliminacao:false,localShowRelacao:false,localShowNewForm:false,localShowEditForm:false})
+                Width: ='Info Circle_17'.Width
+                X: =Parent.Width - (30 + 'Info Circle_17'.Width)
+                Y: =5
+                ZIndex: =4
+
+        Label1_12 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =48
+            Size: =15
+            Text: ="Listagem " & If(GalleryListagens.Selected.LabelTipo exactin "Manual" , Text("Manual"), Text(GalleryListagens.Selected.Periodicidade)) & " de " & Text(GalleryListagens.Selected.LabelData)
+            Width: =409
+            X: =25
+            Y: =55
+            ZIndex: =4
+
+        btnBack As group:
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =4
+
+            BackBtn_1 As BackBtn:
+                ZIndex: =2
+
+            Button9 As button:
+                BorderColor: =Color.Transparent
+                Color: =Color.Transparent
+                DisabledBorderColor: =Color.Transparent
+                DisabledColor: =Color.Transparent
+                DisabledFill: =Color.Transparent
+                Fill: =Color.Transparent
+                FontWeight: =FontWeight.Bold
+                Height: =BackBtn_1.Height
+                HoverColor: =Color.Transparent
+                HoverFill: =Color.Transparent
+                OnSelect: =Navigate(Listagens)
+                Text: =""
+                Width: =BackBtn_1.Width 
+                X: =BackBtn_1.X
+                Y: =BackBtn_1.Y
+                ZIndex: =3
+
+        "'Info PreVisualizacao Container' As groupContainer.manualLayoutContainer":
+            Height: =50
+            Width: =Parent.Width
+            Y: =214
+            ZIndex: =5
+
+            "'Info Bottom_18' As icon.HorizontalLine":
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(220, 220, 220, 1)
+                Color: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(220, 220, 220, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(220, 220, 220, 1)
+                Fill: =RGBA(220, 220, 220, 1)
+                FocusedBorderColor: =RGBA(220, 220, 220, 1)
+                Height: =2
+                HoverBorderColor: =RGBA(220, 220, 220, 1)
+                HoverColor: =RGBA(220, 220, 220, 1)
+                HoverFill: =RGBA(220, 220, 220, 1)
+                Icon: =Icon.HorizontalLine
+                PressedBorderColor: =RGBA(220, 220, 220, 1)
+                PressedColor: =RGBA(220, 220, 220, 1)
+                PressedFill: =RGBA(220, 220, 220, 1)
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+            "'Info Label_18' As label":
+                AutoHeight: =true
+                Color: =RGBA(50, 86, 160, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: |-
+                    =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+                Text: ="Pré-visualização"
+                Width: =500
+                Y: =10
+                ZIndex: =2
+
+            "'Info Circle_18' As circle":
+                BorderColor: =RGBA(250, 191, 0, 1)
+                BorderThickness: =2
+                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Height: =30
+                Width: =30
+                X: =Parent.Width - (30 + 'Info Circle_18'.Width)
+                Y: =5
+                ZIndex: =3
+
+            "'Info Icon_18' As icon.Add":
+                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Height: ='Info Circle_18'.Height
+                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |
+                    =UpdateContext({localShowPrazo: !localShowPrazo,localShowData:false,localShowLeg:false,localShowEliminacao:false,localShowRelacao:false,localShowNewForm:false,localShowEditForm:false})
+                Width: ='Info Circle_18'.Width
+                X: =Parent.Width - (30 + 'Info Circle_18'.Width)
+                Y: =5
+                ZIndex: =4
+
+        "'Info EntradasSaidas Container' As groupContainer.manualLayoutContainer":
+            Height: =50
+            Width: =Parent.Width
+            Y: =264
+            ZIndex: =6
+
+            "'Info Bottom_19' As icon.HorizontalLine":
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(220, 220, 220, 1)
+                Color: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(220, 220, 220, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(220, 220, 220, 1)
+                Fill: =RGBA(220, 220, 220, 1)
+                FocusedBorderColor: =RGBA(220, 220, 220, 1)
+                Height: =2
+                HoverBorderColor: =RGBA(220, 220, 220, 1)
+                HoverColor: =RGBA(220, 220, 220, 1)
+                HoverFill: =RGBA(220, 220, 220, 1)
+                Icon: =Icon.HorizontalLine
+                PressedBorderColor: =RGBA(220, 220, 220, 1)
+                PressedColor: =RGBA(220, 220, 220, 1)
+                PressedFill: =RGBA(220, 220, 220, 1)
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+            "'Info Label_19' As label":
+                AutoHeight: =true
+                Color: =RGBA(50, 86, 160, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: |-
+                    =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+                Text: ="Listagens de Entradas e Saídas"
+                Width: =500
+                Y: =10
+                ZIndex: =2
+
+            "'Info Circle_19' As circle":
+                BorderColor: =RGBA(250, 191, 0, 1)
+                BorderThickness: =2
+                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Height: =30
+                Width: =30
+                X: =Parent.Width - (30 + 'Info Circle_19'.Width)
+                Y: =5
+                ZIndex: =3
+
+            "'Info Icon_19' As icon.Add":
+                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Height: ='Info Circle_19'.Height
+                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |
+                    =UpdateContext({localShowPrazo: !localShowPrazo,localShowData:false,localShowLeg:false,localShowEliminacao:false,localShowRelacao:false,localShowNewForm:false,localShowEditForm:false})
+                Width: ='Info Circle_19'.Width
+                X: =Parent.Width - (30 + 'Info Circle_19'.Width)
+                Y: =5
+                ZIndex: =4
+
+        "'Info Comentarios Container' As groupContainer.manualLayoutContainer":
+            Height: =50
+            Width: =Parent.Width
+            Y: =314
+            ZIndex: =7
+
+            "'Info Bottom_20' As icon.HorizontalLine":
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(220, 220, 220, 1)
+                Color: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(220, 220, 220, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(220, 220, 220, 1)
+                Fill: =RGBA(220, 220, 220, 1)
+                FocusedBorderColor: =RGBA(220, 220, 220, 1)
+                Height: =2
+                HoverBorderColor: =RGBA(220, 220, 220, 1)
+                HoverColor: =RGBA(220, 220, 220, 1)
+                HoverFill: =RGBA(220, 220, 220, 1)
+                Icon: =Icon.HorizontalLine
+                PressedBorderColor: =RGBA(220, 220, 220, 1)
+                PressedColor: =RGBA(220, 220, 220, 1)
+                PressedFill: =RGBA(220, 220, 220, 1)
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+            "'Info Label_20' As label":
+                AutoHeight: =true
+                Color: =RGBA(50, 86, 160, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: |-
+                    =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+                Text: ="Comentários"
+                Width: =500
+                Y: =10
+                ZIndex: =2
+
+            "'Info Circle_20' As circle":
+                BorderColor: =RGBA(250, 191, 0, 1)
+                BorderThickness: =2
+                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Height: =30
+                Width: =30
+                X: =Parent.Width - (30 + 'Info Circle_20'.Width)
+                Y: =5
+                ZIndex: =3
+
+            "'Info Icon_20' As icon.Add":
+                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Height: ='Info Circle_20'.Height
+                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |
+                    =UpdateContext({localShowPrazo: !localShowPrazo,localShowData:false,localShowLeg:false,localShowEliminacao:false,localShowRelacao:false,localShowNewForm:false,localShowEditForm:false})
+                Width: ='Info Circle_20'.Width
+                X: =Parent.Width - (30 + 'Info Circle_20'.Width)
+                Y: =5
+                ZIndex: =4
+
+        "'Info ValidacaoAprovacao Container' As groupContainer.manualLayoutContainer":
+            Height: =50
+            Width: =Parent.Width
+            Y: =364
+            ZIndex: =8
+
+            "'Info Bottom_21' As icon.HorizontalLine":
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(220, 220, 220, 1)
+                Color: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(220, 220, 220, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(220, 220, 220, 1)
+                Fill: =RGBA(220, 220, 220, 1)
+                FocusedBorderColor: =RGBA(220, 220, 220, 1)
+                Height: =2
+                HoverBorderColor: =RGBA(220, 220, 220, 1)
+                HoverColor: =RGBA(220, 220, 220, 1)
+                HoverFill: =RGBA(220, 220, 220, 1)
+                Icon: =Icon.HorizontalLine
+                PressedBorderColor: =RGBA(220, 220, 220, 1)
+                PressedColor: =RGBA(220, 220, 220, 1)
+                PressedFill: =RGBA(220, 220, 220, 1)
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+            "'Info Label_21' As label":
+                AutoHeight: =true
+                Color: =RGBA(50, 86, 160, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: |-
+                    =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
+                Text: ="Validação e Aprovação"
+                Width: =500
+                Y: =10
+                ZIndex: =2
+
+            "'Info Circle_21' As circle":
+                BorderColor: =RGBA(250, 191, 0, 1)
+                BorderThickness: =2
+                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Height: =30
+                Width: =30
+                X: =Parent.Width - (30 + 'Info Circle_21'.Width)
+                Y: =5
+                ZIndex: =3
+
+            "'Info Icon_21' As icon.Add":
+                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Height: ='Info Circle_21'.Height
+                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |
+                    =UpdateContext({localShowPrazo: !localShowPrazo,localShowData:false,localShowLeg:false,localShowEliminacao:false,localShowRelacao:false,localShowNewForm:false,localShowEditForm:false})
+                Width: ='Info Circle_21'.Width
+                X: =Parent.Width - (30 + 'Info Circle_21'.Width)
+                Y: =5
+                ZIndex: =4
+
+    LeftSectionComponent_20 As LeftSectionComponent:
+        ZIndex: =4
+
