@@ -1155,6 +1155,7 @@
     "StarVisible8_1": 995,
     "StarVisible9": 372,
     "StarVisible9_1": 980,
+    "StatusAprovacao": 1217,
     "TextInput1": 54,
     "TextInput1_1": 56,
     "TextInput1_2": 52,
@@ -1211,7 +1212,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/29/2023 16:21:21",
+  "HeaderLastSavedDateTimeUTC": "06/29/2023 16:21:59",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "035f06b9-322a-459d-9dc7-58966efc5b73": "\"/providers/microsoft.powerapps/apis/shared_commondataserviceforapps/connections/8e1149f42a954247b00d3a278421ce15\"",
@@ -1903,6 +1904,14 @@
     "ROCEdit Save Btn": {
       "Button2_6": 1,
       "DynamicBtn_6": 0
+    },
+    "StatusAprovacao": {
+      "ImageEmCurso": 4,
+      "ImageFinalizado": 3,
+      "ImageValidacaoDRI": 5,
+      "LabelEmCurso": 1,
+      "LabelFinalizado": 0,
+      "LabelValidacaoDRI": 2
     }
   },
   "OrderPcfTemplate": {},
@@ -3070,6 +3079,7 @@
     "StarVisible8_1": {},
     "StarVisible9": {},
     "StarVisible9_1": {},
+    "StatusAprovacao": {},
     "TextInput1": {},
     "TextInput1_1": {},
     "TextInput1_2": {},
@@ -4272,6 +4282,7 @@
     "StarVisible8_1": 513,
     "StarVisible9": 753,
     "StarVisible9_1": 498,
+    "StatusAprovacao": 0,
     "TextInput1": 1128,
     "TextInput1_1": 1130,
     "TextInput1_2": 1126,
