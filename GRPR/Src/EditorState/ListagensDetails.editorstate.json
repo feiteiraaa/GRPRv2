@@ -1342,7 +1342,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DetalhesListagem",
-      "ParentIndex": 5,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3093,7 +3093,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ImageEmCurso",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3523,7 +3523,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ImageValidacaoDRI",
-      "ParentIndex": 7,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9832,7 +9832,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LabelEmCurso",
-      "ParentIndex": 1,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10136,7 +10136,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LabelFinalizado",
-      "ParentIndex": 2,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10433,7 +10433,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LabelValidacaoDRI",
-      "ParentIndex": 0,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10699,7 +10699,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "LeftSectionComponent_20",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
