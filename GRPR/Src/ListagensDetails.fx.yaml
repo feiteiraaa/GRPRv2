@@ -141,7 +141,7 @@ ListagensDetails As screen:
                     =UpdateContext({localShowInfo: !localShowInfo, localShowRep : false, localShowArq: false})
                 Text: ="Pré-visualização"
                 Width: =500
-                Y: =10
+                Y: =5
                 ZIndex: =2
 
             "'Info Circle_18' As circle":
@@ -309,7 +309,7 @@ ListagensDetails As screen:
                 PressedColor: =RGBA(220, 220, 220, 1)
                 PressedFill: =RGBA(220, 220, 220, 1)
                 Width: =Parent.Width
-                Y: =40
+                Y: =41
                 ZIndex: =1
 
             "'Info Label_21' As label":
@@ -344,6 +344,162 @@ ListagensDetails As screen:
                 X: =Parent.Width - (30 + 'Info Circle_21'.Width)
                 Y: =5
                 ZIndex: =4
+
+        Rectangle5 As rectangle:
+            Height: =37
+            Width: =284
+            X: =25
+            Y: =103
+            ZIndex: =9
+
+        Rectangle5_1 As rectangle:
+            Height: =37
+            Width: =284
+            X: =336
+            Y: =103
+            ZIndex: =10
+
+        Rectangle5_2 As rectangle:
+            Height: =37
+            Width: =284
+            X: =647
+            Y: =103
+            ZIndex: =11
+
+        "'Design Setas' As group":
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =33
+
+            Icon13_2 As icon.HorizontalLine:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =62
+                Icon: =Icon.HorizontalLine
+                Rotation: =10
+                Width: =138
+                X: =198
+                Y: =78
+                ZIndex: =17
+
+            Icon13_4 As icon.HorizontalLine:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =62
+                Icon: =Icon.HorizontalLine
+                Rotation: =170
+                Width: =138
+                X: =198
+                Y: =102
+                ZIndex: =18
+
+            Icon13_3 As icon.HorizontalLine:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =62
+                Icon: =Icon.HorizontalLine
+                Rotation: =10
+                Width: =138
+                X: =509
+                Y: =78
+                ZIndex: =19
+
+            Icon13_5 As icon.HorizontalLine:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =62
+                Icon: =Icon.HorizontalLine
+                Rotation: =170
+                Width: =138
+                X: =509
+                Y: =102
+                ZIndex: =20
+
+            Icon13_8 As icon.HorizontalLine:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =62
+                Icon: =Icon.HorizontalLine
+                Rotation: =10
+                Width: =138
+                X: =244
+                Y: =78
+                ZIndex: =23
+
+            Icon13_9 As icon.HorizontalLine:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =61
+                Icon: =Icon.HorizontalLine
+                Rotation: =172
+                Width: =138
+                X: =244
+                Y: =103
+                ZIndex: =24
+
+            Icon13_10 As icon.HorizontalLine:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =62
+                Icon: =Icon.HorizontalLine
+                Rotation: =10
+                Width: =138
+                X: =553
+                Y: =78
+                ZIndex: =25
+
+            Icon13_11 As icon.HorizontalLine:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =61
+                Icon: =Icon.HorizontalLine
+                Rotation: =172
+                Width: =138
+                X: =553
+                Y: =103
+                ZIndex: =26
+
+            Circle1 As circle:
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =14
+                Width: =51
+                X: =321
+                Y: =114
+                ZIndex: =27
+
+            Circle1_1 As circle:
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =14
+                Width: =51
+                X: =620
+                Y: =114
+                ZIndex: =28
+
+            Circle1_2 As circle:
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =14
+                Width: =92
+                X: =244
+                Y: =95
+                ZIndex: =29
+
+            Circle1_3 As circle:
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =14
+                Width: =51
+                X: =270
+                Y: =129
+                ZIndex: =30
+
+            Circle1_4 As circle:
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =14
+                Width: =51
+                X: =583
+                Y: =95
+                ZIndex: =31
+
+            Circle1_5 As circle:
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =14
+                Width: =51
+                X: =583
+                Y: =129
+                ZIndex: =32
 
     LeftSectionComponent_20 As LeftSectionComponent:
         ZIndex: =4
