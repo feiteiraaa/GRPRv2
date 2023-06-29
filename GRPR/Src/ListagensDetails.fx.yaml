@@ -520,10 +520,26 @@ ListagensDetails As screen:
     LeftSectionComponent_20 As LeftSectionComponent:
         ZIndex: =4
 
-    Image7 As image:
+    ImageValidacaoDRI As image:
         Image: =ValidacaoDRI
+        Visible: =false
         Width: =973
         X: =364
         Y: =132
         ZIndex: =5
+
+    ImageEmCurso As image:
+        Image: =EmCurso
+        Width: =973
+        X: =364
+        Y: =132
+        ZIndex: =6
+
+    ImageFinalizado As image:
+        Image: =Finalizado
+        Visible: =false
+        Width: =973
+        X: =364
+        Y: =132
+        ZIndex: =7
 
