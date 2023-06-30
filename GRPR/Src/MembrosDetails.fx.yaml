@@ -405,13 +405,13 @@ MembrosDetails As screen:
 
                     DateValue1 As datepicker:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultDate: =If(IsBlank(_Membro),Text(Today(),"yyyy-mm-dd"),Parent.Default)
+                        DefaultDate: =If(IsBlank(_Membro),Text(Today(),"dd/mm/yyyy"),Parent.Default)
                         DisplayMode: =Parent.DisplayMode
                         EndYear: =Year(Today())+100
                         Format: |-
                             =Text(
                                 Parent.Default,
-                                "dd-mm-yyyy",
+                                "dd/mm/yyyy",
                                 "pt-PT"
                             )
                         IsEditable: =true

@@ -362,10 +362,10 @@ Listagens As screen:
             HoverBorderColor: =
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =ColorFade(RGBA(70, 70, 70, 1),80%)
-            OnSelect: |-
-                ='Listagens-NovoPedido'.Run();
+            OnSelect: |
+                ='Listagens-NovoPedido'.Run(User().FullName);
                 Notify("Uma nova listagem será criada.", NotificationType.Success,2000);
-                UpdateContext({localShowModal:false})
+                UpdateContext({localShowModal:false});
             PaddingLeft: =50
             PressedColor: =Color.Black
             PressedFill: =ColorFade(RGBA(70, 70, 70, 1),90%)
