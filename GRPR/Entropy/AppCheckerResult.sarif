@@ -14658,42 +14658,6 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
-            },
-            {
-              "associatedRule": {
-                "id": "app-InefficientDelayLoading",
-                "index": 11
-              },
-              "descriptor": {
-                "id": "app-InefficientDelayLoading"
-              },
-              "message": {
-                "text": "Error occurred running rule app-InefficientDelayLoading."
-              }
-            },
-            {
-              "associatedRule": {
-                "id": "app-InefficientDelayLoading",
-                "index": 11
-              },
-              "descriptor": {
-                "id": "app-InefficientDelayLoading"
-              },
-              "message": {
-                "text": "Error occurred running rule app-InefficientDelayLoading."
-              }
-            },
-            {
-              "associatedRule": {
-                "id": "app-InefficientDelayLoading",
-                "index": 11
-              },
-              "descriptor": {
-                "id": "app-InefficientDelayLoading"
-              },
-              "message": {
-                "text": "Error occurred running rule app-InefficientDelayLoading."
-              }
             }
           ]
         }
@@ -25274,17 +25238,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListagensDetails.localShowData"
+                  "fullyQualifiedName": "ListagensDetails.localShowEditForm"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListagensDetails.localShowData",
+                  "fullyQualifiedName": "ListagensDetails.localShowEditForm",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "localShowData",
+                "member": "localShowEditForm",
                 "module": "ListagensDetails",
                 "type": "ListagensDetails"
               }
@@ -25304,17 +25268,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListagensDetails.localShowEditForm"
+                  "fullyQualifiedName": "ListagensDetails.localShowNewForm"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListagensDetails.localShowEditForm",
+                  "fullyQualifiedName": "ListagensDetails.localShowNewForm",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "localShowEditForm",
+                "member": "localShowNewForm",
                 "module": "ListagensDetails",
                 "type": "ListagensDetails"
               }

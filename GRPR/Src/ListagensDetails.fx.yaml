@@ -123,11 +123,11 @@ ListagensDetails As screen:
                         ColabFormMode,
                         FormMode.View
                     )*/ FormMode.View
-                Height: =Parent.Height-DynamicBtn_40.Height
+                Height: =Parent.Height
                 Item: =//LookUp(Membros_1, _Membro = ThisRecord.ID)
+                NumberOfColumns: =2
                 Width: =Parent.Width*0.95
                 X: =24
-                Y: =40
                 ZIndex: =1
 
                 Nome_DataCard1_3 As typedDataCard.textualEditCard:
@@ -141,7 +141,7 @@ ListagensDetails As screen:
                     MaxLength: =DataSourceInfo([@Membros_1], DataSourceInfo.MaxLength, "uipp_nome")
                     Required: =true
                     Update: =DataCardValue3_3.Text
-                    Width: =266
+                    Width: =462
                     X: =0
                     Y: =0
                     ZIndex: =1
@@ -213,7 +213,7 @@ ListagensDetails As screen:
                     Height: =50
                     Required: =true
                     Update: =DataCardValue4_3.Selected.Value
-                    Width: =266
+                    Width: =462
                     X: =1
                     Y: =0
                     ZIndex: =1
@@ -291,9 +291,9 @@ ListagensDetails As screen:
                     Height: =50
                     Required: =true
                     Update: =Value(DataCardValue5_3.Text)
-                    Width: =266
-                    X: =2
-                    Y: =0
+                    Width: =462
+                    X: =0
+                    Y: =1
                     ZIndex: =1
 
                     DataCardKey5_3 As label:
@@ -372,8 +372,8 @@ ListagensDetails As screen:
                     Update: =DateValue1_2.SelectedDate
                     Visible: |
                         =true//ColabFormMode<>FormMode.New
-                    Width: =266
-                    X: =0
+                    Width: =462
+                    X: =1
                     Y: =1
                     ZIndex: =1
 
@@ -449,9 +449,9 @@ ListagensDetails As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue51_1.Selected.Value
-                    Width: =266
-                    X: =1
-                    Y: =1
+                    Width: =462
+                    X: =0
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey57_1 As label:
@@ -536,9 +536,9 @@ ListagensDetails As screen:
                             true
                         )*/
                         true
-                    Width: =266
-                    X: =2
-                    Y: =1
+                    Width: =462
+                    X: =1
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey8_2 As label:
@@ -614,9 +614,9 @@ ListagensDetails As screen:
                     Required: =false
                     Update: =DateValue2_2.SelectedDate
                     Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
-                    Width: =266
+                    Width: =462
                     X: =0
-                    Y: =2
+                    Y: =3
                     ZIndex: =1
 
                     DataCardKey7_2 As label:
@@ -690,9 +690,9 @@ ListagensDetails As screen:
                     Required: =false
                     Update: =DateValue3_2.SelectedDate 
                     Visible: =!IsBlank(ThisItem.'Data de saida')
-                    Width: =266
+                    Width: =462
                     X: =1
-                    Y: =2
+                    Y: =3
                     ZIndex: =1
 
                     DataCardKey30_2 As label:
@@ -754,88 +754,6 @@ ListagensDetails As screen:
                         Wrap: =false
                         Y: =DataCardKey30_2.Y
                         ZIndex: =7
-
-            DynamicBtn_40 As DynamicBtn:
-                BtnText: =If(localShowNewForm /*Or IsBlank(_Membro)*/, "Guardar" ,"Editar")
-                ButtonIcon: =If(localShowNewForm /*Or IsBlank(_Membro)*/,Icon.Save ,Icon.Edit)
-                Height: =40
-                Visible: =Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
-                Width: =160
-                X: =Parent.X+800
-                Y: =7
-                ZIndex: =2
-
-            edit_btn_3 As button:
-                BorderColor: =RGBA(0,0,0, 0)
-                Color: =RGBA(0,0,0, 0)
-                DisabledBorderColor: =RGBA(0,0,0, 0)
-                DisabledColor: =RGBA(0,0,0, 0)
-                DisabledFill: =RGBA(0,0,0, 0)
-                Fill: =RGBA(0,0,0, 0)
-                Height: =39
-                HoverColor: =RGBA(0,0,0, 0)
-                HoverFill: =RGBA(0,0,0, 0)
-                OnSelect: |-
-                    =If(
-                        localShowNewForm Or Informacao_2.Mode = FormMode.New,
-                        If(
-                            Len(DataCardValue5_3.Text) = 9,
-                            If(
-                                SubmitForm(Informacao_2),
-                                Notify(
-                                    "O registo foi submetido com sucesso!",
-                                    NotificationType.Success
-                                );
-                                
-                                ResetForm(Informacao_2);
-                                UpdateContext(
-                                    {
-                                        localShowData: false,
-                                        localShowNewForm: !localShowNewForm
-                                    }
-                                ),
-                                /*If(
-                                    Informacao.Mode = FormMode.New,
-                                    Navigate(
-                                        Particulares,
-                                        ScreenTransition.None
-                                    )
-                                )*/
-                                //Back(),
-                                Notify(
-                                    "Por favor, tente novamente.",
-                                    NotificationType.Error
-                                )
-                            ),
-                            Notify(
-                                "Por favor, preencha o número do documento corretamente.",
-                                NotificationType.Error
-                            )
-                        ),
-                        UpdateContext(
-                            {localShowNewForm: !localShowNewForm
-                            //localFormMode: FormMode.New
-                    }
-                        )
-                    );
-                    Refresh(Membros_1)
-                PressedColor: =RGBA(0,0,0, 0)
-                PressedFill: =RGBA(0,0,0, 0)
-                Text: =""
-                Visible: =Not("(Eliminado)" in LabelMembroName.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
-                X: =DynamicBtn_40.X
-                Y: =DynamicBtn_40.Y
-                ZIndex: =3
-
-            DynamicBtn_39 As DynamicBtn:
-                BtnText: ="Cancelar"
-                ButtonIcon: =Icon.Cancel
-                Height: =40
-                Visible: =localShowNewForm //Or IsBlank(_Membro)
-                Width: =160
-                X: =Parent.X+600
-                Y: =7
-                ZIndex: =4
 
         "'Info PreVisualizacao Container' As groupContainer.manualLayoutContainer":
             Height: =50
