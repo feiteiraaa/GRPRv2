@@ -742,8 +742,16 @@ ListagensDetails As screen:
                 ZIndex: =2
 
             TextInput4 As text:
-                Default: ="Text input"
+                Align: =Align.Justify
+                BorderColor: =RGBA(237, 237, 237, 1)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 0)
+                Default: =LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios
+                Fill: =RGBA(237, 237, 237, 1)
                 Height: =Parent.Height-DynamicBtn_41.Height-30
+                HoverBorderColor: =RGBA(237, 237, 237, 1)
+                HoverFill: =RGBA(237, 237, 237, 1)
+                Mode: =TextMode.MultiLine
                 Width: =Parent.Width-20
                 X: =10
                 Y: =DynamicBtn_41.Height+20
