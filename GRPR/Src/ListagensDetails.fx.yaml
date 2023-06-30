@@ -897,11 +897,18 @@ ListagensDetails As screen:
                 Y: =5
                 ZIndex: =4
 
+        "'PreVisualizacao Content' As groupContainer.manualLayoutContainer":
+            Height: =300
+            Visible: =localShowVisu
+            Width: =Parent.Width
+            Y: =40
+            ZIndex: =7
+
         "'Info EntradasSaidas Container' As groupContainer.manualLayoutContainer":
             Height: =50
             Width: =Parent.Width
             Y: =264
-            ZIndex: =7
+            ZIndex: =8
 
             "'Info Bottom_19' As icon.HorizontalLine":
                 AutoDisableOnSelect: =false
@@ -957,11 +964,17 @@ ListagensDetails As screen:
                 Y: =5
                 ZIndex: =4
 
+        "'EntradasSaidas Content' As groupContainer.manualLayoutContainer":
+            Height: =300
+            Width: =Parent.Width
+            Y: =60
+            ZIndex: =9
+
         "'Info Comentarios Container' As groupContainer.manualLayoutContainer":
             Height: =50
             Width: =Parent.Width
             Y: =314
-            ZIndex: =8
+            ZIndex: =10
 
             "'Info Bottom_20' As icon.HorizontalLine":
                 AutoDisableOnSelect: =false
@@ -1017,11 +1030,17 @@ ListagensDetails As screen:
                 Y: =5
                 ZIndex: =4
 
+        "'Comentarios Content' As groupContainer.manualLayoutContainer":
+            Height: =300
+            Width: =Parent.Width
+            Y: =80
+            ZIndex: =11
+
         "'Info ValidacaoAprovacao Container' As groupContainer.manualLayoutContainer":
             Height: =50
             Width: =Parent.Width
             Y: =364
-            ZIndex: =9
+            ZIndex: =12
 
             "'Info Bottom_21' As icon.HorizontalLine":
                 AutoDisableOnSelect: =false
@@ -1077,24 +1096,9 @@ ListagensDetails As screen:
                 Y: =5
                 ZIndex: =4
 
-        "'PreVisualizacao Content' As groupContainer.manualLayoutContainer":
-            Visible: =localShowVisu
-            X: =40
-            Y: =40
-            ZIndex: =10
-
-        "'EntradasSaidas Content' As groupContainer.manualLayoutContainer":
-            X: =60
-            Y: =60
-            ZIndex: =11
-
-        "'Comentarios Content' As groupContainer.manualLayoutContainer":
-            X: =80
-            Y: =80
-            ZIndex: =12
-
         "'ValidacaoAprovacao Content' As groupContainer.manualLayoutContainer":
-            X: =100
+            Height: =300
+            Width: =Parent.Width
             Y: =100
             ZIndex: =13
 
