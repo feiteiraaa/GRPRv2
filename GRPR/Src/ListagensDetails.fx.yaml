@@ -484,6 +484,43 @@ ListagensDetails As screen:
             Y: ='Info PreVisualizacao Container'.Y + 'Info PreVisualizacao Container'.Height
             ZIndex: =7
 
+            "'Arquivo Documental Section Gallery' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                Height: =Parent.Height
+                Items: |-
+                    =Filter(
+                        Listagens_1,
+                        ThisRecord.ID = _Listagem
+                    )
+                Layout: =Layout.Vertical
+                OnSelect: =//Download(ThisItem.'Link to item')
+                TemplatePadding: =0
+                TemplateSize: =50
+                Width: =Parent.Width*0.95
+                X: =24
+                ZIndex: =1
+
+                "'File Name Label_7' As label":
+                    Color: =RGBA(128, 128, 128, 1)
+                    Height: =25
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =14
+                    Text: =ThisItem.Listagem.FileName
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =305
+                    Y: =1
+                    ZIndex: =2
+
+                "'File Separator_4' As rectangle":
+                    Fill: =cores.cinzento
+                    Height: =1
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - 1
+                    ZIndex: =5
+
         "'Info EntradasSaidas Container' As groupContainer.manualLayoutContainer":
             Height: =50
             Width: =Parent.Width
