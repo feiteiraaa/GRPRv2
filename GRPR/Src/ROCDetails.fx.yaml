@@ -780,7 +780,7 @@ ROCDetails As screen:
                 Height: =53
                 OnSelect: =Select(Parent)
                 Size: =12
-                Text: =ThisItem.'Created By'.'Nome Completo'
+                Text: =ThisItem.'Created By'.'Full Name'
                 Width: =Label6_20.Width
                 X: =Label6_20.X
                 ZIndex: =4

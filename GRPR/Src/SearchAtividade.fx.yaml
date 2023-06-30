@@ -61,11 +61,11 @@ SearchAtividade As screen:
                         true
                     ) And If(
                         !IsBlank(CheckboxMinhaAtividade.Value),
-                        User().FullName in ThisRecord.'Created By'.'Nome Completo',
+                        User().FullName in ThisRecord.'Created By'.'Full Name',
                         true
                     ) And If(
                         !IsBlank(InputCriadoPor.Text),
-                        InputCriadoPor.Text in ThisRecord.'Created By'.'Nome Completo',
+                        InputCriadoPor.Text in ThisRecord.'Created By'.'Full Name',
                         true
                     )
                 ),
@@ -158,7 +158,7 @@ SearchAtividade As screen:
             OnSelect: |-
                 =UpdateContext({ShowAtividadeAvancada: true})
             Order: =6
-            Text: =ThisItem.'Created By'.'Nome Completo'
+            Text: =ThisItem.'Created By'.'Full Name'
             Width: =100
             X: =0
             Y: =0
@@ -665,7 +665,7 @@ SearchAtividade As screen:
         Label18_10 As label:
             BorderColor: =RGBA(0, 0, 0, 1)
             DisplayMode: =DisplayMode.View
-            Text: =AtividadeTablePesquisa.Selected.'Created By'.'Nome Completo'
+            Text: =AtividadeTablePesquisa.Selected.'Created By'.'Full Name'
             Visible: =ShowAtividadeAvancada
             Width: =349
             X: =342

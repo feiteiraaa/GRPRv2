@@ -747,6 +747,7 @@ ListagensDetails As screen:
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 0)
                 Default: =LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios
+                DisplayMode: =DisplayMode.Disabled
                 Fill: =RGBA(237, 237, 237, 1)
                 Height: =Parent.Height-DynamicBtn_41.Height-30
                 HoverBorderColor: =RGBA(237, 237, 237, 1)

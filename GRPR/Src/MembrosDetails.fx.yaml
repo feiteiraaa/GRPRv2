@@ -3208,7 +3208,7 @@ MembrosDetails As screen:
                     Height: =53
                     OnSelect: =Select(Parent)
                     Size: =12
-                    Text: =ThisItem.'Created By'.'Nome Completo'
+                    Text: =ThisItem.'Created By'.'Full Name'
                     Width: =Label6_8.Width
                     X: =Label6_8.X
                     ZIndex: =4

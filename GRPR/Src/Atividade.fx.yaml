@@ -63,7 +63,7 @@ Atividade As screen:
             OnSelect: |-
                 =UpdateContext({ShowDetails: true})
             Order: =9
-            Text: =ThisItem.'Created By'.'Nome Completo'
+            Text: =ThisItem.'Created By'.'Full Name'
             Width: =100
             X: =657
             Y: =0
@@ -188,7 +188,7 @@ Atividade As screen:
         Label18_1 As label:
             BorderColor: =RGBA(0, 0, 0, 1)
             DisplayMode: =DisplayMode.View
-            Text: =AtividadeTable.Selected.'Created By'.'Nome Completo'
+            Text: =AtividadeTable.Selected.'Created By'.'Full Name'
             Visible: =ShowDetails
             Width: =349
             X: =342
