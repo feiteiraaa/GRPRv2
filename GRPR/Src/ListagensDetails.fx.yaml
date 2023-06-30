@@ -907,7 +907,7 @@ ListagensDetails As screen:
         "'Info EntradasSaidas Container' As groupContainer.manualLayoutContainer":
             Height: =50
             Width: =Parent.Width
-            Y: =264
+            Y: =If(localShowVisu, 'PreVisualizacao Content'.Y + 'PreVisualizacao Content'.Height, 'PreVisualizacao Content'.Y)
             ZIndex: =8
 
             "'Info Bottom_19' As icon.HorizontalLine":
@@ -974,7 +974,7 @@ ListagensDetails As screen:
         "'Info Comentarios Container' As groupContainer.manualLayoutContainer":
             Height: =50
             Width: =Parent.Width
-            Y: =314
+            Y: =If(localShowEntSai, 'EntradasSaidas Content'.Y + 'EntradasSaidas Content'.Height, 'EntradasSaidas Content'.Y)
             ZIndex: =10
 
             "'Info Bottom_20' As icon.HorizontalLine":
@@ -1041,7 +1041,7 @@ ListagensDetails As screen:
         "'Info ValidacaoAprovacao Container' As groupContainer.manualLayoutContainer":
             Height: =50
             Width: =Parent.Width
-            Y: =364
+            Y: =If(localShowComen, 'Comentarios Content'.Y + 'Comentarios Content'.Height, 'Comentarios Content'.Y)
             ZIndex: =12
 
             "'Info Bottom_21' As icon.HorizontalLine":
