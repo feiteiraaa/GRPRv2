@@ -718,6 +718,29 @@ ListagensDetails As screen:
             Y: ='Info Comentarios Container'.Y + 'Info Comentarios Container'.Height
             ZIndex: =11
 
+            DynamicBtn_41 As DynamicBtn:
+                BtnText: ="Adicionar comentário"
+                BtnWidth: =260
+                Visible: =true
+                X: =700
+                Y: =10
+
+            Button7_4 As button:
+                Color: =Color.Transparent
+                DisabledBorderColor: =Color.Transparent
+                DisabledColor: =Color.Transparent
+                DisabledFill: =Color.Transparent
+                Fill: =Color.Transparent
+                Height: =DynamicBtn_41.Height
+                HoverBorderColor: =Color.Transparent
+                HoverColor: =Color.Transparent
+                HoverFill: =Color.Transparent
+                Text: =""
+                Width: =DynamicBtn_41.Width
+                X: =DynamicBtn_41.X
+                Y: =DynamicBtn_41.Y
+                ZIndex: =2
+
         "'Info ValidacaoAprovacao Container' As groupContainer.manualLayoutContainer":
             Height: =50
             Width: =Parent.Width
