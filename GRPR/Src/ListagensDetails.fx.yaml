@@ -741,6 +741,14 @@ ListagensDetails As screen:
                 Y: =DynamicBtn_41.Y
                 ZIndex: =2
 
+            TextInput4 As text:
+                Default: ="Text input"
+                Height: =Parent.Height-DynamicBtn_41.Height-30
+                Width: =Parent.Width-20
+                X: =10
+                Y: =DynamicBtn_41.Height+20
+                ZIndex: =3
+
         "'Info ValidacaoAprovacao Container' As groupContainer.manualLayoutContainer":
             Height: =50
             Width: =Parent.Width
