@@ -112,7 +112,8 @@
       "847700002": "Empresas Respetivas",
       "847700003": "Colaboradores",
       "847700004": "ROC",
-      "847700005": "Empresas Participadas"
+      "847700005": "Empresas Participadas",
+      "847700006": "Listagens"
     },
     "OptionSetIsBooleanValued": false,
     "OptionSetIsGlobal": true,

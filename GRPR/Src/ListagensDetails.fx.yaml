@@ -49,7 +49,7 @@ ListagensDetails As screen:
             "'Info Circle_17' As circle":
                 BorderColor: =RGBA(250, 191, 0, 1)
                 BorderThickness: =2
-                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Fill: =If(localShowInfo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
                 Height: =30
                 Width: =30
                 X: =Parent.Width - (30 + 'Info Circle_17'.Width)
@@ -57,11 +57,11 @@ ListagensDetails As screen:
                 ZIndex: =3
 
             "'Info Icon_17' As icon.Add":
-                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Color: =If(localShowInfo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
                 Height: ='Info Circle_17'.Height
-                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+                Icon: =If(localShowInfo, Icon.HorizontalLine, Icon.Add)
                 OnSelect: |
-                    =UpdateContext({localShowPrazo: !localShowPrazo,localShowData:false,localShowLeg:false,localShowEliminacao:false,localShowRelacao:false,localShowNewForm:false,localShowEditForm:false})
+                    =UpdateContext({localShowInfo: !localShowInfo,localShowVizu:false,localShowEntSai:false,localShowComen:false,localShowVali:false,localShowNewForm:false,localShowEditForm:false})
                 Width: ='Info Circle_17'.Width
                 X: =Parent.Width - (30 + 'Info Circle_17'.Width)
                 Y: =5
@@ -146,7 +146,7 @@ ListagensDetails As screen:
             "'Info Circle_18' As circle":
                 BorderColor: =RGBA(250, 191, 0, 1)
                 BorderThickness: =2
-                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Fill: =If(localShowVizu, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
                 Height: =30
                 Width: =30
                 X: =Parent.Width - (30 + 'Info Circle_18'.Width)
@@ -154,11 +154,11 @@ ListagensDetails As screen:
                 ZIndex: =3
 
             "'Info Icon_18' As icon.Add":
-                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Color: =If(localShowVizu, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
                 Height: ='Info Circle_18'.Height
-                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
-                OnSelect: |
-                    =UpdateContext({localShowPrazo: !localShowPrazo,localShowData:false,localShowLeg:false,localShowEliminacao:false,localShowRelacao:false,localShowNewForm:false,localShowEditForm:false})
+                Icon: =If(localShowVizu, Icon.HorizontalLine, Icon.Add)
+                OnSelect: |-
+                    =UpdateContext({localShowInfo:false,localShowVizu:!localShowVizu,localShowEntSai:false,localShowComen:false,localShowVali:false,localShowNewForm:false,localShowEditForm:false})
                 Width: ='Info Circle_18'.Width
                 X: =Parent.Width - (30 + 'Info Circle_18'.Width)
                 Y: =5
@@ -206,7 +206,7 @@ ListagensDetails As screen:
             "'Info Circle_19' As circle":
                 BorderColor: =RGBA(250, 191, 0, 1)
                 BorderThickness: =2
-                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Fill: =If(localShowEntSai, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
                 Height: =30
                 Width: =30
                 X: =Parent.Width - (30 + 'Info Circle_19'.Width)
@@ -214,11 +214,11 @@ ListagensDetails As screen:
                 ZIndex: =3
 
             "'Info Icon_19' As icon.Add":
-                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Color: =If(localShowEntSai, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
                 Height: ='Info Circle_19'.Height
-                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+                Icon: =If(localShowEntSai, Icon.HorizontalLine, Icon.Add)
                 OnSelect: |
-                    =UpdateContext({localShowPrazo: !localShowPrazo,localShowData:false,localShowLeg:false,localShowEliminacao:false,localShowRelacao:false,localShowNewForm:false,localShowEditForm:false})
+                    =UpdateContext({localShowInfo:false,localShowVizu:false,localShowEntSai:!localShowEntSai,localShowComen:false,localShowVali:false,localShowNewForm:false,localShowEditForm:false})
                 Width: ='Info Circle_19'.Width
                 X: =Parent.Width - (30 + 'Info Circle_19'.Width)
                 Y: =5
@@ -266,7 +266,7 @@ ListagensDetails As screen:
             "'Info Circle_20' As circle":
                 BorderColor: =RGBA(250, 191, 0, 1)
                 BorderThickness: =2
-                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Fill: =If(localShowComen, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
                 Height: =30
                 Width: =30
                 X: =Parent.Width - (30 + 'Info Circle_20'.Width)
@@ -274,11 +274,11 @@ ListagensDetails As screen:
                 ZIndex: =3
 
             "'Info Icon_20' As icon.Add":
-                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Color: =If(localShowComen, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
                 Height: ='Info Circle_20'.Height
-                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+                Icon: =If(localShowComen, Icon.HorizontalLine, Icon.Add)
                 OnSelect: |
-                    =UpdateContext({localShowPrazo: !localShowPrazo,localShowData:false,localShowLeg:false,localShowEliminacao:false,localShowRelacao:false,localShowNewForm:false,localShowEditForm:false})
+                    =UpdateContext({localShowInfo:false,localShowVizu:false,localShowEntSai:false,localShowComen:!localShowComen,localShowVali:false,localShowNewForm:false,localShowEditForm:false})
                 Width: ='Info Circle_20'.Width
                 X: =Parent.Width - (30 + 'Info Circle_20'.Width)
                 Y: =5
@@ -326,7 +326,7 @@ ListagensDetails As screen:
             "'Info Circle_21' As circle":
                 BorderColor: =RGBA(250, 191, 0, 1)
                 BorderThickness: =2
-                Fill: =If(localShowPrazo, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
+                Fill: =If(localShowVali, RGBA(255, 191, 0, 1), RGBA(255, 191, 0, 0))
                 Height: =30
                 Width: =30
                 X: =Parent.Width - (30 + 'Info Circle_21'.Width)
@@ -334,11 +334,11 @@ ListagensDetails As screen:
                 ZIndex: =3
 
             "'Info Icon_21' As icon.Add":
-                Color: =If(localShowPrazo, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
+                Color: =If(localShowVali, RGBA(255, 255, 255, 1), RGBA(255, 191, 0, 1))
                 Height: ='Info Circle_21'.Height
-                Icon: =If(localShowPrazo, Icon.HorizontalLine, Icon.Add)
+                Icon: =If(localShowVali, Icon.HorizontalLine, Icon.Add)
                 OnSelect: |
-                    =UpdateContext({localShowPrazo: !localShowPrazo,localShowData:false,localShowLeg:false,localShowEliminacao:false,localShowRelacao:false,localShowNewForm:false,localShowEditForm:false})
+                    =UpdateContext({localShowInfo:false,localShowVizu:false,localShowEntSai:false,localShowComen:false,localShowVali:!localShowVali,localShowNewForm:false,localShowEditForm:false})
                 Width: ='Info Circle_21'.Width
                 X: =Parent.Width - (30 + 'Info Circle_21'.Width)
                 Y: =5

@@ -3488,7 +3488,7 @@ MembrosDetails As screen:
                         Filter(
                             RespetivasOutros1,// Filtrar relações de outros membros e familiares com empresas respetivas que tenha associado a mesma empresa desse membro e/ou familiar
                             RespetivasMembroFamiResp[@ID_Empresa].ID = ThisRecord.ID_Empresa.ID
-                        ).uipp_ID_Empresa
+                        ).ID_Empresa
                     )
                 );
                 ClearCollect( //Filtrar as empresas que não posso inativar

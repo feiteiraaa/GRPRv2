@@ -90,7 +90,7 @@ SearchAtividade As screen:
             OnSelect: |-
                 =UpdateContext({ShowAtividadeAvancada: true})
             Order: =3
-            Text: =ThisItem.uipp_tipodealteracao
+            Text: =ThisItem.'Tipo de alteracao'
             Width: =125
             X: =424
             Y: =0
@@ -107,7 +107,7 @@ SearchAtividade As screen:
             OnSelect: |-
                 =UpdateContext({ShowAtividadeAvancada: true})
             Order: =1
-            Text: =ThisItem.uipp_titulo
+            Text: =ThisItem.Titulo
             Width: =273
             X: =0
             Y: =0
@@ -124,7 +124,7 @@ SearchAtividade As screen:
             OnSelect: |-
                 =UpdateContext({ShowAtividadeAvancada: true})
             Order: =2
-            Text: =ThisItem.uipp_listadaatividade
+            Text: =ThisItem.'Lista da atividade'
             Width: =137
             X: =276
             Y: =0

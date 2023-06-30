@@ -40,7 +40,8 @@ Listagens As screen:
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
-        OnSelect: =Navigate(ListagensDetails)
+        OnSelect: |-
+            =Navigate(ListagensDetails,ScreenTransition.None, {_Listagem: GalleryListagens.Selected.ID})
         TemplateSize: =51
         Width: =Container1_8.Width
         X: =Container1_8.X

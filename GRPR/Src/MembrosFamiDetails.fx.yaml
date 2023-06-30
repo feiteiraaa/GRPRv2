@@ -53,7 +53,7 @@ MembrosFamiDetails As screen:
                 Filter(
                     RespetivasOutros1,
                     RespetivasFamiliar[@ID_Empresa].ID = ThisRecord.ID_Empresa.ID
-                ).uipp_ID_Empresa
+                ).ID_Empresa
             )
         );
         ClearCollect(
@@ -2499,7 +2499,7 @@ MembrosFamiDetails As screen:
                         Filter(
                             RespetivasOutros1,
                             RespetivasFamiliar[@ID_Empresa].ID = ThisRecord.ID_Empresa.ID
-                        ).uipp_ID_Empresa
+                        ).ID_Empresa
                     )
                 );
                 ClearCollect(
