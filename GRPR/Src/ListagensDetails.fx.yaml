@@ -588,6 +588,69 @@ ListagensDetails As screen:
             Y: ='Info EntradasSaidas Container'.Y + 'Info EntradasSaidas Container'.Height
             ZIndex: =9
 
+            "'Arquivo Documental Section Gallery_1' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                Height: =Parent.Height-DynamicBtn_39.Height-10
+                Items: |-
+                    =Filter(
+                        'Listagem Entradas e Saidas',
+                        Text(ThisRecord.'Created On',"yyyy-mm-dd") = Text(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Created On',"yyyy-mm-dd")
+                    )
+                Layout: =Layout.Vertical
+                OnSelect: =//Download(ThisItem.'Link to item')
+                TemplatePadding: =0
+                TemplateSize: =50
+                Width: =Parent.Width-10
+                X: =10
+                Y: =DynamicBtn_39.Height+10
+                ZIndex: =1
+
+                "'File Name Label_8' As label":
+                    Color: =RGBA(128, 128, 128, 1)
+                    Height: =25
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =14
+                    Text: =ThisItem.Listagem.FileName
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =305
+                    X: =5
+                    Y: =15
+                    ZIndex: =2
+
+                "'File Separator_5' As rectangle":
+                    Fill: =RGBA(219, 219, 219, 1)
+                    Height: =1
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - 1
+                    ZIndex: =5
+
+            DynamicBtn_39 As DynamicBtn:
+                BtnText: ="Exportar"
+                ButtonIcon: =Icon.Download
+                Visible: =true
+                X: =800
+                Y: =10
+                ZIndex: =2
+
+            Button7_2 As button:
+                Color: =Color.Transparent
+                DisabledBorderColor: =Color.Transparent
+                DisabledColor: =Color.Transparent
+                DisabledFill: =Color.Transparent
+                Fill: =Color.Transparent
+                Height: =DynamicBtn_39.Height
+                HoverBorderColor: =Color.Transparent
+                HoverColor: =Color.Transparent
+                HoverFill: =Color.Transparent
+                Text: =""
+                Width: =DynamicBtn_39.Width
+                X: =DynamicBtn_39.X
+                Y: =DynamicBtn_39.Y
+                ZIndex: =3
+
         "'Info Comentarios Container' As groupContainer.manualLayoutContainer":
             Height: =50
             Width: =Parent.Width
@@ -721,6 +784,30 @@ ListagensDetails As screen:
             Width: =Parent.Width
             Y: ='Info ValidacaoAprovacao Container'.Y + 'Info ValidacaoAprovacao Container'.Height
             ZIndex: =13
+
+        DynamicBtn_40 As DynamicBtn:
+            BtnText: ="Exportar"
+            ButtonIcon: =Icon.Download
+            Visible: =true
+            X: =800
+            Y: =10
+            ZIndex: =14
+
+        Button7_3 As button:
+            Color: =Color.Transparent
+            DisabledBorderColor: =Color.Transparent
+            DisabledColor: =Color.Transparent
+            DisabledFill: =Color.Transparent
+            Fill: =Color.Transparent
+            Height: =DynamicBtn_40.Height
+            HoverBorderColor: =Color.Transparent
+            HoverColor: =Color.Transparent
+            HoverFill: =Color.Transparent
+            Text: =""
+            Width: =DynamicBtn_40.Width
+            X: =DynamicBtn_40.X
+            Y: =DynamicBtn_40.Y
+            ZIndex: =15
 
     LeftSectionComponent_20 As LeftSectionComponent:
         ZIndex: =4
