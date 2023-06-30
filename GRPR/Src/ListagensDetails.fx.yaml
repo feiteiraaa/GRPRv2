@@ -1,4 +1,6 @@
 ListagensDetails As screen:
+    OnVisible: |
+        =UpdateContext({localShowInfo:false,localShowVizu:false,localShowEntSai:false,localShowComen:false,localShowVali:false,localShowNewForm:false,localShowEditForm:false})
 
     DetalhesListagem As groupContainer.manualLayoutContainer:
         Height: =677
