@@ -171,7 +171,7 @@
         "Name": "Button1_7",
         "Parent": "DynamicBtn_25",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1172,
+        "PublishOrderIndex": 1164,
         "Rules": [
           {
             "Category": "Data",
@@ -481,7 +481,7 @@
         "Name": "Icon2_7",
         "Parent": "DynamicBtn_25",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1173,
+        "PublishOrderIndex": 1165,
         "Rules": [
           {
             "Category": "Design",
