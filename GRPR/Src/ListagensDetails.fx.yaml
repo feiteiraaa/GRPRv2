@@ -901,7 +901,7 @@ ListagensDetails As screen:
             Height: =300
             Visible: =localShowVisu
             Width: =Parent.Width
-            Y: =40
+            Y: ='Info PreVisualizacao Container'.Y + 'Info PreVisualizacao Container'.Height
             ZIndex: =7
 
         "'Info EntradasSaidas Container' As groupContainer.manualLayoutContainer":
@@ -966,8 +966,9 @@ ListagensDetails As screen:
 
         "'EntradasSaidas Content' As groupContainer.manualLayoutContainer":
             Height: =300
+            Visible: =localShowEntSai
             Width: =Parent.Width
-            Y: =60
+            Y: ='Info EntradasSaidas Container'.Y + 'Info EntradasSaidas Container'.Height
             ZIndex: =9
 
         "'Info Comentarios Container' As groupContainer.manualLayoutContainer":
@@ -1032,8 +1033,9 @@ ListagensDetails As screen:
 
         "'Comentarios Content' As groupContainer.manualLayoutContainer":
             Height: =300
+            Visible: =localShowComen
             Width: =Parent.Width
-            Y: =80
+            Y: ='Info Comentarios Container'.Y + 'Info Comentarios Container'.Height
             ZIndex: =11
 
         "'Info ValidacaoAprovacao Container' As groupContainer.manualLayoutContainer":
@@ -1098,8 +1100,9 @@ ListagensDetails As screen:
 
         "'ValidacaoAprovacao Content' As groupContainer.manualLayoutContainer":
             Height: =300
+            Visible: =localShowVali
             Width: =Parent.Width
-            Y: =100
+            Y: ='Info ValidacaoAprovacao Container'.Y + 'Info ValidacaoAprovacao Container'.Height
             ZIndex: =13
 
     LeftSectionComponent_20 As LeftSectionComponent:
