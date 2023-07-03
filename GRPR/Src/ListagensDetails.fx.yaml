@@ -973,6 +973,8 @@ ListagensDetails As screen:
                 Height: =Parent.Height-DynamicBtn_44.Height-10
                 Item: =LookUp(Listagens_1,ThisRecord.ID=_Listagem)
                 NumberOfColumns: =2
+                OnFailure: =Notify("Falha ao confirmar dados!",NotificationType.Error)
+                OnSuccess: =Notify("Dados confirmados com sucesso",NotificationType.Success)
                 Width: =Parent.Width*0.95
                 X: =24
                 ZIndex: =1
@@ -985,7 +987,7 @@ ListagensDetails As screen:
                     DisplayName: =DataSourceInfo([@Listagens_1],DataSourceInfo.DisplayName,"uipp_datadevalidacao")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    Required: =false
+                    Required: =DataCardValue55.Selected.Value <> Estado.Pendente
                     Update: =DateValue9.SelectedDate 
                     Width: =500
                     X: =0
@@ -1087,15 +1089,20 @@ ListagensDetails As screen:
                         ZIndex: =1
 
                     DataCardValue55 As combobox:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        ChevronBackground: =cores.amareloMontepio
+                        ChevronHoverBackground: =cores.amareloMontepio
                         DefaultSelectedItems: =[Parent.Default]
                         DisplayFields: =["Value"]
                         DisplayMode: |
                             =If(Parent.Default = Estado.Pendente,DisplayMode.Edit,DisplayMode.View)
+                        HoverFill: =cores.amareloMontepio
                         IsSearchable: =false
                         Items: =Choices(Estado)
+                        PressedFill: =cores.amareloMontepio
                         SearchFields: =["Value"]
                         SearchItems: =[]
+                        SelectionFill: =cores.amareloMontepio
                         SelectMultiple: =false
                         Tooltip: =Parent.DisplayName
                         Width: |-
@@ -1138,7 +1145,7 @@ ListagensDetails As screen:
                     DisplayName: =DataSourceInfo([@Listagens_1],DataSourceInfo.DisplayName,"uipp_datadeaprovacaoca")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    Required: =false
+                    Required: =DataCardValue57.Selected.Value <> Estado.Pendente
                     Update: =DateValue8.SelectedDate 
                     Width: |-
                         =//462
@@ -1243,17 +1250,22 @@ ListagensDetails As screen:
                         ZIndex: =1
 
                     DataCardValue57 As combobox:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        ChevronBackground: =cores.amareloMontepio
+                        ChevronHoverBackground: =cores.amareloMontepio
                         DefaultSelectedItems: =[Parent.Default]
                         DisplayFields: =["Value"]
                         DisplayMode: =If(Parent.Default = Estado.Pendente,DisplayMode.Edit,DisplayMode.View)
+                        HoverFill: =cores.amareloMontepio
                         IsSearchable: =false
                         Items: =Choices(Estado)
                         PaddingLeft: |-
                             =//If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                             5
+                        PressedFill: =cores.amareloMontepio
                         SearchFields: =["Value"]
                         SearchItems: =[]
+                        SelectionFill: =cores.amareloMontepio
                         SelectMultiple: =false
                         Tooltip: =Parent.DisplayName
                         Width: |-
@@ -1299,7 +1311,7 @@ ListagensDetails As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     MaxLength: =DataSourceInfo([@Listagens_1], DataSourceInfo.MaxLength, "uipp_referenciadapropostaaca")
-                    Required: =false
+                    Required: =DataCardValue57.Selected.Value <> Estado.Pendente
                     Update: =DataCardValue56.Text
                     Width: =600
                     X: =0
@@ -1324,12 +1336,15 @@ ListagensDetails As screen:
                         BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                         Default: =Parent.Default
                         DelayOutput: =true
+                        DisabledFill: =RGBA(255, 255, 255, 1)
                         DisplayMode: |
                             =If(IsBlank(Parent.Default),DisplayMode.Edit,DisplayMode.View)
-                        HoverBorderColor: =cores.amareloMontepio
-                        HoverFill: =RGBA(0, 0, 0, 0)
+                        HoverBorderColor: =cores.cinzento
+                        HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
+                        PressedBorderColor: =cores.cinzento
+                        PressedFill: =Color.White
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
@@ -1394,7 +1409,7 @@ ListagensDetails As screen:
                     Height: =DynamicBtn_44.Height
                     HoverColor: =RGBA(0,0,0, 0)
                     HoverFill: =RGBA(0,0,0, 0)
-                    OnSelect: =
+                    OnSelect: =SubmitForm(FormVali)
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
