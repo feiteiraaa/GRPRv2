@@ -1,6 +1,6 @@
 ListagensDetails As screen:
     OnVisible: |
-        =UpdateContext({localShowInfo:false,localShowVisu:false,localShowEntSai:false,localShowComen:false,localShowVali:false,localShowNewForm:false,localShowEditForm:false})
+        =UpdateContext({localShowInfo:false,localShowVisu:false,localShowEntSai:false,localShowComen:false,localShowVali:false,localShowNewForm:false,localShowEditForm:false,localShowComments:false})
 
     DetalhesListagem As groupContainer.manualLayoutContainer:
         Height: =677
@@ -731,69 +731,142 @@ ListagensDetails As screen:
             Y: ='Info Comentarios Container'.Y + 'Info Comentarios Container'.Height
             ZIndex: =11
 
-            DynamicBtn_41 As DynamicBtn:
-                BtnText: ="Adicionar comentário"
-                BtnWidth: =260
-                Visible: =true
-                X: =700
-                Y: =10
-
-            Button7_4 As button:
-                Color: =Color.Transparent
-                DisabledBorderColor: =Color.Transparent
-                DisabledColor: =Color.Transparent
-                DisabledFill: =Color.Transparent
-                Fill: =Color.Transparent
-                Height: =DynamicBtn_41.Height
-                HoverBorderColor: =Color.Transparent
-                HoverColor: =Color.Transparent
-                HoverFill: =Color.Transparent
-                Text: =""
-                Width: =DynamicBtn_41.Width
-                X: =DynamicBtn_41.X
-                Y: =DynamicBtn_41.Y
-                ZIndex: =2
-
             TextInput4 As text:
                 Align: =Align.Justify
                 BorderColor: =RGBA(237, 237, 237, 1)
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 0)
                 Default: =//LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios
-                DisplayMode: =DisplayMode.Disabled
                 Fill: =RGBA(237, 237, 237, 1)
                 Height: =Parent.Height-DynamicBtn_41.Height-30
                 HoverBorderColor: =RGBA(237, 237, 237, 1)
                 HoverFill: =RGBA(237, 237, 237, 1)
                 Mode: =TextMode.MultiLine
-                Visible: =false
+                Visible: =localShowComments
                 Width: =Parent.Width-20
                 X: =10
                 Y: =DynamicBtn_41.Height+20
                 ZIndex: =3
 
-            Label22 As label:
-                Fill: =RGBA(237, 237, 237, 1)
-                Height: =TextInput4.Height
-                Text: =LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios
-                VerticalAlign: =VerticalAlign.Top
-                Width: =TextInput4.Width
-                X: =TextInput4.X
-                Y: =TextInput4.Y
-                ZIndex: =4
-
             HtmlText2 As htmlViewer:
+                DisplayMode: =DisplayMode.View
                 Fill: =RGBA(237, 237, 237, 1)
                 Height: =TextInput4.Height
-                HtmlText: |-
-                    =//"Show your <b><font color=blue>HTML</font></b> text here." & 
-                    /*"<b>"&Last(Split(First(Split(LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios,"]")).Value,"[")).Value&"</b><br>"&
-                    First(Split(Last(Split(LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios,"]")).Value,"}")).Value*/
-                    LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios
+                HtmlText: =LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios
+                Visible: =!localShowComments
                 Width: =TextInput4.Width
                 X: =TextInput4.X
                 Y: =TextInput4.Y
                 ZIndex: =5
+
+            Group1 As group:
+                Height: =5
+                Width: =5
+                X: =80
+                Y: =80
+                ZIndex: =10
+
+                DynamicBtn_43 As DynamicBtn:
+                    BtnText: ="Guardar"
+                    ButtonIcon: =Icon.Save
+                    Height: =40
+                    Visible: =localShowComments
+                    Width: =160
+                    X: =800
+                    Y: =10
+                    ZIndex: =8
+
+                edit_btn_12 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =DynamicBtn_43.Height
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =UpdateContext({localShowComments: false})
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: =localShowComments
+                    Width: =DynamicBtn_43.Width
+                    X: =DynamicBtn_43.X
+                    Y: =DynamicBtn_43.Y
+                    ZIndex: =9
+
+            Group2 As group:
+                Height: =5
+                Width: =5
+                X: =80
+                Y: =80
+                ZIndex: =10
+
+                DynamicBtn_42 As DynamicBtn:
+                    BtnText: ="Cancelar"
+                    ButtonIcon: =Icon.Cancel
+                    Height: =40
+                    Visible: =localShowComments
+                    Width: =160
+                    X: =600
+                    Y: =10
+                    ZIndex: =6
+
+                edit_btn_11 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =DynamicBtn_42.Height
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =UpdateContext({localShowComments: false})
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Visible: =localShowComments
+                    Width: =DynamicBtn_42.Width
+                    X: =DynamicBtn_42.X
+                    Y: =DynamicBtn_42.Y
+                    ZIndex: =7
+
+            AddComments As group:
+                Height: =5
+                Width: =5
+                X: =80
+                Y: =80
+                ZIndex: =10
+
+                DynamicBtn_41 As DynamicBtn:
+                    BtnText: ="Adicionar comentário"
+                    BtnWidth: =260
+                    Visible: =!localShowComments
+                    X: =700
+                    Y: =10
+
+                Button7_4 As button:
+                    Color: =Color.Transparent
+                    DisabledBorderColor: =Color.Transparent
+                    DisabledColor: =Color.Transparent
+                    DisabledFill: =Color.Transparent
+                    Fill: =Color.Transparent
+                    Height: =DynamicBtn_41.Height
+                    HoverBorderColor: =Color.Transparent
+                    HoverColor: =Color.Transparent
+                    HoverFill: =Color.Transparent
+                    OnSelect: |
+                        =UpdateContext({localShowComments:true})
+                    Text: =""
+                    Visible: =!localShowComments
+                    Width: =DynamicBtn_41.Width
+                    X: =DynamicBtn_41.X
+                    Y: =DynamicBtn_41.Y
+                    ZIndex: =2
 
         "'Info ValidacaoAprovacao Container' As groupContainer.manualLayoutContainer":
             Height: =50
