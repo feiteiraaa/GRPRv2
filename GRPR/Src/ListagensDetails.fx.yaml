@@ -994,8 +994,12 @@ ListagensDetails As screen:
 
                     DataCardKey63 As label:
                         AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
                         Height: =34
-                        Text: =Parent.DisplayName
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Data de Validação DRI:"
                         Width: =(Parent.Width - 60) * 0.6
                         Wrap: =false
                         X: =30
@@ -1089,7 +1093,6 @@ ListagensDetails As screen:
                             =If(Parent.Default = Estado.Pendente,DisplayMode.Edit,DisplayMode.View)
                         IsSearchable: =false
                         Items: =Choices(Estado)
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
                         SelectMultiple: =false
@@ -1145,8 +1148,12 @@ ListagensDetails As screen:
 
                     DataCardKey62 As label:
                         AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
                         Height: =34
-                        Text: =Parent.DisplayName
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Data de Decisão em CA:"
                         Width: =(Parent.Width - 60) * 0.6
                         Wrap: =false
                         X: =30
@@ -1240,7 +1247,9 @@ ListagensDetails As screen:
                         DisplayMode: =If(Parent.Default = Estado.Pendente,DisplayMode.Edit,DisplayMode.View)
                         IsSearchable: =false
                         Items: =Choices(Estado)
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingLeft: |-
+                            =//If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            5
                         SearchFields: =["Value"]
                         SearchItems: =[]
                         SelectMultiple: =false
@@ -1297,8 +1306,12 @@ ListagensDetails As screen:
 
                     DataCardKey65 As label:
                         AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
                         Height: =34
-                        Text: =Parent.DisplayName
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Referência da Proposta a CA:"
                         Width: =(Parent.Width - 60) * 0.485
                         Wrap: =false
                         X: =30
