@@ -1331,36 +1331,43 @@ ListagensDetails As screen:
                         Y: =DataCardKey65.Y
                         ZIndex: =4
 
-            DynamicBtn_44 As DynamicBtn:
-                BtnText: ="Confirmar"
-                ButtonIcon: =Icon.ChevronRight
-                Height: =40
-                Visible: =true
-                Width: =160
-                X: =800
-                Y: =Parent.Height-DynamicBtn_44.Height
-                ZIndex: =2
+            Confirm As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =4
 
-            edit_btn_13 As button:
-                BorderColor: =RGBA(0,0,0, 0)
-                Color: =RGBA(0,0,0, 0)
-                DisabledBorderColor: =RGBA(0,0,0, 0)
-                DisabledColor: =RGBA(0,0,0, 0)
-                DisabledFill: =RGBA(0,0,0, 0)
-                Fill: =RGBA(0,0,0, 0)
-                Height: =DynamicBtn_44.Height
-                HoverColor: =RGBA(0,0,0, 0)
-                HoverFill: =RGBA(0,0,0, 0)
-                OnSelect: |-
-                    =UpdateContext({localShowComments: false});
-                    Reset(TextInput4)
-                PressedColor: =RGBA(0,0,0, 0)
-                PressedFill: =RGBA(0,0,0, 0)
-                Text: =""
-                Width: =DynamicBtn_44.Width
-                X: =DynamicBtn_44.X
-                Y: =DynamicBtn_44.Y
-                ZIndex: =3
+                DynamicBtn_44 As DynamicBtn:
+                    BtnText: ="Confirmar"
+                    ButtonIcon: =Icon.ChevronRight
+                    Height: =40
+                    Visible: =true
+                    Width: =160
+                    X: =800
+                    Y: =Parent.Height-DynamicBtn_44.Height
+                    ZIndex: =2
+
+                edit_btn_13 As button:
+                    BorderColor: =RGBA(0,0,0, 0)
+                    Color: =RGBA(0,0,0, 0)
+                    DisabledBorderColor: =RGBA(0,0,0, 0)
+                    DisabledColor: =RGBA(0,0,0, 0)
+                    DisabledFill: =RGBA(0,0,0, 0)
+                    Fill: =RGBA(0,0,0, 0)
+                    Height: =DynamicBtn_44.Height
+                    HoverColor: =RGBA(0,0,0, 0)
+                    HoverFill: =RGBA(0,0,0, 0)
+                    OnSelect: |-
+                        =UpdateContext({localShowComments: false});
+                        Reset(TextInput4)
+                    PressedColor: =RGBA(0,0,0, 0)
+                    PressedFill: =RGBA(0,0,0, 0)
+                    Text: =""
+                    Width: =DynamicBtn_44.Width
+                    X: =DynamicBtn_44.X
+                    Y: =DynamicBtn_44.Y
+                    ZIndex: =3
 
         DynamicBtn_40 As DynamicBtn:
             BtnText: ="Exportar"
