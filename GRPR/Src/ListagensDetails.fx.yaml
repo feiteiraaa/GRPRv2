@@ -1008,8 +1008,8 @@ ListagensDetails As screen:
                         DisplayMode: =Parent.DisplayMode
                         EndYear: =Year(Today())+100
                         InputTextPlaceholder: |-
-                            =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
-                            "dd/mm/yyyy"
+                            =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
+                            //"dd/mm/yyyy"
                         IsEditable: =true
                         PaddingBottom: =0
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
@@ -1147,9 +1147,8 @@ ListagensDetails As screen:
                         DefaultDate: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
                         EndYear: =Year(Today())+100
-                        InputTextPlaceholder: |-
-                            =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
-                            "dd/mm/yyyy"
+                        InputTextPlaceholder: |
+                            =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                         IsEditable: =true
                         PaddingBottom: =0
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
