@@ -135,6 +135,7 @@
     "cancelar_btn_3": 672,
     "cancelar_btn_4": 194,
     "cancelar_btn_5": 159,
+    "CancelComments": 1237,
     "CancelMembroInfo": 1067,
     "Cargo (Categoria)_Column1": 123,
     "Cargo (Categoria)_Column2": 1087,
@@ -627,8 +628,6 @@
     "GalleryTopEdge": 19,
     "Grau de parentesco_Column1": 975,
     "Grau de parentesco_DataCard1": 969,
-    "Group1": 1236,
-    "Group2": 1237,
     "Grupo_DataCard1": 1046,
     "Grupo_DataCard1_1": 323,
     "Grupo_DataCard2": 215,
@@ -1104,6 +1103,7 @@
     "ROCDetails": 199,
     "ROCEdit Save Btn": 259,
     "ROCForm": 209,
+    "SaveComments": 1236,
     "SearchAtividade": 790,
     "StarVisible1": 1027,
     "StarVisible1_1": 339,
@@ -1245,7 +1245,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "07/03/2023 11:22:53",
+  "HeaderLastSavedDateTimeUTC": "07/03/2023 11:25:56",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "06c7a476-789a-4373-9b2e-51a72677f474": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/56e87b286d585e6a9cd026d7623aba21-132cc1e39b199399\"",
@@ -1658,6 +1658,10 @@
       "cancel_btn_7": 1,
       "DynamicBtn_30": 0
     },
+    "CancelComments": {
+      "DynamicBtn_42": 1,
+      "edit_btn_11": 0
+    },
     "CancelMembroInfo": {
       "cancel_btn_6": 1,
       "DynamicBtn_23": 0
@@ -1790,14 +1794,6 @@
       "Label8_2": 2,
       "Label8_3": 3
     },
-    "Group1": {
-      "DynamicBtn_43": 0,
-      "edit_btn_12": 1
-    },
-    "Group2": {
-      "DynamicBtn_42": 1,
-      "edit_btn_11": 0
-    },
     "ImportBtn": {
       "Button2_22": 1,
       "ParticularesAdd_6": 0
@@ -1926,6 +1922,10 @@
     "ROCEdit Save Btn": {
       "Button2_6": 1,
       "DynamicBtn_6": 0
+    },
+    "SaveComments": {
+      "DynamicBtn_43": 0,
+      "edit_btn_12": 1
     },
     "StatusAprovacao": {
       "ImageEmCurso": 4,
@@ -2081,6 +2081,7 @@
     "cancelar_btn_3": {},
     "cancelar_btn_4": {},
     "cancelar_btn_5": {},
+    "CancelComments": {},
     "CancelMembroInfo": {},
     "Cargo (Categoria)_Column1": {},
     "Cargo (Categoria)_Column2": {},
@@ -2573,8 +2574,6 @@
     "GalleryTopEdge": {},
     "Grau de parentesco_Column1": {},
     "Grau de parentesco_DataCard1": {},
-    "Group1": {},
-    "Group2": {},
     "Grupo_DataCard1": {},
     "Grupo_DataCard1_1": {},
     "Grupo_DataCard2": {},
@@ -3050,6 +3049,7 @@
     "ROCDetails": {},
     "ROCEdit Save Btn": {},
     "ROCForm": {},
+    "SaveComments": {},
     "SearchAtividade": {},
     "StarVisible1": {},
     "StarVisible1_1": {},
@@ -3317,6 +3317,7 @@
     "cancelar_btn_3": 688,
     "cancelar_btn_4": 919,
     "cancelar_btn_5": 105,
+    "CancelComments": 989,
     "CancelMembroInfo": 154,
     "Cargo (Categoria)_Column1": 69,
     "Cargo (Categoria)_Column2": 213,
@@ -3809,8 +3810,6 @@
     "GalleryTopEdge": 1186,
     "Grau de parentesco_Column1": 1142,
     "Grau de parentesco_DataCard1": 1136,
-    "Group1": 995,
-    "Group2": 989,
     "Grupo_DataCard1": 176,
     "Grupo_DataCard1_1": 512,
     "Grupo_DataCard2": 574,
@@ -4286,6 +4285,7 @@
     "ROCDetails": 1050,
     "ROCEdit Save Btn": 558,
     "ROCForm": 568,
+    "SaveComments": 995,
     "SearchAtividade": 1113,
     "StarVisible1": 157,
     "StarVisible1_1": 528,

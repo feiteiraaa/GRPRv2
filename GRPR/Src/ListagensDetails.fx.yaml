@@ -759,7 +759,7 @@ ListagensDetails As screen:
                 Y: =TextInput4.Y
                 ZIndex: =5
 
-            Group1 As group:
+            SaveComments As group:
                 Height: =5
                 Width: =5
                 X: =80
@@ -767,8 +767,7 @@ ListagensDetails As screen:
                 ZIndex: =10
 
                 DynamicBtn_43 As DynamicBtn:
-                    BtnText: ="Guardar"
-                    ButtonIcon: =Icon.Save
+                    BtnText: ="Adicionar"
                     Height: =40
                     Visible: =localShowComments
                     Width: =160
@@ -797,7 +796,7 @@ ListagensDetails As screen:
                     Y: =DynamicBtn_43.Y
                     ZIndex: =9
 
-            Group2 As group:
+            CancelComments As group:
                 Height: =5
                 Width: =5
                 X: =80
