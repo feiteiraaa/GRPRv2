@@ -1394,7 +1394,7 @@ ListagensDetails As screen:
                     BtnText: ="Confirmar"
                     ButtonIcon: =Icon.ChevronRight
                     Height: =40
-                    Visible: =true
+                    Visible: =!ImageFinalizado.Visible
                     Width: =160
                     X: =800
                     Y: =Parent.Height-DynamicBtn_44.Height
@@ -1414,6 +1414,7 @@ ListagensDetails As screen:
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
+                    Visible: =!ImageFinalizado.Visible
                     Width: =DynamicBtn_44.Width
                     X: =DynamicBtn_44.X
                     Y: =DynamicBtn_44.Y
