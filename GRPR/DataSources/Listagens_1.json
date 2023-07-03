@@ -73,8 +73,7 @@
     "OptionSetInfoNameMapping": {
       "847700000": "Pendente",
       "847700001": "Aprovado",
-      "847700002": "Rejeitado",
-      "847700003": "Validado"
+      "847700002": "Rejeitado"
     },
     "OptionSetIsBooleanValued": false,
     "OptionSetIsGlobal": true,

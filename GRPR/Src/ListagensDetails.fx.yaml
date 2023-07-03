@@ -1007,7 +1007,7 @@ ListagensDetails As screen:
                         ZIndex: =1
 
                     DateValue9 As datepicker:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                         DefaultDate: =Parent.Default
                         DisplayMode: |-
                             =//Parent.DisplayMode
@@ -1019,6 +1019,7 @@ ListagensDetails As screen:
                                 "dd/mm/yyyy",
                                 "pt-PT"
                             )
+                        IconBackground: =cores.amareloMontepio
                         InputTextPlaceholder: |-
                             =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                             //"dd/mm/yyyy"
@@ -1161,7 +1162,7 @@ ListagensDetails As screen:
                         ZIndex: =1
 
                     DateValue8 As datepicker:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                         DefaultDate: =Parent.Default
                         DisplayMode: =If(IsBlank(Parent.Default),DisplayMode.Edit,DisplayMode.View)
                         EndYear: =Year(Today())+100
@@ -1171,6 +1172,7 @@ ListagensDetails As screen:
                                 "dd/mm/yyyy",
                                 "pt-PT"
                             )
+                        IconBackground: =cores.amareloMontepio
                         InputTextPlaceholder: |
                             =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                         IsEditable: =true
@@ -1319,11 +1321,13 @@ ListagensDetails As screen:
                         ZIndex: =1
 
                     DataCardValue56 As text:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: |
                             =If(IsBlank(Parent.Default),DisplayMode.Edit,DisplayMode.View)
+                        HoverBorderColor: =cores.amareloMontepio
+                        HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
