@@ -1005,7 +1005,9 @@ ListagensDetails As screen:
                     DateValue9 As datepicker:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultDate: =Parent.Default
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: |-
+                            =//Parent.DisplayMode
+                            If(IsBlank(Parent.Default),DisplayMode.Edit,DisplayMode.View)
                         EndYear: =Year(Today())+100
                         InputTextPlaceholder: |-
                             =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
@@ -1075,7 +1077,8 @@ ListagensDetails As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =[Parent.Default]
                         DisplayFields: =["Value"]
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: |
+                            =If(Parent.Default = Estado.Pendente,DisplayMode.Edit,DisplayMode.View)
                         IsSearchable: =false
                         Items: =Choices(Estado)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
@@ -1145,7 +1148,7 @@ ListagensDetails As screen:
                     DateValue8 As datepicker:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultDate: =Parent.Default
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: =If(IsBlank(Parent.Default),DisplayMode.Edit,DisplayMode.View)
                         EndYear: =Year(Today())+100
                         InputTextPlaceholder: |
                             =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
@@ -1218,7 +1221,7 @@ ListagensDetails As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         DefaultSelectedItems: =[Parent.Default]
                         DisplayFields: =["Value"]
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: =If(Parent.Default = Estado.Pendente,DisplayMode.Edit,DisplayMode.View)
                         IsSearchable: =false
                         Items: =Choices(Estado)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
@@ -1290,7 +1293,8 @@ ListagensDetails As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
                         DelayOutput: =true
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: |
+                            =If(IsBlank(Parent.Default),DisplayMode.Edit,DisplayMode.View)
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
