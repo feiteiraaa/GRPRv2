@@ -23,15 +23,33 @@ Listagens As screen:
                         Listagens_1,
                         ThisRecord.Estado in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text
                     ),
-                    !IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate) And IsBlank(InputPesquisar_1.Text),
+                    !IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate) And DatePicker2_2.SelectedDate <> DatePicker1_2.SelectedDate And IsBlank(InputPesquisar_1.Text),
                     Filter(
                         Listagens_1,
                         ThisRecord.'Data de referencia' >= DatePicker1_2.SelectedDate And ThisRecord.'Data de referencia' <= DatePicker2_2.SelectedDate
                     ),
-                    !IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate) And !IsBlank(InputPesquisar_1.Text),
+                    !IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate) And DatePicker2_2.SelectedDate <> DatePicker1_2.SelectedDate And !IsBlank(InputPesquisar_1.Text),
                     Filter(
                         Listagens_1,
                         (ThisRecord.'Data de referencia' >= DatePicker1_2.SelectedDate And ThisRecord.'Data de referencia' <= DatePicker2_2.SelectedDate) And (ThisRecord.Estado in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text)
+                    ),
+                    !IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate) And DatePicker2_2.SelectedDate = DatePicker1_2.SelectedDate And IsBlank(InputPesquisar_1.Text),
+                    Filter(
+                        Listagens_1,
+                        ThisRecord.'Data de referencia' >= DatePicker1_2.SelectedDate And ThisRecord.'Data de referencia' <= DateAdd(
+                            DatePicker2_2.SelectedDate,
+                            1,
+                            TimeUnit.Days
+                        )
+                    ),
+                    !IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate) And DatePicker2_2.SelectedDate = DatePicker1_2.SelectedDate And !IsBlank(InputPesquisar_1.Text),
+                    Filter(
+                        Listagens_1,
+                        (ThisRecord.'Data de referencia' >= DatePicker1_2.SelectedDate And ThisRecord.'Data de referencia' <= DateAdd(
+                            DatePicker2_2.SelectedDate,
+                            1,
+                            TimeUnit.Days
+                        )) And (ThisRecord.Estado in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text)
                     ),
                     Listagens_1
                 ),

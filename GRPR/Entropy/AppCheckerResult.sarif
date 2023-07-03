@@ -14698,7 +14698,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 220,
+                  "charOffset": 215,
                   "snippet": {
                     "text": "in"
                   }
@@ -14738,7 +14738,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 245,
+                  "charOffset": 240,
                   "snippet": {
                     "text": "Or"
                   }
@@ -14778,7 +14778,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 953,
+                  "charOffset": 1060,
                   "snippet": {
                     "text": "in"
                   }
@@ -14818,7 +14818,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 978,
+                  "charOffset": 1085,
                   "snippet": {
                     "text": "Or"
                   }
@@ -14858,7 +14858,127 @@
                 },
                 "region": {
                   "charLength": 3,
-                  "charOffset": 930,
+                  "charOffset": 1037,
+                  "snippet": {
+                    "text": "And"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Listagens",
+                "type": "Listagens.GalleryListagens"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Listagens.GalleryListagens.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Listagens.GalleryListagens.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 2082,
+                  "snippet": {
+                    "text": "in"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Listagens",
+                "type": "Listagens.GalleryListagens"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-InOpRhs",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Listagens.GalleryListagens.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Listagens.GalleryListagens.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 2107,
+                  "snippet": {
+                    "text": "Or"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Listagens",
+                "type": "Listagens.GalleryListagens"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Listagens.GalleryListagens.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Listagens.GalleryListagens.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 3,
+                  "charOffset": 2059,
                   "snippet": {
                     "text": "And"
                   }
