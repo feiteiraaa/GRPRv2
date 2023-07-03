@@ -799,10 +799,6 @@ ListagensDetails As screen:
                             ),
                             {
                                 Comentarios: Concatenate(
-                                    LookUp(
-                                        Listagens_1,
-                                        ThisRecord.ID = _Listagem
-                                    ).Comentarios,
                                     "<b>",
                                     User().FullName,
                                     " - ",
@@ -812,7 +808,11 @@ ListagensDetails As screen:
                                     ),
                                     "</b><br><p>&nbsp;&nbsp;&nbsp;&nbsp;",
                                     TextInput4.Text,
-                                    "</p><br>"
+                                    "</p><br>",
+                                    LookUp(
+                                        Listagens_1,
+                                        ThisRecord.ID = _Listagem
+                                    ).Comentarios
                                 )
                             }
                         );
