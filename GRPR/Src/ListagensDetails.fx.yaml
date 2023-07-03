@@ -1358,9 +1358,7 @@ ListagensDetails As screen:
                     Height: =DynamicBtn_44.Height
                     HoverColor: =RGBA(0,0,0, 0)
                     HoverFill: =RGBA(0,0,0, 0)
-                    OnSelect: |-
-                        =UpdateContext({localShowComments: false});
-                        Reset(TextInput4)
+                    OnSelect: =
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
