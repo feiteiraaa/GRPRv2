@@ -1009,15 +1009,16 @@ ListagensDetails As screen:
                             If(IsBlank(Parent.Default),DisplayMode.Edit,DisplayMode.View)
                         EndYear: =Year(Today())+100
                         Format: |-
-                            =Text(
+                            =/*Text(
                                 Parent.Default,
                                 "dd/mm/yyyy",
                                 "pt-PT"
-                            )
+                            )*/
+                            "dd/mm/yyyy"
                         IconBackground: =cores.amareloMontepio
                         InputTextPlaceholder: |-
-                            =If(IsBlank(Self.SelectedDate),Text(Date(2001,12,31), Self.Format, Self.Language))
-                            //"dd/mm/yyyy"
+                            =//If(IsBlank(Self.SelectedDate),Text(Date(2001,12,31), Self.Format, Self.Language))
+                            "dd/mm/yyyy"
                         IsEditable: =true
                         PaddingBottom: =0
                         PaddingLeft: |-
@@ -1171,11 +1172,11 @@ ListagensDetails As screen:
                         DisplayMode: =If(IsBlank(Parent.Default),DisplayMode.Edit,DisplayMode.View)
                         EndYear: =Year(Today())+100
                         Format: |-
-                            =Text(
+                            =/*Text(
                                 Parent.Default,
                                 "dd/mm/yyyy",
                                 "pt-PT"
-                            )
+                            )*/"dd/mm/yyyy"
                         IconBackground: =cores.amareloMontepio
                         InputTextPlaceholder: |
                             =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
