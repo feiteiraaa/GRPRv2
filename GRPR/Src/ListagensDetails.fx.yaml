@@ -485,7 +485,7 @@ ListagensDetails As screen:
             ZIndex: =7
 
             "'Arquivo Documental Section Gallery' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
-                Height: =Parent.Height
+                Height: =Parent.Height-40
                 Items: |-
                     =Filter(
                         Listagens_1,
@@ -497,6 +497,7 @@ ListagensDetails As screen:
                 TemplateSize: =50
                 Width: =Parent.Width*0.95
                 X: =24
+                Y: =40
                 ZIndex: =1
 
                 "'File Name Label_7' As label":
@@ -520,6 +521,18 @@ ListagensDetails As screen:
                     Width: =Parent.TemplateWidth
                     Y: =Parent.TemplateHeight - 1
                     ZIndex: =5
+
+            Label21 As label:
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Text: |-
+                    ="Ficheiro Listagem:"
+                Visible: =false
+                Width: =250
+                X: =24
+                Y: =5
+                ZIndex: =2
 
         "'Info EntradasSaidas Container' As groupContainer.manualLayoutContainer":
             Height: =50
@@ -746,17 +759,41 @@ ListagensDetails As screen:
                 BorderColor: =RGBA(237, 237, 237, 1)
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 0)
-                Default: =LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios
+                Default: =//LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios
                 DisplayMode: =DisplayMode.Disabled
                 Fill: =RGBA(237, 237, 237, 1)
                 Height: =Parent.Height-DynamicBtn_41.Height-30
                 HoverBorderColor: =RGBA(237, 237, 237, 1)
                 HoverFill: =RGBA(237, 237, 237, 1)
                 Mode: =TextMode.MultiLine
+                Visible: =false
                 Width: =Parent.Width-20
                 X: =10
                 Y: =DynamicBtn_41.Height+20
                 ZIndex: =3
+
+            Label22 As label:
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =TextInput4.Height
+                Text: =LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios
+                VerticalAlign: =VerticalAlign.Top
+                Width: =TextInput4.Width
+                X: =TextInput4.X
+                Y: =TextInput4.Y
+                ZIndex: =4
+
+            HtmlText2 As htmlViewer:
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =TextInput4.Height
+                HtmlText: |-
+                    =//"Show your <b><font color=blue>HTML</font></b> text here." & 
+                    /*"<b>"&Last(Split(First(Split(LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios,"]")).Value,"[")).Value&"</b><br>"&
+                    First(Split(Last(Split(LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios,"]")).Value,"}")).Value*/
+                    LookUp(Listagens_1,ThisRecord.ID=_Listagem).Comentarios
+                Width: =TextInput4.Width
+                X: =TextInput4.X
+                Y: =TextInput4.Y
+                ZIndex: =5
 
         "'Info ValidacaoAprovacao Container' As groupContainer.manualLayoutContainer":
             Height: =50
