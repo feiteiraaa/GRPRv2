@@ -969,7 +969,8 @@ ListagensDetails As screen:
 
             FormVali As form:
                 DataSource: =Listagens_1
-                Height: =Parent.Height
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =Parent.Height-DynamicBtn_44.Height-10
                 Item: =LookUp(Listagens_1,ThisRecord.ID=_Listagem)
                 NumberOfColumns: =2
                 Width: =Parent.Width*0.95
@@ -1331,13 +1332,13 @@ ListagensDetails As screen:
                         ZIndex: =4
 
             DynamicBtn_44 As DynamicBtn:
-                BtnText: ="Cancelar"
-                ButtonIcon: =Icon.Cancel
+                BtnText: ="Confirmar"
+                ButtonIcon: =Icon.ChevronRight
                 Height: =40
-                Visible: =localShowComments
+                Visible: =true
                 Width: =160
-                X: =600
-                Y: =10
+                X: =800
+                Y: =Parent.Height-DynamicBtn_44.Height
                 ZIndex: =2
 
             edit_btn_13 As button:
@@ -1356,67 +1357,10 @@ ListagensDetails As screen:
                 PressedColor: =RGBA(0,0,0, 0)
                 PressedFill: =RGBA(0,0,0, 0)
                 Text: =""
-                Visible: =localShowComments
                 Width: =DynamicBtn_44.Width
                 X: =DynamicBtn_44.X
                 Y: =DynamicBtn_44.Y
                 ZIndex: =3
-
-            DynamicBtn_45 As DynamicBtn:
-                BtnText: ="Adicionar"
-                Height: =40
-                Visible: =localShowComments
-                Width: =160
-                X: =800
-                Y: =10
-                ZIndex: =4
-
-            edit_btn_14 As button:
-                BorderColor: =RGBA(0,0,0, 0)
-                Color: =RGBA(0,0,0, 0)
-                DisabledBorderColor: =RGBA(0,0,0, 0)
-                DisabledColor: =RGBA(0,0,0, 0)
-                DisabledFill: =RGBA(0,0,0, 0)
-                Fill: =RGBA(0,0,0, 0)
-                Height: =DynamicBtn_45.Height
-                HoverColor: =RGBA(0,0,0, 0)
-                HoverFill: =RGBA(0,0,0, 0)
-                OnSelect: |-
-                    =Patch(
-                        Listagens_1,
-                        LookUp(
-                            Listagens_1,
-                            ThisRecord.ID = _Listagem
-                        ),
-                        {
-                            Comentarios: Concatenate(
-                                "<b>",
-                                User().FullName,
-                                " - ",
-                                Text(
-                                    Now(),
-                                    "dd/mm/yyyy hh:mm AM/PM"
-                                ),
-                                "</b><br><p>&nbsp;&nbsp;&nbsp;&nbsp;",
-                                TextInput4.Text,
-                                "</p><br>",
-                                LookUp(
-                                    Listagens_1,
-                                    ThisRecord.ID = _Listagem
-                                ).Comentarios
-                            )
-                        }
-                    );
-                    Reset(TextInput4);
-                    UpdateContext({localShowComments: false})
-                PressedColor: =RGBA(0,0,0, 0)
-                PressedFill: =RGBA(0,0,0, 0)
-                Text: =""
-                Visible: =localShowComments
-                Width: =DynamicBtn_45.Width
-                X: =DynamicBtn_45.X
-                Y: =DynamicBtn_45.Y
-                ZIndex: =5
 
         DynamicBtn_40 As DynamicBtn:
             BtnText: ="Exportar"
