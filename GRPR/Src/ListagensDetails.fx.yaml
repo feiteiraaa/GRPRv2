@@ -1009,12 +1009,20 @@ ListagensDetails As screen:
                             =//Parent.DisplayMode
                             If(IsBlank(Parent.Default),DisplayMode.Edit,DisplayMode.View)
                         EndYear: =Year(Today())+100
+                        Format: |-
+                            =Text(
+                                Parent.Default,
+                                "dd/mm/yyyy",
+                                "pt-PT"
+                            )
                         InputTextPlaceholder: |-
                             =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                             //"dd/mm/yyyy"
                         IsEditable: =true
                         PaddingBottom: =0
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingLeft: |-
+                            =//If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            5
                         StartYear: =1899
                         Tooltip: =Parent.DisplayName
                         Width: =(Parent.Width - 60) * 0.4
@@ -1150,11 +1158,19 @@ ListagensDetails As screen:
                         DefaultDate: =Parent.Default
                         DisplayMode: =If(IsBlank(Parent.Default),DisplayMode.Edit,DisplayMode.View)
                         EndYear: =Year(Today())+100
+                        Format: |-
+                            =Text(
+                                Parent.Default,
+                                "dd/mm/yyyy",
+                                "pt-PT"
+                            )
                         InputTextPlaceholder: |
                             =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                         IsEditable: =true
                         PaddingBottom: =0
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingLeft: |-
+                            =//If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            5
                         StartYear: =1899
                         Tooltip: =Parent.DisplayName
                         Width: |-
