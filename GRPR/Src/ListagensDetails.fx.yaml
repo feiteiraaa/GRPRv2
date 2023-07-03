@@ -72,7 +72,7 @@ ListagensDetails As screen:
                 Height: ='Info Circle_17'.Height
                 Icon: =If(localShowInfo, Icon.HorizontalLine, Icon.Add)
                 OnSelect: |
-                    =UpdateContext({localShowInfo: !localShowInfo,localShowVizu:false,localShowEntSai:false,localShowComen:false,localShowVali:false,localShowNewForm:false,localShowEditForm:false})
+                    =UpdateContext({localShowInfo: !localShowInfo,localShowVisu:false,localShowEntSai:false,localShowComen:false,localShowVali:false,localShowNewForm:false,localShowEditForm:false})
                 Width: ='Info Circle_17'.Width
                 X: =Parent.Width - (30 + 'Info Circle_17'.Width)
                 Y: =5
@@ -575,7 +575,7 @@ ListagensDetails As screen:
                 Height: ='Info Circle_19'.Height
                 Icon: =If(localShowEntSai, Icon.HorizontalLine, Icon.Add)
                 OnSelect: |
-                    =UpdateContext({localShowInfo:false,localShowVizu:false,localShowEntSai:!localShowEntSai,localShowComen:false,localShowVali:false,localShowNewForm:false,localShowEditForm:false})
+                    =UpdateContext({localShowInfo:false,localShowVisu:false,localShowEntSai:!localShowEntSai,localShowComen:false,localShowVali:false,localShowNewForm:false,localShowEditForm:false})
                 Width: ='Info Circle_19'.Width
                 X: =Parent.Width - (30 + 'Info Circle_19'.Width)
                 Y: =5
