@@ -1410,6 +1410,7 @@ ListagensDetails As screen:
 
         ImageValidacaoDRI As image:
             Image: =ValidacaoDRI
+            Visible: =!IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de validacao') And IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de Aprovacao CA')
             Width: =973
             X: =364
             Y: =132
@@ -1417,7 +1418,7 @@ ListagensDetails As screen:
 
         ImageEmCurso As image:
             Image: =EmCurso
-            Visible: =false
+            Visible: =IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de validacao') And IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de Aprovacao CA')
             Width: =973
             X: =364
             Y: =132
@@ -1425,7 +1426,7 @@ ListagensDetails As screen:
 
         ImageFinalizado As image:
             Image: =Finalizado
-            Visible: =false
+            Visible: =!IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de validacao') And !IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de Aprovacao CA')
             Width: =973
             X: =364
             Y: =132
