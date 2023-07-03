@@ -115,14 +115,7 @@ ListagensDetails As screen:
 
             Informacao_2 As form:
                 DataSource: =Listagens_1
-                DefaultMode: |-
-                    =/*If(
-                        localShowNewForm,
-                        FormMode.Edit,
-                        IsBlank(_Membro),
-                        ColabFormMode,
-                        FormMode.View
-                    )*/ FormMode.View
+                DefaultMode: =FormMode.View
                 Height: =Parent.Height
                 Item: =LookUp(Listagens_1, _Listagem = ThisRecord.ID)
                 NumberOfColumns: =1
@@ -1023,7 +1016,7 @@ ListagensDetails As screen:
                             )
                         IconBackground: =cores.amareloMontepio
                         InputTextPlaceholder: |-
-                            =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
+                            =If(IsBlank(Self.SelectedDate),Text(Date(2001,12,31), Self.Format, Self.Language))
                             //"dd/mm/yyyy"
                         IsEditable: =true
                         PaddingBottom: =0
@@ -1054,9 +1047,13 @@ ListagensDetails As screen:
 
                     StarVisible63 As label:
                         Align: =Align.Center
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
                         Height: =DataCardKey63.Height
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Visible: |-
+                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            And(Parent.Required, DateValue9.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
                         Y: =DataCardKey63.Y
@@ -1213,9 +1210,11 @@ ListagensDetails As screen:
 
                     StarVisible62 As label:
                         Align: =Align.Center
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
                         Height: =DataCardKey62.Height
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Visible: =And(Parent.Required, DateValue8.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
                         Y: =DataCardKey62.Y
@@ -1374,9 +1373,11 @@ ListagensDetails As screen:
 
                     StarVisible65 As label:
                         Align: =Align.Center
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
                         Height: =DataCardKey65.Height
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Visible: =And(Parent.Required, DataCardValue56.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
                         Y: =DataCardKey65.Y
