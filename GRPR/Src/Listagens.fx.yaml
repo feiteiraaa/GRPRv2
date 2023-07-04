@@ -21,7 +21,7 @@ Listagens As screen:
                     !IsBlank(InputPesquisar_1.Text) And IsBlank(DatePicker2_2.SelectedDate) And IsBlank(DatePicker1_2.SelectedDate),
                     Filter(
                         Listagens_1,
-                        ThisRecord.Estado in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text
+                        ThisRecord.Estado_Aprovacao_CA in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text
                     ),
                     !IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate) And DatePicker2_2.SelectedDate <> DatePicker1_2.SelectedDate And IsBlank(InputPesquisar_1.Text),
                     Filter(
@@ -31,7 +31,7 @@ Listagens As screen:
                     !IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate) And DatePicker2_2.SelectedDate <> DatePicker1_2.SelectedDate And !IsBlank(InputPesquisar_1.Text),
                     Filter(
                         Listagens_1,
-                        (ThisRecord.'Data de referencia' >= DatePicker1_2.SelectedDate And ThisRecord.'Data de referencia' <= DatePicker2_2.SelectedDate) And (ThisRecord.Estado in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text)
+                        (ThisRecord.'Data de referencia' >= DatePicker1_2.SelectedDate And ThisRecord.'Data de referencia' <= DatePicker2_2.SelectedDate) And (ThisRecord.Estado_Aprovacao_CA in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text)
                     ),
                     !IsBlank(DatePicker2_2.SelectedDate) And !IsBlank(DatePicker1_2.SelectedDate) And DatePicker2_2.SelectedDate = DatePicker1_2.SelectedDate And IsBlank(InputPesquisar_1.Text),
                     Filter(
@@ -49,7 +49,7 @@ Listagens As screen:
                             DatePicker2_2.SelectedDate,
                             1,
                             TimeUnit.Days
-                        )) And (ThisRecord.Estado in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text)
+                        )) And (ThisRecord.Estado_Aprovacao_CA in InputPesquisar_1.Text Or ThisRecord.Tipo in InputPesquisar_1.Text)
                     ),
                     Listagens_1
                 ),
