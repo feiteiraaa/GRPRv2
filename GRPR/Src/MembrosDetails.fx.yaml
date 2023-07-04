@@ -808,13 +808,13 @@ MembrosDetails As screen:
                                             localShowNewForm: !localShowNewForm
                                         }
                                     ),
-                                    /*If(
+                                    If(
                                         Informacao.Mode = FormMode.New,
                                         Navigate(
                                             Particulares,
                                             ScreenTransition.None
                                         )
-                                    )*/
+                                    ),
                                     //Back(),
                                     Notify(
                                         "Por favor, tente novamente.",

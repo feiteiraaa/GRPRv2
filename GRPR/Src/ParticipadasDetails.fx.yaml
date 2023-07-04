@@ -313,7 +313,7 @@ ParticipadasDetails As screen:
             DisplayName: =DataSourceInfo([@'Empresas Participadas do Grupos'],DataSourceInfo.DisplayName,"uipp_grupo")
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            Required: =false
+            Required: =true
             Update: =DataCardValue52.Selected.Value
             Width: =490
             X: =1
