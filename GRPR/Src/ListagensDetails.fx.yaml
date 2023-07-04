@@ -13,7 +13,7 @@ ListagensDetails As screen:
             FontWeight: =FontWeight.Bold
             Height: =48
             Size: =15
-            Text: ="Listagem" & If(GalleryListagens.Selected.LabelTipo exactin "Manual" , Text("Manual"), Text(GalleryListagens.Selected.Periodicidade)) & " de " & Text(GalleryListagens.Selected.LabelData)
+            Text: ="Listagem " & If(GalleryListagens.Selected.LabelTipo exactin "Manual" , Text("Manual"), Text(GalleryListagens.Selected.Periodicidade)) & " de " & Text(GalleryListagens.Selected.LabelData)
             Width: =409
             Y: =45
             ZIndex: =1
