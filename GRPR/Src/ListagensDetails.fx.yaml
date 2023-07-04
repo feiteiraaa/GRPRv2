@@ -595,7 +595,7 @@ ListagensDetails As screen:
 
                 DataCardValue58_1 As attachments:
                     AddAttachmentText: ="Upload file"
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderColor: =Parent.BorderColor//If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     DisplayMode: =DisplayMode.View
                     Height: =60
                     IsInDataCard: =true
