@@ -347,7 +347,7 @@ ListagensDetails As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@Listagens_1],DataSourceInfo.DisplayName,"_uipp_autor_value")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =200
+                    Height: =50
                     Required: =false
                     Visible: =false
                     Width: =924
@@ -357,11 +357,15 @@ ListagensDetails As screen:
 
                     DataCardKey62_1 As label:
                         AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
                         Height: =34
-                        Text: =Parent.DisplayName
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Autor:"
                         Width: =(Parent.Width - 60) * 0.4
                         Wrap: =false
-                        X: =60
+                        X: =30
                         Y: =10 + (DataCardValue55_1.Height / 2) - (Self.Height / 2)
                         ZIndex: =1
 
@@ -393,7 +397,7 @@ ListagensDetails As screen:
 
                     DataCardValue55_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
-                        Default: =//ThisItem.Autor
+                        Default: =
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         HoverBorderColor: =cores.cinzento
@@ -405,10 +409,82 @@ ListagensDetails As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Tooltip: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        X: =40
-                        Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                        Width: =(Parent.Width - 60) * 0.6
+                        X: =DataCardKey62_1.X + DataCardKey62_1.Width
+                        Y: =10
                         ZIndex: =6
+
+                CriadoPor_DataCard1 As typedDataCard.textualEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_criadopor"
+                    Default: =ThisItem.CriadoPor
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Listagens_1],DataSourceInfo.DisplayName,"uipp_criadopor")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@Listagens_1], DataSourceInfo.MaxLength, "uipp_criadopor")
+                    Required: =false
+                    Update: =DataCardValue59.Text
+                    Visible: =If(ThisItem.Tipo=Tipo.Manual,true,false)
+                    Width: =924
+                    X: =0
+                    Y: =4
+                    ZIndex: =1
+
+                    DataCardKey68 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            ="Autor: "//Parent.DisplayName
+                        Width: =(Parent.Width - 60) * 0.4
+                        Wrap: =false
+                        X: =30
+                        Y: =10 + (DataCardValue59.Height / 2) - (Self.Height / 2)
+                        ZIndex: =1
+
+                    DataCardValue59 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =(Parent.Width - 60) * 0.6
+                        X: =DataCardKey68.X + DataCardKey68.Width
+                        Y: =10
+                        ZIndex: =2
+
+                    ErrorMessage68 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue59.Y + DataCardValue59.Height
+                        ZIndex: =3
+
+                    StarVisible68 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey68.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey68.Y
+                        ZIndex: =4
 
         "'Info PreVisualizacao Container' As groupContainer.manualLayoutContainer":
             Height: =50
@@ -485,9 +561,9 @@ ListagensDetails As screen:
                         ThisRecord.ID = _Listagem
                     )
                 Layout: =Layout.Vertical
-                OnSelect: =//Download(ThisItem.'Link to item')
+                OnSelect: =//Download(LookUp(Listagens_1,ThisRecord.ID=_Listagem).Listagem.Value)
                 TemplatePadding: =0
-                TemplateSize: =50
+                TemplateSize: =62
                 Width: =Parent.Width*0.95
                 X: =24
                 Y: =40
@@ -503,6 +579,7 @@ ListagensDetails As screen:
                     Size: =14
                     Text: =ThisItem.Listagem.FileName
                     VerticalAlign: =VerticalAlign.Top
+                    Visible: =false
                     Width: =305
                     Y: =1
                     ZIndex: =2
@@ -511,9 +588,29 @@ ListagensDetails As screen:
                     Fill: =cores.cinzento
                     Height: =1
                     OnSelect: =Select(Parent)
+                    Visible: =false
                     Width: =Parent.TemplateWidth
                     Y: =Parent.TemplateHeight - 1
                     ZIndex: =5
+
+                DataCardValue58_1 As attachments:
+                    AddAttachmentText: ="Upload file"
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =DisplayMode.View
+                    Height: =60
+                    IsInDataCard: =true
+                    Items: |-
+                        =If(!IsBlank(ThisItem.Listagem.FileName), Table({DisplayName: ThisItem.Listagem.FileName, Value: ThisItem.Listagem.Value}), Blank())
+                    MaxAttachments: =1
+                    MaxAttachmentsText: =""
+                    NoAttachmentsText: ="There is no file."
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Width: =Parent.Width*0.95
+                    X: =24
+                    ZIndex: =6
 
             Label21 As label:
                 Color: =cores.cinzento

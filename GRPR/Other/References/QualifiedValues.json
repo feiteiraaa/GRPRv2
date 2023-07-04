@@ -377,6 +377,13 @@
       "Values": {
         "Information": "ff1df59c-a1c4-4601-a6d3-bc5ebcdfb297"
       }
+    },
+    {
+      "Kind": "default.cds_aaduser_forms",
+      "Namespace": "AAD Users (Forms)",
+      "Values": {
+        "Information": "dd5ded01-9aad-4e25-8d0e-e9acdaecbe4e"
+      }
     }
   ]
 }

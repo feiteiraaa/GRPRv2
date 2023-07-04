@@ -1,0 +1,77 @@
+Screen1 As screen:
+
+    FormViewer1 As formViewer:
+        DataSource: =Listagens_1
+        Item: =LookUp(Listagens_1,ThisRecord.ID="1011")
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+        Listagem_DataCard1 As typedDataCard.fileViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_listagem"
+            Default: |-
+                =If(!IsBlank(ThisItem.Listagem.FileName), Table({DisplayName: ThisItem.Listagem.FileName, Value: ThisItem.Listagem.Value}), Blank())
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Listagens_1],DataSourceInfo.DisplayName,"uipp_listagem")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Width: =266
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey67 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue58 As attachments:
+                AddAttachmentText: ="Upload file"
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: =Parent.DisplayMode
+                Height: =100
+                IsInDataCard: =true
+                Items: =Parent.Default
+                MaxAttachments: =1
+                MaxAttachmentsText: =""
+                NoAttachmentsText: ="There is no file."
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey67.Y + DataCardKey67.Height + 5
+                ZIndex: =2
+
+            ErrorMessage67 As label:
+                AutoHeight: =true
+                Height: =10
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue58.Y + DataCardValue58.Height
+                ZIndex: =3
+
+            StarVisible67 As label:
+                Align: =Align.Center
+                Height: =DataCardKey67.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey67.Y
+                ZIndex: =4
+
