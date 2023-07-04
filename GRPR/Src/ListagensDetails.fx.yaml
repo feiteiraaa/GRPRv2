@@ -1414,9 +1414,12 @@ ListagensDetails As screen:
                     HoverFill: =RGBA(0,0,0, 0)
                     OnSelect: |-
                         =If(
-                            (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) Or (!IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value <> Estado.Pendente),
+                            (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) And (!IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value <> Estado.Pendente) Or (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) And (IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value = Estado.Pendente),
                             SubmitForm(FormVali),
-                            Notify("Ao selecionar a data de validação/aprovação deve selecionar um estado diferente de 'Pendente'!",NotificationType.Error)
+                            Notify(
+                                "Ao selecionar a data de validação/aprovação deve selecionar um estado diferente de 'Pendente'!",
+                                NotificationType.Error
+                            )
                         )
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
