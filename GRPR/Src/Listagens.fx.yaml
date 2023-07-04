@@ -7,7 +7,7 @@ Listagens As screen:
         Reset(DatePicker2_2);
         
         
-    OnVisible: =Set(varLastApproved,Text(First(SortByColumns(Filter(Listagens_1,ThisRecord.Estado=[@Estado].Aprovado),"uipp_datadereferencia",SortOrder.Descending)).'Data de referencia',"dd/mm/yyyy"))
+    OnVisible: =Set(varLastApproved,Text(First(SortByColumns(Filter(Listagens_1,ThisRecord.Estado_Aprovacao_CA=[@Estado].Aprovado),"uipp_datadereferencia",SortOrder.Descending)).'Data de referencia',"dd/mm/yyyy"))
 
     LeftSectionComponent_15 As LeftSectionComponent:
         ZIndex: =11
@@ -105,7 +105,7 @@ Listagens As screen:
         Icon10 As icon.Document:
             Color: =cores.amareloMontepio
             Height: =LabelData.Height-7
-            Icon: =If(ThisItem.Estado=Estado.Aprovado And LabelData.Text=varLastApproved,Icon.DockCheckProperties,Icon.Document)
+            Icon: =If(ThisItem.Estado_Aprovacao_CA=Estado.Aprovado And LabelData.Text=varLastApproved,Icon.DockCheckProperties,Icon.Document)
             OnSelect: =Select(Parent)
             Width: =50
             Y: =3
