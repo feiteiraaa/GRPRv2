@@ -696,7 +696,7 @@ ListagensDetails As screen:
                 Items: |-
                     =Filter(
                         'Listagem Entradas e Saidas',
-                        Text(ThisRecord.'Created On',"yyyy-mm-dd") = Text(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Created On',"yyyy-mm-dd")
+                        Text(ThisRecord.'Created On',"yyyy-mm-dd hh") = Text(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Created On',"yyyy-mm-dd hh")
                     )
                 Layout: =Layout.Vertical
                 OnSelect: =//Download(ThisItem.'Link to item')

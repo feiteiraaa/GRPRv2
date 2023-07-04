@@ -15549,10 +15549,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 42,
+                  "charLength": 45,
                   "charOffset": 48,
                   "snippet": {
-                    "text": "Text(ThisRecord.'Created On',\"yyyy-mm-dd\")"
+                    "text": "Text(ThisRecord.'Created On',\"yyyy-mm-dd hh\")"
                   }
                 }
               },
@@ -15590,7 +15590,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 91,
+                  "charOffset": 94,
                   "snippet": {
                     "text": "="
                   }
