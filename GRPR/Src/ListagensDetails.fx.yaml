@@ -1552,7 +1552,7 @@ ListagensDetails As screen:
         DynamicBtn_40 As DynamicBtn:
             BtnText: ="Exportar"
             ButtonIcon: =Icon.Download
-            Visible: =true
+            Visible: =false
             X: =800
             Y: =10
             ZIndex: =14
@@ -1567,7 +1567,9 @@ ListagensDetails As screen:
             HoverBorderColor: =Color.Transparent
             HoverColor: =Color.Transparent
             HoverFill: =Color.Transparent
+            OnSelect: =
             Text: =""
+            Visible: =false
             Width: =DynamicBtn_40.Width
             X: =DynamicBtn_40.X
             Y: =DynamicBtn_40.Y
