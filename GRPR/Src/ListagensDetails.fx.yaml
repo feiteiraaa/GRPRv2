@@ -701,10 +701,10 @@ ListagensDetails As screen:
                 Layout: =Layout.Vertical
                 OnSelect: =//Download(ThisItem.'Link to item')
                 TemplatePadding: =0
-                TemplateSize: =50
+                TemplateSize: =61
                 Width: =Parent.Width-10
                 X: =10
-                Y: =DynamicBtn_39.Height+10
+                Y: =DynamicBtn_39.Height
                 ZIndex: =1
 
                 "'File Name Label_8' As label":
@@ -717,6 +717,7 @@ ListagensDetails As screen:
                     Size: =14
                     Text: =ThisItem.Listagem.FileName
                     VerticalAlign: =VerticalAlign.Top
+                    Visible: =false
                     Width: =305
                     X: =5
                     Y: =15
@@ -726,14 +727,34 @@ ListagensDetails As screen:
                     Fill: =RGBA(219, 219, 219, 1)
                     Height: =1
                     OnSelect: =Select(Parent)
+                    Visible: =false
                     Width: =Parent.TemplateWidth
                     Y: =Parent.TemplateHeight - 1
                     ZIndex: =5
 
+                DataCardValue58_2 As attachments:
+                    AddAttachmentText: ="Upload file"
+                    BorderColor: =Parent.BorderColor//If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =DisplayMode.View
+                    Height: =60
+                    IsInDataCard: =true
+                    Items: |-
+                        =If(!IsBlank(ThisItem.Listagem.FileName), Table({DisplayName: ThisItem.Listagem.FileName, Value: ThisItem.Listagem.Value}), Blank())
+                    MaxAttachments: =1
+                    MaxAttachmentsText: =""
+                    NoAttachmentsText: ="There is no file."
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Width: =Parent.Width*0.95
+                    X: =24
+                    ZIndex: =6
+
             DynamicBtn_39 As DynamicBtn:
                 BtnText: ="Exportar"
                 ButtonIcon: =Icon.Download
-                Visible: =true
+                Visible: =false
                 X: =800
                 Y: =10
                 ZIndex: =2
@@ -749,6 +770,7 @@ ListagensDetails As screen:
                 HoverColor: =Color.Transparent
                 HoverFill: =Color.Transparent
                 Text: =""
+                Visible: =false
                 Width: =DynamicBtn_39.Width
                 X: =DynamicBtn_39.X
                 Y: =DynamicBtn_39.Y
