@@ -89,7 +89,7 @@ Listagens As screen:
             FontWeight: =FontWeight.Semibold
             OnSelect: =Select(Parent)
             PaddingLeft: =15
-            Text: =ThisItem.Estado
+            Text: =ThisItem.Estado_Aprovacao_CA
             Width: =Label6_25.Width-10
             X: =Label6_25.X
             ZIndex: =3
