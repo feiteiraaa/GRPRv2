@@ -450,7 +450,7 @@ ListagensDetails As screen:
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         MaxLength: =Parent.MaxLength
-                        PaddingLeft: =5
+                        PaddingLeft: =0
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
