@@ -612,7 +612,8 @@ Particulares As screen:
                 Width: =951
                 Y: |-
                     =//126
-                    If(localseta And ThisItem.IsSelected,126,50)
+                    If(localseta //And ThisItem.IsSelected
+                    ,126,50)
                 ZIndex: =6
 
             "Icon3 As icon.'3DPrinting'":

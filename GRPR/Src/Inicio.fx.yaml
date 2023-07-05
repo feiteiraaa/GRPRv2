@@ -341,7 +341,7 @@ Inicio As screen:
                     DAI_Consulta,
                     DMK_Consulta,
                     CCOMP_Consulta
-                )
+                ) //And If(Int(Label8_1.Text) < 0,false,true)
             Width: =191
             X: =1138
             Y: =201
