@@ -668,7 +668,14 @@ Inicio As screen:
                         "pt-PT"
                     ),
                     Text(
-                        DateTimeValue(Label8_3.Text),
+                        DateTimeValue(LookUp(
+                        collectDatas,
+                        Now() >= DateAdd(
+                            ThisRecord.Data,
+                            -1,
+                            TimeUnit.Months
+                        )
+                    ).Data),
                         "yyyy-mm-dd",
                         "pt-PT"
                     )
