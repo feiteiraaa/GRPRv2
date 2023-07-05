@@ -5,7 +5,7 @@ Particulares As screen:
                 {
                     localFiltro: "Membros dos Orgãos Sociais",
                     localseta: false,
-                    localShowModal:false
+                    localShowModal: false
                 }
             ),
             ResetForm(ColaboradorForm_1),
@@ -42,38 +42,45 @@ Particulares As screen:
             CollectColabora,
             Colaboradores_1
         );
+        Reset(Checkbox1);
+        Clear(atividadesMembros);
+        Reset(Checkbox1_1);
         ClearCollect(
             CollectMFR,
             'Membros-Familiares-Respetivas'
         );
-        Reset(Checkbox1);
-        Clear(atividadesMembros);
-        Reset(Checkbox1_1);
-        /*Clear(MembroFamiliar);
-        ForAll(
-            CollectMembros,
-            Collect(
-                MembroFamiliar,
-                AddColumns(
-                    CollectMembros,
-                    "FamiName",
+        ClearCollect(
+            MembroFamiliar,
+            AddColumns(
+                CollectMembros,
+                "FamiName",
+                //[]
+                ""
+            )
+        );
+        UpdateIf(
+            MembroFamiliar,
+            IsBlank(ThisRecord.FamiName),
+            {
+                FamiName: Concat(
                     ForAll(
                         Filter(
                             CollectMFR,
-                            CollectMFR[@ID_Membro].ID = CollectMembros[@ID] And IsBlank(ID_Empresa.ID)
+                            CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_Empresa.ID)
                         ).ID_Familiares,
                         ID_Familiares.Nome
-                    )
+                    ).Value,
+                    Value & ";"
                 )
-            )
-        );*/
-        /*ClearCollect(
-            MembroFamilia,
-            ForAll(
-                MembroFamiliar.ID,
-                "FamiName"
-            )
-        )*/
+            }
+        );
+        Concat(ForAll(
+            Filter(
+                CollectMFR,
+                CollectMFR[@ID_Membro].ID = "1004" And IsBlank(ID_Empresa.ID)
+            ).ID_Familiares,
+            ID_Familiares.Nome
+        ).Value,Value & ";")
 
     ROC As dataTable.datatable:
         BorderStyle: =BorderStyle.Solid
@@ -407,7 +414,8 @@ Particulares As screen:
                     Search(
                         SortByColumns(
                             Filter(
-                                CollectMembros,
+                                //CollectMembros,
+                                MembroFamiliar,
                                 If(
                                     Checkbox1.Value = false,
                                     ThisRecord.Ativo = true,
@@ -418,11 +426,14 @@ Particulares As screen:
                             varSortDir
                         ),
                         TextInput2.Text,
-                        "uipp_nome"
+                        "uipp_nome",
+                         //TextInput2.Text,
+                         "FamiName"
                     ),
                     Search(
                         Filter(
-                            CollectMembros,
+                            //CollectMembros,
+                            MembroFamiliar,
                             If(
                                 Checkbox1.Value = false,
                                 ThisRecord.Ativo = true,
@@ -431,6 +442,8 @@ Particulares As screen:
                         ),
                         TextInput2.Text,
                         "uipp_nome"
+                        
+                        
                     )
                 )
             Layout: =Layout.Vertical
