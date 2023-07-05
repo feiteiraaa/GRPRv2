@@ -1053,7 +1053,7 @@ Particulares As screen:
             PaddingTop: =0
             Text: ="Fim de periodo a decorrer"
             Visible: |-
-                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
                 And Switch(
                     localFiltro,
                     "Colaboradores",
@@ -1071,7 +1071,7 @@ Particulares As screen:
                         Aprovacaos,
                         ThisRecord.Tabela = "Membros de Orgãos Sociais"
                     ).Aprovado = false
-                )
+                ) And varFimPeriodo
             Width: =961
             X: =365
             Y: =196
@@ -1084,7 +1084,7 @@ Particulares As screen:
             PaddingTop: =0
             Text: ="Confirmo que toda a informação apresentada relativa às partes relacionadas está correta."
             Visible: |-
-                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
                 And Switch(
                     localFiltro,
                     "Colaboradores",
@@ -1102,7 +1102,7 @@ Particulares As screen:
                         Aprovacaos,
                         ThisRecord.Tabela = "Membros de Orgãos Sociais"
                     ).Aprovado = false
-                )
+                ) And varFimPeriodo
             Width: =961
             X: =365
             Y: =224
@@ -1153,7 +1153,7 @@ Particulares As screen:
                 })
             Text: =""
             Visible: |-
-                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
                 And Switch(
                     localFiltro,
                     "Colaboradores",
@@ -1171,7 +1171,7 @@ Particulares As screen:
                         Aprovacaos,
                         ThisRecord.Tabela = "Membros de Orgãos Sociais"
                     ).Aprovado = false
-                )
+                ) And varFimPeriodo
             Width: =48
             X: =1278
             Y: =207

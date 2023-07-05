@@ -412,12 +412,11 @@ Participadas As screen:
             PaddingTop: =0
             Text: ="Fim de periodo a decorrer"
             Visible: |-
-                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
-                And     LookUp(
-                        Aprovacaos,
-                        ThisRecord.Tabela = "Empresas Participadas"
-                    ).Aprovado = false
-                   
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
+                And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Empresas Participadas"
+                ).Aprovado = false And varFimPeriodo
             Width: =961
             X: =373
             Y: =74
@@ -430,12 +429,11 @@ Participadas As screen:
             PaddingTop: =0
             Text: ="Confirmo que toda a informação apresentada relativa às partes relacionadas está correta."
             Visible: |-
-                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
-                And     LookUp(
-                        Aprovacaos,
-                        ThisRecord.Tabela = "Empresas Participadas"
-                    ).Aprovado = false
-                   
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
+                And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Empresas Participadas"
+                ).Aprovado = false And varFimPeriodo
             Width: =961
             X: =373
             Y: =102
@@ -461,12 +459,11 @@ Participadas As screen:
                 )
             Text: =""
             Visible: |-
-                =true //Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador)
-                And     LookUp(
-                        Aprovacaos,
-                        ThisRecord.Tabela = "Empresas Participadas"
-                    ).Aprovado = false
-                   
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
+                And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Empresas Participadas"
+                ).Aprovado = false And varFimPeriodo
             Width: =48
             X: =1286
             Y: =85
