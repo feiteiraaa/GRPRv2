@@ -1,7 +1,6 @@
 Inicio As screen:
-    OnVisible: |-
-        = UpdateContext({ _Associar:false});
-         //Set(GCONT_Editor,true)
+    OnVisible: |
+        =//UpdateContext({ _Associar:false});
 
     TopSectionComponent_1 As TopSectionComponent:
         X: =342
@@ -29,8 +28,8 @@ Inicio As screen:
                     {
                         records: Ungroup(
                             Table(
-                                {Atividades: Atividades},
-                                {Atividades: Listagens_1}
+                                {Atividades: Atividades}/*,
+                                {Atividades: Listagens_1}*/
                             ),
                             "Atividades"
                         )
@@ -89,11 +88,7 @@ Inicio As screen:
             PaddingLeft: =20
             PaddingRight: =0
             Size: =12
-            Text: |-
-                =If(IsBlank(
-                    ThisItem.uipp_titulo),
-                    "Listagens", "Atividades"
-                 )
+            Text: =ThisItem.uipp_listadaatividade
             Width: =133
             ZIndex: =2
 

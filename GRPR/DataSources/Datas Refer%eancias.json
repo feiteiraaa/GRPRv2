@@ -33,6 +33,7 @@
       "uipp_datasreferencia_ProcessSession": "Process Sessions",
       "uipp_datasreferencia_SyncErrors": "Sync Errors",
       "uipp_datasreferenciaid": "Datas Referência",
+      "uipp_datasuporte": "Data Suporte",
       "uipp_dia": "Dia",
       "uipp_id": "ID",
       "uipp_mes": "Mes",
@@ -109,7 +110,8 @@
       "847700005": "Quadrienal",
       "847700006": "Trienal",
       "847700007": "Quinzenal",
-      "847700008": "Semestral"
+      "847700008": "Semestral",
+      "847700009": "Específica"
     },
     "OptionSetIsBooleanValued": false,
     "OptionSetIsGlobal": true,
