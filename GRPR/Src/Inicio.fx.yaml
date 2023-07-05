@@ -532,14 +532,14 @@ Inicio As screen:
             Fill: =ColorFade(cores.cinzento, 90%)
             Height: =96
             Text: |-
-                ="Submetido a " &LookUp(
+                ="Submetido a " &Text(LookUp(
                     Sort(
                         Listagens_1,
                         'Created On',
                         SortOrder.Descending
                     ),
                     !IsBlank(ThisRecord.'Data de Aprovacao CA')
-                ).'Created On'
+                ).'Created On',"dd/mm/yyyy")
             Visible: |-
                 =Or(
                     godMode,
@@ -565,6 +565,21 @@ Inicio As screen:
             Fill: =ColorFade(cores.cinzento, 90%)
             FocusedBorderThickness: =0
             Icon: =Icon.Download
+            OnSelect: |-
+                =Navigate(
+                    ListagensDetails,
+                    ScreenTransition.None,
+                    {
+                        _Listagem: LookUp(
+                            Sort(
+                                Listagens_1,
+                                'Created On',
+                                SortOrder.Descending
+                            ),
+                            !IsBlank(ThisRecord.'Data de Aprovacao CA')
+                        ).ID
+                    }
+                )
             TabIndex: =0
             Visible: |-
                 =Or(
