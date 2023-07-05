@@ -427,7 +427,6 @@ Particulares As screen:
                         ),
                         TextInput2.Text,
                         "uipp_nome",
-                         //TextInput2.Text,
                          "FamiName"
                     ),
                     Search(
@@ -918,7 +917,16 @@ Particulares As screen:
                 cores.cinzento
             Default: =
             Fill: =ColorFade(cores.cinzento, 90%)
-            HintText: ="Pesquisar"
+            HintText: |-
+                =Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    "Pesquisar nome Colaborador",
+                    "ROC",
+                    "Pesquisar nome ROC",
+                    "Membros dos Orgãos Sociais",
+                    "Pesquisar nome Membro ou Familiar"
+                )
             HoverBorderColor: =RGBA(128, 128, 128, 1)
             HoverFill: =
             PaddingLeft: =40
