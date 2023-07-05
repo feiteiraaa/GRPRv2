@@ -310,7 +310,21 @@ Inicio As screen:
             FontWeight: =FontWeight.Bold
             Height: =50
             Size: =18
-            Text: =DateDiff(Text(Now(),"yyyy-mm-dd","pt-PT"),Text(DateTimeValue(Label8_3.Text),"yyyy-mm-dd","pt-PT"))
+            Text: |-
+                =DateDiff(Text(Now(),"yyyy-mm-dd","pt-PT"),Text(
+                    LookUp(
+                        collectDatas,
+                        Now() >= DateAdd(
+                            ThisRecord.Data,
+                            -1,
+                            TimeUnit.Months
+                        )
+                    ).Data,
+                    "yyyy-mm-dd",
+                    "pt-PT"
+                ))
+                
+                //Text(DateTimeValue(Label8_3.Text),"yyyy-mm-dd","pt-PT"))
             Visible: |-
                 =Or(
                     godMode,
@@ -369,7 +383,7 @@ Inicio As screen:
             Height: =50
             Size: =15
             Text: |-
-                =With(
+                =/*With(
                     LookUp(
                         Sort(Sort('Datas Referências', Mes, SortOrder.Ascending), Dia, SortOrder.Ascending),
                         Mes >= Month(Now())
@@ -382,6 +396,18 @@ Inicio As screen:
                     ),
                     //Text(Date(Year(Now()), Mes, Dia), DateTimeFormat.ShortDate, "pt-PT")
                     Text(Date(Year(Now()), Mes, Dia), "dd/mm/yyyy", "pt-PT")
+                )*/
+                Text(
+                    LookUp(
+                        collectDatas,
+                        Now() >= DateAdd(
+                            ThisRecord.Data,
+                            -1,
+                            TimeUnit.Months
+                        )
+                    ).Data,
+                    "dd/mm/yyyy",
+                    "pt-PT"
                 )
             Visible: |-
                 =Or(
