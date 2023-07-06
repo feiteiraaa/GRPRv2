@@ -1258,7 +1258,12 @@ ListagensDetails As screen:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="uipp_datadeaprovacaoca"
                     Default: =ThisItem.'Data de Aprovacao CA'
-                    DisplayMode: =Parent.DisplayMode
+                    DisplayMode: |-
+                        =If(
+                            IsBlank(DateValue9.SelectedDate),
+                            DisplayMode.Disabled,
+                            Parent.DisplayMode
+                        )
                     DisplayName: =DataSourceInfo([@Listagens_1],DataSourceInfo.DisplayName,"uipp_datadeaprovacaoca")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
@@ -1344,7 +1349,12 @@ ListagensDetails As screen:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="uipp_estado_aprovacao_ca"
                     Default: =ThisItem.Estado_Aprovacao_CA
-                    DisplayMode: =Parent.DisplayMode
+                    DisplayMode: |-
+                        =If(
+                            IsBlank(DateValue9.SelectedDate),
+                            DisplayMode.Disabled,
+                            Parent.DisplayMode
+                        )
                     DisplayName: =DataSourceInfo([@Listagens_1],DataSourceInfo.DisplayName,"uipp_estado_aprovacao_ca")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
@@ -1425,7 +1435,12 @@ ListagensDetails As screen:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="uipp_referenciadapropostaaca"
                     Default: =ThisItem.'Referencia da Proposta a CA'
-                    DisplayMode: =Parent.DisplayMode
+                    DisplayMode: |-
+                        =If(
+                            IsBlank(DateValue9.SelectedDate),
+                            DisplayMode.Disabled,
+                            Parent.DisplayMode
+                        )
                     DisplayName: =DataSourceInfo([@Listagens_1],DataSourceInfo.DisplayName,"uipp_referenciadapropostaaca")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
@@ -1533,11 +1548,18 @@ ListagensDetails As screen:
                     HoverFill: =RGBA(0,0,0, 0)
                     OnSelect: |-
                         =If(
-                            (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) And (!IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value <> Estado.Pendente) Or (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) And (IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value = Estado.Pendente),
+                            (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) And (!IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value <> Estado.Pendente) Or (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) And (IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value = Estado.Pendente) And DateValue8.SelectedDate > DataCardValue57.Selected.Value,
                             SubmitForm(FormVali),
-                            Notify(
-                                "Ao selecionar a data de validação/aprovação deve selecionar um estado diferente de 'Pendente'!",
-                                NotificationType.Error
+                            If(
+                                DateValue8.SelectedDate <= DataCardValue57.Selected.Value,
+                                Notify(
+                                    "Ao selecionar a Data de Decisão em CA esta deve ser superior a data de Validação DRI!",
+                                    NotificationType.Error
+                                ),
+                                Notify(
+                                    "Ao selecionar a data de validação/aprovação deve selecionar um estado diferente de 'Pendente'!",
+                                    NotificationType.Error
+                                )
                             )
                         )
                     PressedColor: =RGBA(0,0,0, 0)
