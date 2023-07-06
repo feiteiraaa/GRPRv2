@@ -566,7 +566,7 @@ Inicio As screen:
             FocusedBorderThickness: =0
             Icon: =Icon.Download
             OnSelect: |-
-                =Navigate(
+                =/*Navigate(
                     ListagensDetails,
                     ScreenTransition.None,
                     {
@@ -579,7 +579,7 @@ Inicio As screen:
                             !IsBlank(ThisRecord.'Data de Aprovacao CA')
                         ).ID
                     }
-                )
+                )*/
             TabIndex: =0
             Visible: |-
                 =Or(

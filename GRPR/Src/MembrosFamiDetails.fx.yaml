@@ -2448,7 +2448,7 @@ MembrosFamiDetails As screen:
             BtnText: ="Eliminar"
             ButtonIcon: =Icon.Trash
             Height: =40
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("Eliminado" in LabelMembroName_1.Text)
             Width: =160
             X: =1186
             Y: =74
@@ -2515,7 +2515,7 @@ MembrosFamiDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("Eliminado" in LabelMembroName_1.Text)
             X: =DynamicBtn_35.X
             Y: =DynamicBtn_35.Y
             ZIndex: =8
@@ -2789,24 +2789,23 @@ MembrosFamiDetails As screen:
                         Familiares,
                         ThisRecord.ID = _Familiar
                     ).Bloqueado,
-                    
-                    "Desbloquear",
-                    "Bloquear"
+                    "Bloqueado",
+                    "Desbloqueado"
                 )
-            BtnWidth: =180
+            BtnWidth: =200
             ButtonIcon: |-
                 =If(
                     LookUp(
                         Familiares,
                         ThisRecord.ID = _Familiar
                     ).Bloqueado,
-                    Icon.Unlock,
-                    Icon.Lock
+                    Icon.Lock,
+                    Icon.Unlock
                 )
             Height: =40
             Visible: ="[Eliminado]" in LabelMembroName_1.Text
-            Width: =180
-            X: =1150
+            Width: =200
+            X: =1125
             Y: =74
             ZIndex: =14
 

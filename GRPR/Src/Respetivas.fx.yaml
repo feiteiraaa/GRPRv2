@@ -58,7 +58,7 @@ Respetivas As screen:
                         {
                             _AssociateRespetivas: EmpresasRespetivas1_1.Selected.ID,
                             _AssociatedR: true,
-                            _AssociarR:false
+                            _AssociarR: false
                         }
                     ),
                     _AssociarRF,
@@ -68,10 +68,18 @@ Respetivas As screen:
                         {
                             _AssociateRespetivas: EmpresasRespetivas1_1.Selected.ID,
                             _AssociatedR: true,
-                            _AssociarRF:false
+                            _AssociarRF: false
                         }
                     ),
-                    UpdateContext({localFormRespetivas: true, localBloquear:LookUp(Empresas, ID=EmpresasRespetivas1_1.Selected.ID).Bloqueado})
+                    UpdateContext(
+                        {
+                            localFormRespetivas: true,
+                            localBloquear: LookUp(
+                                Empresas,
+                                ID = EmpresasRespetivas1_1.Selected.ID
+                            ).Bloqueado
+                        }
+                    )
                 )
             Order: =3
             Text: =ThisItem.Designacao
@@ -1639,6 +1647,28 @@ Respetivas As screen:
                         Notify(
                             "Por favor, preencha o número do documento corretamente.",
                             NotificationType.Error
+                        )
+                    );
+                    If(
+                        _AssociarR,
+                        Navigate(
+                            MembrosDetails,
+                            ScreenTransition.None,
+                            {
+                                _AssociateRespetivas: EmpresasRespetivas.LastSubmit.ID,
+                                _AssociatedR: true,
+                                _AssociarR: false
+                            }
+                        ),
+                        _AssociarRF,
+                        Navigate(
+                            MembrosFamiDetails,
+                            ScreenTransition.None,
+                            {
+                                _AssociateRespetivas: EmpresasRespetivas.LastSubmit.ID,
+                                _AssociatedR: true,
+                                _AssociarRF: false
+                            }
                         )
                     ),
                     UpdateContext({localFormRespetivasEdit: true})
