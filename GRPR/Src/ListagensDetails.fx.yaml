@@ -1548,10 +1548,17 @@ ListagensDetails As screen:
                     HoverFill: =RGBA(0,0,0, 0)
                     OnSelect: |-
                         =If(
-                            (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) And (!IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value <> Estado.Pendente And DateValue8.SelectedDate > DataCardValue57.Selected.Value) Or (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) And (IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value = Estado.Pendente) ,
+                            (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) 
+                            And 
+                            (!IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value <> Estado.Pendente And DateValue8.SelectedDate > DateValue9.SelectedDate) 
+                            Or 
+                            (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) 
+                            And 
+                            (IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value = Estado.Pendente) ,
+                            
                             SubmitForm(FormVali),
                             If(
-                                DateValue8.SelectedDate <= DataCardValue57.Selected.Value,
+                                DateValue8.SelectedDate <= DateValue9.SelectedDate,
                                 Notify(
                                     "Ao selecionar a Data de Decisão em CA esta deve ser superior a data de Validação DRI!",
                                     NotificationType.Error
