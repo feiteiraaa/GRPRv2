@@ -2867,7 +2867,7 @@ MembrosFamiDetails As screen:
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
             Visible: ="[Eliminado]" in LabelMembroName_1.Text
-            Width: =180
+            Width: =DynamicBtn_36.Width
             X: =DynamicBtn_36.X
             Y: =DynamicBtn_36.Y
             ZIndex: =15
