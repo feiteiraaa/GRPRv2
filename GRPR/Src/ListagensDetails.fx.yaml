@@ -1260,7 +1260,7 @@ ListagensDetails As screen:
                     Default: =ThisItem.'Data de Aprovacao CA'
                     DisplayMode: |-
                         =If(
-                            IsBlank(DateValue9.SelectedDate),
+                            IsBlank(ThisItem.'Data de validacao'),
                             DisplayMode.Disabled,
                             Parent.DisplayMode
                         )
@@ -1351,7 +1351,7 @@ ListagensDetails As screen:
                     Default: =ThisItem.Estado_Aprovacao_CA
                     DisplayMode: |-
                         =If(
-                            IsBlank(DateValue9.SelectedDate),
+                            IsBlank(ThisItem.'Data de validacao'),
                             DisplayMode.Disabled,
                             Parent.DisplayMode
                         )
@@ -1437,7 +1437,7 @@ ListagensDetails As screen:
                     Default: =ThisItem.'Referencia da Proposta a CA'
                     DisplayMode: |-
                         =If(
-                            IsBlank(DateValue9.SelectedDate),
+                            IsBlank(ThisItem.'Data de validacao'),
                             DisplayMode.Disabled,
                             Parent.DisplayMode
                         )
