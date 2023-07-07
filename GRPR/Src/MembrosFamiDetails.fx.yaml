@@ -2723,13 +2723,23 @@ MembrosFamiDetails As screen:
                     )
                 );
                 UpdateContext({localShowModal: false});
-                Patch(
-                    Aprovacaos,
+                If(
                     LookUp(
                         Aprovacaos,
                         ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                    ),
-                    {Aprovado: false}
+                    ).Aprovado,
+                    Patch(
+                        Aprovacaos,
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ),
+                        {Aprovado: false}
+                    );
+                    Notify(
+                        "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                        NotificationType.Warning
+                    )
                 );
                 Navigate(
                     MembrosDetails,

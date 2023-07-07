@@ -789,7 +789,7 @@ MembrosDetails As screen:
                     Height: =39
                     HoverColor: =RGBA(0,0,0, 0)
                     HoverFill: =RGBA(0,0,0, 0)
-                    OnSelect: |-
+                    OnSelect: |
                         =If(
                             localShowNewForm Or Informacao.Mode = FormMode.New,
                             If(
@@ -801,6 +801,25 @@ MembrosDetails As screen:
                                         NotificationType.Success
                                     );
                                     ResetForm(Informacao);
+                                    If(
+                                        LookUp(
+                                            Aprovacaos,
+                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                        ).Aprovado,
+                                        Patch(
+                                            Aprovacaos,
+                                            LookUp(
+                                                Aprovacaos,
+                                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                            ),
+                                            {Aprovado: false}
+                                        );
+                                        Notify(
+                                            "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                                            NotificationType.Warning
+                                        )
+                                    );
+                                    Patch(Membros_1,LookUp(Membros_1,ID = _Membro),{'Data aprovacao CA':Blank()});
                                     UpdateContext(
                                         {
                                             localShowData: false,
@@ -819,14 +838,6 @@ MembrosDetails As screen:
                                         "Por favor, tente novamente.",
                                         NotificationType.Error
                                     )
-                                );
-                                Patch(
-                                    Aprovacaos,
-                                    LookUp(
-                                        Aprovacaos,
-                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                    ),
-                                    {Aprovado: false}
                                 ),
                                 Notify(
                                     "Por favor, preencha o número do documento corretamente.",
@@ -840,7 +851,6 @@ MembrosDetails As screen:
                             )
                         );
                         Refresh(Membros_1);
-                        //Patch(Aprovacaos,LookUp(Aprovacaos,t
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
@@ -1206,6 +1216,25 @@ MembrosDetails As screen:
                                     "O registo foi submetido com sucesso!",
                                     NotificationType.Success
                                 );
+                                If(
+                                        LookUp(
+                                            Aprovacaos,
+                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                        ).Aprovado,
+                                        Patch(
+                                            Aprovacaos,
+                                            LookUp(
+                                                Aprovacaos,
+                                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                            ),
+                                            {Aprovado: false}
+                                        );
+                                        Notify(
+                                            "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                                            NotificationType.Warning
+                                        )
+                                    );
+                                    Patch(Membros_1,LookUp(Membros_1,ID = _Membro),{'Data aprovacao CA':Blank()});
                                 ResetForm(EmpresasParticipadas);
                                 UpdateContext(
                                     {
@@ -1226,14 +1255,6 @@ MembrosDetails As screen:
                                         localShowEditForm: false
                                     }
                                 )
-                            );
-                            Patch(
-                                Aprovacaos,
-                                LookUp(
-                                    Aprovacaos,
-                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                ),
-                                {Aprovado: false}
                             ),
                             Notify(
                                 "Por favor, selecione na tabela a 'Empresa Participada do Grupo' ao qual deseja associar o membro " & LabelMembroName.Text & ".",
@@ -3742,7 +3763,7 @@ MembrosDetails As screen:
                         {Aprovado: false}
                     );
                     Notify(
-                        "Após essa eliminação, a informação de Membros de Órgões Sociais necessita de nova validação pelo perfil Validador correspondente! ",
+                        "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
                         NotificationType.Warning
                     )
                 );
