@@ -1260,7 +1260,7 @@ ListagensDetails As screen:
                     Default: =ThisItem.'Data de Aprovacao CA'
                     DisplayMode: |-
                         =If(
-                            IsBlank(ThisItem.'Data de validacao'),
+                            IsBlank(ThisItem.'Data de validacao') Or ThisItem.Estado = Estado.Rejeitado,
                             DisplayMode.Disabled,
                             Parent.DisplayMode
                         )
@@ -1351,7 +1351,7 @@ ListagensDetails As screen:
                     Default: =ThisItem.Estado_Aprovacao_CA
                     DisplayMode: |-
                         =If(
-                            IsBlank(ThisItem.'Data de validacao'),
+                            IsBlank(ThisItem.'Data de validacao') Or ThisItem.Estado = Estado.Rejeitado,
                             DisplayMode.Disabled,
                             Parent.DisplayMode
                         )
@@ -1439,7 +1439,7 @@ ListagensDetails As screen:
                     Default: =ThisItem.'Referencia da Proposta a CA'
                     DisplayMode: |-
                         =If(
-                            IsBlank(ThisItem.'Data de validacao'),
+                            IsBlank(ThisItem.'Data de validacao') Or ThisItem.Estado = Estado.Rejeitado,
                             DisplayMode.Disabled,
                             Parent.DisplayMode
                         )
@@ -1633,7 +1633,7 @@ ListagensDetails As screen:
 
         ImageEmCurso As image:
             Image: =EmCurso
-            Visible: =!IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de validacao') And IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de Aprovacao CA')
+            Visible: =!IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de validacao') And IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de Aprovacao CA') And LookUp(Listagens_1,ThisRecord.ID=_Listagem).Estado <> Estado.Rejeitado
             Width: =973
             X: =364
             Y: =132
@@ -1641,7 +1641,7 @@ ListagensDetails As screen:
 
         ImageFinalizado As image:
             Image: =Finalizado
-            Visible: =!IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de validacao') And !IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de Aprovacao CA')
+            Visible: =(!IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de validacao') And !IsBlank(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de Aprovacao CA')) Or (LookUp(Listagens_1,ThisRecord.ID=_Listagem).Estado = Estado.Rejeitado)
             Width: =973
             X: =364
             Y: =132
