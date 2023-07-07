@@ -1076,7 +1076,7 @@ Particulares As screen:
             Text: ="Fim de periodo a decorrer"
             Visible: |-
                 =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
-                And Switch(
+                And /*Switch(
                     localFiltro,
                     "Colaboradores",
                     LookUp(
@@ -1093,7 +1093,7 @@ Particulares As screen:
                         Aprovacaos,
                         ThisRecord.Tabela = "Membros de Orgãos Sociais"
                     ).Aprovado = false
-                ) And varFimPeriodo
+                ) And*/ varFimPeriodo
             Width: =961
             X: =365
             Y: =196
@@ -1107,7 +1107,7 @@ Particulares As screen:
             Text: ="Confirmo que toda a informação apresentada relativa às partes relacionadas está correta."
             Visible: |-
                 =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
-                And Switch(
+                And /*Switch(
                     localFiltro,
                     "Colaboradores",
                     LookUp(
@@ -1124,7 +1124,7 @@ Particulares As screen:
                         Aprovacaos,
                         ThisRecord.Tabela = "Membros de Orgãos Sociais"
                     ).Aprovado = false
-                ) And varFimPeriodo
+                ) And*/ varFimPeriodo
             Width: =961
             X: =365
             Y: =224
@@ -1136,6 +1136,56 @@ Particulares As screen:
             CheckboxBorderColor: =ColorFade(cores.cinzento, 80%)
             CheckmarkFill: =cores.cinzento
             Color: =RGBA(238, 239, 233, 1)
+            Default: |-
+                =Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Colaboradores"
+                    ).Aprovado,
+                    "ROC",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "ROC"
+                    ).Aprovado,
+                    "Membros dos Orgãos Sociais",
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                    ).Aprovado
+                )
+            DisplayMode: |-
+                =Switch(
+                    localFiltro,
+                    "Colaboradores",
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Colaboradores"
+                        ).Aprovado,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    ),
+                    "ROC",
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "ROC"
+                        ).Aprovado,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    ),
+                    "Membros dos Orgãos Sociais",
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                )
             Fill: =If(Checkbox1_1.Value,RGBA(219,253,225,1),RGBA(255, 244, 198, 1))
             FocusedBorderThickness: =0
             Height: =40
@@ -1177,7 +1227,7 @@ Particulares As screen:
             Text: =""
             Visible: |-
                 =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
-                And Switch(
+                And /*Switch(
                     localFiltro,
                     "Colaboradores",
                     LookUp(
@@ -1194,7 +1244,7 @@ Particulares As screen:
                         Aprovacaos,
                         ThisRecord.Tabela = "Membros de Orgãos Sociais"
                     ).Aprovado = false
-                ) And varFimPeriodo
+                ) And*/ varFimPeriodo
             Width: =48
             X: =1278
             Y: =207
