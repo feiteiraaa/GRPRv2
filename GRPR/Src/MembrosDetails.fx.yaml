@@ -2575,6 +2575,32 @@ MembrosDetails As screen:
                                         _AssociarR: false
                                     }
                                 );
+                                If(
+                                    LookUp(
+                                        Aprovacaos,
+                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                    ).Aprovado,
+                                    Patch(
+                                        Aprovacaos,
+                                        LookUp(
+                                            Aprovacaos,
+                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                        ),
+                                        {Aprovado: false}
+                                    );
+                                    Notify(
+                                        "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                                        NotificationType.Warning
+                                    )
+                                );
+                                Patch(
+                                    Membros_1,
+                                    LookUp(
+                                        Membros_1,
+                                        ID = _Membro
+                                    ),
+                                    {'Data aprovacao CA': Blank()}
+                                );
                                 Navigate(
                                     Particulares,
                                     ScreenTransition.None
@@ -2591,14 +2617,6 @@ MembrosDetails As screen:
                                         _AssociarR: false
                                     }
                                 )
-                            );
-                            Patch(
-                                Aprovacaos,
-                                LookUp(
-                                    Aprovacaos,
-                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                ),
-                                {Aprovado: false}
                             ),
                             Notify(
                                 "Por favor, selecione na tabela a 'Empresa Respetiva' ao qual deseja associar o membro " & LabelMembroName.Text & " ou clique em '+Novo' para criar uma nova empresa.",

@@ -1041,6 +1041,25 @@ MembrosFamiDetails As screen:
                                             localShowNewForm: false
                                         }
                                     );
+                                    If(
+                                        LookUp(
+                                            Aprovacaos,
+                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                        ).Aprovado,
+                                        Patch(
+                                            Aprovacaos,
+                                            LookUp(
+                                                Aprovacaos,
+                                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                            ),
+                                            {Aprovado: false}
+                                        );
+                                        Notify(
+                                            "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                                            NotificationType.Warning
+                                        )
+                                    );
+                                    Patch(Membros_1,LookUp(Membros_1,ID = _MembroF),{'Data aprovacao CA':Blank()});
                                     Back(),
                                     Notify(
                                         "Por favor, tente novamente.",
@@ -1051,15 +1070,9 @@ MembrosFamiDetails As screen:
                                     "Por favor, preencha o número do documento corretamente.",
                                     NotificationType.Error
                                 )
-                            );
-                            Patch(
-                                Aprovacaos,
-                                LookUp(
-                                    Aprovacaos,
-                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                ),
-                                {Aprovado: false}
-                            ),
+                            )
+                            
+                              ,
                             Informacao_1.Mode = FormMode.New,
                             If(
                                 Len(DataCardValue5_2.Text) = 9,
@@ -1977,13 +1990,39 @@ MembrosFamiDetails As screen:
                                     "O registo foi submetido com sucesso!",
                                     NotificationType.Success
                                 );
+                                If(
+                                    LookUp(
+                                        Aprovacaos,
+                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                    ).Aprovado,
+                                    Patch(
+                                        Aprovacaos,
+                                        LookUp(
+                                            Aprovacaos,
+                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                        ),
+                                        {Aprovado: false}
+                                    );
+                                    Notify(
+                                        "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                                        NotificationType.Warning
+                                    )
+                                );
+                                Patch(
+                                    Membros_1,
+                                    LookUp(
+                                        Membros_1,
+                                        ID = _MembroF
+                                    ),
+                                    {'Data aprovacao CA': Blank()}
+                                );
                                 ResetForm(FormRespetivas_1);
                                 UpdateContext(
                                     {
                                         _AssociatedR: false,
                                         localShowEliminacao: false,
                                         localShowEditForm: false,
-                                        _AssociarRF:false
+                                        _AssociarRF: false
                                     }
                                 );
                                 Navigate(
@@ -1994,25 +2033,20 @@ MembrosFamiDetails As screen:
                                     "Por favor, tente novamente.",
                                     NotificationType.Error
                                 );
-                                 Patch(
-                                    Aprovacaos,
-                                    LookUp(
-                                        Aprovacaos,
-                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                    ),
-                                    {Aprovado: false}
-                                );
                                 UpdateContext(
                                     {
                                         _AssociatedR: false,
                                         localShowEliminacao: false,
                                         localShowEditForm: false,
-                                        _AssociarRF:false
+                                        _AssociarRF: false
                                     }
                                 )
                             ),
                             Notify(
-                                "Por favor, selecione na tabela a 'Empresa Respetiva' ao qual deseja associar o familiar " & LookUp(Familiares,ID = _Familiar).Nome & " ou clique em '+Novo' para criar uma nova empresa.",
+                                "Por favor, selecione na tabela a 'Empresa Respetiva' ao qual deseja associar o familiar " & LookUp(
+                                    Familiares,
+                                    ID = _Familiar
+                                ).Nome & " ou clique em '+Novo' para criar uma nova empresa.",
                                 NotificationType.Information
                             );
                             Navigate(
