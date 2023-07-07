@@ -1383,8 +1383,8 @@ ListagensDetails As screen:
                         ChevronBackground: =cores.amareloMontepio
                         ChevronHoverBackground: =cores.amareloMontepio
                         DefaultSelectedItems: |-
-                            =//[Parent.Default]
-                            If(DataCardValue55.Selected.Value = Estado.Rejeitado, [Estado.Rejeitado],[Parent.Default])
+                            =[Parent.Default]
+                            //If(DataCardValue55.Selected.Value = Estado.Rejeitado, [Estado.Rejeitado],[Parent.Default])
                         DisplayFields: =["Value"]
                         DisplayMode: =If(Parent.Default = Estado.Pendente,DisplayMode.Edit,DisplayMode.View)
                         HoverFill: =cores.amareloMontepio
