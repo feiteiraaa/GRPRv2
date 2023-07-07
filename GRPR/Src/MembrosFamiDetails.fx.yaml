@@ -1051,6 +1051,14 @@ MembrosFamiDetails As screen:
                                     "Por favor, preencha o número do documento corretamente.",
                                     NotificationType.Error
                                 )
+                            );
+                            Patch(
+                                Aprovacaos,
+                                LookUp(
+                                    Aprovacaos,
+                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                ),
+                                {Aprovado: false}
                             ),
                             Informacao_1.Mode = FormMode.New,
                             If(
@@ -1089,6 +1097,14 @@ MembrosFamiDetails As screen:
                                                 ID = varLastFami
                                             )
                                         }
+                                    );
+                                    Patch(
+                                        Aprovacaos,
+                                        LookUp(
+                                            Aprovacaos,
+                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                        ),
+                                        {Aprovado: false}
                                     );
                                     Back(),
                                     Notify(

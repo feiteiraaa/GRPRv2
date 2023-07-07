@@ -800,7 +800,6 @@ MembrosDetails As screen:
                                         "O registo foi submetido com sucesso!",
                                         NotificationType.Success
                                     );
-                                    
                                     ResetForm(Informacao);
                                     UpdateContext(
                                         {
@@ -820,6 +819,14 @@ MembrosDetails As screen:
                                         "Por favor, tente novamente.",
                                         NotificationType.Error
                                     )
+                                );
+                                Patch(
+                                    Aprovacaos,
+                                    LookUp(
+                                        Aprovacaos,
+                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                    ),
+                                    {Aprovado: false}
                                 ),
                                 Notify(
                                     "Por favor, preencha o número do documento corretamente.",
@@ -832,7 +839,8 @@ MembrosDetails As screen:
                         }
                             )
                         );
-                        Refresh(Membros_1)
+                        Refresh(Membros_1);
+                        //Patch(Aprovacaos,LookUp(Aprovacaos,t
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
@@ -1203,7 +1211,7 @@ MembrosDetails As screen:
                                     {
                                         _Associated: false,
                                         localShowLeg: false,
-                                        localShowEditForm:false
+                                        localShowEditForm: false
                                     }
                                 );
                                 Navigate(Particulares),
@@ -1215,9 +1223,17 @@ MembrosDetails As screen:
                                     {
                                         _Associated: false,
                                         localShowLeg: false,
-                                        localShowEditForm:false
+                                        localShowEditForm: false
                                     }
                                 )
+                            );
+                            Patch(
+                                Aprovacaos,
+                                LookUp(
+                                    Aprovacaos,
+                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                ),
+                                {Aprovado: false}
                             ),
                             Notify(
                                 "Por favor, selecione na tabela a 'Empresa Participada do Grupo' ao qual deseja associar o membro " & LabelMembroName.Text & ".",
@@ -2535,7 +2551,7 @@ MembrosDetails As screen:
                                         _AssociatedR: false,
                                         localShowEliminacao: false,
                                         localShowEditForm: false,
-                                        _AssociarR:false
+                                        _AssociarR: false
                                     }
                                 );
                                 Navigate(
@@ -2551,9 +2567,17 @@ MembrosDetails As screen:
                                         _AssociatedR: false,
                                         localShowEliminacao: false,
                                         localShowEditForm: false,
-                                        _AssociarR:false
+                                        _AssociarR: false
                                     }
                                 )
+                            );
+                            Patch(
+                                Aprovacaos,
+                                LookUp(
+                                    Aprovacaos,
+                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                ),
+                                {Aprovado: false}
                             ),
                             Notify(
                                 "Por favor, selecione na tabela a 'Empresa Respetiva' ao qual deseja associar o membro " & LabelMembroName.Text & " ou clique em '+Novo' para criar uma nova empresa.",
