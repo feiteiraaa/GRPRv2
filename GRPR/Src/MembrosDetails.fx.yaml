@@ -109,7 +109,7 @@ MembrosDetails As screen:
         Refresh('Membros-Familiares-Respetivas');
         Refresh('Membros-Participadas');
         Clear(atividadesFami);
-        Set(DRI,false)
+        //Set(DRI,false)
 
     "'Mid Section_Membros' As groupContainer.manualLayoutContainer":
         Height: =580

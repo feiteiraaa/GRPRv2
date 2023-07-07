@@ -1267,7 +1267,7 @@ ListagensDetails As screen:
                     DisplayName: =DataSourceInfo([@Listagens_1],DataSourceInfo.DisplayName,"uipp_datadeaprovacaoca")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    Required: =DataCardValue57.Selected.Value <> Estado.Pendente
+                    Required: =DataCardValue57.Selected.Value <> Estado.Pendente And Estado_Aprovacao_CA_DataCard1.DisplayMode <> DisplayMode.Disabled
                     Update: =DateValue8.SelectedDate 
                     Width: |-
                         =//462
@@ -1382,7 +1382,9 @@ ListagensDetails As screen:
                         BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                         ChevronBackground: =cores.amareloMontepio
                         ChevronHoverBackground: =cores.amareloMontepio
-                        DefaultSelectedItems: =[Parent.Default]
+                        DefaultSelectedItems: |-
+                            =//[Parent.Default]
+                            If(DataCardValue55.Selected.Value = Estado.Rejeitado, [Estado.Rejeitado],[Parent.Default])
                         DisplayFields: =["Value"]
                         DisplayMode: =If(Parent.Default = Estado.Pendente,DisplayMode.Edit,DisplayMode.View)
                         HoverFill: =cores.amareloMontepio
@@ -1445,7 +1447,7 @@ ListagensDetails As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     MaxLength: =DataSourceInfo([@Listagens_1], DataSourceInfo.MaxLength, "uipp_referenciadapropostaaca")
-                    Required: =DataCardValue57.Selected.Value <> Estado.Pendente
+                    Required: =DataCardValue57.Selected.Value <> Estado.Pendente And Estado_Aprovacao_CA_DataCard1.DisplayMode <> DisplayMode.Disabled
                     Update: =DataCardValue56.Text
                     Width: =600
                     X: =0
@@ -1546,7 +1548,7 @@ ListagensDetails As screen:
                     Height: =DynamicBtn_44.Height
                     HoverColor: =RGBA(0,0,0, 0)
                     HoverFill: =RGBA(0,0,0, 0)
-                    OnSelect: |-
+                    OnSelect: |
                         =If(
                             (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) 
                             And 
@@ -1568,7 +1570,7 @@ ListagensDetails As screen:
                                     NotificationType.Error
                                 )
                             )
-                        )
+                        );
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
