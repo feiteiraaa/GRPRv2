@@ -3728,6 +3728,14 @@ MembrosDetails As screen:
                     )
                 );
                 UpdateContext({localShowModal: false});
+                Patch(
+                    Aprovacaos,
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                    ),
+                    {Aprovado: false}
+                );
                 Navigate(
                     Particulares,
                     ScreenTransition.None

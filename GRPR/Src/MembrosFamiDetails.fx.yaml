@@ -1994,6 +1994,14 @@ MembrosFamiDetails As screen:
                                     "Por favor, tente novamente.",
                                     NotificationType.Error
                                 );
+                                 Patch(
+                                    Aprovacaos,
+                                    LookUp(
+                                        Aprovacaos,
+                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                    ),
+                                    {Aprovado: false}
+                                );
                                 UpdateContext(
                                     {
                                         _AssociatedR: false,
@@ -2715,6 +2723,14 @@ MembrosFamiDetails As screen:
                     )
                 );
                 UpdateContext({localShowModal: false});
+                Patch(
+                    Aprovacaos,
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                    ),
+                    {Aprovado: false}
+                );
                 Navigate(
                     MembrosDetails,
                     ScreenTransition.None
