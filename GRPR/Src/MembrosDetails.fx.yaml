@@ -382,8 +382,9 @@ MembrosDetails As screen:
                     Height: =50
                     Required: =false
                     Update: =DateValue1.SelectedDate
-                    Visible: |
-                        =true//ColabFormMode<>FormMode.New
+                    Visible: |-
+                        =//ColabFormMode<>FormMode.New
+                        Informacao.Mode <> FormMode.New
                     Width: =266
                     X: =0
                     Y: =1
@@ -821,7 +822,7 @@ MembrosDetails As screen:
                                             NotificationType.Warning
                                         )
                                     );
-                                    Patch(Membros_1,LookUp(Membros_1,ID = _Membro),{'Data aprovacao CA':Blank()});
+                                    If(Informacao.Mode <> FormMode.New,Patch(Membros_1,LookUp(Membros_1,ID = _Membro),{'Data aprovacao CA':Blank()}));
                                     UpdateContext(
                                         {
                                             localShowData: false,

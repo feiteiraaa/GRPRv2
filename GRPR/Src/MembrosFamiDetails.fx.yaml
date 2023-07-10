@@ -1059,7 +1059,7 @@ MembrosFamiDetails As screen:
                                             NotificationType.Warning
                                         )
                                     );
-                                    Patch(Membros_1,LookUp(Membros_1,ID = _MembroF),{'Data aprovacao CA':Blank()});
+                                    If(!IsBlank(_Familiar),Patch(Membros_1,LookUp(Membros_1,ID = _MembroF),{'Data aprovacao CA':Blank()}));
                                     Back(),
                                     Notify(
                                         "Por favor, tente novamente.",
