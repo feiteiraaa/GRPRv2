@@ -514,12 +514,20 @@ ColaboradoresDetails As screen:
                 DefaultDate: =Parent.Default
                 DisplayMode: =Parent.DisplayMode
                 EndYear: =Year(Today())+100
+                Format: |-
+                    =
+                    Text(
+                        Parent.Default,
+                        "dd-mm-yyyy",
+                        "pt-PT"
+                    )
+                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                 IsEditable: =true
                 PaddingBottom: =0
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 StartYear: =1899
                 Tooltip: =Parent.DisplayName
-                Width: =(Parent.Width - 60) / 2
+                Width: =(Parent.Width - 60)
                 X: =30
                 Y: =DataCardKey69.Y + DataCardKey69.Height + 5
                 ZIndex: =2
@@ -585,12 +593,20 @@ ColaboradoresDetails As screen:
                 DefaultDate: =Parent.Default
                 DisplayMode: =Parent.DisplayMode
                 EndYear: =Year(Today())+100
+                Format: |-
+                    =
+                    Text(
+                        Parent.Default,
+                        "dd-mm-yyyy",
+                        "pt-PT"
+                    )
+                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                 IsEditable: =true
                 PaddingBottom: =0
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 StartYear: =1899
                 Tooltip: =Parent.DisplayName
-                Width: =(Parent.Width - 60) / 2
+                Width: =(Parent.Width - 60)
                 X: =30
                 Y: =DataCardKey67.Y + DataCardKey67.Height + 5
                 ZIndex: =2
@@ -656,12 +672,20 @@ ColaboradoresDetails As screen:
                 DefaultDate: =Parent.Default
                 DisplayMode: =Parent.DisplayMode
                 EndYear: =Year(Today())+100
+                Format: |-
+                    =
+                    Text(
+                        Parent.Default,
+                        "dd-mm-yyyy",
+                        "pt-PT"
+                    )
+                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                 IsEditable: =true
                 PaddingBottom: =0
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 StartYear: =1899
                 Tooltip: =Parent.DisplayName
-                Width: =(Parent.Width - 60) / 2
+                Width: =(Parent.Width - 60)
                 X: =30
                 Y: =DataCardKey70.Y + DataCardKey70.Height + 5
                 ZIndex: =2

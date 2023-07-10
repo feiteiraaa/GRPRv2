@@ -7902,8 +7902,22 @@
           "NameMapSourceSchema": "?"
         },
         "DateTimeZone",
-        "Format",
-        "InputTextPlaceholder",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "DateTimeFormat.ShortDate",
+          "InvariantPropertyName": "Format",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))",
+          "InvariantPropertyName": "InputTextPlaceholder",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "StartYear",
         "EndYear",
         "StartOfWeek",
@@ -7929,7 +7943,14 @@
         "FontWeight",
         "Color",
         "DisabledColor",
-        "Width",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "(Parent.Width - 60) / 2",
+          "InvariantPropertyName": "Width",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Height",
         "X",
         "Y",
@@ -8227,8 +8248,22 @@
           "NameMapSourceSchema": "?"
         },
         "DateTimeZone",
-        "Format",
-        "InputTextPlaceholder",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "DateTimeFormat.ShortDate",
+          "InvariantPropertyName": "Format",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))",
+          "InvariantPropertyName": "InputTextPlaceholder",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "StartYear",
         "EndYear",
         "StartOfWeek",
@@ -8254,7 +8289,14 @@
         "FontWeight",
         "Color",
         "DisabledColor",
-        "Width",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "(Parent.Width - 60) / 2",
+          "InvariantPropertyName": "Width",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Height",
         "X",
         "Y",
@@ -8552,8 +8594,22 @@
           "NameMapSourceSchema": "?"
         },
         "DateTimeZone",
-        "Format",
-        "InputTextPlaceholder",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "DateTimeFormat.ShortDate",
+          "InvariantPropertyName": "Format",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))",
+          "InvariantPropertyName": "InputTextPlaceholder",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "StartYear",
         "EndYear",
         "StartOfWeek",
@@ -8579,7 +8635,14 @@
         "FontWeight",
         "Color",
         "DisabledColor",
-        "Width",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "(Parent.Width - 60) / 2",
+          "InvariantPropertyName": "Width",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Height",
         "X",
         "Y",
