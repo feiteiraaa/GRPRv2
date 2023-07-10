@@ -417,7 +417,7 @@ ROCDetails As screen:
             BorderStyle: =BorderStyle.Solid
             DataField: ="uipp_dataaprovacaoca"
             Default: =ThisItem.'Data aprovacao CA'
-            DisplayMode: =Parent.DisplayMode
+            DisplayMode: =DisplayMode.View
             DisplayName: =DataSourceInfo([@ROCS],DataSourceInfo.DisplayName,"uipp_dataaprovacaoca")
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
@@ -496,7 +496,7 @@ ROCDetails As screen:
             BorderStyle: =BorderStyle.Solid
             DataField: ="uipp_datadeinsercao"
             Default: =ThisItem.'Data de insercao'
-            DisplayMode: =Parent.DisplayMode
+            DisplayMode: =DisplayMode.View
             DisplayName: =DataSourceInfo([@ROCS],DataSourceInfo.DisplayName,"uipp_datadeinsercao")
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
@@ -575,7 +575,7 @@ ROCDetails As screen:
             BorderStyle: =BorderStyle.Solid
             DataField: ="uipp_datadesaida"
             Default: =ThisItem.'Data de saida'
-            DisplayMode: =Parent.DisplayMode
+            DisplayMode: =DisplayMode.View
             DisplayName: =DataSourceInfo([@ROCS],DataSourceInfo.DisplayName,"uipp_datadesaida")
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
