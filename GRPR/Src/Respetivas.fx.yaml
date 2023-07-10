@@ -678,94 +678,6 @@ Respetivas As screen:
                 Y: =DataCardKey41.Y
                 ZIndex: =4
 
-        "'Legislacao aplicada_DataCard5' As typedDataCard.comboBoxEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="uipp_Legislacaoaplicada"
-            Default: =ThisItem.'Legislacao aplicada'
-            DisplayMode: =If(DRI And (localFormRespetivasNew Or localFormRespetivasEdit),DisplayMode.Edit,DisplayMode.View)
-            DisplayName: =DataSourceInfo([@Empresas],DataSourceInfo.DisplayName,"uipp_Legislacaoaplicada")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            Required: =false
-            Update: =DataCardValue34.Selected
-            Visible: |-
-                =If(
-                    DRI,
-                    true,
-                    localFormRespetivasNew And !DRI,
-                    false,
-                    IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
-                    false,
-                    true
-                )
-            Width: =490
-            X: =0
-            Y: =2
-            ZIndex: =1
-
-            DataCardKey40 As label:
-                AutoHeight: =true
-                Color: =cores.cinzento
-                FontWeight: =FontWeight.Semibold
-                Height: =34
-                Text: |-
-                    =//Parent.DisplayName
-                    "Legislação aplicada"
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue34 As combobox:
-                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
-                ChevronBackground: =cores.amareloMontepio
-                DefaultSelectedItems: =Parent.Default
-                DisplayFields: =["uipp_tipodeenquadramento"]
-                DisplayMode: =Parent.DisplayMode
-                HoverFill: =cores.amareloMontepio
-                IsSearchable: =false
-                Items: |-
-                    =Choices([@Empresas].'Legislacao aplicada')
-                    //[@Legislaçãos].uipp_tipodeenquadramento
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                PressedFill: =cores.amareloMontepio
-                SearchFields: =["uipp_tipodeenquadramento"]
-                SearchItems: =[]
-                SelectionFill: =cores.amareloMontepio
-                SelectMultiple: =false
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey40.Y + DataCardKey40.Height + 5
-                ZIndex: =2
-
-            ErrorMessage40 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue34.Y + DataCardValue34.Height
-                ZIndex: =3
-
-            StarVisible40 As label:
-                Align: =Align.Center
-                Color: =Color.Red
-                Height: =DataCardKey40.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey40.Y
-                ZIndex: =4
-
         "'Data de insercao_DataCard2' As typedDataCard.dateTimeEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="uipp_datadeinsercao"
@@ -860,59 +772,69 @@ Respetivas As screen:
                 Y: =DataCardKey37.Y
                 ZIndex: =7
 
-        "'Data de saída_DataCard1' As typedDataCard.dateTimeEditCard":
+        "'Legislacao aplicada_DataCard5' As typedDataCard.comboBoxEditCard":
             BorderStyle: =BorderStyle.Solid
-            DataField: ="uipp_datadesaida"
-            Default: =ThisItem.'Data de saída'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Empresas],DataSourceInfo.DisplayName,"uipp_datadesaida")
+            DataField: ="uipp_Legislacaoaplicada"
+            Default: =ThisItem.'Legislacao aplicada'
+            DisplayMode: =If(DRI And (localFormRespetivasNew Or localFormRespetivasEdit),DisplayMode.Edit,DisplayMode.View)
+            DisplayName: =DataSourceInfo([@Empresas],DataSourceInfo.DisplayName,"uipp_Legislacaoaplicada")
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
-            Update: =DateValue6.SelectedDate
-            Visible: =!IsBlank(ThisItem.'Data de saída')
+            Update: =DataCardValue34.Selected
+            Visible: |-
+                =If(
+                    DRI,
+                    true,
+                    localFormRespetivasNew And !DRI,
+                    false,
+                    IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
+                    false,
+                    true
+                )
             Width: =490
             X: =0
-            Y: =3
+            Y: =2
             ZIndex: =1
 
-            DataCardKey38 As label:
+            DataCardKey40 As label:
                 AutoHeight: =true
                 Color: =cores.cinzento
                 FontWeight: =FontWeight.Semibold
                 Height: =34
-                Text: =Parent.DisplayName
+                Text: |-
+                    =//Parent.DisplayName
+                    "Legislação aplicada"
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
                 Y: =10
                 ZIndex: =1
 
-            DateValue6 As datepicker:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                DefaultDate: =Parent.Default
-                DisplayMode: =DisplayMode.View
-                EndYear: =Year(Today())+100
-                Format: |-
-                    =Text(
-                        Parent.Default,
-                        "dd-mm-yyyy",
-                        "pt-PT"
-                    )
-                InputTextPlaceholder: |-
-                    =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
-                    "dd-mm-yyyy"
-                IsEditable: =true
-                PaddingBottom: =0
+            DataCardValue34 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                ChevronBackground: =cores.amareloMontepio
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["uipp_tipodeenquadramento"]
+                DisplayMode: =Parent.DisplayMode
+                HoverFill: =cores.amareloMontepio
+                IsSearchable: =false
+                Items: |-
+                    =Choices([@Empresas].'Legislacao aplicada')
+                    //[@Legislaçãos].uipp_tipodeenquadramento
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                StartYear: =1899
+                PressedFill: =cores.amareloMontepio
+                SearchFields: =["uipp_tipodeenquadramento"]
+                SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
+                SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardKey38.Y + DataCardKey38.Height + 5
+                Y: =DataCardKey40.Y + DataCardKey40.Height + 5
                 ZIndex: =2
 
-            ErrorMessage38 As label:
+            ErrorMessage40 As label:
                 AutoHeight: =true
                 Height: =10
                 Live: =Live.Assertive
@@ -924,18 +846,19 @@ Respetivas As screen:
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DateValue6.Y + DateValue6.Height
-                ZIndex: =6
+                Y: =DataCardValue34.Y + DataCardValue34.Height
+                ZIndex: =3
 
-            StarVisible38 As label:
+            StarVisible40 As label:
                 Align: =Align.Center
-                Height: =DataCardKey38.Height
+                Color: =Color.Red
+                Height: =DataCardKey40.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                 Width: =30
                 Wrap: =false
-                Y: =DataCardKey38.Y
-                ZIndex: =7
+                Y: =DataCardKey40.Y
+                ZIndex: =4
 
         "'Data aprovacao CA_DataCard2' As typedDataCard.dateTimeEditCard":
             BorderStyle: =BorderStyle.Solid
@@ -1014,6 +937,83 @@ Respetivas As screen:
                 Width: =30
                 Wrap: =false
                 Y: =DataCardKey33.Y
+                ZIndex: =7
+
+        "'Data de saída_DataCard1' As typedDataCard.dateTimeEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_datadesaida"
+            Default: =ThisItem.'Data de saída'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Empresas],DataSourceInfo.DisplayName,"uipp_datadesaida")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DateValue6.SelectedDate
+            Visible: =!IsBlank(ThisItem.'Data de saída')
+            Width: =490
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey38 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DateValue6 As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                EndYear: =Year(Today())+100
+                Format: |-
+                    =Text(
+                        Parent.Default,
+                        "dd-mm-yyyy",
+                        "pt-PT"
+                    )
+                InputTextPlaceholder: |-
+                    =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
+                    "dd-mm-yyyy"
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey38.Y + DataCardKey38.Height + 5
+                ZIndex: =2
+
+            ErrorMessage38 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DateValue6.Y + DateValue6.Height
+                ZIndex: =6
+
+            StarVisible38 As label:
+                Align: =Align.Center
+                Height: =DataCardKey38.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey38.Y
                 ZIndex: =7
 
     LabelMembroName_2 As label:
@@ -1702,14 +1702,100 @@ Respetivas As screen:
                                 NotificationType.Warning
                             )
                         );
-                        //ForAll(Filter);
-                            //If(localFormRespetivasNew,Patch(Membros_1,LookUp(Membros_1,ID = _Membro),{'Data aprovacao CA':Blank()}));,
-                Notify(
+                        If(
+                            localFormRespetivasEdit,
+                            ForAll(
+                                collectMResp,
+                                Patch(
+                                    Membros_1,
+                                    LookUp(
+                                        Membros_1,
+                                        ID = Value
+                                    ),
+                                    {'Data aprovacao CA': Blank()}
+                                )
+                            );
+                            ForAll(
+                                collectMFResp,
+                                Patch(
+                                    Membros_1,
+                                    LookUp(
+                                        Membros_1,
+                                        ID = Value
+                                    ),
+                                    {'Data aprovacao CA': Blank()}
+                                )
+                            )
+                        ),
+                        Notify(
                             "Por favor, preencha o número do documento corretamente.",
                             NotificationType.Error
                         )
                     ),
-                    UpdateContext({localFormRespetivasEdit: true})
+                    UpdateContext({localFormRespetivasEdit: true});
+                    ClearCollect(
+                        collectMResp0,
+                        If(
+                            !IsBlank(_selectedRespetivas),
+                            Filter(
+                                'Membros-Familiares-Respetivas',
+                                ID_Empresa.ID = _selectedRespetivas
+                            ),
+                            !IsBlank(_selectedRespetivasF),
+                            Filter(
+                                'Membros-Familiares-Respetivas',
+                                ID_Empresa.ID = _selectedRespetivasF
+                            ),
+                            Filter(
+                                'Membros-Familiares-Respetivas',
+                                ID_Empresa.ID = EmpresasRespetivas1_1.Selected.ID
+                            )
+                        )
+                    );
+                    ClearCollect(
+                        collectMResp,
+                        ForAll(
+                            collectMResp0,
+                            ID_Membro.ID
+                        )
+                    );
+                    ClearCollect(
+                        collectFResp,
+                        ForAll(
+                            collectMResp0,
+                            ID_Familiares.ID
+                        )
+                    );
+                    RemoveIf(
+                        collectMResp,
+                        IsBlank(ThisRecord.Value)
+                    );
+                    RemoveIf(
+                        collectFResp,
+                        IsBlank(ThisRecord.Value)
+                    );
+                    If(
+                        !IsBlank(collectFResp),
+                        ClearCollect(
+                            collectMFResp0,
+                            Filter(
+                                'Membros-Familiares-Respetivas',
+                                ID_Familiares.ID in collectFResp[@Value]
+                            )
+                        );
+                        ClearCollect(
+                            collectMFResp,
+                            ForAll(
+                                collectMFResp0,
+                                ThisRecord.ID_Membro.ID
+                            )
+                        );
+                        RemoveIf(
+                            collectMFResp,
+                            IsBlank(ThisRecord.Value)
+                        )
+                    );
+                    
                 )
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
