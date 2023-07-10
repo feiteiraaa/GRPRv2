@@ -699,8 +699,8 @@ Respetivas As screen:
                     true
                 )
             Width: =490
-            X: =1
-            Y: =1
+            X: =0
+            Y: =2
             ZIndex: =1
 
             DataCardKey40 As label:
@@ -779,8 +779,8 @@ Respetivas As screen:
             Visible: |
                 =!localFormRespetivasNew 
             Width: =490
-            X: =0
-            Y: =2
+            X: =1
+            Y: =1
             ZIndex: =1
 
             DataCardKey37 As label:
@@ -872,8 +872,8 @@ Respetivas As screen:
             Update: =DateValue6.SelectedDate
             Visible: =!IsBlank(ThisItem.'Data de saída')
             Width: =490
-            X: =1
-            Y: =2
+            X: =0
+            Y: =3
             ZIndex: =1
 
             DataCardKey38 As label:
@@ -949,8 +949,8 @@ Respetivas As screen:
             Update: =DateValue4.SelectedDate
             Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
             Width: =490
-            X: =0
-            Y: =3
+            X: =1
+            Y: =2
             ZIndex: =1
 
             DataCardKey33 As label:
@@ -1702,6 +1702,7 @@ Respetivas As screen:
                                 NotificationType.Warning
                             )
                         );
+                        //ForAll(Filter);
                             //If(localFormRespetivasNew,Patch(Membros_1,LookUp(Membros_1,ID = _Membro),{'Data aprovacao CA':Blank()}));,
                 Notify(
                             "Por favor, preencha o número do documento corretamente.",
