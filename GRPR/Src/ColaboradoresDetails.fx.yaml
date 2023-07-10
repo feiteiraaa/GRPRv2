@@ -490,6 +490,7 @@ ColaboradoresDetails As screen:
             Height: =50
             Required: =false
             Update: =DateValue11.SelectedDate
+            Visible: =ColabFormMode <> FormMode.New
             Width: =323
             X: =0
             Y: =2
@@ -568,7 +569,7 @@ ColaboradoresDetails As screen:
             Height: =50
             Required: =false
             Update: =DateValue10.SelectedDate
-            Visible: =true//!IsBlank(ThisItem.'Data aprovacao CA')
+            Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
             Width: =323
             X: =1
             Y: =2
@@ -647,7 +648,7 @@ ColaboradoresDetails As screen:
             Height: =50
             Required: =false
             Update: =DateValue12.SelectedDate
-            Visible: =true//!IsBlank(ThisItem.'Data de saida')
+            Visible: =!IsBlank(ThisItem.'Data de saida')
             Width: =323
             X: =2
             Y: =2
