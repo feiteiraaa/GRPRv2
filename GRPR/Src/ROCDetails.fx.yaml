@@ -684,20 +684,53 @@ ROCDetails As screen:
             Height: =39
             HoverColor: =RGBA(0,0,0, 0)
             HoverFill: =RGBA(0,0,0, 0)
-            OnSelect: |-
+            OnSelect: |
                 =If(
                     ColabFormMode <> FormMode.View,
                     If(
                         SubmitForm(ROCForm),
+                        If(
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "ROC"
+                            ).Aprovado,
+                            Patch(
+                                Aprovacaos,
+                                LookUp(
+                                    Aprovacaos,
+                                    ThisRecord.Tabela = "ROC"
+                                ),
+                                {Aprovado: false}
+                            );
+                            Notify(
+                                "Após essa alteração, a informação de ROCs necessitará de nova validação pelo perfil Validador correspondente! ",
+                                NotificationType.Warning
+                            )
+                        );
+                        If(
+                            ColabFormMode <> FormMode.New,
+                            Patch(
+                                ROCS,
+                                LookUp(
+                                    ROCS,
+                                    ID = _ROC
+                                ),
+                                {'Data aprovacao CA': Blank()}
+                            )
+                        );
                         Back();
-                        Notify("Registo de Colaborador criado com sucesso!", NotificationType.Success),
-                        Notify("Por favor, tente novamente ou contacte o administrador da solução!", NotificationType.Error)
+                        Notify(
+                            "Registo de Colaborador criado com sucesso!",
+                            NotificationType.Success
+                        ),
+                        Notify(
+                            "Por favor, tente novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
                     ),
-                    UpdateContext({
-                        ColabFormMode: FormMode.Edit
-                    })
+                    UpdateContext({ColabFormMode: FormMode.Edit})
                 );
-                Refresh(ROCS)
+                Refresh(ROCS);
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
