@@ -1349,7 +1349,7 @@ Respetivas As screen:
             HoverBorderColor: =
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =ColorFade(RGBA(70, 70, 70, 1),80%)
-            OnSelect: |-
+            OnSelect: |
                 =If(
                     EmpresasRespetivas.Mode = FormMode.View,
                     If(
@@ -1397,23 +1397,23 @@ Respetivas As screen:
                     UpdateContext({ColabFormMode: FormMode.View})*/
                 );
                 If(
-                            LookUp(
-                                Aprovacaos,
-                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                            ).Aprovado,
-                            Patch(
-                                Aprovacaos,
-                                LookUp(
-                                    Aprovacaos,
-                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                ),
-                                {Aprovado: false}
-                            );
-                            Notify(
-                                "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente!",
-                                NotificationType.Warning
-                            )
-                        );
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                    ).Aprovado,
+                    Patch(
+                        Aprovacaos,
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ),
+                        {Aprovado: false}
+                    );
+                    Notify(
+                        "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente!",
+                        NotificationType.Warning
+                    )
+                );
             PaddingLeft: =50
             PressedColor: =Color.Black
             PressedFill: =ColorFade(RGBA(70, 70, 70, 1),90%)
