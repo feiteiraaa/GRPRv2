@@ -709,7 +709,11 @@ ParticipadasDetails As screen:
             ZIndex: =9
 
     ModalConfirmation_6 As ModalConfirmation:
-        ModalText: ="Tem certeza de que deseja eliminar o registo?"
+        ModalText: |-
+            ="Tem certeza de que deseja eliminar a empresa participada do grupo " & LookUp(
+                'Empresas Participadas do Grupos',
+                ThisRecord.ID = _EmpresasParticipadas
+            ).Nome & "?"
         Visible: =localShowModal
         ZIndex: =11
 
