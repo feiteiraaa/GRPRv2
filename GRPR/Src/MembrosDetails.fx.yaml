@@ -3642,7 +3642,7 @@ MembrosDetails As screen:
                                 ),
                                 {
                                     Ativo: false,
-                                    Bloqueado: true,
+                                    //Bloqueado: true,
                                     'Data de saída': Now()
                                 }
                             ).Ativo = false,

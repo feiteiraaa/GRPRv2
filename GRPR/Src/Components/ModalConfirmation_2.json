@@ -18,7 +18,7 @@
       "Name": "ModalIcon",
       "PropertyDataTypeKey": "String",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -27,7 +27,7 @@
       "Name": "ModalIconColor",
       "PropertyDataTypeKey": "Color",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -36,7 +36,7 @@
       "Name": "ModalText",
       "PropertyDataTypeKey": "String",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -45,7 +45,7 @@
       "Name": "LeftBtnText",
       "PropertyDataTypeKey": "String",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -54,7 +54,7 @@
       "Name": "LeftBtnIcon",
       "PropertyDataTypeKey": "String",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -63,7 +63,7 @@
       "Name": "RightBtnIcon",
       "PropertyDataTypeKey": "String",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -72,7 +72,7 @@
       "Name": "RightBtnText",
       "PropertyDataTypeKey": "String",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -81,7 +81,7 @@
       "Name": "RightBtnFill",
       "PropertyDataTypeKey": "Color",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -92,7 +92,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638243378886481305",
+  "LastModifiedTimestamp": "638245747961103897",
   "Name": "64255e77132e4778a9d6598e5ede5bf5",
   "OverridableProperties": {},
   "TemplateOriginalName": "eb24e4724ed04a619ab834c43dfccdf3",

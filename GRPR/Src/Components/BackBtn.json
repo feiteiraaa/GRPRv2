@@ -171,7 +171,7 @@
         "Name": "Button1_1",
         "Parent": "BackBtn",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1204,
+        "PublishOrderIndex": 1209,
         "Rules": [
           {
             "Category": "Data",
@@ -481,7 +481,7 @@
         "Name": "Icon2_1",
         "Parent": "BackBtn",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1205,
+        "PublishOrderIndex": 1210,
         "Rules": [
           {
             "Category": "Design",
@@ -685,7 +685,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638243378886344453",
+    "LastModifiedTimestamp": "638245747961140066",
     "Name": "BackBtn",
     "Rules": [
       {
@@ -761,7 +761,7 @@
       "Name": "BtnHeight",
       "PropertyDataTypeKey": "String",
       "Tooltip": "Altura do botão",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -770,7 +770,7 @@
       "Name": "BtnWidth",
       "PropertyDataTypeKey": "String",
       "Tooltip": "Largura do Botão",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -779,7 +779,7 @@
       "Name": "ButtonIcon",
       "PropertyDataTypeKey": "String",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.333\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -790,7 +790,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638243378886344453",
+  "LastModifiedTimestamp": "638245747961140066",
   "Name": "c4a5d19b54264f7ba92ef2f2fdd8b339",
   "OverridableProperties": {},
   "TemplateOriginalName": "88985e4b12794b9786dc42a4eee25302",
