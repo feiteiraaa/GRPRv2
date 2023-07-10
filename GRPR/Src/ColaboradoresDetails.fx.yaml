@@ -49,6 +49,7 @@ ColaboradoresDetails As screen:
             DataCardKey11_1 As label:
                 AutoHeight: =true
                 Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
                 Height: =34
                 Text: =Parent.DisplayName
                 Width: =Parent.Width - 60
@@ -122,6 +123,7 @@ ColaboradoresDetails As screen:
             DataCardKey6_1 As label:
                 AutoHeight: =true
                 Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
                 Height: =34
                 Text: ="Cargo (Descrição)"
                 Width: =Parent.Width - 60
@@ -194,6 +196,7 @@ ColaboradoresDetails As screen:
             DataCardKey5_1 As label:
                 AutoHeight: =true
                 Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
                 Height: =34
                 Text: =Parent.DisplayName
                 Width: =Parent.Width - 60
@@ -269,6 +272,7 @@ ColaboradoresDetails As screen:
             DataCardKey10_1 As label:
                 AutoHeight: =true
                 Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
                 Height: =34
                 Text: =Parent.DisplayName
                 Width: =Parent.Width - 60
@@ -343,6 +347,7 @@ ColaboradoresDetails As screen:
             DataCardKey12_1 As label:
                 AutoHeight: =true
                 Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
                 Height: =34
                 Text: ="Unidade Orgânica"
                 Width: =Parent.Width - 60
@@ -417,6 +422,7 @@ ColaboradoresDetails As screen:
             DataCardKey1 As label:
                 AutoHeight: =true
                 Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
                 Height: =34
                 Text: ="Legislação aplicada"
                 Width: =Parent.Width - 60
@@ -544,74 +550,6 @@ ColaboradoresDetails As screen:
                 Y: =DataCardKey69.Y
                 ZIndex: =7
 
-        "'Data de saida_DataCard2' As typedDataCard.dateTimeEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="uipp_datadesaida"
-            Default: =ThisItem.'Data de saida'
-            DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Colaboradores_1],DataSourceInfo.DisplayName,"uipp_datadesaida")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            Required: =false
-            Update: =DateValue12.SelectedDate
-            Width: =323
-            X: =2
-            Y: =2
-            ZIndex: =1
-
-            DataCardKey70 As label:
-                AutoHeight: =true
-                Color: =cores.cinzento
-                FontWeight: =FontWeight.Semibold
-                Height: =34
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DateValue12 As datepicker:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                DefaultDate: =Parent.Default
-                DisplayMode: =Parent.DisplayMode
-                EndYear: =Year(Today())+100
-                IsEditable: =true
-                PaddingBottom: =0
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                StartYear: =1899
-                Tooltip: =Parent.DisplayName
-                Width: =(Parent.Width - 60) / 2
-                X: =30
-                Y: =DataCardKey70.Y + DataCardKey70.Height + 5
-                ZIndex: =2
-
-            ErrorMessage70 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DateValue12.Y + DateValue12.Height
-                ZIndex: =6
-
-            StarVisible70 As label:
-                Align: =Align.Center
-                Color: =cores.cinzento
-                Height: =DataCardKey70.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey70.Y
-                ZIndex: =7
-
         "'Data aprovacao CA_DataCard3' As typedDataCard.dateTimeEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="uipp_dataaprovacaoca"
@@ -622,6 +560,7 @@ ColaboradoresDetails As screen:
             Height: =50
             Required: =false
             Update: =DateValue10.SelectedDate
+            Visible: =true//!IsBlank(ThisItem.'Data aprovacao CA')
             Width: =323
             X: =1
             Y: =2
@@ -632,7 +571,9 @@ ColaboradoresDetails As screen:
                 Color: =cores.cinzento
                 FontWeight: =FontWeight.Semibold
                 Height: =34
-                Text: =Parent.DisplayName
+                Text: |-
+                    =//Parent.DisplayName
+                    "Data de Aprovação"
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
@@ -678,6 +619,77 @@ ColaboradoresDetails As screen:
                 Width: =30
                 Wrap: =false
                 Y: =DataCardKey67.Y
+                ZIndex: =7
+
+        "'Data de saida_DataCard2' As typedDataCard.dateTimeEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_datadesaida"
+            Default: =ThisItem.'Data de saida'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Colaboradores_1],DataSourceInfo.DisplayName,"uipp_datadesaida")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DateValue12.SelectedDate
+            Visible: =true//!IsBlank(ThisItem.'Data de saida')
+            Width: =323
+            X: =2
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey70 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Text: |-
+                    =//Parent.DisplayName
+                    "Data de saída"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DateValue12 As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =(Parent.Width - 60) / 2
+                X: =30
+                Y: =DataCardKey70.Y + DataCardKey70.Height + 5
+                ZIndex: =2
+
+            ErrorMessage70 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DateValue12.Y + DateValue12.Height
+                ZIndex: =6
+
+            StarVisible70 As label:
+                Align: =Align.Center
+                Color: =cores.cinzento
+                Height: =DataCardKey70.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey70.Y
                 ZIndex: =7
 
     "'Particualres Edit Save Btn_2' As group":

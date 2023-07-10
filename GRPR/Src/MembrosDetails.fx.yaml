@@ -383,7 +383,7 @@ MembrosDetails As screen:
                     Required: =false
                     Update: =DateValue1.SelectedDate
                     Visible: |
-                        =ColabFormMode<>FormMode.New
+                        =true//ColabFormMode<>FormMode.New
                     Width: =266
                     X: =0
                     Y: =1
@@ -633,7 +633,7 @@ MembrosDetails As screen:
                         Height: =34
                         Text: |-
                             =//Parent.DisplayName
-                            "Data de Aprovação em CA"
+                            "Data de Aprovação"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -651,12 +651,13 @@ MembrosDetails As screen:
                                 "dd-mm-yyyy",
                                 "pt-PT"
                             )
+                        InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                         IsEditable: =true
                         PaddingBottom: =0
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         StartYear: =1899
                         Tooltip: =Parent.DisplayName
-                        Width: =(Parent.Width - 60) / 2
+                        Width: =(Parent.Width - 60)
                         X: =30
                         Y: =DataCardKey7.Y + DataCardKey7.Height + 5
                         ZIndex: =2
@@ -727,12 +728,13 @@ MembrosDetails As screen:
                                 "dd-mm-yyyy",
                                 "pt-PT"
                             )
+                        InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                         IsEditable: =true
                         PaddingBottom: =0
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         StartYear: =1899
                         Tooltip: =Parent.DisplayName
-                        Width: =(Parent.Width - 60) / 2
+                        Width: =(Parent.Width - 60)
                         X: =30
                         Y: =DataCardKey30.Y + DataCardKey30.Height + 5
                         ZIndex: =2
