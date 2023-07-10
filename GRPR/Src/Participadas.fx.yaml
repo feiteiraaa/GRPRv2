@@ -412,17 +412,14 @@ Participadas As screen:
 
         Label3_2 As label:
             Color: =cores.cinzento
-            Fill: =RGBA(255, 244, 198, 1)
+            Fill: =If(Checkbox1_5.Value,RGBA(219,253,225,1),RGBA(255, 244, 198, 1))
             FontWeight: =FontWeight.Semibold
             Height: =34
             PaddingTop: =0
             Text: ="Fim de periodo a decorrer"
             Visible: |-
                 =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
-                And LookUp(
-                    Aprovacaos,
-                    ThisRecord.Tabela = "Empresas Participadas"
-                ).Aprovado = false And varFimPeriodo
+                And varFimPeriodo
             Width: =961
             X: =373
             Y: =74
@@ -430,16 +427,13 @@ Participadas As screen:
 
         Label3_3 As label:
             Color: =cores.cinzento
-            Fill: =RGBA(255, 244, 198, 1)
+            Fill: =If(Checkbox1_5.Value,RGBA(219,253,225,1),RGBA(255, 244, 198, 1))
             Height: =34
             PaddingTop: =0
             Text: ="Confirmo que toda a informação apresentada relativa às partes relacionadas está correta."
             Visible: |-
                 =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
-                And LookUp(
-                    Aprovacaos,
-                    ThisRecord.Tabela = "Empresas Participadas"
-                ).Aprovado = false And varFimPeriodo
+                And varFimPeriodo
             Width: =961
             X: =373
             Y: =102
@@ -455,30 +449,19 @@ Participadas As screen:
                     Aprovacaos,
                     ThisRecord.Tabela = "Empresas Participadas"
                 ).Aprovado
-            Fill: =RGBA(255, 244, 198, 1)
+            Fill: =If(Checkbox1_5.Value,RGBA(219,253,225,1),RGBA(255, 244, 198, 1))
             FocusedBorderThickness: =0
             Height: =40
             HoverColor: =//RGBA(0, 18, 107, 1)
             OnCheck: |-
-                =Patch(
-                    Aprovacaos,
-                    LookUp(
-                        Aprovacaos,
-                        ThisRecord.Tabela = "Empresas Participadas"
-                    ),
-                    {Aprovado: true}
-                )
-            OnSelect: |
                 =UpdateContext({
                     localShowModal: true
                 })
+            OnSelect: =
             Text: =""
             Visible: |-
                 =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
-                And LookUp(
-                    Aprovacaos,
-                    ThisRecord.Tabela = "Empresas Participadas"
-                ).Aprovado = false And varFimPeriodo
+                And varFimPeriodo
             Width: =48
             X: =1286
             Y: =85
@@ -503,7 +486,7 @@ Participadas As screen:
                 =UpdateContext({
                     localShowModal: false
                 });
-                Reset(Checkbox1_1)
+                Reset(Checkbox1_5)
             PaddingLeft: =50
             PressedColor: =Color.Black
             PressedFill: =cores.rosa
@@ -585,7 +568,7 @@ Participadas As screen:
                 =UpdateContext({
                     localShowModal: false
                 });
-                Reset(Checkbox1_1)
+                Reset(Checkbox1_5)
             Visible: =localShowModal
             Width: =30
             X: =726
