@@ -2,7 +2,7 @@ Participadas As screen:
     OnHidden: |-
         = UpdateContext({ _Associar:false})
     OnVisible: |-
-        =//UpdateContext({_Associar:false})
+        =UpdateContext({localShowModal:false});
         Refresh('Empresas Participadas do Grupos')
 
     "'Empresas Participadas' As dataTable.datatable":
@@ -397,6 +397,12 @@ Participadas As screen:
     LeftSectionComponent_13 As LeftSectionComponent:
         ZIndex: =13
 
+    ModalConfirmation_12 As ModalConfirmation:
+        ModalText: |
+            =User().FullName & " tem certeza de que deseja confirmar a informação de Empresas Participadas do Grupo?"
+        Visible: =localShowModal
+        ZIndex: =17
+
     FimPeriodo_1 As group:
         Height: =5
         Width: =5
@@ -444,6 +450,11 @@ Participadas As screen:
             CheckboxBackgroundFill: =ColorFade(cores.cinzento, 90%)
             CheckboxBorderColor: =ColorFade(cores.cinzento, 80%)
             CheckmarkFill: =cores.cinzento
+            Default: |-
+                =LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Empresas Participadas"
+                ).Aprovado
             Fill: =RGBA(255, 244, 198, 1)
             FocusedBorderThickness: =0
             Height: =40
@@ -457,6 +468,10 @@ Participadas As screen:
                     ),
                     {Aprovado: true}
                 )
+            OnSelect: |
+                =UpdateContext({
+                    localShowModal: true
+                })
             Text: =""
             Visible: |-
                 =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
@@ -468,4 +483,112 @@ Participadas As screen:
             X: =1286
             Y: =85
             ZIndex: =16
+
+    elim_components_5 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =22
+
+        cancelar_btn_6 As button:
+            Align: =Align.Left
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(51, 51, 51, 1)
+            Fill: =cores.rosa
+            FontWeight: =FontWeight.Normal
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =cores.rosa
+            OnSelect: |-
+                =UpdateContext({
+                    localShowModal: false
+                });
+                Reset(Checkbox1_1)
+            PaddingLeft: =50
+            PressedColor: =Color.Black
+            PressedFill: =cores.rosa
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Text: ="CANCELAR"
+            Visible: =localShowModal
+            Width: =165
+            X: =717
+            Y: =440
+            ZIndex: =18
+
+        confirm_btn_6 As button:
+            Align: =Align.Left
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(51, 51, 51, 1)
+            Fill: =RGBA(237, 237, 237, 1)
+            FontWeight: =FontWeight.Normal
+            HoverBorderColor: =
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =ColorFade(RGBA(70, 70, 70, 1),80%)
+            OnSelect: |-
+                =Patch(
+                    Aprovacaos,
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Empresas Participadas"
+                    ),
+                    {Aprovado: true}
+                );
+                UpdateContext({
+                    localShowModal: false
+                });
+                Navigate(Inicio)
+            PaddingLeft: =50
+            PressedColor: =Color.Black
+            PressedFill: =ColorFade(RGBA(70, 70, 70, 1),90%)
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Text: ="Confirmar"
+            Visible: =localShowModal
+            Width: =165
+            X: =486
+            Y: =440
+            ZIndex: =19
+
+        Icon8_12 As icon.Check:
+            Color: =cores.amareloMontepio
+            Height: =30
+            Icon: =Icon.Check
+            OnSelect: |-
+                =Patch(
+                    Aprovacaos,
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Empresas Participadas"
+                    ),
+                    {Aprovado: true}
+                );
+                UpdateContext({
+                    localShowModal: false
+                });
+                Navigate(Inicio)
+            Visible: =localShowModal
+            Width: =30
+            X: =496
+            Y: =445
+            ZIndex: =20
+
+        Icon8_13 As icon.Check:
+            Color: =cores.amareloMontepio
+            Height: =30
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({
+                    localShowModal: false
+                });
+                Reset(Checkbox1_1)
+            Visible: =localShowModal
+            Width: =30
+            X: =726
+            Y: =445
+            ZIndex: =21
 
