@@ -171,7 +171,7 @@
         "Name": "Button1_1",
         "Parent": "BackBtn",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1209,
+        "PublishOrderIndex": 1228,
         "Rules": [
           {
             "Category": "Data",
@@ -481,7 +481,7 @@
         "Name": "Icon2_1",
         "Parent": "BackBtn",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1210,
+        "PublishOrderIndex": 1229,
         "Rules": [
           {
             "Category": "Design",

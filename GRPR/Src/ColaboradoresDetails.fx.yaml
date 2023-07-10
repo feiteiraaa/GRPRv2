@@ -414,6 +414,16 @@ ColaboradoresDetails As screen:
             Height: =50
             Required: =false
             Update: =DataCardValue1.Selected
+            Visible: |-
+                =If(
+                    DRI,
+                    true,
+                    ColabFormMode = FormMode.New And !DRI,
+                    false,
+                    IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
+                    false,
+                    true
+                )
             Width: =323
             X: =2
             Y: =1
@@ -969,9 +979,12 @@ ColaboradoresDetails As screen:
     HtmlText1 As htmlViewer:
         HtmlText: |-
             =//"Show your <b><font color=blue>HTML</font></b> text here."
-            "<b>" & DataCardValue9_1.Text & "</b> " &
-            If(
-                !DataCardValue2.Selected.Value,
+            "<b>" & DataCardValue9_1.Text & "</b> " & If(
+                LookUp(
+                    Colaboradores_1,
+                    ID = _Colaborador
+                ).Ativo,
+                "",
                 " (eliminado)"
             )
         Size: =14
