@@ -524,7 +524,7 @@ ROCDetails As screen:
 
             DateValue14 As datepicker:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                DefaultDate: =Parent.Default
+                DefaultDate: =If(ROCForm.Mode=FormMode.New,Text(Today(),"dd/mm/yyyy"),Parent.Default)
                 DisplayMode: =Parent.DisplayMode
                 EndYear: =Year(Today())+100
                 Format: |

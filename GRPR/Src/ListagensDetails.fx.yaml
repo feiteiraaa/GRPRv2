@@ -1283,7 +1283,7 @@ ListagensDetails As screen:
                         Height: =34
                         Text: |-
                             =//Parent.DisplayName
-                            "Data de Decisão em CA:"
+                            "Data de Decisão em CE:"
                         Width: =(Parent.Width - 60) * 0.6
                         Wrap: =false
                         X: =30
@@ -1461,7 +1461,7 @@ ListagensDetails As screen:
                         Height: =34
                         Text: |-
                             =//Parent.DisplayName
-                            "Referência da Proposta a CA:"
+                            "Referência da Proposta a CE:"
                         Width: =(Parent.Width - 60) * 0.485
                         Wrap: =false
                         X: =30

@@ -1687,7 +1687,7 @@ Particulares As screen:
                         Aprovacaos,
                         LookUp(
                             Aprovacaos,
-                            ThisRecord.Tabela = "Membros dos Orgãos Sociais"
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
                         ),
                         {Aprovado: true}
                     )
@@ -1695,6 +1695,7 @@ Particulares As screen:
                 UpdateContext({
                     localShowModal: false
                 });
+                Navigate(Inicio)
             PaddingLeft: =50
             PressedColor: =Color.Black
             PressedFill: =ColorFade(RGBA(70, 70, 70, 1),90%)
