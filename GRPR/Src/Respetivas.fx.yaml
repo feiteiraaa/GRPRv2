@@ -813,18 +813,18 @@ Respetivas As screen:
                         localFormRespetivasNew,
                         Text(
                             Now(),
-                            "dd-mm-yyyy",
+                            "dd/mm/yyyy",
                             "pt-PT"
                         ),
                         Text(
                             Parent.Default,
-                            "dd-mm-yyyy",
+                            "dd/mm/yyyy",
                             "pt-PT"
                         )
                     )
                 InputTextPlaceholder: |-
                     =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
-                    "dd-mm-yyyy"
+                    "dd/mm/yyyy"
                 IsEditable: =true
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 8)
                 PaddingTop: =5
