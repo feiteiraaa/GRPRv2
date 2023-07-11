@@ -901,12 +901,10 @@ ParticipadasDetails As screen:
             OnSelect: |-
                 =If(
                     ColabFormMode = FormMode.View,
-                    UpdateContext({
-                        localShowModal: true
-                    }),
-                    UpdateContext({
-                        ColabFormMode: FormMode.View
-                    })
+                    UpdateContext({localShowModal: true}),
+                    ColabFormMode = FormMode.New,
+                    Navigate(Participadas),
+                    UpdateContext({ColabFormMode: FormMode.View})
                 )
                 /*If(
                     ColabFormMode = FormMode.View,
