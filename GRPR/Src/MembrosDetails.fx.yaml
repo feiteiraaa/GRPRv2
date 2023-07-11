@@ -3187,7 +3187,7 @@ MembrosDetails As screen:
                         'Atividades Content'.Height - (Container1_2.Height + Container1_2.Y)
                     )
                 Items: |-
-                    =SortByColumns(
+                    =
                         With(
                             {records: atividadesMembros
                                 /*Ungroup(
@@ -3203,17 +3203,18 @@ MembrosDetails As screen:
                                 Patch(
                                     Last(
                                         FirstN(
-                                            records,
+                                            SortByColumns(
+                                                records,
+                                                "createdon",
+                                                SortOrder.Descending
+                                            ),
                                             Value
                                         )
                                     ),
                                     {rowNumber: Value}
                                 )
                             )
-                        ),
-                        "createdon",
-                        SortOrder.Descending
-                    )
+                        )
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 ShowScrollbar: =false

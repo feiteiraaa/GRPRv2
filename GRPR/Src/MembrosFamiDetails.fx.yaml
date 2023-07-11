@@ -2235,7 +2235,14 @@ MembrosFamiDetails As screen:
                                 Sequence(CountRows(records)),
                                 Patch(
                                     Last(
-                                        FirstN(records,Value)
+                                        FirstN(
+                                            SortByColumns(
+                                                records,
+                                                "createdon",
+                                                SortOrder.Descending
+                                            ),
+                                            Value
+                                        )
                                     ),
                                     {rowNumber: Value}
                                 )

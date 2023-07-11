@@ -934,8 +934,7 @@ ROCDetails As screen:
                     'Atividades Content_4'.Height - (Container1_6.Height + Container1_6.Y)
                 )
             Items: |-
-                =SortByColumns(
-                    With(
+                =    With(
                         {records: atividadesROC
                             /*Ungroup(
                                 Table(
@@ -950,17 +949,18 @@ ROCDetails As screen:
                             Patch(
                                 Last(
                                     FirstN(
-                                        records,
+                                        SortByColumns(
+                                            records,
+                                            "createdon",
+                                            SortOrder.Descending
+                                        ),
                                         Value
                                     )
                                 ),
                                 {rowNumber: Value}
                             )
                         )
-                    ),
-                    "createdon",
-                    SortOrder.Descending
-                )
+                    )
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
             ShowScrollbar: =false
