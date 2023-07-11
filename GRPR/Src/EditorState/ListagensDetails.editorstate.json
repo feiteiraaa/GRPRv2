@@ -1276,7 +1276,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button7_3",
-      "ParentIndex": 7,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2277,7 +2277,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Comentarios Content",
-      "ParentIndex": 11,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10970,7 +10970,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "DynamicBtn_40",
-      "ParentIndex": 6,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -20460,7 +20460,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Info Comentarios Container",
-      "ParentIndex": 4,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -20652,7 +20652,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Info EntradasSaidas Container",
-      "ParentIndex": 3,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -21914,7 +21914,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Info Informacao Container",
-      "ParentIndex": 13,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -23651,7 +23651,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Info PreVisualizacao Container",
-      "ParentIndex": 2,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -23843,7 +23843,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Info ValidacaoAprovacao Container",
-      "ParentIndex": 5,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24043,7 +24043,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Informacao Content_2",
-      "ParentIndex": 14,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24374,7 +24374,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label1_12",
-      "ParentIndex": 8,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -26061,7 +26061,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "PreVisualizacao Content",
-      "ParentIndex": 9,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -29897,7 +29897,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ValidacaoAprovacao Content",
-      "ParentIndex": 12,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
