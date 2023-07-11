@@ -73,7 +73,7 @@ Inicio As screen:
         Fill: =RGBA(219, 219, 219, 1)
         Height: =431
         Items: |-
-            =SortByColumns(
+            =
                 With(
                     {
                         records: Ungroup(
@@ -89,17 +89,18 @@ Inicio As screen:
                         Patch(
                             Last(
                                 FirstN(
-                                    records,
+                                    SortByColumns(
+                                        records,
+                                        "createdon",
+                                        SortOrder.Descending
+                                    ),
                                     Value
                                 )
                             ),
                             {rowNumber: Value}
                         )
                     )
-                ),
-                "createdon",
-                SortOrder.Descending
-            )
+                )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         ShowScrollbar: =false
@@ -205,11 +206,9 @@ Inicio As screen:
             CCOMP Consulta: " & CCOMP_Consulta &
             "
             God: " & godMode
-        Visible: |-
-            =//godMode
-            false
+        Visible: =godMode
         Width: =227
-        X: =1139
+        X: =1010
         ZIndex: =6
 
     Label1_7 As label:
