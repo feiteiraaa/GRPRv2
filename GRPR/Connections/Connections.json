@@ -78,8 +78,7 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "06c7a476-789a-4373-9b2e-51a72677f474",
-      "dc1f299b-6701-4280-adf8-a7f992e04351"
+      "06c7a476-789a-4373-9b2e-51a72677f474"
     ],
     "id": "1e4ee4cb-5e99-4c90-bf9b-05b93b030792"
   },
