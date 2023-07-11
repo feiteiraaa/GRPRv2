@@ -1,6 +1,6 @@
 App As appinfo:
     BackEnabled: =false
-    OnStart: |+
+    OnStart: |-
         =Concurrent(
             Set(appVersion, "1.0"),
             With(
@@ -240,6 +240,15 @@ App As appinfo:
             SortOrder.Descending
         );
         
+        
+        /*Set(
+            godMode,
+            false
+        );
+        Set(
+            DGC_Editor,
+            true
+        )*/
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
