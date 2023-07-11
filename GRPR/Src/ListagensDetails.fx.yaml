@@ -1553,7 +1553,29 @@ ListagensDetails As screen:
                             (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) And (!IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value <> Estado.Pendente And DateValue8.SelectedDate > DateValue9.SelectedDate) Or (!IsBlank(DateValue9.SelectedDate) And DataCardValue55.Selected.Value <> Estado.Pendente) And (IsBlank(DateValue8.SelectedDate) And DataCardValue57.Selected.Value = Estado.Pendente),
                             If(
                                 SubmitForm(FormVali) And DataCardValue57.Selected.Value = Estado.Aprovado,
-                                DataAprovação.Run(Text(DateValue8.SelectedDate,"yyyy-mm-dd"),Text(LookUp(Listagens_1,ThisRecord.ID=_Listagem).'Data de referencia',"yyyy-mm-dd"))
+                                If(
+                                    DataAprovação.Run(
+                                        Text(
+                                            DateValue8.SelectedDate,
+                                            "yyyy-mm-dd"
+                                        ),
+                                        Text(
+                                            LookUp(
+                                                Listagens_1,
+                                                ThisRecord.ID = _Listagem
+                                            ).'Data de referencia',
+                                            "yyyy-mm-dd"
+                                        )
+                                    ).resposta,
+                                    Notify(
+                                        "As datas de aprovação foram atualizadas em Partes Relacionadas com sucesso!",
+                                        NotificationType.Success
+                                    ),
+                                    Notify(
+                                        "Falha ao atualizar as datas de aprovação em Partes Relacionadas!",
+                                        NotificationType.Error
+                                    )
+                                )
                             ),
                             If(
                                 DateValue8.SelectedDate <= DateValue9.SelectedDate,

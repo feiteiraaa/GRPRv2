@@ -8,6 +8,11 @@
         <property name="date" type="string" />
         <property name="date_1" type="string" />
       </object>
+      <boolean name="ResponseActionOutput_resposta_def" />
+      <object name="ResponseActionOutput">
+        <property name="resposta" type="boolean" />
+      </object>
+      <object name="Run_responses_default_def" />
     </jsonTypes>
   </grammars>
   <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe-002.azure-apim.net/apim/logicflows">
@@ -28,6 +33,9 @@
             </param>
           </representation>
         </request>
+        <response>
+          <representation mediaType="application/json" element="service:ResponseActionOutput" />
+        </response>
       </method>
     </resource>
   </resources>
