@@ -1663,7 +1663,7 @@ Respetivas As screen:
             BtnText: =If(localFormRespetivasEdit Or localFormRespetivasNew,"Guardar","Editar")
             ButtonIcon: =If(localFormRespetivasEdit Or localFormRespetivasNew,Icon.Save,Icon.Edit)
             Height: =40
-            Visible: =EmpresasRespetivas.Visible //And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
+            Visible: =EmpresasRespetivas.Visible And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
             Width: =160
             X: =1150
             Y: =131
@@ -1841,7 +1841,7 @@ Respetivas As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =EmpresasRespetivas.Visible //And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
+            Visible: =EmpresasRespetivas.Visible And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
             X: =DynamicBtn_20.X
             Y: =131
             ZIndex: =21
@@ -1857,7 +1857,7 @@ Respetivas As screen:
             BtnText: =If(localFormRespetivasEdit Or localFormRespetivasNew,"Cancelar","Eliminar")
             ButtonIcon: =If(localFormRespetivasEdit Or localFormRespetivasNew,Icon.Cancel,Icon.Trash)
             Height: =40
-            Visible: =EmpresasRespetivas.Visible //And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
+            Visible: =EmpresasRespetivas.Visible And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
             Width: =160
             X: =949
             Y: =131
@@ -1882,7 +1882,7 @@ Respetivas As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =EmpresasRespetivas.Visible //And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
+            Visible: =EmpresasRespetivas.Visible And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
             X: =DynamicBtn_22.X
             Y: =DynamicBtn_22.Y
             ZIndex: =23
