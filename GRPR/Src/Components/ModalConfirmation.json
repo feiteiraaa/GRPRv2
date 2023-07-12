@@ -24,7 +24,14 @@
           "FocusedBorderColor",
           "DisplayMode",
           "X",
-          "Y",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "255",
+            "InvariantPropertyName": "Y",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           {
             "AFDDataSourceName": "",
             "AutoRuleBindingEnabled": false,
@@ -116,7 +123,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "255",
+            "InvariantScript": "215//255",
             "Property": "Y",
             "RuleProviderType": "Unknown"
           },
@@ -128,7 +135,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "259\r\n",
+            "InvariantScript": "300//259\r\n",
             "Property": "Height",
             "RuleProviderType": "Unknown"
           },
@@ -196,7 +203,14 @@
           "HoverFill",
           "DisplayMode",
           "X",
-          "Y",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "271",
+            "InvariantPropertyName": "Y",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           "Width",
           "Height",
           "BorderStyle",
@@ -292,7 +306,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "271",
+            "InvariantScript": "230//271",
             "Property": "Y",
             "RuleProviderType": "Unknown"
           },
@@ -607,7 +621,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "320//341",
+            "InvariantScript": "300//341",
             "Property": "Y",
             "RuleProviderType": "Unknown"
           },
@@ -2093,7 +2107,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638247779737629401",
+    "LastModifiedTimestamp": "638247787090022029",
     "Name": "ModalConfirmation",
     "Rules": [
       {
@@ -2273,7 +2287,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638247779737629401",
+  "LastModifiedTimestamp": "638247787090022029",
   "Name": "eb24e4724ed04a619ab834c43dfccdf3",
   "OverridableProperties": {},
   "Version": "638193246716139455"

@@ -17,12 +17,12 @@ ModalConfirmation As CanvasComponent:
     Rectangle1 As rectangle:
         Fill: =Color.White
         Height: |
-            =259
+            =300//259
         Width: |-
             =//456
             460
         X: =455
-        Y: =255
+        Y: =215//255
         ZIndex: =1
 
     Label4 As label:
@@ -31,14 +31,14 @@ ModalConfirmation As CanvasComponent:
         Text: =ModalConfirmation.ModalText
         Width: =374
         X: =496
-        Y: =320//341
+        Y: =300//341
         ZIndex: =2
 
     "Icon4 As icon.'3DPrinting'":
         Color: =ModalConfirmation.ModalIconColor
         Icon: =ModalConfirmation.ModalIcon
         X: =651
-        Y: =271
+        Y: =230//271
         ZIndex: =3
 
     Button1_2 As button:
