@@ -1392,7 +1392,7 @@ Respetivas As screen:
                         " e ",
                         ", "
                     )
-                ) & " receberá(ão) nova Data de Aprovação e a informação de Membros de Órgões Sociais necessitará de nova validação, deseja confirmar?",
+                ) & " terá(ão) sua(s) Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação!",
                 "Tem certeza de que deseja eliminar a empresa respetiva " & LabelMembroName_2.Text & "?"
             )
         Visible: =localShowModal

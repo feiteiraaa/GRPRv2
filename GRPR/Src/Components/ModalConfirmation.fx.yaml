@@ -31,7 +31,7 @@ ModalConfirmation As CanvasComponent:
         Text: =ModalConfirmation.ModalText
         Width: =374
         X: =496
-        Y: =341
+        Y: =320//341
         ZIndex: =2
 
     "Icon4 As icon.'3DPrinting'":

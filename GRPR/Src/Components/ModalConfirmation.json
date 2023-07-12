@@ -420,7 +420,14 @@
           },
           "VerticalAlign",
           "X",
-          "Y",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "341",
+            "InvariantPropertyName": "Y",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           "Width",
           "Height",
           "DisplayMode",
@@ -600,7 +607,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "341",
+            "InvariantScript": "320//341",
             "Property": "Y",
             "RuleProviderType": "Unknown"
           },
@@ -2086,7 +2093,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638247774565386908",
+    "LastModifiedTimestamp": "638247779737629401",
     "Name": "ModalConfirmation",
     "Rules": [
       {
@@ -2266,7 +2273,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638247774565386908",
+  "LastModifiedTimestamp": "638247779737629401",
   "Name": "eb24e4724ed04a619ab834c43dfccdf3",
   "OverridableProperties": {},
   "Version": "638193246716139455"
