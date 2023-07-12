@@ -1310,7 +1310,43 @@ Respetivas As screen:
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
                 ).Aprovado = false,
-                "Após essa alteração, a informação do membro " & LabelMembroName.Text & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
+                "Após essa alteração, a informação do(s) membro(s) " & Concat(
+                    ForAll(
+                        collectMResp,
+                        LookUp(
+                            Membros_1,
+                            ID = Value
+                        ).Nome
+                    ).Value,
+                    Value & If(
+                        Value = LookUp(
+                            Membros_1,
+                            ID = Last(collectMResp).Value
+                        ).Nome,
+                        "",
+                        CountRows(collectMResp[@Value]) = 2,
+                        " e ",
+                        ", "
+                    )
+                ) & Concat(
+                    ForAll(
+                        collectMFResp,
+                        LookUp(
+                            Membros_1,
+                            ID = Value
+                        ).Nome
+                    ).Value,
+                    Value & If(
+                        Value = LookUp(
+                            Membros_1,
+                            ID = Last(collectMFResp).Value
+                        ).Nome,
+                        "",
+                        CountRows(collectMFResp[@Value]) = 2,
+                        " e ",
+                        ", "
+                    )
+                ) & " terá(ão) sua(s) Data de Aprovação apagada, deseja confirmar esta alteração?",
                 localLimpar And (IsEmpty(collectMRespData) Or IsEmpty(collectMFRespData)) And LookUp(
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
@@ -1320,7 +1356,43 @@ Respetivas As screen:
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
                 ).Aprovado,
-                "Após essa alteração, a informação do membro " & LabelMembroName.Text & " terá sua Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                "Após essa alteração, a informação do(s) membro(s) " & Concat(
+                    ForAll(
+                        collectMResp,
+                        LookUp(
+                            Membros_1,
+                            ID = Value
+                        ).Nome
+                    ).Value,
+                    Value & If(
+                        Value = LookUp(
+                            Membros_1,
+                            ID = Last(collectMResp).Value
+                        ).Nome,
+                        "",
+                        CountRows(collectMResp[@Value]) = 2,
+                        " e ",
+                        ", "
+                    )
+                ) & Concat(
+                    ForAll(
+                        collectMFResp,
+                        LookUp(
+                            Membros_1,
+                            ID = Value
+                        ).Nome
+                    ).Value,
+                    Value & If(
+                        Value = LookUp(
+                            Membros_1,
+                            ID = Last(collectMFResp).Value
+                        ).Nome,
+                        "",
+                        CountRows(collectMFResp[@Value]) = 2,
+                        " e ",
+                        ", "
+                    )
+                ) & " terá(ão) sua(s) Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
                 "Tem certeza de que deseja eliminar a empresa respetiva " & LabelMembroName_2.Text & "?"
             )
         Visible: =localShowModal
@@ -1834,57 +1906,19 @@ Respetivas As screen:
                                 }
                             ),
                             SubmitForm(EmpresasRespetivas)
-                        )
-                        /*If(
-                            LookUp(
-                                Aprovacaos,
-                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                            ).Aprovado,
-                            Patch(
-                                Aprovacaos,
-                                LookUp(
-                                    Aprovacaos,
-                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                ),
-                                {Aprovado: false}
-                            );
-                            Notify(
-                                "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente!",
-                                NotificationType.Warning
-                            )
-                        );*/
-                /*If(
-                            localFormRespetivasEdit,
-                            ForAll(
-                                collectMResp,
-                                Patch(
-                                    Membros_1,
-                                    LookUp(
-                                        Membros_1,
-                                        ID = Value
-                                    ),
-                                    {'Data aprovacao CA': Blank()}
-                                )
-                            );
-                            ForAll(
-                                collectMFResp,
-                                Patch(
-                                    Membros_1,
-                                    LookUp(
-                                        Membros_1,
-                                        ID = Value
-                                    ),
-                                    {'Data aprovacao CA': Blank()}
-                                )
-                            )
-                        )*/,
+                        ),
                         Notify(
                             "Por favor, preencha o número do documento corretamente.",
                             NotificationType.Error
                         )
                     ),
                     UpdateContext({localFormRespetivasEdit: true});
-                    ClearCollect(
+                    Clear(collectMRespData);
+                    Clear(collectMFRespData);
+                    Clear(collectMFResp);
+                    Clear(collectMFResp0);
+                    //filtrar na tabela de relação ID=empresa respectiva selecionada
+                ClearCollect(
                         collectMResp0,
                         If(
                             !IsBlank(_selectedRespetivas),
@@ -1903,30 +1937,35 @@ Respetivas As screen:
                             )
                         )
                     );
-                    ClearCollect(
+                    //collect apenas o campo com o ID do membro
+                ClearCollect(
                         collectMResp,
                         ForAll(
                             collectMResp0,
                             ID_Membro.ID
                         )
                     );
-                    ClearCollect(
+                    //collect apenas o campo com o ID do familiar
+                ClearCollect(
                         collectFResp,
                         ForAll(
                             collectMResp0,
                             ID_Familiares.ID
                         )
                     );
-                    RemoveIf(
+                    //Remover os campos de value null
+                RemoveIf(
                         collectMResp,
                         IsBlank(ThisRecord.Value)
                     );
-                    RemoveIf(
+                    //Remover os campos de value null
+                RemoveIf(
                         collectFResp,
                         IsBlank(ThisRecord.Value)
                     );
-                    If(
-                        !IsBlank(collectFResp),
+                    //Se houver familiar associado a empresa, filtrar na tabela de relação ID desses familiares
+                If(
+                        !IsEmpty(collectFResp),
                         ClearCollect(
                             collectMFResp0,
                             Filter(
@@ -1934,7 +1973,8 @@ Respetivas As screen:
                                 ID_Familiares.ID in collectFResp[@Value]
                             )
                         );
-                        ClearCollect(
+                        //Filtrar ID do membro associado a estes familiares
+                ClearCollect(
                             collectMFResp,
                             ForAll(
                                 collectMFResp0,
@@ -1943,8 +1983,10 @@ Respetivas As screen:
                         );
                         RemoveIf(
                             collectMFResp,
-                            IsBlank(ThisRecord.Value)
+                            IsBlank(ThisRecord.Value) Or
+                            ThisRecord.Value in collectMResp[@Value]
                         );
+                        //Validações de data de aprovação
                         ClearCollect(
                             collectMFRespData,
                             ForAll(

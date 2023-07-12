@@ -74,13 +74,13 @@ Particulares As screen:
                 )
             }
         );
-        Concat(ForAll(
+        /*Concat(ForAll(
             Filter(
                 CollectMFR,
                 CollectMFR[@ID_Membro].ID = "1004" And IsBlank(ID_Empresa.ID)
             ).ID_Familiares,
             ID_Familiares.Nome
-        ).Value,Value & ";")
+        ).Value,Value & ";")*/
 
     ROC As dataTable.datatable:
         BorderStyle: =BorderStyle.Solid
