@@ -630,7 +630,8 @@ Particulares As screen:
                         false
                     )
                 Width: =25
-                X: =929
+                X: =922
+                Y: =14
                 ZIndex: =7
 
         Container1 As groupContainer.manualLayoutContainer:
