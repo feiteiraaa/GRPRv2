@@ -1347,7 +1347,7 @@ Respetivas As screen:
                         ", "
                     )
                 ) & " terá(ão) sua(s) Data de Aprovação apagada, deseja confirmar esta alteração?",
-                localLimpar And (IsEmpty(collectMRespData) Or IsEmpty(collectMFRespData)) And LookUp(
+                localLimpar And (IsEmpty(collectMRespData) And IsEmpty(collectMFRespData)) And LookUp(
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
                 ).Aprovado,
@@ -1392,7 +1392,7 @@ Respetivas As screen:
                         " e ",
                         ", "
                     )
-                ) & " terá(ão) sua(s) Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                ) & " terá(ão) sua(s) Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação, deseja confirmar esta alteração?",
                 "Tem certeza de que deseja eliminar a empresa respetiva " & LabelMembroName_2.Text & "?"
             )
         Visible: =localShowModal
