@@ -1028,51 +1028,42 @@ MembrosFamiDetails As screen:
                             If(
                                 Len(DataCardValue5_2.Text) = 9,
                                 If(
-                                    SubmitForm(InfoRelaçãoFami) And SubmitForm(Informacao_1),
-                                    Notify(
-                                        "O registo foi submetido com sucesso!",
-                                        NotificationType.Success
-                                    );
-                                    ResetForm(Informacao_1);
-                                    ResetForm(InfoRelaçãoFami);
-                                    UpdateContext(
-                                        {
-                                            localShowData: false,
-                                            localShowNewForm: false
-                                        }
-                                    );
-                                    If(
+                                    !IsBlank(
                                         LookUp(
-                                            Aprovacaos,
-                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                        ).Aprovado,
-                                        Patch(
-                                            Aprovacaos,
-                                            LookUp(
-                                                Aprovacaos,
-                                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                            ),
-                                            {Aprovado: false}
-                                        );
+                                            Membros_1,
+                                            ID = _MembroF
+                                        ).'Data aprovacao CA'
+                                    ) Or LookUp(
+                                        Aprovacaos,
+                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                    ).Aprovado,
+                                    UpdateContext({localLimpar: true}),
+                                    If(
+                                        SubmitForm(InfoRelaçãoFami) And SubmitForm(Informacao_1),
                                         Notify(
-                                            "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
-                                            NotificationType.Warning
+                                            "O registo foi submetido com sucesso!",
+                                            NotificationType.Success
+                                        );
+                                        ResetForm(Informacao_1);
+                                        ResetForm(InfoRelaçãoFami);
+                                        UpdateContext(
+                                            {
+                                                localShowData: false,
+                                                localShowNewForm: false
+                                            }
+                                        );
+                                        Back(),
+                                        Notify(
+                                            "Por favor, tente novamente.",
+                                            NotificationType.Error
                                         )
-                                    );
-                                    If(!IsBlank(_Familiar),Patch(Membros_1,LookUp(Membros_1,ID = _MembroF),{'Data aprovacao CA':Blank()}));
-                                    Back(),
-                                    Notify(
-                                        "Por favor, tente novamente.",
-                                        NotificationType.Error
                                     )
                                 ),
                                 Notify(
                                     "Por favor, preencha o número do documento corretamente.",
                                     NotificationType.Error
                                 )
-                            )
-                            
-                              ,
+                            ),
                             Informacao_1.Mode = FormMode.New,
                             If(
                                 Len(DataCardValue5_2.Text) = 9,

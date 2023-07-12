@@ -26768,6 +26768,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "MembrosFamiDetails.localLimpar"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MembrosFamiDetails.localLimpar",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "localLimpar",
+                "module": "MembrosFamiDetails",
+                "type": "MembrosFamiDetails"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "MembrosFamiDetails.localShowArq"
                 }
               ],

@@ -816,26 +816,7 @@ MembrosDetails As screen:
                                             NotificationType.Success
                                         );
                                         ResetForm(Informacao);
-                                    /*If(
-                                        LookUp(
-                                            Aprovacaos,
-                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                        ).Aprovado,
-                                        Patch(
-                                            Aprovacaos,
-                                            LookUp(
-                                                Aprovacaos,
-                                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                            ),
-                                            {Aprovado: false}
-                                        );
-                                        Notify(
-                                            "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
-                                            NotificationType.Warning
-                                        )
-                                    );
-                                    If(Informacao.Mode <> FormMode.New,Patch(Membros_1,LookUp(Membros_1,ID = _Membro),{'Data aprovacao CA':Blank()}));*/
-                        UpdateContext(
+                                        UpdateContext(
                                             {
                                                 localShowData: false,
                                                 localShowNewForm: !localShowNewForm
@@ -1227,49 +1208,42 @@ MembrosDetails As screen:
                         =If(
                             _Associated Or localShowEditForm,
                             If(
-                                SubmitForm(EmpresasParticipadas),
-                                Notify(
-                                    "O registo foi submetido com sucesso!",
-                                    NotificationType.Success
-                                );
+                                !IsBlank(
+                                    LookUp(
+                                        Membros_1,
+                                        ID = _Membro
+                                    ).'Data aprovacao CA'
+                                ) Or LookUp(
+                                    Aprovacaos,
+                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                ).Aprovado,
+                                UpdateContext({localLimpar: true}),
                                 If(
-                                        LookUp(
-                                            Aprovacaos,
-                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                        ).Aprovado,
-                                        Patch(
-                                            Aprovacaos,
-                                            LookUp(
-                                                Aprovacaos,
-                                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                            ),
-                                            {Aprovado: false}
-                                        );
-                                        Notify(
-                                            "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
-                                            NotificationType.Warning
-                                        )
+                                    SubmitForm(EmpresasParticipadas),
+                                    Notify(
+                                        "O registo foi submetido com sucesso!",
+                                        NotificationType.Success
                                     );
-                                    Patch(Membros_1,LookUp(Membros_1,ID = _Membro),{'Data aprovacao CA':Blank()});
-                                ResetForm(EmpresasParticipadas);
-                                UpdateContext(
-                                    {
-                                        _Associated: false,
-                                        localShowLeg: false,
-                                        localShowEditForm: false
-                                    }
-                                );
-                                Navigate(Particulares),
-                                Notify(
-                                    "Por favor, tente novamente.",
-                                    NotificationType.Error
-                                );
-                                UpdateContext(
-                                    {
-                                        _Associated: false,
-                                        localShowLeg: false,
-                                        localShowEditForm: false
-                                    }
+                                    ResetForm(EmpresasParticipadas);
+                                    UpdateContext(
+                                        {
+                                            _Associated: false,
+                                            localShowLeg: false,
+                                            localShowEditForm: false
+                                        }
+                                    );
+                                    Navigate(Particulares),
+                                    Notify(
+                                        "Por favor, tente novamente.",
+                                        NotificationType.Error
+                                    );
+                                    UpdateContext(
+                                        {
+                                            _Associated: false,
+                                            localShowLeg: false,
+                                            localShowEditForm: false
+                                        }
+                                    )
                                 )
                             ),
                             Notify(
@@ -2577,61 +2551,47 @@ MembrosDetails As screen:
                         =If(
                             _AssociatedR Or localShowEditForm,
                             If(
-                                SubmitForm(FormRespetivas),
-                                Notify(
-                                    "O registo foi submetido com sucesso!",
-                                    NotificationType.Success
-                                );
-                                ResetForm(FormRespetivas);
-                                UpdateContext(
-                                    {
-                                        _AssociatedR: false,
-                                        localShowEliminacao: false,
-                                        localShowEditForm: false,
-                                        _AssociarR: false
-                                    }
-                                );
-                                If(
-                                    LookUp(
-                                        Aprovacaos,
-                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                    ).Aprovado,
-                                    Patch(
-                                        Aprovacaos,
-                                        LookUp(
-                                            Aprovacaos,
-                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                        ),
-                                        {Aprovado: false}
-                                    );
-                                    Notify(
-                                        "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
-                                        NotificationType.Warning
-                                    )
-                                );
-                                Patch(
-                                    Membros_1,
+                                !IsBlank(
                                     LookUp(
                                         Membros_1,
                                         ID = _Membro
+                                    ).'Data aprovacao CA'
+                                ) Or LookUp(
+                                    Aprovacaos,
+                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                ).Aprovado,
+                                UpdateContext({localLimpar: true}),
+                                If(
+                                    SubmitForm(FormRespetivas),
+                                    Notify(
+                                        "O registo foi submetido com sucesso!",
+                                        NotificationType.Success
+                                    );
+                                    ResetForm(FormRespetivas);
+                                    UpdateContext(
+                                        {
+                                            _AssociatedR: false,
+                                            localShowEliminacao: false,
+                                            localShowEditForm: false,
+                                            _AssociarR: false
+                                        }
+                                    );
+                                    Navigate(
+                                        Particulares,
+                                        ScreenTransition.None
                                     ),
-                                    {'Data aprovacao CA': Blank()}
-                                );
-                                Navigate(
-                                    Particulares,
-                                    ScreenTransition.None
-                                ),
-                                Notify(
-                                    "Por favor, tente novamente.",
-                                    NotificationType.Error
-                                );
-                                UpdateContext(
-                                    {
-                                        _AssociatedR: false,
-                                        localShowEliminacao: false,
-                                        localShowEditForm: false,
-                                        _AssociarR: false
-                                    }
+                                    Notify(
+                                        "Por favor, tente novamente.",
+                                        NotificationType.Error
+                                    );
+                                    UpdateContext(
+                                        {
+                                            _AssociatedR: false,
+                                            localShowEliminacao: false,
+                                            localShowEditForm: false,
+                                            _AssociarR: false
+                                        }
+                                    )
                                 )
                             ),
                             Notify(
