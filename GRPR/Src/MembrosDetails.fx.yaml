@@ -3636,7 +3636,8 @@ MembrosDetails As screen:
             HoverFill: =cores.rosa
             OnSelect: |-
                 =UpdateContext({
-                    localShowModal: false
+                    localShowModal: false,
+                    localLimpar: false
                 })
             PaddingLeft: =50
             PressedColor: =Color.Black
@@ -3667,6 +3668,24 @@ MembrosDetails As screen:
                     Remove(
                         'Membros-Participadas',
                         'empresas do grupo'.Selected
+                    );
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                            NotificationType.Warning
+                        )
                     ),
                     localShowEliminacao,
                     Remove(
@@ -3706,6 +3725,50 @@ MembrosDetails As screen:
                         Notify(
                             "Empresa Respetiva foi dissociada com sucesso, mas permanece ativa por estar associada a outro registo",
                             NotificationType.Success
+                        )
+                    );
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                            NotificationType.Warning
+                        )
+                    ),
+                    localLimpar,
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        )
+                    );
+                    If(
+                        Informacao.Mode <> FormMode.New,
+                        Patch(
+                            Membros_1,
+                            LookUp(
+                                Membros_1,
+                                ID = _Membro
+                            ),
+                            {'Data aprovacao CA': Blank()}
                         )
                     ),
                     If(
@@ -3811,27 +3874,27 @@ MembrosDetails As screen:
                                 )
                             )
                         )
-                    )
-                );
-                UpdateContext({localShowModal: false});
-                If(
-                    LookUp(
-                        Aprovacaos,
-                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                    ).Aprovado,
-                    Patch(
-                        Aprovacaos,
+                    );
+                    If(
                         LookUp(
                             Aprovacaos,
                             ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                        ),
-                        {Aprovado: false}
-                    );
-                    Notify(
-                        "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
-                        NotificationType.Warning
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                            NotificationType.Warning
+                        )
                     )
                 );
+                UpdateContext({localShowModal: false,localLimpar: false});
                 Navigate(
                     Particulares,
                     ScreenTransition.None
