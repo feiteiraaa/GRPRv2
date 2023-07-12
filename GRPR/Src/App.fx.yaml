@@ -241,14 +241,14 @@ App As appinfo:
         );
         
         
-        /*Set(
+        Set(
             godMode,
             false
         );
         Set(
             DGC_Editor,
             true
-        )*/
+        )
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
