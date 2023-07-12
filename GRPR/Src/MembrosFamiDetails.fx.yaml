@@ -2483,7 +2483,7 @@ MembrosFamiDetails As screen:
     ModalConfirmation_8 As ModalConfirmation:
         ModalText: |-
             =If(
-                localShowEliminacao,
+                localShowEliminacao And !localLimpar,
                 "Tem certeza de que deseja eliminar a empresa " & 'empresas respetivas fami'.Selected.ID_Empresa.Designacao & " do familiar " & LookUp(
                     Familiares,
                     ID = _Familiar
