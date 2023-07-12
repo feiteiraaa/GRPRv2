@@ -3465,16 +3465,46 @@ MembrosDetails As screen:
         ZIndex: =8
 
     ModalConfirmation_7 As ModalConfirmation:
-        ModalText: |
+        ModalText: |-
             =If(
                 localShowLeg,
                 "Tem certeza de que deseja dissociar a empresa " & 'empresas do grupo'.Selected.Designacao & " do membro " & LabelMembroName.Text & " ?",
                 localShowEliminacao,
                 "Tem certeza de que deseja eliminar a empresa " & 'empresas respetivas'.Selected.ID_Empresa.Designacao & " do membro " & LabelMembroName.Text & " ?",
+                localLimpar And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado And IsBlank(
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).'Data aprovacao CA'
+                ),
+                "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                localLimpar And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado=false And !IsBlank(
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).'Data aprovacao CA'
+                ),
+                "Após essa alteração, a informação do membro "& LabelMembroName.Text & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
+                localLimpar And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado And !IsBlank(
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).'Data aprovacao CA'
+                ),
+                "Após essa alteração, a informação do membro "& LabelMembroName.Text & " terá sua Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
                 //!localShowData And !localShowLeg And !localShowEliminacao And !localShowRelacao And !localShowPrazo And !localShowNewForm And !_AssociarR And !_Associar,
                 "Tem certeza de que deseja eliminar o membro " & LabelMembroName.Text & " ?"
             )
-        Visible: =localShowModal
+        Visible: =localShowModal Or localLimpar
         ZIndex: =9
 
     EliminarMembro As group:
