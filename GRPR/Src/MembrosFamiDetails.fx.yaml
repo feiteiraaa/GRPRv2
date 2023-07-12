@@ -14,7 +14,8 @@ MembrosFamiDetails As screen:
                     _AssociatedR,
                     true,
                     false
-                )
+                ),
+                localLimpar:false
             }
         );
         ClearCollect(
@@ -1028,51 +1029,42 @@ MembrosFamiDetails As screen:
                             If(
                                 Len(DataCardValue5_2.Text) = 9,
                                 If(
-                                    SubmitForm(InfoRelaçãoFami) And SubmitForm(Informacao_1),
-                                    Notify(
-                                        "O registo foi submetido com sucesso!",
-                                        NotificationType.Success
-                                    );
-                                    ResetForm(Informacao_1);
-                                    ResetForm(InfoRelaçãoFami);
-                                    UpdateContext(
-                                        {
-                                            localShowData: false,
-                                            localShowNewForm: false
-                                        }
-                                    );
-                                    If(
+                                    !IsBlank(
                                         LookUp(
-                                            Aprovacaos,
-                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                        ).Aprovado,
-                                        Patch(
-                                            Aprovacaos,
-                                            LookUp(
-                                                Aprovacaos,
-                                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                            ),
-                                            {Aprovado: false}
-                                        );
+                                            Membros_1,
+                                            ID = _MembroF
+                                        ).'Data aprovacao CA'
+                                    ) Or LookUp(
+                                        Aprovacaos,
+                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                    ).Aprovado,
+                                    UpdateContext({localLimpar: true,localShowModal:true}),
+                                    If(
+                                        SubmitForm(InfoRelaçãoFami) And SubmitForm(Informacao_1),
                                         Notify(
-                                            "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
-                                            NotificationType.Warning
+                                            "O registo foi submetido com sucesso!",
+                                            NotificationType.Success
+                                        );
+                                        ResetForm(Informacao_1);
+                                        ResetForm(InfoRelaçãoFami);
+                                        UpdateContext(
+                                            {
+                                                localShowData: false,
+                                                localShowNewForm: false
+                                            }
+                                        );
+                                        Back(),
+                                        Notify(
+                                            "Por favor, tente novamente.",
+                                            NotificationType.Error
                                         )
-                                    );
-                                    If(!IsBlank(_Familiar),Patch(Membros_1,LookUp(Membros_1,ID = _MembroF),{'Data aprovacao CA':Blank()}));
-                                    Back(),
-                                    Notify(
-                                        "Por favor, tente novamente.",
-                                        NotificationType.Error
                                     )
                                 ),
                                 Notify(
                                     "Por favor, preencha o número do documento corretamente.",
                                     NotificationType.Error
                                 )
-                            )
-                            
-                              ,
+                            ),
                             Informacao_1.Mode = FormMode.New,
                             If(
                                 Len(DataCardValue5_2.Text) = 9,
@@ -1985,61 +1977,52 @@ MembrosFamiDetails As screen:
                         =If(
                             _AssociatedR Or localShowEditForm,
                             If(
-                                SubmitForm(FormRespetivas_1),
-                                Notify(
-                                    "O registo foi submetido com sucesso!",
-                                    NotificationType.Success
-                                );
-                                If(
-                                    LookUp(
-                                        Aprovacaos,
-                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                    ).Aprovado,
-                                    Patch(
-                                        Aprovacaos,
-                                        LookUp(
-                                            Aprovacaos,
-                                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                                        ),
-                                        {Aprovado: false}
-                                    );
-                                    Notify(
-                                        "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
-                                        NotificationType.Warning
-                                    )
-                                );
-                                Patch(
-                                    Membros_1,
+                                !IsBlank(
                                     LookUp(
                                         Membros_1,
                                         ID = _MembroF
-                                    ),
-                                    {'Data aprovacao CA': Blank()}
-                                );
-                                ResetForm(FormRespetivas_1);
+                                    ).'Data aprovacao CA'
+                                ) Or LookUp(
+                                    Aprovacaos,
+                                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                ).Aprovado,
                                 UpdateContext(
                                     {
-                                        _AssociatedR: false,
-                                        localShowEliminacao: false,
-                                        localShowEditForm: false,
-                                        _AssociarRF: false
+                                        localLimpar: true,
+                                        localShowModal: true
                                     }
-                                );
-                                Navigate(
-                                    MembrosDetails,
-                                    ScreenTransition.None
                                 ),
-                                Notify(
-                                    "Por favor, tente novamente.",
-                                    NotificationType.Error
-                                );
-                                UpdateContext(
-                                    {
-                                        _AssociatedR: false,
-                                        localShowEliminacao: false,
-                                        localShowEditForm: false,
-                                        _AssociarRF: false
-                                    }
+                                If(
+                                    SubmitForm(FormRespetivas_1),
+                                    Notify(
+                                        "O registo foi submetido com sucesso!",
+                                        NotificationType.Success
+                                    );
+                                    ResetForm(FormRespetivas_1);
+                                    UpdateContext(
+                                        {
+                                            _AssociatedR: false,
+                                            localShowEliminacao: false,
+                                            localShowEditForm: false,
+                                            _AssociarRF: false
+                                        }
+                                    );
+                                    Navigate(
+                                        MembrosDetails,
+                                        ScreenTransition.None
+                                    ),
+                                    Notify(
+                                        "Por favor, tente novamente.",
+                                        NotificationType.Error
+                                    );
+                                    UpdateContext(
+                                        {
+                                            _AssociatedR: false,
+                                            localShowEliminacao: false,
+                                            localShowEditForm: false,
+                                            _AssociarRF: false
+                                        }
+                                    )
                                 )
                             ),
                             Notify(
@@ -2498,7 +2481,54 @@ MembrosFamiDetails As screen:
         ZIndex: =6
 
     ModalConfirmation_8 As ModalConfirmation:
-        ModalText: ="Tem certeza de que deseja eliminar a empresa " & 'empresas respetivas fami'.Selected.ID_Empresa.Designacao & " do familiar " & LookUp(Familiares,ID = _Familiar).Nome & " ?"
+        ModalText: |-
+            =If(
+                localShowEliminacao And !localLimpar,
+                "Tem certeza de que deseja eliminar a empresa " & 'empresas respetivas fami'.Selected.ID_Empresa.Designacao & " do familiar " & LookUp(
+                    Familiares,
+                    ID = _Familiar
+                ).Nome & " ?",
+                localLimpar And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado And IsBlank(
+                    LookUp(
+                        Membros_1,
+                        ID = _MembroF
+                    ).'Data aprovacao CA'
+                ),
+                "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                localLimpar And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado = false And !IsBlank(
+                    LookUp(
+                        Membros_1,
+                        ID = _MembroF
+                    ).'Data aprovacao CA'
+                ),
+                "Após essa alteração, a informação do membro " & LookUp(
+                    Membros_1,
+                    ID = _MembroF
+                ).Nome & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
+                localLimpar And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado And !IsBlank(
+                    LookUp(
+                        Membros_1,
+                        ID = _MembroF
+                    ).'Data aprovacao CA'
+                ),
+                "Após essa alteração, a informação do membro " & LookUp(
+                    Membros_1,
+                    ID = _MembroF
+                ).Nome & " terá sua Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                "Tem certeza de que deseja eliminar o familiar " & LookUp(
+                    Familiares,
+                    ID = _Familiar
+                ).Nome & " ?"
+            )
         Visible: =localShowModal
         ZIndex: =9
 
@@ -2602,7 +2632,8 @@ MembrosFamiDetails As screen:
             HoverFill: =cores.rosa
             OnSelect: |-
                 =UpdateContext({
-                    localShowModal: false
+                    localShowModal: false,
+                    localLimpar:false
                 })
             PaddingLeft: =50
             PressedColor: =Color.Black
@@ -2624,7 +2655,8 @@ MembrosFamiDetails As screen:
             Icon: =Icon.Cancel
             OnSelect: |-
                 =UpdateContext({
-                    localShowModal: false
+                    localShowModal: false,
+                    localLimpar:false
                 })
             Visible: =localShowModal
             Width: =30
@@ -2647,6 +2679,24 @@ MembrosFamiDetails As screen:
                     Remove(
                         'Membros-Familiares-Respetivas',
                         'empresas respetivas fami'.Selected
+                    );
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                            NotificationType.Warning
+                        )
                     );
                     If(
                         IsBlank(
@@ -2682,6 +2732,29 @@ MembrosFamiDetails As screen:
                             "Empresa Respetiva foi dissociada com sucesso, mas permanece ativa por estar associada a outro registo",
                             NotificationType.Success
                         )
+                    ),
+                    localLimpar,
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        )
+                    );
+                    Patch(
+                        Membros_1,
+                        LookUp(
+                            Membros_1,
+                            ID = _MembroF
+                        ),
+                        {'Data aprovacao CA': Blank()}
                     ),
                     If(
                         Patch(
@@ -2761,27 +2834,27 @@ MembrosFamiDetails As screen:
                                 )
                             )
                         )
-                    )
-                );
-                UpdateContext({localShowModal: false});
-                If(
-                    LookUp(
-                        Aprovacaos,
-                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                    ).Aprovado,
-                    Patch(
-                        Aprovacaos,
+                    );
+                    If(
                         LookUp(
                             Aprovacaos,
                             ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                        ),
-                        {Aprovado: false}
-                    );
-                    Notify(
-                        "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
-                        NotificationType.Warning
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                            NotificationType.Warning
+                        )
                     )
                 );
+                UpdateContext({localShowModal: false});
                 Navigate(
                     MembrosDetails,
                     ScreenTransition.None
