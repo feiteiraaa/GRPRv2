@@ -2,7 +2,7 @@ Respetivas As screen:
     OnHidden: |
         =UpdateContext({_AssociarR:false,_AssociarRF:false,localFormRespetivas:false,_selectedRespetivas:Blank(),_selectedRespetivasF:Blank()});
     OnVisible: |-
-        =UpdateContext({localFormRespetivasNew:false, localShowPrazo: false,localFormRespetivasEdit:false});
+        =UpdateContext({localFormRespetivasNew:false, localShowPrazo: false,localFormRespetivasEdit:false,localLimpar:false, localShowModal:false});
         ClearCollect(CollecRespectivas, Empresas);
         Set(
             varSortCol1,
@@ -1346,7 +1346,7 @@ Respetivas As screen:
                         " e ",
                         ", "
                     )
-                ) & " terá(ão) sua(s) Data de Aprovação apagada, deseja confirmar esta alteração?",
+                ) & " terá(ão) sua(s) Data de Aprovação apagada!",
                 localLimpar And (IsEmpty(collectMRespData) And IsEmpty(collectMFRespData)) And LookUp(
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
@@ -1356,7 +1356,7 @@ Respetivas As screen:
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
                 ).Aprovado,
-                "Após essa alteração, a informação do(s) membro(s) " & Concat(
+                "A informação do(s) membro(s) " & Concat(
                     ForAll(
                         collectMResp,
                         LookUp(
@@ -1392,7 +1392,7 @@ Respetivas As screen:
                         " e ",
                         ", "
                     )
-                ) & " terá(ão) sua(s) Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação, deseja confirmar esta alteração?",
+                ) & " receberá(ão) nova Data de Aprovação e a informação de Membros de Órgões Sociais necessitará de nova validação, deseja confirmar?",
                 "Tem certeza de que deseja eliminar a empresa respetiva " & LabelMembroName_2.Text & "?"
             )
         Visible: =localShowModal

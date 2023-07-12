@@ -25,8 +25,22 @@
           "DisplayMode",
           "X",
           "Y",
-          "Width",
-          "Height",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "456",
+            "InvariantPropertyName": "Width",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "259",
+            "InvariantPropertyName": "Height",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           "ZIndex",
           "BorderThickness",
           "FocusedBorderThickness"
@@ -108,13 +122,13 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "456",
+            "InvariantScript": "//456\r\n460",
             "Property": "Width",
             "RuleProviderType": "Unknown"
           },
           {
             "Category": "Design",
-            "InvariantScript": "259",
+            "InvariantScript": "259\r\n",
             "Property": "Height",
             "RuleProviderType": "Unknown"
           },
@@ -421,7 +435,15 @@
           "PaddingTop",
           "PaddingRight",
           "PaddingBottom",
-          "PaddingLeft"
+          "PaddingLeft",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "AutoHeight",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          }
         ],
         "ControlUniqueId": "35",
         "HasDynamicProperties": false,
@@ -670,6 +692,12 @@
             "Category": "Design",
             "InvariantScript": "5",
             "Property": "PaddingLeft",
+            "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Design",
+            "InvariantScript": "false",
+            "Property": "AutoHeight",
             "RuleProviderType": "Unknown"
           }
         ],
@@ -1171,7 +1199,14 @@
           },
           "VerticalAlign",
           "X",
-          "Y",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "440",
+            "InvariantPropertyName": "Y",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           {
             "AFDDataSourceName": "",
             "AutoRuleBindingEnabled": false,
@@ -1387,7 +1422,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "440",
+            "InvariantScript": "440\r\n",
             "Property": "Y",
             "RuleProviderType": "Unknown"
           },
@@ -1753,7 +1788,14 @@
           "HoverFill",
           "DisplayMode",
           "X",
-          "Y",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "445",
+            "InvariantPropertyName": "Y",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           {
             "AFDDataSourceName": "",
             "AutoRuleBindingEnabled": false,
@@ -1863,7 +1905,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "445",
+            "InvariantScript": "445\r\n",
             "Property": "Y",
             "RuleProviderType": "Unknown"
           },
@@ -2044,7 +2086,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638247698832452021",
+    "LastModifiedTimestamp": "638247774565386908",
     "Name": "ModalConfirmation",
     "Rules": [
       {
@@ -2224,7 +2266,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638247698832452021",
+  "LastModifiedTimestamp": "638247774565386908",
   "Name": "eb24e4724ed04a619ab834c43dfccdf3",
   "OverridableProperties": {},
   "Version": "638193246716139455"
