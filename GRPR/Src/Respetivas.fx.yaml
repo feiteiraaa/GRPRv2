@@ -263,7 +263,7 @@ Respetivas As screen:
         ParticularesAdd_11 As DynamicBtn:
             BtnOnSelect: =
             BtnText: ="Novo"
-            Visible: =!localFormRespetivas And !localFormRespetivasNew
+            Visible: =!localFormRespetivas And !localFormRespetivasNew And (DRI Or DGC_Validador Or DGC_Editor)
             X: =1166
             Y: =156
             ZIndex: =6
@@ -1684,8 +1684,36 @@ Respetivas As screen:
                     localFormRespetivasEdit Or localFormRespetivasNew,
                     If(
                         Len(DataCardValue35.Text) = 9,
-                        SubmitForm(EmpresasRespetivas);
                         If(
+                            Not(
+                                Blank() in ForAll(
+                                    collectMResp,
+                                    LookUp(
+                                        Membros_1,
+                                        ID = Value
+                                    ).'Data aprovacao CA'
+                                )
+                            ) Or Not(
+                                Blank() in ForAll(
+                                    collectMFResp,
+                                    LookUp(
+                                        Membros_1,
+                                        ID = Value
+                                    ).'Data aprovacao CA'
+                                )
+                            ) Or LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ).Aprovado,
+                            UpdateContext(
+                                {
+                                    localLimpar: true,
+                                    localShowModal: true
+                                }
+                            ),
+                            SubmitForm(EmpresasRespetivas)
+                        )
+                        /*If(
                             LookUp(
                                 Aprovacaos,
                                 ThisRecord.Tabela = "Membros de Orgãos Sociais"
@@ -1702,8 +1730,8 @@ Respetivas As screen:
                                 "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente!",
                                 NotificationType.Warning
                             )
-                        );
-                        If(
+                        );*/
+                /*If(
                             localFormRespetivasEdit,
                             ForAll(
                                 collectMResp,
@@ -1727,7 +1755,7 @@ Respetivas As screen:
                                     {'Data aprovacao CA': Blank()}
                                 )
                             )
-                        ),
+                        )*/,
                         Notify(
                             "Por favor, preencha o número do documento corretamente.",
                             NotificationType.Error
