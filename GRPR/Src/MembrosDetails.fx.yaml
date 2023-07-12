@@ -23,7 +23,8 @@ MembrosDetails As screen:
                 localShowRelacao: false,
                 localShowPrazo: false,
                 localShowNewForm: false,
-                localBloquear: true
+                //localBloquear: true,
+                localLimpar:false
             }
         );
         Refresh('Membros-Familiares-Respetivas');
@@ -798,13 +799,24 @@ MembrosDetails As screen:
                             If(
                                 Len(DataCardValue5.Text) = 9,
                                 If(
-                                    SubmitForm(Informacao),
-                                    Notify(
-                                        "O registo foi submetido com sucesso!",
-                                        NotificationType.Success
-                                    );
-                                    ResetForm(Informacao);
+                                    !IsBlank(
+                                        LookUp(
+                                            Membros_1,
+                                            ID = _Membro
+                                        ).'Data aprovacao CA'
+                                    ) Or LookUp(
+                                        Aprovacaos,
+                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                    ).Aprovado,
+                                    UpdateContext({localLimpar: true}),
                                     If(
+                                        SubmitForm(Informacao),
+                                        Notify(
+                                            "O registo foi submetido com sucesso!",
+                                            NotificationType.Success
+                                        );
+                                        ResetForm(Informacao);
+                                    /*If(
                                         LookUp(
                                             Aprovacaos,
                                             ThisRecord.Tabela = "Membros de Orgãos Sociais"
@@ -822,24 +834,25 @@ MembrosDetails As screen:
                                             NotificationType.Warning
                                         )
                                     );
-                                    If(Informacao.Mode <> FormMode.New,Patch(Membros_1,LookUp(Membros_1,ID = _Membro),{'Data aprovacao CA':Blank()}));
-                                    UpdateContext(
-                                        {
-                                            localShowData: false,
-                                            localShowNewForm: !localShowNewForm
-                                        }
-                                    ),
-                                    If(
-                                        Informacao.Mode = FormMode.New,
-                                        Navigate(
-                                            Particulares,
-                                            ScreenTransition.None
-                                        )
-                                    ),
+                                    If(Informacao.Mode <> FormMode.New,Patch(Membros_1,LookUp(Membros_1,ID = _Membro),{'Data aprovacao CA':Blank()}));*/
+                        UpdateContext(
+                                            {
+                                                localShowData: false,
+                                                localShowNewForm: !localShowNewForm
+                                            }
+                                        ),
+                                        If(
+                                            Informacao.Mode = FormMode.New,
+                                            Navigate(
+                                                Particulares,
+                                                ScreenTransition.None
+                                            )
+                                        ),
                                     //Back(),
-                                    Notify(
-                                        "Por favor, tente novamente.",
-                                        NotificationType.Error
+                                        Notify(
+                                            "Por favor, tente novamente.",
+                                            NotificationType.Error
+                                        )
                                     )
                                 ),
                                 Notify(
