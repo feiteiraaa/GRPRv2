@@ -246,7 +246,7 @@ App As appinfo:
             false
         );
         Set(
-            DGC_Editor,
+            DCOMP_Consulta,
             true
         )
 
