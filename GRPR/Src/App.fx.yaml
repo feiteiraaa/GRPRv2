@@ -245,7 +245,7 @@ App As appinfo:
         If(User().Email = "grdias.ex@montepio.pt", Set(godMode, false), Set(godMode, true));
         
         Set(
-            DAI_Consulta,
+            DRI,
             true
         )
 
