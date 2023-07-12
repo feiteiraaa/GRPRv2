@@ -2044,7 +2044,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638247660228344803",
+    "LastModifiedTimestamp": "638247698832452021",
     "Name": "ModalConfirmation",
     "Rules": [
       {
@@ -2224,7 +2224,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638247660228344803",
+  "LastModifiedTimestamp": "638247698832452021",
   "Name": "eb24e4724ed04a619ab834c43dfccdf3",
   "OverridableProperties": {},
   "Version": "638193246716139455"

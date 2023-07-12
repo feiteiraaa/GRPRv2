@@ -1310,7 +1310,43 @@ Respetivas As screen:
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
                 ).Aprovado = false,
-                "Após essa alteração, a informação do membro " & LabelMembroName.Text & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
+                "Após essa alteração, a informação do(s) membro(s) " & Concat(
+                    ForAll(
+                        collectMResp,
+                        LookUp(
+                            Membros_1,
+                            ID = Value
+                        ).Nome
+                    ).Value,
+                    Value & If(
+                        Value = LookUp(
+                            Membros_1,
+                            ID = Last(collectMResp).Value
+                        ).Nome,
+                        "",
+                        CountRows(collectMResp[@Value]) = 2,
+                        " e ",
+                        ", "
+                    )
+                ) & Concat(
+                    ForAll(
+                        collectMFResp,
+                        LookUp(
+                            Membros_1,
+                            ID = Value
+                        ).Nome
+                    ).Value,
+                    Value & If(
+                        Value = LookUp(
+                            Membros_1,
+                            ID = Last(collectMFResp).Value
+                        ).Nome,
+                        "",
+                        CountRows(collectMFResp[@Value]) = 2,
+                        " e ",
+                        ", "
+                    )
+                ) & " terá(ão) sua(s) Data de Aprovação apagada, deseja confirmar esta alteração?",
                 localLimpar And (IsEmpty(collectMRespData) Or IsEmpty(collectMFRespData)) And LookUp(
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
@@ -1320,26 +1356,44 @@ Respetivas As screen:
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
                 ).Aprovado,
-                "Após essa alteração, a informação do membro " & LabelMembroName.Text & " terá sua Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                "Após essa alteração, a informação do(s) membro(s) " & Concat(
+                    ForAll(
+                        collectMResp,
+                        LookUp(
+                            Membros_1,
+                            ID = Value
+                        ).Nome
+                    ).Value,
+                    Value & If(
+                        Value = LookUp(
+                            Membros_1,
+                            ID = Last(collectMResp).Value
+                        ).Nome,
+                        "",
+                        CountRows(collectMResp[@Value]) = 2,
+                        " e ",
+                        ", "
+                    )
+                ) & Concat(
+                    ForAll(
+                        collectMFResp,
+                        LookUp(
+                            Membros_1,
+                            ID = Value
+                        ).Nome
+                    ).Value,
+                    Value & If(
+                        Value = LookUp(
+                            Membros_1,
+                            ID = Last(collectMFResp).Value
+                        ).Nome,
+                        "",
+                        CountRows(collectMFResp[@Value]) = 2,
+                        " e ",
+                        ", "
+                    )
+                ) & " terá(ão) sua(s) Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
                 "Tem certeza de que deseja eliminar a empresa respetiva " & LabelMembroName_2.Text & "?"
-            ) & Concat(
-                ForAll(
-                    collectMResp,
-                    LookUp(
-                        Membros_1,
-                        ID = Value
-                    ).Nome
-                ).Value,
-                Value & ", "
-            ) & Concat(
-                ForAll(
-                    collectMFResp,
-                    LookUp(
-                        Membros_1,
-                        ID = Value
-                    ).Nome
-                ).Value,
-                Value & ", "
             )
         Visible: =localShowModal
         ZIndex: =24

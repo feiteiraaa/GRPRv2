@@ -15688,6 +15688,326 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 18,
+                  "charOffset": 511,
+                  "snippet": {
+                    "text": "Last(collectMResp)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "ModalText",
+                "module": "Respetivas",
+                "type": "Respetivas.ModalConfirmation_9"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Last"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 509,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "ModalText",
+                "module": "Respetivas",
+                "type": "Respetivas.ModalConfirmation_9"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 19,
+                  "charOffset": 932,
+                  "snippet": {
+                    "text": "Last(collectMFResp)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "ModalText",
+                "module": "Respetivas",
+                "type": "Respetivas.ModalConfirmation_9"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Last"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 930,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "ModalText",
+                "module": "Respetivas",
+                "type": "Respetivas.ModalConfirmation_9"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 18,
+                  "charOffset": 2030,
+                  "snippet": {
+                    "text": "Last(collectMResp)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "ModalText",
+                "module": "Respetivas",
+                "type": "Respetivas.ModalConfirmation_9"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Last"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 2028,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "ModalText",
+                "module": "Respetivas",
+                "type": "Respetivas.ModalConfirmation_9"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 19,
+                  "charOffset": 2451,
+                  "snippet": {
+                    "text": "Last(collectMFResp)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "ModalText",
+                "module": "Respetivas",
+                "type": "Respetivas.ModalConfirmation_9"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Last"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Respetivas.ModalConfirmation_9.ModalText",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 2449,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "ModalText",
+                "module": "Respetivas",
+                "type": "Respetivas.ModalConfirmation_9"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Listagens.GalleryListagens.Items"
                 }
               ],
