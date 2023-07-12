@@ -263,7 +263,7 @@ Respetivas As screen:
         ParticularesAdd_11 As DynamicBtn:
             BtnOnSelect: =
             BtnText: ="Novo"
-            Visible: =!localFormRespetivas And !localFormRespetivasNew And (DRI Or DGC_Validador Or DGC_Editor)
+            Visible: =(!localFormRespetivas And !localFormRespetivasNew) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
             X: =1166
             Y: =156
             ZIndex: =6
@@ -1304,7 +1304,25 @@ Respetivas As screen:
             ZIndex: =4
 
     ModalConfirmation_9 As ModalConfirmation:
-        ModalText: ="Tem certeza de que deseja eliminar a empresa respetiva " & LabelMembroName_2.Text & "?"
+        ModalText: |-
+            =If(
+                localLimpar And (!IsEmpty(collectMRespData) Or !IsEmpty(collectMFRespData)) And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado = false,
+                "Após essa alteração, a informação do membro " & LabelMembroName.Text & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
+                localLimpar And (IsEmpty(collectMRespData) Or IsEmpty(collectMFRespData)) And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado,
+                "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                localLimpar And (!IsEmpty(collectMRespData) Or !IsEmpty(collectMFRespData)) And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado,
+                "Após essa alteração, a informação do membro " & LabelMembroName.Text & " terá sua Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                "Tem certeza de que deseja eliminar a empresa respetiva " & LabelMembroName_2.Text & "?"
+            )
         Visible: =localShowModal
         ZIndex: =24
 
@@ -1325,7 +1343,8 @@ Respetivas As screen:
             HoverFill: =cores.rosa
             OnSelect: |-
                 =UpdateContext({
-                    localShowModal: false
+                    localShowModal: false,
+                    localLimpar:false
                 })
             PaddingLeft: =50
             PressedColor: =Color.Black
@@ -1350,8 +1369,48 @@ Respetivas As screen:
             HoverBorderColor: =
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =ColorFade(RGBA(70, 70, 70, 1),80%)
-            OnSelect: |
+            OnSelect: |-
                 =If(
+                    localLimpar,
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        )
+                    );
+                    If(
+                        localFormRespetivasEdit,
+                        ForAll(
+                            collectMResp,
+                            Patch(
+                                Membros_1,
+                                LookUp(
+                                    Membros_1,
+                                    ID = Value
+                                ),
+                                {'Data aprovacao CA': Blank()}
+                            )
+                        );
+                        ForAll(
+                            collectMFResp,
+                            Patch(
+                                Membros_1,
+                                LookUp(
+                                    Membros_1,
+                                    ID = Value
+                                ),
+                                {'Data aprovacao CA': Blank()}
+                            )
+                        )
+                    ),
                     EmpresasRespetivas.Mode = FormMode.View,
                     If(
                         Patch(
@@ -1387,34 +1446,40 @@ Respetivas As screen:
                         Notify(
                             "Registo eliminado com sucesso!",
                             NotificationType.Success
-                        );
-                        Refresh(Empresas);
-                        UpdateContext({localShowModal: false}),
+                        ),
                         Notify(
                             "Por favor, tente novamente ou contacte o administrador da solução!",
                             NotificationType.Error
                         )
-                    )/*,
-                    UpdateContext({ColabFormMode: FormMode.View})*/
-                );
-                If(
-                    LookUp(
-                        Aprovacaos,
-                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                    ).Aprovado,
-                    Patch(
-                        Aprovacaos,
+                    );
+                    If(
                         LookUp(
                             Aprovacaos,
                             ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                        ),
-                        {Aprovado: false}
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente!",
+                            NotificationType.Warning
+                        )
                     );
-                    Notify(
-                        "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente!",
-                        NotificationType.Warning
-                    )
+                    /*,
+                    UpdateContext({ColabFormMode: FormMode.View})*/
                 );
+                Refresh(Empresas);
+                UpdateContext(
+                    {
+                        localShowModal: false,
+                        localLimpar: false
+                    }
+                )
             PaddingLeft: =50
             PressedColor: =Color.Black
             PressedFill: =ColorFade(RGBA(70, 70, 70, 1),90%)
@@ -1435,6 +1500,46 @@ Respetivas As screen:
             Icon: =Icon.Check
             OnSelect: |-
                 =If(
+                    localLimpar,
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        )
+                    );
+                    If(
+                        localFormRespetivasEdit,
+                        ForAll(
+                            collectMResp,
+                            Patch(
+                                Membros_1,
+                                LookUp(
+                                    Membros_1,
+                                    ID = Value
+                                ),
+                                {'Data aprovacao CA': Blank()}
+                            )
+                        );
+                        ForAll(
+                            collectMFResp,
+                            Patch(
+                                Membros_1,
+                                LookUp(
+                                    Membros_1,
+                                    ID = Value
+                                ),
+                                {'Data aprovacao CA': Blank()}
+                            )
+                        )
+                    ),
                     EmpresasRespetivas.Mode = FormMode.View,
                     If(
                         Patch(
@@ -1458,19 +1563,51 @@ Respetivas As screen:
                                 'Data de saída': Now()
                             }
                         ).Ativo = false,
-                        Back();
+                        //Back();
+                        Navigate(
+                            Inicio,
+                            ScreenTransition.None
+                        );
+                        Navigate(
+                            Respetivas,
+                            ScreenTransition.None
+                        );
                         Notify(
                             "Registo eliminado com sucesso!",
                             NotificationType.Success
-                        );
-                        UpdateContext({localShowModal: false}),
+                        ),
                         Notify(
                             "Por favor, tente novamente ou contacte o administrador da solução!",
                             NotificationType.Error
                         )
-                    )/*,
+                    );
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente!",
+                            NotificationType.Warning
+                        )
+                    );
+                    /*,
                     UpdateContext({ColabFormMode: FormMode.View})*/
-                
+                );
+                Refresh(Empresas);
+                UpdateContext(
+                    {
+                        localShowModal: false,
+                        localLimpar: false
+                    }
                 )
             Visible: =localShowModal
             Width: =30
@@ -1484,7 +1621,8 @@ Respetivas As screen:
             Icon: =Icon.Cancel
             OnSelect: |-
                 =UpdateContext({
-                    localShowModal: false
+                    localShowModal: false,
+                    localLimpar:false
                 })
             Visible: =localShowModal
             Width: =30
@@ -1685,23 +1823,7 @@ Respetivas As screen:
                     If(
                         Len(DataCardValue35.Text) = 9,
                         If(
-                            Not(
-                                Blank() in ForAll(
-                                    collectMResp,
-                                    LookUp(
-                                        Membros_1,
-                                        ID = Value
-                                    ).'Data aprovacao CA'
-                                )
-                            ) Or Not(
-                                Blank() in ForAll(
-                                    collectMFResp,
-                                    LookUp(
-                                        Membros_1,
-                                        ID = Value
-                                    ).'Data aprovacao CA'
-                                )
-                            ) Or LookUp(
+                            !IsEmpty(collectMRespData) Or !IsEmpty(collectMFRespData) Or LookUp(
                                 Aprovacaos,
                                 ThisRecord.Tabela = "Membros de Orgãos Sociais"
                             ).Aprovado,
@@ -1822,7 +1944,35 @@ Respetivas As screen:
                         RemoveIf(
                             collectMFResp,
                             IsBlank(ThisRecord.Value)
-                        )
+                        );
+                        ClearCollect(
+                            collectMFRespData,
+                            ForAll(
+                                collectMFResp,
+                                LookUp(
+                                    Membros_1,
+                                    ID = Value
+                                ).'Data aprovacao CA'
+                            ).Value
+                        );
+                        RemoveIf(
+                            collectMFRespData,
+                            IsBlank(ThisRecord.Value)
+                        );
+                    );
+                    ClearCollect(
+                        collectMRespData,
+                        ForAll(
+                            collectMResp,
+                            LookUp(
+                                Membros_1,
+                                ID = Value
+                            ).'Data aprovacao CA'
+                        ).Value
+                    );
+                    RemoveIf(
+                        collectMRespData,
+                        IsBlank(ThisRecord.Value)
                     );
                     
                 )
