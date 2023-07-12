@@ -27127,6 +27127,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Respetivas.localLimpar"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Respetivas.localLimpar",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "localLimpar",
+                "module": "Respetivas",
+                "type": "Respetivas"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Respetivas.localShowArq"
                 }
               ],
