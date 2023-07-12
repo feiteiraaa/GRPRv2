@@ -241,10 +241,9 @@ App As appinfo:
         );
         
         
-        Set(
-            godMode,
-            false
-        );
+        //temporary - UO tests
+        If(User().Email = "grdias.ex@montepio.pt", Set(godMode, false), Set(godMode, true));
+        
         Set(
             DCOMP_Consulta,
             true

@@ -4441,7 +4441,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Data aprovacao CA_DataCard1",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4601,7 +4601,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Data de insercao_DataCard1",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31222,7 +31222,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Grupo_DataCard1",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -42241,7 +42241,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Legislacao aplicada_DataCard3",
-      "ParentIndex": 5,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
