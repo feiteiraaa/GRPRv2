@@ -461,7 +461,7 @@ MembrosDetails As screen:
                         =//ColabFormMode<>FormMode.New
                         Informacao.Mode <> FormMode.New
                     Width: =266
-                    X: =1
+                    X: =2
                     Y: =1
                     ZIndex: =1
 
@@ -537,8 +537,8 @@ MembrosDetails As screen:
                     Update: =DateValue2.SelectedDate
                     Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
                     Width: =266
-                    X: =2
-                    Y: =1
+                    X: =0
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey7 As label:
@@ -623,8 +623,8 @@ MembrosDetails As screen:
                             true
                         )
                     Width: =266
-                    X: =0
-                    Y: =2
+                    X: =1
+                    Y: =1
                     ZIndex: =1
 
                     DataCardKey8 As label:
