@@ -3647,7 +3647,7 @@ MembrosDetails As screen:
             RadiusTopLeft: =5
             RadiusTopRight: =5
             Text: ="CANCELAR"
-            Visible: =localShowModal
+            Visible: =localShowModal Or localLimpar
             Width: =165
             X: =717
             Y: =440
@@ -3907,7 +3907,7 @@ MembrosDetails As screen:
             RadiusTopLeft: =5
             RadiusTopRight: =5
             Text: ="Confirmar"
-            Visible: =localShowModal
+            Visible: =localShowModal Or localLimpar
             Width: =165
             X: =486
             Y: =440
@@ -3918,30 +3918,243 @@ MembrosDetails As screen:
             Height: =30
             Icon: =Icon.Check
             OnSelect: |-
-                =/*If(
-                    ColabFormMode = FormMode.View,
+                =If(
+                    localShowLeg,
+                    Remove(
+                        'Membros-Participadas',
+                        'empresas do grupo'.Selected
+                    );
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                            NotificationType.Warning
+                        )
+                    ),
+                    localShowEliminacao,
+                    Remove(
+                        'Membros-Familiares-Respetivas',
+                        'empresas respetivas'.Selected
+                    );
+                    If(
+                        IsBlank(
+                            Filter(
+                                'Membros-Familiares-Respetivas',
+                                ID_Empresa.ID = 'empresas respetivas'.Selected.ID
+                            )
+                        ),
+                        If(
+                            Patch(
+                                Empresas,
+                                LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = 'empresas respetivas'.Selected.ID
+                                ),
+                                {
+                                    Ativo: false,
+                                    //Bloqueado: true,
+                                    'Data de saída': Now()
+                                }
+                            ).Ativo = false,
+                            //Back();
+                            Notify(
+                                "Empresa Respetiva foi eliminada com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
+                        ),
+                        Notify(
+                            "Empresa Respetiva foi dissociada com sucesso, mas permanece ativa por estar associada a outro registo",
+                            NotificationType.Success
+                        )
+                    );
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                            NotificationType.Warning
+                        )
+                    ),
+                    localLimpar,
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        )
+                    );
+                    If(
+                        Informacao.Mode <> FormMode.New,
+                        Patch(
+                            Membros_1,
+                            LookUp(
+                                Membros_1,
+                                ID = _Membro
+                            ),
+                            {'Data aprovacao CA': Blank()}
+                        )
+                    ),
                     If(
                         Patch(
-                            'Empresas Participadas do Grupos',
-                            LookUp('Empresas Participadas do Grupos', ThisRecord.ID = _EmpresasParticipadas),
+                            Membros_1,
+                            LookUp(
+                                Membros_1,
+                                ThisRecord.ID = _Membro
+                            ),
                             {
                                 Ativo: false,
-                                Bloqueado: true,
+                                //Bloqueado: true,
                                 'Data de saida': Now()
                             }
                         ).Ativo = false,
-                        Back();
-                        Notify("Registo de Empresas Participadas do grupo Eliminado com sucesso!", NotificationType.Success);
-                        UpdateContext({
-                            localShowModal: false
-                        }),
-                        Notify("Por favor, tente novamente ou contacte o administrador da solução!", NotificationType.Error)
-                    ),
-                    UpdateContext({
-                        ColabFormMode: FormMode.View
-                    })
-                )*/
-            Visible: =localShowModal
+                        Notify(
+                            "Membro eliminado com sucesso!",
+                            NotificationType.Success
+                        ),
+                        Notify(
+                            "Por favor, tente novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
+                    );
+                    ForAll(
+                        ligacaoFamiliares,
+                        If(
+                            Patch(
+                                Familiares,
+                                LookUp(
+                                    Familiares,
+                                    ThisRecord.ID = ligacaoFamiliares[@ID_Familiares].ID
+                                ),
+                                {
+                                    Ativo: false,
+                                    //Bloqueado: true,
+                                    'Data de saida': Now()
+                                }
+                            ).Ativo = false,
+                            Notify(
+                                "Familiares associados ao membro eliminado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
+                        )
+                    );
+                    If(
+                        IsBlank(RespetivasOutros),
+                    //If true = não tenho nem familiar nem membro associado; If false = tenho membro ou familiar associado,
+                        ForAll(
+                            RespetivasMembroFamiResp,
+                            If(
+                                Patch(
+                                    Empresas,
+                                    LookUp(
+                                        Empresas,
+                                        ThisRecord.ID = RespetivasMembroFamiResp[@ID_Empresa].ID
+                                    ),
+                                    {
+                                        Ativo: false,
+                                        //Bloqueado: true,
+                                        'Data de saída': Now()
+                                    }
+                                ).Ativo = false,
+                                Notify(
+                                    "A empresa respetiva " & RespetivasMembroFamiResp[@ID_Empresa].Designacao & " estava associada apenas ao Familiar eliminado, portanto foi eliminada com sucesso!",
+                                    NotificationType.Success
+                                ),
+                                Notify(
+                                    "Falha ao eliminar a empresa respetiva " & RespetivasMembroFamiResp[@ID_Empresa].Designacao & " associada apenas ao Familiar eliminado, tente novamente na secção 'Empresas Respetivas'ou contacte o administrador da solução!",
+                                    NotificationType.Error
+                                )
+                            )
+                        ),
+                        ForAll(
+                            RespetivasMembroFamiResp,
+                            If(
+                                Not(RespetivasMembroFamiResp[@ID_Empresa].ID in RespetivasOutros.Value),
+                                If(
+                                    Patch(
+                                        Empresas,
+                                        LookUp(
+                                            Empresas,
+                                            ThisRecord.ID = RespetivasMembroFamiResp[@ID_Empresa].ID
+                                        ),
+                                        {
+                                            Ativo: false,
+                                            //Bloqueado: true,
+                                            'Data de saída': Now()
+                                        }
+                                    ).Ativo = false,
+                                    Notify(
+                                        "A empresa respetiva " & RespetivasMembroFamiResp[@ID_Empresa].Designacao & " associada ao Membro e/ou familiar(es) foi eliminada com sucesso!",
+                                        NotificationType.Success
+                                    ),
+                                    Notify(
+                                        "Falha ao eliminar a empresa respetiva " & RespetivasMembroFamiResp[@ID_Empresa].Designacao & " associada apenas ao Membro e/ou familiar(es), tente novamente na secção 'Empresas Respetivas'ou contacte o administrador da solução!",
+                                        NotificationType.Error
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente! ",
+                            NotificationType.Warning
+                        )
+                    )
+                );
+                UpdateContext({localShowModal: false,localLimpar: false});
+                Navigate(
+                    Particulares,
+                    ScreenTransition.None
+                )
+            Visible: =localShowModal Or localLimpar
             Width: =30
             X: =496
             Y: =445
@@ -3953,9 +4166,10 @@ MembrosDetails As screen:
             Icon: =Icon.Cancel
             OnSelect: |-
                 =UpdateContext({
-                    localShowModal: false
+                    localShowModal: false,
+                    localLimpar: false
                 })
-            Visible: =localShowModal
+            Visible: =localShowModal Or localLimpar
             Width: =30
             X: =726
             Y: =445
