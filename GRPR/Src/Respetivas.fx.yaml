@@ -263,7 +263,7 @@ Respetivas As screen:
         ParticularesAdd_11 As DynamicBtn:
             BtnOnSelect: =
             BtnText: ="Novo"
-            Visible: =!localFormRespetivas And !localFormRespetivasNew And (DRI Or DGC_Validador Or DGC_Editor)
+            Visible: =(!localFormRespetivas And !localFormRespetivasNew) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
             X: =1166
             Y: =156
             ZIndex: =6

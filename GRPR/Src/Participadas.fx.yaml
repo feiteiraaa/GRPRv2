@@ -303,7 +303,7 @@ Participadas As screen:
         ParticularesAdd_8 As DynamicBtn:
             BtnOnSelect: =
             BtnText: ="Novo"
-            Visible: =If(_Associar,false,true) And (DRI Or DGC_Validador Or DGC_Editor)
+            Visible: =If(_Associar,false,true) And (DRI Or DGC_Validador Or DGC_Editor Or godMode)
             X: =1166
             Y: =156
             ZIndex: =7
@@ -323,7 +323,7 @@ Participadas As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =If(_Associar,false,true) And (DRI Or DGC_Validador Or DGC_Editor)
+            Visible: =If(_Associar,false,true) And (DRI Or DGC_Validador Or DGC_Editor Or godMode)
             X: =1165
             Y: =159
             ZIndex: =8
