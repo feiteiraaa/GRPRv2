@@ -1411,7 +1411,7 @@ Particulares As screen:
                     "Membros dos Orgãos Sociais",
                     Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
                 );*/
-                localFiltro= "Colaboradores"
+                false//localFiltro= "Colaboradores"
             X: =1041
             Y: =30
             ZIndex: =22
@@ -1445,7 +1445,7 @@ Particulares As screen:
                     "Membros dos Orgãos Sociais",
                     Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
                 );*/
-                localFiltro= "Colaboradores"
+                false//localFiltro= "Colaboradores"
             Width: =285
             X: =1041
             Y: =30

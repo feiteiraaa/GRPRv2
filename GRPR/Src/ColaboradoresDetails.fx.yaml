@@ -114,10 +114,10 @@ ColaboradoresDetails As screen:
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             MaxLength: =DataSourceInfo([@Colaboradores_1], DataSourceInfo.MaxLength, "uipp_cargodescricao")
-            Required: =true
+            Required: =false
             Update: =DataCardValue6_1.Text
             Width: =323
-            X: =1
+            X: =2
             Y: =0
             ZIndex: =1
 
@@ -190,7 +190,7 @@ ColaboradoresDetails As screen:
             Required: =true
             Update: =DataCardValue5_1.Selected.Value
             Width: =323
-            X: =2
+            X: =1
             Y: =0
             ZIndex: =1
 
@@ -777,14 +777,25 @@ ColaboradoresDetails As screen:
                             Aprovacaos,
                             ThisRecord.Tabela = "Colaboradores"
                         ).Aprovado,
-                        UpdateContext({localLimpar: true,localShowModal:true}),
+                        UpdateContext(
+                            {
+                                localLimpar: true,
+                                localShowModal: true
+                            }
+                        ),
                         If(
                             SubmitForm(ColaboradorForm_1),
-                
                             Back();
-                            Notify(
-                                "Registo de Colaborador criado com sucesso!",
-                                NotificationType.Success
+                            If(
+                                ColabFormMode = FormMode.Edit,
+                                Notify(
+                                    "Registo de Colaborador alterado com sucesso!",
+                                    NotificationType.Success
+                                ),
+                                Notify(
+                                    "Registo de Colaborador criado com sucesso!",
+                                    NotificationType.Success
+                                )
                             ),
                             Notify(
                                 "Por favor, tente novamente ou contacte o administrador da solução!",
