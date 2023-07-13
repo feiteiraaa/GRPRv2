@@ -190,8 +190,8 @@ ROCDetails As screen:
             Required: =true
             Update: =DataCardValue16.Selected.Value
             Width: =323
-            X: =2
-            Y: =0
+            X: =0
+            Y: =1
             ZIndex: =1
 
             DataCardKey21 As label:
@@ -661,8 +661,8 @@ ROCDetails As screen:
             Required: =true
             Update: =DataCardValue2.Selected.Value
             Width: =323
-            X: =0
-            Y: =1
+            X: =2
+            Y: =0
             ZIndex: =1
 
             DataCardKey2 As label:
