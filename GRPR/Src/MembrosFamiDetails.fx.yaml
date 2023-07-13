@@ -2543,10 +2543,10 @@ MembrosFamiDetails As screen:
                         ID = _MembroF
                     ).'Data aprovacao CA'
                 ),
-                "Após essa alteração, a informação do membro " & LookUp(
+                "O membro " & LookUp(
                     Membros_1,
                     ID = _MembroF
-                ).Nome & " terá sua Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                ).Nome & " terá sua Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação, deseja confirmar esta alteração?",
                 "Tem certeza de que deseja eliminar o familiar " & LookUp(
                     Familiares,
                     ID = _Familiar
