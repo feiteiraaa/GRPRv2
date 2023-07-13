@@ -908,7 +908,7 @@ ROCDetails As screen:
                 )
             )
         Size: =14
-        Visible: =ColabFormMode <> FormMode.New
+        Visible: =true//ColabFormMode <> FormMode.New
         Width: =291
         X: =365
         Y: =124
