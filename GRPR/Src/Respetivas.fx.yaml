@@ -1346,7 +1346,7 @@ Respetivas As screen:
                         " e ",
                         ", "
                     )
-                ) & " terá(ão) sua(s) Data de Aprovação apagada!",
+                ) & " terá(ão) sua(s) Data de Aprovação apagada, deseja confirmar esta alteração?",
                 localLimpar And (IsEmpty(collectMRespData) And IsEmpty(collectMFRespData)) And LookUp(
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
@@ -1356,7 +1356,7 @@ Respetivas As screen:
                     Aprovacaos,
                     ThisRecord.Tabela = "Membros de Orgãos Sociais"
                 ).Aprovado,
-                "A informação do(s) membro(s) " & Concat(
+                "O(s) membro(s) " & Concat(
                     ForAll(
                         collectMResp,
                         LookUp(
@@ -1458,6 +1458,7 @@ Respetivas As screen:
                             {Aprovado: false}
                         )
                     );
+                    SubmitForm(EmpresasRespetivas);
                     If(
                         localFormRespetivasEdit,
                         ForAll(

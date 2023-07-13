@@ -777,28 +777,10 @@ ColaboradoresDetails As screen:
                             Aprovacaos,
                             ThisRecord.Tabela = "Colaboradores"
                         ).Aprovado,
-                        UpdateContext({localLimpar: true}),
+                        UpdateContext({localLimpar: true,localShowModal:true}),
                         If(
                             SubmitForm(ColaboradorForm_1),
-                        /*If(
-                            LookUp(
-                                Aprovacaos,
-                                ThisRecord.Tabela = "Colaboradores"
-                            ).Aprovado,
-                            Patch(
-                                Aprovacaos,
-                                LookUp(
-                                    Aprovacaos,
-                                    ThisRecord.Tabela = "Colaboradores"
-                                ),
-                                {Aprovado: false}
-                            );
-                            Notify(
-                                "Após essa alteração, a informação de Colaboradores necessitará de nova validação pelo perfil Validador correspondente! ",
-                                NotificationType.Warning
-                            )
-                        );
-                        If(ColabFormMode <> FormMode.New,Patch(Colaboradores_1,LookUp(Colaboradores_1,ID = _Colaborador),{'Data aprovacao CA':Blank()}));*/
+                
                             Back();
                             Notify(
                                 "Registo de Colaborador criado com sucesso!",
@@ -904,7 +886,40 @@ ColaboradoresDetails As screen:
         ZIndex: =14
 
         ModalConfirmation_4 As ModalConfirmation:
-            ModalText: ="Tem certeza de que deseja eliminar o registo de ''"& DataCardValue9_1.Text &"'' ?"
+            ModalText: |-
+                =If(
+                    localLimpar And !IsBlank(
+                        LookUp(
+                            Colaboradores_1,
+                            ID = _Colaborador
+                        ).'Data aprovacao CA'
+                    ) And LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Colaboradores"
+                    ).Aprovado,
+                    "O colaborador " & DataCardValue9_1.Text & " terá sua Data de Aprovação apagada e a informação de Colaboradores necessitará de nova validação, deseja confirmar esta alteração?",
+                    localLimpar And IsBlank(
+                        LookUp(
+                            Colaboradores_1,
+                            ID = _Colaborador
+                        ).'Data aprovacao CA'
+                    ) And LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Colaboradores"
+                    ).Aprovado,
+                    "Após essa alteração, a informação de Colaboradores necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                    localLimpar And !IsBlank(
+                        LookUp(
+                            Colaboradores_1,
+                            ID = _Colaborador
+                        ).'Data aprovacao CA'
+                    ) And LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Colaboradores"
+                    ).Aprovado = false,
+                    "O colaborador " & DataCardValue9_1.Text & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
+                    "Tem certeza de que deseja eliminar o registo de ''" & DataCardValue9_1.Text & "'' ?"
+                )
             Visible: =localShowModal
             ZIndex: =11
 
@@ -920,33 +935,7 @@ ColaboradoresDetails As screen:
             HoverFill: =RGBA(0,0,0, 0)
             OnSelect: |-
                 =If(
-                    ColabFormMode = FormMode.View,
-                    If(
-                        Patch(
-                            Colaboradores_1,
-                            LookUp(Colaboradores_1, _Colaborador = ID),
-                            {
-                                Ativo: false,
-                                Bloqueado: true,
-                                'Data de saida': Now()
-                            }
-                        ).Ativo = false,
-                        Back();
-                        Notify("Registo de Colaborador Eliminado com sucesso!", NotificationType.Success);
-                        UpdateContext({
-                            localShowModal: true
-                        }),
-                        Notify("Por favor, tente novamente ou contacte o administrador da solução!", NotificationType.Error)
-                    ),
-                    UpdateContext({
-                        ColabFormMode: FormMode.View    
-                    })
-                );
-                If(
-                    LookUp(
-                        Aprovacaos,
-                        ThisRecord.Tabela = "Colaboradores"
-                    ).Aprovado,
+                    localLimpar,
                     Patch(
                         Aprovacaos,
                         LookUp(
@@ -955,11 +944,77 @@ ColaboradoresDetails As screen:
                         ),
                         {Aprovado: false}
                     );
-                    Notify(
-                        "Após essa eliminação, a informação de Colaboradores necessitará de nova validação pelo perfil Validador correspondente! ",
-                        NotificationType.Warning
+                    Patch(
+                        Colaboradores_1,
+                        LookUp(
+                            Colaboradores_1,
+                            ID = _Colaborador
+                        ),
+                        {'Data aprovacao CA': Blank()}
+                    );
+                    If(
+                        SubmitForm(ColaboradorForm_1),
+                        Back();
+                        Notify(
+                            "Registo de Colaborador criado com sucesso!",
+                            NotificationType.Success
+                        ),
+                        Notify(
+                            "Por favor, tente novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
+                    ),
+                    If(
+                        ColabFormMode = FormMode.View,
+                        If(
+                            Patch(
+                                Colaboradores_1,
+                                LookUp(
+                                    Colaboradores_1,
+                                    _Colaborador = ID
+                                ),
+                                {
+                                    Ativo: false,
+                                    //Bloqueado: true,
+                                    'Data de saida': Now()
+                                }
+                            ).Ativo = false,
+                            Back();
+                            Notify(
+                                "Registo de Colaborador Eliminado com sucesso!",
+                                NotificationType.Success
+                            );
+                            UpdateContext({localShowModal: true}),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
+                        ),
+                        UpdateContext({ColabFormMode: FormMode.View})
+                    );
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Colaboradores"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "Colaboradores"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de Colaboradores necessitará de nova validação pelo perfil Validador correspondente! ",
+                            NotificationType.Warning
+                        )
                     )
                 );
+                UpdateContext({
+                    localShowModal: false,
+                    localLimpar: false
+                })
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
@@ -980,7 +1035,8 @@ ColaboradoresDetails As screen:
             HoverFill: =RGBA(0,0,0, 0)
             OnSelect: |-
                 =UpdateContext({
-                    localShowModal: false
+                    localShowModal: false,
+                    localLimpar: false
                 })
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
