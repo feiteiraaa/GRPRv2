@@ -171,6 +171,7 @@ Inicio As screen:
         FontWeight: =FontWeight.Semibold
         Size: =15
         Text: ="Notificações"
+        Visible: =DRI
         Width: =270
         X: =365
         Y: =93
