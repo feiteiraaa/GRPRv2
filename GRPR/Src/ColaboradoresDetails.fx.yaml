@@ -1010,7 +1010,11 @@ ColaboradoresDetails As screen:
                             NotificationType.Warning
                         )
                     )
-                )
+                );
+                UpdateContext({
+                    localShowModal: false,
+                    localLimpar: false
+                })
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
@@ -1031,7 +1035,8 @@ ColaboradoresDetails As screen:
             HoverFill: =RGBA(0,0,0, 0)
             OnSelect: |-
                 =UpdateContext({
-                    localShowModal: false
+                    localShowModal: false,
+                    localLimpar: false
                 })
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
