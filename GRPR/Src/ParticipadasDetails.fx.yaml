@@ -965,7 +965,8 @@ ParticipadasDetails As screen:
             HoverFill: =cores.rosa
             OnSelect: |-
                 =UpdateContext({
-                    localShowModal: false
+                    localShowModal: false,
+                    localLimpar:false
                 })
             PaddingLeft: =50
             PressedColor: =Color.Black
@@ -1077,7 +1078,8 @@ ParticipadasDetails As screen:
                         ),
                         UpdateContext({ColabFormMode: FormMode.View})
                     )
-                )
+                );
+                UpdateContext({localLimpar:false, localShowModal:false})
             PaddingLeft: =50
             PressedColor: =Color.Black
             PressedFill: =ColorFade(RGBA(70, 70, 70, 1),90%)
