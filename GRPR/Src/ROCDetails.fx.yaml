@@ -190,8 +190,8 @@ ROCDetails As screen:
             Required: =true
             Update: =DataCardValue16.Selected.Value
             Width: =323
-            X: =2
-            Y: =0
+            X: =0
+            Y: =1
             ZIndex: =1
 
             DataCardKey21 As label:
@@ -265,7 +265,7 @@ ROCDetails As screen:
             Required: =true
             Update: =Value(DataCardValue17.Text)
             Width: =323
-            X: =0
+            X: =1
             Y: =1
             ZIndex: =1
 
@@ -349,7 +349,7 @@ ROCDetails As screen:
                     true
                 )
             Width: =323
-            X: =1
+            X: =2
             Y: =1
             ZIndex: =1
 
@@ -426,8 +426,8 @@ ROCDetails As screen:
             Update: =DateValue13.SelectedDate
             Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
             Width: =323
-            X: =2
-            Y: =1
+            X: =0
+            Y: =2
             ZIndex: =1
 
             DataCardKey71 As label:
@@ -505,7 +505,7 @@ ROCDetails As screen:
             Update: =DateValue14.SelectedDate 
             Visible: =ColabFormMode <> FormMode.New
             Width: =323
-            X: =0
+            X: =1
             Y: =2
             ZIndex: =1
 
@@ -584,7 +584,7 @@ ROCDetails As screen:
             Update: =DateValue15.SelectedDate 
             Visible: =!IsBlank(ThisItem.'Data de saida')
             Width: =323
-            X: =1
+            X: =2
             Y: =2
             ZIndex: =1
 
@@ -650,6 +650,79 @@ ROCDetails As screen:
                 Y: =DataCardKey73.Y
                 ZIndex: =7
 
+        Tipo_DataCard3 As typedDataCard.comboBoxOptionSetSingleEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_tipo"
+            Default: =ThisItem.Tipo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ROCS],DataSourceInfo.DisplayName,"uipp_tipo")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue2.Selected.Value
+            Width: =323
+            X: =2
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey2 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Text: ="Tipo Pessoa"//Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue2 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                ChevronBackground: =cores.amareloMontepio
+                ChevronHoverBackground: =cores.amareloMontepio
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                HoverFill: =cores.amareloMontepio
+                IsSearchable: =false
+                Items: =Choices(TipoPessoa)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage27 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue2.Y + DataCardValue2.Height
+                ZIndex: =3
+
+            StarVisible27 As label:
+                Align: =Align.Center
+                Height: =DataCardKey2.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey2.Y
+                ZIndex: =4
+
     "'ROCEdit Save Btn' As group":
         Height: =5
         Width: =5
@@ -706,39 +779,17 @@ ROCDetails As screen:
                         ),
                         If(
                             SubmitForm(ROCForm),
-                        /*If(
-                            LookUp(
-                                Aprovacaos,
-                                ThisRecord.Tabela = "ROC"
-                            ).Aprovado,
-                            Patch(
-                                Aprovacaos,
-                                LookUp(
-                                    Aprovacaos,
-                                    ThisRecord.Tabela = "ROC"
-                                ),
-                                {Aprovado: false}
-                            );
-                            Notify(
-                                "Após essa alteração, a informação de ROCs necessitará de nova validação pelo perfil Validador correspondente! ",
-                                NotificationType.Warning
-                            )
-                        );
-                        If(
-                            ColabFormMode <> FormMode.New,
-                            Patch(
-                                ROCS,
-                                LookUp(
-                                    ROCS,
-                                    ID = _ROC
-                                ),
-                                {'Data aprovacao CA': Blank()}
-                            )
-                        );*/
                             Back();
-                            Notify(
-                                "Registo de Colaborador criado com sucesso!",
-                                NotificationType.Success
+                            If(
+                                ColabFormMode = FormMode.Edit,
+                                Notify(
+                                    "Registo de ROC alterado com sucesso!",
+                                    NotificationType.Success
+                                ),
+                                Notify(
+                                    "Registo de ROC criado com sucesso!",
+                                    NotificationType.Success
+                                )
                             ),
                             Notify(
                                 "Por favor, tente novamente ou contacte o administrador da solução!",
@@ -820,7 +871,40 @@ ROCDetails As screen:
         ZIndex: =14
 
         ModalConfirmation_5 As ModalConfirmation:
-            ModalText: ="Tem certeza de que deseja eliminar o registo de ''"& DataCardValue15.Text &"'' ?"
+            ModalText: |-
+                =If(
+                    localLimpar And !IsBlank(
+                        LookUp(
+                            ROCS,
+                            ID = _ROC
+                        ).'Data aprovacao CA'
+                    ) And LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "ROC"
+                    ).Aprovado,
+                    "O ROC " & DataCardValue15.Text & " terá sua Data de Aprovação apagada e a informação de ROCs necessitará de nova validação, deseja confirmar esta alteração?",
+                    localLimpar And IsBlank(
+                        LookUp(
+                            ROCS,
+                            ID = _ROC
+                        ).'Data aprovacao CA'
+                    ) And LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "ROC"
+                    ).Aprovado,
+                    "Após essa alteração, a informação de ROCs necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                    localLimpar And !IsBlank(
+                        LookUp(
+                            ROCS,
+                            ID = _ROC
+                        ).'Data aprovacao CA'
+                    ) And LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "ROC"
+                    ).Aprovado = false,
+                    "O ROC " & DataCardValue15.Text & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
+                    "Tem certeza de que deseja eliminar o registo de ''" & DataCardValue15.Text & "'' ?"
+                )
             Visible: =localShowModal
             ZIndex: =11
 
@@ -834,40 +918,9 @@ ROCDetails As screen:
             Height: =39
             HoverColor: =RGBA(0,0,0, 0)
             HoverFill: =RGBA(0,0,0, 0)
-            OnSelect: |
+            OnSelect: |-
                 =If(
-                    ColabFormMode = FormMode.View,
-                    If(
-                        Patch(
-                            ROCS,
-                            LookUp(
-                                ROCS,
-                                ThisRecord.ID = _ROC
-                            ),
-                            {
-                                Ativo: false,
-                                Bloqueado: true,
-                                'Data de saida': Now()
-                            }
-                        ).Ativo = false,
-                        Back();
-                        Notify(
-                            "Registo de ROC Eliminado com sucesso!",
-                            NotificationType.Success
-                        );
-                        UpdateContext({localShowModal: false}),
-                        Notify(
-                            "Por favor, tente novamente ou contacte o administrador da solução!",
-                            NotificationType.Error
-                        )
-                    ),
-                    UpdateContext({ColabFormMode: FormMode.View})
-                );
-                If(
-                    LookUp(
-                        Aprovacaos,
-                        ThisRecord.Tabela = "ROC"
-                    ).Aprovado,
+                    localLimpar,
                     Patch(
                         Aprovacaos,
                         LookUp(
@@ -876,11 +929,84 @@ ROCDetails As screen:
                         ),
                         {Aprovado: false}
                     );
-                    Notify(
-                        "Após essa eliminação, a informação de ROCs necessitará de nova validação pelo perfil Validador correspondente! ",
-                        NotificationType.Warning
-                    )
-                );
+                    If(
+                        ColabFormMode <> FormMode.New,
+                        Patch(
+                            ROCS,
+                            LookUp(
+                                ROCS,
+                                ID = _ROC
+                            ),
+                            {'Data aprovacao CA': Blank()}
+                        )
+                    );
+                    If(
+                        SubmitForm(ROCForm),
+                        Back();
+                        If(
+                            ColabFormMode = FormMode.Edit,
+                            Notify(
+                                "Registo de ROC alterado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Registo de ROC criado com sucesso!",
+                                NotificationType.Success
+                            )
+                        ),
+                        Notify(
+                            "Por favor, tente novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
+                    ),
+                    If(
+                        ColabFormMode = FormMode.View,
+                        If(
+                            Patch(
+                                ROCS,
+                                LookUp(
+                                    ROCS,
+                                    ThisRecord.ID = _ROC
+                                ),
+                                {
+                                    Ativo: false,
+                                    Bloqueado: true,
+                                    'Data de saida': Now()
+                                }
+                            ).Ativo = false,
+                            Back();
+                            Notify(
+                                "Registo de ROC Eliminado com sucesso!",
+                                NotificationType.Success
+                            );
+                            UpdateContext({localShowModal: false}),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
+                        ),
+                        UpdateContext({ColabFormMode: FormMode.View})
+                    );
+                    If(
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "ROC"
+                        ).Aprovado,
+                        Patch(
+                            Aprovacaos,
+                            LookUp(
+                                Aprovacaos,
+                                ThisRecord.Tabela = "ROC"
+                            ),
+                            {Aprovado: false}
+                        );
+                        Notify(
+                            "Após essa eliminação, a informação de ROCs necessitará de nova validação pelo perfil Validador correspondente! ",
+                            NotificationType.Warning
+                        )
+                    );
+                    
+                )
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
