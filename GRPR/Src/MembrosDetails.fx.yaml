@@ -606,7 +606,7 @@ MembrosDetails As screen:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="uipp_Legislacaoaplicada"
                     Default: =ThisItem.'Legislacao aplicada'
-                    DisplayMode: =If(DRI And (localShowNewForm Or IsBlank(_Membro)) ,DisplayMode.Edit,DisplayMode.View)
+                    DisplayMode: =If(DRI Or godMode And (localShowNewForm Or IsBlank(_Membro)) ,DisplayMode.Edit,DisplayMode.View) 
                     DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_Legislacaoaplicada")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
@@ -621,7 +621,7 @@ MembrosDetails As screen:
                             IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
                             false,
                             true
-                        )
+                        ) Or godMode
                     Width: =266
                     X: =1
                     Y: =1
