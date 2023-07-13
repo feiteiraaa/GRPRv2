@@ -937,7 +937,7 @@ ParticipadasDetails As screen:
             ZIndex: =9
 
     ModalConfirmation_6 As ModalConfirmation:
-        ModalText: |+
+        ModalText: |-
             =If(
                 localLimpar And !IsBlank(
                     LookUp(
@@ -947,7 +947,7 @@ ParticipadasDetails As screen:
                 ) And LookUp(
                     Aprovacaos,
                     ThisRecord.Tabela = "Empresas Participadas"
-                ).Aprovado,
+                ).Aprovado And ColabFormMode <> FormMode.New,
                 "A Empresa Participada do Grupo " & DataCardValue9_1.Text & " terá sua Data de Aprovação apagada e a informação de Empresas Participadas do Grupo necessitará de nova validação, deseja confirmar esta alteração?",
                 localLimpar And IsBlank(
                     LookUp(
@@ -957,7 +957,7 @@ ParticipadasDetails As screen:
                 ) And LookUp(
                     Aprovacaos,
                     ThisRecord.Tabela = "Empresas Participadas"
-                ).Aprovado,
+                ).Aprovado And ColabFormMode <> FormMode.New,
                 "Após essa alteração, a informação de Empresas Participadas do Grupo necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
                 localLimpar And !IsBlank(
                     LookUp(
@@ -967,14 +967,18 @@ ParticipadasDetails As screen:
                 ) And LookUp(
                     Aprovacaos,
                     ThisRecord.Tabela = "Empresas Participadas"
-                ).Aprovado = false,
+                ).Aprovado = false And ColabFormMode <> FormMode.New,
                 "A Empresa Participada do Grupo " & DataCardValue9_1.Text & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
+                ColabFormMode = FormMode.New And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Empresas Participadas"
+                ).Aprovado,
+                "Após a criação de uma nova empresa, a informação de Empresas Participadas do Grupo necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
                 "Tem certeza de que deseja eliminar a Empresa Participada do Grupo" & LookUp(
-                'Empresas Participadas do Grupos',
-                ThisRecord.ID = _EmpresasParticipadas
-            ).Nome & "?"
+                    'Empresas Participadas do Grupos',
+                    ThisRecord.ID = _EmpresasParticipadas
+                ).Nome & "?"
             )
-            
         Visible: =localShowModal
         ZIndex: =11
 
