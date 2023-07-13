@@ -566,7 +566,7 @@ ParticipadasDetails As screen:
                     ColabFormMode = FormMode.New And !DRI,
                     false,
                     true
-                )
+                ) Or godMode
             Width: =484
             X: =0
             Y: =3
