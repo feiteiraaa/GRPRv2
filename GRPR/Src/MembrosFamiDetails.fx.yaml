@@ -16,7 +16,8 @@ MembrosFamiDetails As screen:
                     false
                 ),
                 localLimpar:false,
-                localShowNewForm:false
+                localShowNewForm:false,
+                localShowEditForm:false
             }
         );
         ClearCollect(
@@ -2841,6 +2842,39 @@ MembrosFamiDetails As screen:
                             Notify(
                                 "Por favor, tente novamente.",
                                 NotificationType.Error
+                            )
+                        ),
+                        localShowEliminacao,
+                         If(
+                            SubmitForm(FormRespetivas_1),
+                            Notify(
+                                "O registo foi submetido com sucesso!",
+                                NotificationType.Success
+                            );
+                            ResetForm(FormRespetivas_1);
+                            UpdateContext(
+                                {
+                                    _AssociatedR: false,
+                                    localShowEliminacao: false,
+                                    localShowEditForm: false,
+                                    _AssociarRF: false
+                                }
+                            );
+                            Navigate(
+                                MembrosDetails,
+                                ScreenTransition.None
+                            ),
+                            Notify(
+                                "Por favor, tente novamente.",
+                                NotificationType.Error
+                            );
+                            UpdateContext(
+                                {
+                                    _AssociatedR: false,
+                                    localShowEliminacao: false,
+                                    localShowEditForm: false,
+                                    _AssociarRF: false
+                                }
                             )
                         )
                     ),
