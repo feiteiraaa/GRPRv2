@@ -1,4 +1,6 @@
 ColaboradoresDetails As screen:
+    OnHidden: |-
+        =UpdateContext({_Colaborador:Blank()})
     OnVisible: |-
         =UpdateContext({
             localShowModal: false,
@@ -851,36 +853,20 @@ ColaboradoresDetails As screen:
             Height: =39
             HoverColor: =RGBA(0,0,0, 0)
             HoverFill: =RGBA(0,0,0, 0)
-            OnSelect: |-
+            OnSelect: |
                 =If(
                     ColabFormMode = FormMode.View,
-                    UpdateContext({
-                        localShowModal: true
-                    }),
-                    UpdateContext({
-                        ColabFormMode: FormMode.View
-                    })
-                )
-                /*If(
-                    ColabFormMode = FormMode.View,
+                    UpdateContext({localShowModal: true}),
+                    //UpdateContext({ColabFormMode: FormMode.View});
                     If(
-                        Patch(
-                            Colaboradores_1,
-                            LookUp(Colaboradores_1, _Colaborador = ID),
-                            {
-                                Ativo: false,
-                                Bloqueado: true,
-                                'Data de saida': Now()
-                            }
-                        ).Ativo = false,
-                        Back();
-                        Notify("Registo de Colaborador Eliminado com sucesso!", NotificationType.Success),
-                        Notify("Por favor, tente novamente ou contacte o administrador da solução!", NotificationType.Error)
-                    ),
-                    UpdateContext({
-                        ColabFormMode: FormMode.View
-                    })
-                )*/
+                        ColabFormMode = FormMode.New And IsBlank(_Colaborador),
+                        Navigate(
+                            Particulares,
+                            ScreenTransition.None
+                        ),
+                        UpdateContext({ColabFormMode: FormMode.View})
+                    )
+                )
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""

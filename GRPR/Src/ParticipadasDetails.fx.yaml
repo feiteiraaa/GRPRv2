@@ -1,4 +1,6 @@
 ParticipadasDetails As screen:
+    OnHidden: |-
+        =UpdateContext({_EmpresasParticipadas:Blank()})
     OnVisible: |-
         =UpdateContext({localShowPrazo: false})
 

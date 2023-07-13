@@ -1,4 +1,6 @@
 ROCDetails As screen:
+    OnHidden: |-
+        =UpdateContext({_ROC:Blank()})
     OnVisible: |-
         =UpdateContext({
             localShowModal: false,

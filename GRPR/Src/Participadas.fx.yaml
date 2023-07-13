@@ -1,6 +1,6 @@
 Participadas As screen:
-    OnHidden: |-
-        = UpdateContext({ _Associar:false})
+    OnHidden: |
+        = UpdateContext({ _Associar:false});
     OnVisible: |-
         =UpdateContext({localShowModal:false});
         Refresh('Empresas Participadas do Grupos')
