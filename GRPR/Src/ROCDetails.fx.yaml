@@ -349,7 +349,7 @@ ROCDetails As screen:
                     IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
                     false,
                     true
-                )
+                ) Or godMode
             Width: =323
             X: =2
             Y: =1
