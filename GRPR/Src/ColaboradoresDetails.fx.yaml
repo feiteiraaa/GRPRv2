@@ -114,10 +114,10 @@ ColaboradoresDetails As screen:
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             MaxLength: =DataSourceInfo([@Colaboradores_1], DataSourceInfo.MaxLength, "uipp_cargodescricao")
-            Required: =true
+            Required: =false
             Update: =DataCardValue6_1.Text
             Width: =323
-            X: =1
+            X: =2
             Y: =0
             ZIndex: =1
 
@@ -190,7 +190,7 @@ ColaboradoresDetails As screen:
             Required: =true
             Update: =DataCardValue5_1.Selected.Value
             Width: =323
-            X: =2
+            X: =1
             Y: =0
             ZIndex: =1
 
