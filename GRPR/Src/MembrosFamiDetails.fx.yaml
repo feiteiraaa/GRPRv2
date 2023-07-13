@@ -15,7 +15,8 @@ MembrosFamiDetails As screen:
                     true,
                     false
                 ),
-                localLimpar:false
+                localLimpar:false,
+                localShowNewForm:false
             }
         );
         ClearCollect(
@@ -1025,7 +1026,7 @@ MembrosFamiDetails As screen:
                     HoverFill: =RGBA(0,0,0, 0)
                     OnSelect: |-
                         =If(
-                            localShowNewForm,//Or Informacao_1.Mode = FormMode.New,
+                            localShowNewForm,
                             If(
                                 Len(DataCardValue5_2.Text) = 9,
                                 If(
@@ -1038,7 +1039,12 @@ MembrosFamiDetails As screen:
                                         Aprovacaos,
                                         ThisRecord.Tabela = "Membros de Orgãos Sociais"
                                     ).Aprovado,
-                                    UpdateContext({localLimpar: true,localShowModal:true}),
+                                    UpdateContext(
+                                        {
+                                            localLimpar: true,
+                                            localShowModal: true
+                                        }
+                                    ),
                                     If(
                                         SubmitForm(InfoRelaçãoFami) And SubmitForm(Informacao_1),
                                         Notify(
@@ -1069,52 +1075,69 @@ MembrosFamiDetails As screen:
                             If(
                                 Len(DataCardValue5_2.Text) = 9,
                                 If(
-                                    SubmitForm(InfoRelaçãoFami) And SubmitForm(Informacao_1),
-                                    Set(
-                                        varLastFami,
-                                        Informacao_1.LastSubmit.ID
-                                    );
-                                    Set(
-                                        varLastRela,
-                                        InfoRelaçãoFami.LastSubmit.ID
-                                    );
-                                    Notify(
-                                        "O familiar " & Informacao_1.LastSubmit.Nome & " foi criado com sucesso!",
-                                        NotificationType.Success
-                                    );
-                                    ResetForm(Informacao_1);
-                                    ResetForm(InfoRelaçãoFami);
+                                    !IsBlank(
+                                        LookUp(
+                                            Membros_1,
+                                            ID = _MembroF
+                                        ).'Data aprovacao CA'
+                                    ) Or LookUp(
+                                        Aprovacaos,
+                                        ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                                    ).Aprovado,
                                     UpdateContext(
                                         {
-                                            localShowData: false,
-                                            localShowNewForm: false//!localShowNewForm
+                                            localLimpar: true,
+                                            localShowModal: true
                                         }
-                                    );
-                                    Patch(
-                                        'Membros-Familiares-Respetivas',
-                                        LookUp(
+                                    ),
+                                    If(
+                                        SubmitForm(InfoRelaçãoFami) And SubmitForm(Informacao_1),
+                                        Set(
+                                            varLastFami,
+                                            Informacao_1.LastSubmit.ID
+                                        );
+                                        Set(
+                                            varLastRela,
+                                            InfoRelaçãoFami.LastSubmit.ID
+                                        );
+                                        Notify(
+                                            "O familiar " & Informacao_1.LastSubmit.Nome & " foi criado com sucesso!",
+                                            NotificationType.Success
+                                        );
+                                        ResetForm(Informacao_1);
+                                        ResetForm(InfoRelaçãoFami);
+                                        UpdateContext(
+                                            {
+                                                localShowData: false,
+                                                localShowNewForm: false//!localShowNewForm
+                                            }
+                                        );
+                                        Patch(
                                             'Membros-Familiares-Respetivas',
-                                            ThisRecord.ID = varLastRela
-                                        ),
-                                        {
-                                            ID_Familiares: LookUp(
-                                                Familiares,
-                                                ID = varLastFami
-                                            )
-                                        }
-                                    );
-                                    Patch(
+                                            LookUp(
+                                                'Membros-Familiares-Respetivas',
+                                                ThisRecord.ID = varLastRela
+                                            ),
+                                            {
+                                                ID_Familiares: LookUp(
+                                                    Familiares,
+                                                    ID = varLastFami
+                                                )
+                                            }
+                                        );
+                                    /*Patch(
                                         Aprovacaos,
                                         LookUp(
                                             Aprovacaos,
                                             ThisRecord.Tabela = "Membros de Orgãos Sociais"
                                         ),
                                         {Aprovado: false}
-                                    );
-                                    Back(),
-                                    Notify(
-                                        "Por favor, tente novamente.",
-                                        NotificationType.Error
+                                    );*/
+                        Back(),
+                                        Notify(
+                                            "Por favor, tente novamente.",
+                                            NotificationType.Error
+                                        )
                                     )
                                 ),
                                 Notify(

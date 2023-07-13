@@ -3730,6 +3730,95 @@ MembrosDetails As screen:
                             ),
                             {'Data aprovacao CA': Blank()}
                         )
+                    );
+                    If(
+                        localShowData,
+                        If(
+                            SubmitForm(Informacao),
+                            Notify(
+                                "O registo foi submetido com sucesso!",
+                                NotificationType.Success
+                            );
+                            ResetForm(Informacao);
+                            UpdateContext(
+                                {
+                                    localShowData: false,
+                                    localShowNewForm: !localShowNewForm
+                                }
+                            ),
+                            If(
+                                Informacao.Mode = FormMode.New,
+                                Navigate(
+                                    Particulares,
+                                    ScreenTransition.None
+                                )
+                            )
+                        )
+                    );
+                    If(
+                        localShowLeg,
+                        If(
+                            SubmitForm(EmpresasParticipadas),
+                            Notify(
+                                "O registo foi submetido com sucesso!",
+                                NotificationType.Success
+                            );
+                            ResetForm(EmpresasParticipadas);
+                            UpdateContext(
+                                {
+                                    _Associated: false,
+                                    localShowLeg: false,
+                                    localShowEditForm: false
+                                }
+                            );
+                            Navigate(Particulares),
+                            Notify(
+                                "Por favor, tente novamente.",
+                                NotificationType.Error
+                            );
+                            UpdateContext(
+                                {
+                                    _Associated: false,
+                                    localShowLeg: false,
+                                    localShowEditForm: false
+                                }
+                            )
+                        )
+                    );
+                    If(
+                        localShowEliminacao,
+                        If(
+                            SubmitForm(FormRespetivas),
+                            Notify(
+                                "O registo foi submetido com sucesso!",
+                                NotificationType.Success
+                            );
+                            ResetForm(FormRespetivas);
+                            UpdateContext(
+                                {
+                                    _AssociatedR: false,
+                                    localShowEliminacao: false,
+                                    localShowEditForm: false,
+                                    _AssociarR: false
+                                }
+                            );
+                            Navigate(
+                                Particulares,
+                                ScreenTransition.None
+                            ),
+                            Notify(
+                                "Por favor, tente novamente.",
+                                NotificationType.Error
+                            );
+                            UpdateContext(
+                                {
+                                    _AssociatedR: false,
+                                    localShowEliminacao: false,
+                                    localShowEditForm: false,
+                                    _AssociarR: false
+                                }
+                            )
+                        )
                     ),
                     If(
                         Patch(
@@ -3854,7 +3943,12 @@ MembrosDetails As screen:
                         )
                     )
                 );
-                UpdateContext({localShowModal: false,localLimpar: false});
+                UpdateContext(
+                    {
+                        localShowModal: false,
+                        localLimpar: false
+                    }
+                );
                 Navigate(
                     Particulares,
                     ScreenTransition.None

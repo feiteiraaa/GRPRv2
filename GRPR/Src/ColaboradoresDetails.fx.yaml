@@ -2,7 +2,8 @@ ColaboradoresDetails As screen:
     OnVisible: |-
         =UpdateContext({
             localShowModal: false,
-             localShowPrazo:false
+             localShowPrazo:false,
+             localLimpar:false
         })
 
     BackBtn_2 As BackBtn:
@@ -767,8 +768,19 @@ ColaboradoresDetails As screen:
                 =If(
                     ColabFormMode <> FormMode.View,
                     If(
-                        SubmitForm(ColaboradorForm_1),
+                        !IsBlank(
+                            LookUp(
+                                Colaboradores_1,
+                                ID = _Colaborador
+                            ).'Data aprovacao CA'
+                        ) Or LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Colaboradores"
+                        ).Aprovado,
+                        UpdateContext({localLimpar: true}),
                         If(
+                            SubmitForm(ColaboradorForm_1),
+                        /*If(
                             LookUp(
                                 Aprovacaos,
                                 ThisRecord.Tabela = "Colaboradores"
@@ -786,15 +798,16 @@ ColaboradoresDetails As screen:
                                 NotificationType.Warning
                             )
                         );
-                        If(ColabFormMode <> FormMode.New,Patch(Colaboradores_1,LookUp(Colaboradores_1,ID = _Colaborador),{'Data aprovacao CA':Blank()}));
-                        Back();
-                        Notify(
-                            "Registo de Colaborador criado com sucesso!",
-                            NotificationType.Success
-                        ),
-                        Notify(
-                            "Por favor, tente novamente ou contacte o administrador da solução!",
-                            NotificationType.Error
+                        If(ColabFormMode <> FormMode.New,Patch(Colaboradores_1,LookUp(Colaboradores_1,ID = _Colaborador),{'Data aprovacao CA':Blank()}));*/
+                            Back();
+                            Notify(
+                                "Registo de Colaborador criado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
                         )
                     ),
                     UpdateContext({ColabFormMode: FormMode.Edit})
