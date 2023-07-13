@@ -850,12 +850,15 @@ ROCDetails As screen:
             OnSelect: |-
                 =If(
                     DynamicBtn_5.BtnText = "Cancelar",
-                    UpdateContext({
-                        ColabFormMode: FormMode.View
-                    }),
-                    UpdateContext({
-                        localShowModal: true
-                    })
+                    If(
+                        ColabFormMode = FormMode.New And IsBlank(_ROC),
+                        Navigate(
+                            Particulares,
+                            ScreenTransition.None
+                        ),
+                        UpdateContext({ColabFormMode: FormMode.View})
+                    ),
+                    UpdateContext({localShowModal: true})
                 )
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
