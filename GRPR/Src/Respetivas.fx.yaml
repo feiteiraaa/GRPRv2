@@ -1458,6 +1458,7 @@ Respetivas As screen:
                             {Aprovado: false}
                         )
                     );
+                    SubmitForm(EmpresasRespetivas);
                     If(
                         localFormRespetivasEdit,
                         ForAll(

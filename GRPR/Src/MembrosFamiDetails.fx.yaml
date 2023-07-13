@@ -16,8 +16,7 @@ MembrosFamiDetails As screen:
                     false
                 ),
                 localLimpar:false,
-                localShowNewForm:false,
-                localShowEditForm:false
+                localShowNewForm:false
             }
         );
         ClearCollect(
