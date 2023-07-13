@@ -895,13 +895,17 @@ ROCDetails As screen:
 
     HtmlText1_1 As htmlViewer:
         HtmlText: |-
-            ="<b>" & DataCardValue15.Text & "</b> " & If(
-                LookUp(
-                    ROCS,
-                    ID = _ROC
-                ).Ativo,
-                "",
-                " (eliminado)"
+            =If(
+                ColabFormMode = FormMode.New,
+                "<b>Criar novo ROC</b>",
+                "<b>" & DataCardValue15.Text & "</b> " & If(
+                    LookUp(
+                        ROCS,
+                        ID = _ROC
+                    ).Ativo,
+                    "",
+                    " (eliminado)"
+                )
             )
         Size: =14
         Visible: =ColabFormMode <> FormMode.New
