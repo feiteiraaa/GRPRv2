@@ -57,33 +57,35 @@ ParticipadasDetails As screen:
                 =If(
                     ColabFormMode <> FormMode.View,
                     If(
-                        SubmitForm(FormParticipadas),
-                        If(
+                        !IsBlank(
                             LookUp(
-                                Aprovacaos,
-                                ThisRecord.Tabela = "Empresas Participadas"
-                            ).Aprovado,
-                            Patch(
-                                Aprovacaos,
-                                LookUp(
-                                    Aprovacaos,
-                                    ThisRecord.Tabela = "Empresas Participadas"
-                                ),
-                                {Aprovado: false}
-                            );
+                                'Empresas Participadas do Grupos',
+                                ID = _EmpresasParticipadas
+                            ).'Data aprovacao CA'
+                        ) Or LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Empresas Participadas"
+                        ).Aprovado,
+                        UpdateContext(
+                            {
+                                localLimpar: true,
+                                localShowModal: true
+                            }
+                        ),
+                        If(
+                            SubmitForm(FormParticipadas),
+                            Back();
                             Notify(
-                                "Após essa alteração, a informação de Empresas Participadas do Grupo necessitará de nova validação pelo perfil Validador correspondente! ",
-                                NotificationType.Warning
+                                "Registo criado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
                             )
-                        );
-                        If(ColabFormMode <> FormMode.New,Patch('Empresas Participadas do Grupos',LookUp('Empresas Participadas do Grupos',ID =  _EmpresasParticipadas),{'Data aprovacao CA':Blank()}));
-                        Back();
-                        Notify("Registo criado com sucesso!", NotificationType.Success),
-                        Notify("Por favor, tente novamente ou contacte o administrador da solução!", NotificationType.Error)
+                        )
                     ),
-                    UpdateContext({
-                        ColabFormMode: FormMode.Edit
-                    })
+                    UpdateContext({ColabFormMode: FormMode.Edit})
                 );
                 Refresh('Empresas Participadas do Grupos')
             PressedColor: =RGBA(0,0,0, 0)
@@ -990,50 +992,91 @@ ParticipadasDetails As screen:
             HoverFill: =ColorFade(RGBA(70, 70, 70, 1),80%)
             OnSelect: |-
                 =If(
-                    ColabFormMode = FormMode.View,
+                    localLimpar,
+                    Patch(
+                        Aprovacaos,
+                        LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "Empresas Participadas"
+                        ),
+                        {Aprovado: false}
+                    );
                     If(
+                        ColabFormMode <> FormMode.New,
                         Patch(
                             'Empresas Participadas do Grupos',
                             LookUp(
                                 'Empresas Participadas do Grupos',
-                                ThisRecord.ID = _EmpresasParticipadas
+                                ID = _EmpresasParticipadas
                             ),
-                            {
-                                Ativo: false,
-                                Bloqueado: true,
-                                'Data de saida': Now()
-                            }
-                        ).Ativo = false,
-                        If(
-                            LookUp(
-                                Aprovacaos,
-                                ThisRecord.Tabela = "Empresas Participadas"
-                            ).Aprovado,
-                            Patch(
-                                Aprovacaos,
-                                LookUp(
-                                    Aprovacaos,
-                                    ThisRecord.Tabela = "Empresas Participadas"
-                                ),
-                                {Aprovado: false}
-                            );
-                            Notify(
-                                "Após essa eliminação, a informação de Empresas Participadas do Grupo necessitará de nova validação pelo perfil Validador correspondente! ",
-                                NotificationType.Warning
-                            )
-                        );
+                            {'Data aprovacao CA': Blank()}
+                        )
+                    );
+                    If(
+                        SubmitForm(FormParticipadas),
                         Back();
-                        Notify(
-                            "Registo de Empresas Participadas do grupo Eliminado com sucesso!",
-                            NotificationType.Success
-                        );
-                        UpdateContext({localShowModal: false}),
+                        If(
+                            ColabFormMode = FormMode.Edit,
+                            Notify(
+                                "Registo de Empresa Participada do Grupo alterado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Registo de Empresa Participada do Grupo criado com sucesso!",
+                                NotificationType.Success
+                            )
+                        ),
                         Notify(
                             "Por favor, tente novamente ou contacte o administrador da solução!",
                             NotificationType.Error
                         )
                     ),
-                    UpdateContext({ColabFormMode: FormMode.View})
+                    If(
+                        ColabFormMode = FormMode.View,
+                        If(
+                            Patch(
+                                'Empresas Participadas do Grupos',
+                                LookUp(
+                                    'Empresas Participadas do Grupos',
+                                    ThisRecord.ID = _EmpresasParticipadas
+                                ),
+                                {
+                                    Ativo: false,
+                                    Bloqueado: true,
+                                    'Data de saida': Now()
+                                }
+                            ).Ativo = false,
+                            If(
+                                LookUp(
+                                    Aprovacaos,
+                                    ThisRecord.Tabela = "Empresas Participadas"
+                                ).Aprovado,
+                                Patch(
+                                    Aprovacaos,
+                                    LookUp(
+                                        Aprovacaos,
+                                        ThisRecord.Tabela = "Empresas Participadas"
+                                    ),
+                                    {Aprovado: false}
+                                );
+                                Notify(
+                                    "Após essa eliminação, a informação de Empresas Participadas do Grupo necessitará de nova validação pelo perfil Validador correspondente! ",
+                                    NotificationType.Warning
+                                )
+                            );
+                            Back();
+                            Notify(
+                                "Registo de Empresas Participadas do grupo Eliminado com sucesso!",
+                                NotificationType.Success
+                            );
+                            UpdateContext({localShowModal: false}),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
+                        ),
+                        UpdateContext({ColabFormMode: FormMode.View})
+                    )
                 )
             PaddingLeft: =50
             PressedColor: =Color.Black
