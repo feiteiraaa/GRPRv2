@@ -27357,6 +27357,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ROCDetails.localLimpar"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ROCDetails.localLimpar",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "localLimpar",
+                "module": "ROCDetails",
+                "type": "ROCDetails"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ROCDetails.localShowArq"
                 }
               ],

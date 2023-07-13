@@ -2,7 +2,8 @@ ROCDetails As screen:
     OnVisible: |-
         =UpdateContext({
             localShowModal: false,
-            localShowPrazo:false
+            localShowPrazo:false,
+            localLimpar:false
         })
 
     BackBtn_3 As BackBtn:
@@ -688,7 +689,23 @@ ROCDetails As screen:
                 =If(
                     ColabFormMode <> FormMode.View,
                     If(
-                        SubmitForm(ROCForm),
+                        !IsBlank(
+                            LookUp(
+                                ROCS,
+                                ID = _ROC
+                            ).'Data aprovacao CA'
+                        ) Or LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "ROC"
+                        ).Aprovado,
+                        UpdateContext(
+                            {
+                                localLimpar: true,
+                                localShowModal: true
+                            }
+                        ),
+                        If(
+                            SubmitForm(ROCForm),
                         /*If(
                             LookUp(
                                 Aprovacaos,
@@ -718,14 +735,15 @@ ROCDetails As screen:
                                 {'Data aprovacao CA': Blank()}
                             )
                         );*/
-                        Back();
-                        Notify(
-                            "Registo de Colaborador criado com sucesso!",
-                            NotificationType.Success
-                        ),
-                        Notify(
-                            "Por favor, tente novamente ou contacte o administrador da solução!",
-                            NotificationType.Error
+                            Back();
+                            Notify(
+                                "Registo de Colaborador criado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
                         )
                     ),
                     UpdateContext({ColabFormMode: FormMode.Edit})
