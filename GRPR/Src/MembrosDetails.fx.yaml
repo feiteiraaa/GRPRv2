@@ -487,10 +487,19 @@ MembrosDetails As screen:
                         EndYear: =Year(Today())+100
                         Format: |-
                             =Text(
-                                Parent.Default,
+                                DateValue(Parent.Default),
                                 "dd/mm/yyyy",
-                                "pt-PT"
+                                "en-GB"
                             )
+                            /*DateValue(
+                                Left(
+                                    Text(
+                                        DateTimeValue(Text(Parent.Default))
+                                        //,"dd/mm/yyyy"//DateTimeZone.UTC
+                                    ),
+                                    00
+                                )
+                            )*/
                         IsEditable: =true
                         PaddingBottom: =0
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)

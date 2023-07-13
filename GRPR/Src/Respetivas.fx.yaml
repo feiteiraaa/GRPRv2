@@ -1,6 +1,7 @@
 Respetivas As screen:
     OnHidden: |
         =UpdateContext({_AssociarR:false,_AssociarRF:false,localFormRespetivas:false,_selectedRespetivas:Blank(),_selectedRespetivasF:Blank()});
+        Reset(Checkbox1_4)
     OnVisible: |-
         =UpdateContext({localFormRespetivasNew:false, localShowPrazo: false,localFormRespetivasEdit:false,localLimpar:false, localShowModal:false});
         ClearCollect(CollecRespectivas, Empresas);
@@ -1717,24 +1718,23 @@ Respetivas As screen:
                         Empresas,
                         ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
                     ).Bloqueado,
-                    "Desbloquear",
-                    "Bloquear"
+                    "Bloqueado",
+                    "Desbloqueado"
                 )
-            BtnWidth: =180
+            BtnWidth: =200
             ButtonIcon: |-
                 =If(
                     LookUp(
                         Empresas,
                         ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
                     ).Bloqueado,
-                    
-                    Icon.Unlock,
-                    Icon.Lock
+                    Icon.Lock,
+                    Icon.Unlock
                 )
             Height: =40
             Visible: ="(Eliminado)" in LabelMembroName_2.Text And localFormRespetivas
-            Width: =180
-            X: =1150
+            Width: =200
+            X: =1125
             Y: =74
             ZIndex: =16
 
@@ -1796,7 +1796,7 @@ Respetivas As screen:
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
             Visible: ="(Eliminado)" in LabelMembroName_2.Text And localFormRespetivas
-            Width: =180
+            Width: =200
             X: =DynamicBtn_38.X
             Y: =DynamicBtn_38.Y
             ZIndex: =17
