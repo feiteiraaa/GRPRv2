@@ -689,7 +689,7 @@ ROCDetails As screen:
                     ColabFormMode <> FormMode.View,
                     If(
                         SubmitForm(ROCForm),
-                        If(
+                        /*If(
                             LookUp(
                                 Aprovacaos,
                                 ThisRecord.Tabela = "ROC"
@@ -717,7 +717,7 @@ ROCDetails As screen:
                                 ),
                                 {'Data aprovacao CA': Blank()}
                             )
-                        );
+                        );*/
                         Back();
                         Notify(
                             "Registo de Colaborador criado com sucesso!",

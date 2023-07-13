@@ -105,80 +105,6 @@ ColaboradoresDetails As screen:
                 Y: =DataCardKey11_1.Y
                 ZIndex: =4
 
-        "'Cargo (Descricao)_DataCard1_1' As typedDataCard.textualEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="uipp_cargodescricao"
-            Default: =ThisItem.'Cargo (Descricao)'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Colaboradores_1],DataSourceInfo.DisplayName,"uipp_cargodescricao")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            MaxLength: =DataSourceInfo([@Colaboradores_1], DataSourceInfo.MaxLength, "uipp_cargodescricao")
-            Required: =false
-            Update: =DataCardValue6_1.Text
-            Width: =323
-            X: =2
-            Y: =0
-            ZIndex: =1
-
-            DataCardKey6_1 As label:
-                AutoHeight: =true
-                Color: =cores.cinzento
-                FontWeight: =FontWeight.Semibold
-                Height: =34
-                Text: ="Cargo (Descrição)"
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue6_1 As text:
-                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
-                Default: =Parent.Default
-                DelayOutput: =true
-                DisplayMode: =Parent.DisplayMode
-                Fill: =RGBA(255, 255, 255, 0)
-                HoverBorderColor: =cores.cinzento
-                HoverFill: =RGBA(186, 202, 226, 0)
-                MaxLength: =Parent.MaxLength
-                PaddingLeft: =5
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey6_1.Y + DataCardKey6_1.Height + 5
-                ZIndex: =2
-
-            ErrorMessage4_1 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue6_1.Y + DataCardValue6_1.Height
-                ZIndex: =3
-
-            StarVisible4_1 As label:
-                Align: =Align.Center
-                Color: =Color.Red
-                Height: =DataCardKey6_1.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey6_1.Y
-                ZIndex: =4
-
         "'Cargo (Categoria)_DataCard1_1' As typedDataCard.comboBoxOptionSetSingleEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="uipp_cargocategoria"
@@ -253,6 +179,80 @@ ColaboradoresDetails As screen:
                 Width: =30
                 Wrap: =false
                 Y: =DataCardKey5_1.Y
+                ZIndex: =4
+
+        "'Cargo (Descricao)_DataCard1_1' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_cargodescricao"
+            Default: =ThisItem.'Cargo (Descricao)'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Colaboradores_1],DataSourceInfo.DisplayName,"uipp_cargodescricao")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Colaboradores_1], DataSourceInfo.MaxLength, "uipp_cargodescricao")
+            Required: =false
+            Update: =DataCardValue6_1.Text
+            Width: =323
+            X: =2
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey6_1 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Text: ="Cargo (Descrição)"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue6_1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 0)
+                HoverBorderColor: =cores.cinzento
+                HoverFill: =RGBA(186, 202, 226, 0)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey6_1.Y + DataCardKey6_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage4_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue6_1.Y + DataCardValue6_1.Height
+                ZIndex: =3
+
+            StarVisible4_1 As label:
+                Align: =Align.Center
+                Color: =Color.Red
+                Height: =DataCardKey6_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey6_1.Y
                 ZIndex: =4
 
         Grupo_DataCard1_1 As typedDataCard.comboBoxOptionSetSingleEditCard:
@@ -1060,16 +1060,20 @@ ColaboradoresDetails As screen:
     HtmlText1 As htmlViewer:
         HtmlText: |-
             =//"Show your <b><font color=blue>HTML</font></b> text here."
-            "<b>" & DataCardValue9_1.Text & "</b> " & If(
-                LookUp(
-                    Colaboradores_1,
-                    ID = _Colaborador
-                ).Ativo,
-                "",
-                " (eliminado)"
+            If(
+                ColabFormMode = FormMode.New,
+                "<b>Criar novo Colaborador</b>",
+                "<b>" & DataCardValue9_1.Text & "</b> " & If(
+                    LookUp(
+                        Colaboradores_1,
+                        ID = _Colaborador
+                    ).Ativo,
+                    "",
+                    " (eliminado)"
+                )
             )
         Size: =14
-        Visible: =ColabFormMode <> FormMode.New
+        Visible: =true//ColabFormMode <> FormMode.New
         Width: =291
         X: =365
         Y: =124
