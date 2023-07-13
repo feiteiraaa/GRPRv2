@@ -449,6 +449,15 @@ Participadas As screen:
                     Aprovacaos,
                     ThisRecord.Tabela = "Empresas Participadas"
                 ).Aprovado
+            DisplayMode: |-
+                =If(
+                    LookUp(
+                        Aprovacaos,
+                        ThisRecord.Tabela = "Empresas Participadas"
+                    ).Aprovado,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
             Fill: =If(Checkbox1_5.Value,RGBA(219,253,225,1),RGBA(255, 244, 198, 1))
             FocusedBorderThickness: =0
             Height: =40
