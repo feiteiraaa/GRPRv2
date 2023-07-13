@@ -1464,24 +1464,36 @@ Respetivas As screen:
                         localFormRespetivasEdit,
                         ForAll(
                             collectMResp,
-                            Patch(
-                                Membros_1,
+                            If(
                                 LookUp(
                                     Membros_1,
                                     ID = Value
-                                ),
-                                {'Data aprovacao CA': Blank()}
+                                ).Ativo,
+                                Patch(
+                                    Membros_1,
+                                    LookUp(
+                                        Membros_1,
+                                        ID = Value
+                                    ),
+                                    {'Data aprovacao CA': Blank()}
+                                )
                             )
                         );
                         ForAll(
                             collectMFResp,
-                            Patch(
-                                Membros_1,
+                            If(
                                 LookUp(
                                     Membros_1,
                                     ID = Value
-                                ),
-                                {'Data aprovacao CA': Blank()}
+                                ).Ativo,
+                                Patch(
+                                    Membros_1,
+                                    LookUp(
+                                        Membros_1,
+                                        ID = Value
+                                    ),
+                                    {'Data aprovacao CA': Blank()}
+                                )
                             )
                         )
                     ),
