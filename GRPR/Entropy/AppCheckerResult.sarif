@@ -27417,6 +27417,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ColaboradoresDetails.localLimpar"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ColaboradoresDetails.localLimpar",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "localLimpar",
+                "module": "ColaboradoresDetails",
+                "type": "ColaboradoresDetails"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ColaboradoresDetails.localShowArq"
                 }
               ],

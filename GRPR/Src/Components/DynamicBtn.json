@@ -171,7 +171,7 @@
         "Name": "Button1",
         "Parent": "DynamicBtn",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5,
+        "PublishOrderIndex": 1242,
         "Rules": [
           {
             "Category": "Data",
@@ -481,7 +481,7 @@
         "Name": "Icon2",
         "Parent": "DynamicBtn",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 6,
+        "PublishOrderIndex": 1243,
         "Rules": [
           {
             "Category": "Design",
@@ -687,7 +687,7 @@
       },
       "BtnText"
     ],
-    "LastModifiedTimestamp": "638247752402400049",
+    "LastModifiedTimestamp": "638248404873700253",
     "Name": "DynamicBtn",
     "Rules": [
       {
@@ -822,7 +822,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638247752402400049",
+  "LastModifiedTimestamp": "638248404873700253",
   "Name": "88985e4b12794b9786dc42a4eee25302",
   "OverridableProperties": {},
   "Version": "638192527436691467"
