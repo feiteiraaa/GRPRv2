@@ -2778,6 +2778,71 @@ MembrosFamiDetails As screen:
                             ID = _MembroF
                         ),
                         {'Data aprovacao CA': Blank()}
+                    );
+                    If(
+                        localShowNewForm,
+                        If(
+                            SubmitForm(InfoRelaçãoFami) And SubmitForm(Informacao_1),
+                            Notify(
+                                "O registo foi submetido com sucesso!",
+                                NotificationType.Success
+                            );
+                            ResetForm(Informacao_1);
+                            ResetForm(InfoRelaçãoFami);
+                            UpdateContext(
+                                {
+                                    localShowData: false,
+                                    localShowNewForm: false
+                                }
+                            );
+                            Back(),
+                            Notify(
+                                "Por favor, tente novamente.",
+                                NotificationType.Error
+                            )
+                        ),
+                        Informacao_1.Mode = FormMode.New,
+                        If(
+                            SubmitForm(InfoRelaçãoFami) And SubmitForm(Informacao_1),
+                            Set(
+                                varLastFami,
+                                Informacao_1.LastSubmit.ID
+                            );
+                            Set(
+                                varLastRela,
+                                InfoRelaçãoFami.LastSubmit.ID
+                            );
+                            Notify(
+                                "O familiar " & Informacao_1.LastSubmit.Nome & " foi criado com sucesso!",
+                                NotificationType.Success
+                            );
+                            ResetForm(Informacao_1);
+                            ResetForm(InfoRelaçãoFami);
+                            UpdateContext(
+                                {
+                                    localShowData: false,
+                                    localShowNewForm: false//!localShowNewForm
+                                }
+                            );
+                            Patch(
+                                'Membros-Familiares-Respetivas',
+                                LookUp(
+                                    'Membros-Familiares-Respetivas',
+                                    ThisRecord.ID = varLastRela
+                                ),
+                                {
+                                    ID_Familiares: LookUp(
+                                        Familiares,
+                                        ID = varLastFami
+                                    )
+                                }
+                            );
+                            Back(),
+                            Notify(
+                                "Por favor, tente novamente.",
+                                NotificationType.Error
+                            )
+                        )
                     ),
                     If(
                         Patch(
