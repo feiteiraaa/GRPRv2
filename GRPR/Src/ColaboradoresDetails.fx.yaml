@@ -777,14 +777,25 @@ ColaboradoresDetails As screen:
                             Aprovacaos,
                             ThisRecord.Tabela = "Colaboradores"
                         ).Aprovado,
-                        UpdateContext({localLimpar: true,localShowModal:true}),
+                        UpdateContext(
+                            {
+                                localLimpar: true,
+                                localShowModal: true
+                            }
+                        ),
                         If(
                             SubmitForm(ColaboradorForm_1),
-                
                             Back();
-                            Notify(
-                                "Registo de Colaborador criado com sucesso!",
-                                NotificationType.Success
+                            If(
+                                ColabFormMode = FormMode.Edit,
+                                Notify(
+                                    "Registo de Colaborador alterado com sucesso!",
+                                    NotificationType.Success
+                                ),
+                                Notify(
+                                    "Registo de Colaborador criado com sucesso!",
+                                    NotificationType.Success
+                                )
                             ),
                             Notify(
                                 "Por favor, tente novamente ou contacte o administrador da solução!",
