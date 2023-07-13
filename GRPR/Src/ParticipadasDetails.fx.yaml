@@ -937,11 +937,44 @@ ParticipadasDetails As screen:
             ZIndex: =9
 
     ModalConfirmation_6 As ModalConfirmation:
-        ModalText: |-
-            ="Tem certeza de que deseja eliminar a empresa participada do grupo " & LookUp(
+        ModalText: |+
+            =If(
+                localLimpar And !IsBlank(
+                    LookUp(
+                        'Empresas Participadas do Grupos',
+                        ID = _EmpresasParticipadas
+                    ).'Data aprovacao CA'
+                ) And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Empresas Participadas"
+                ).Aprovado,
+                "A Empresa Participada do Grupo " & DataCardValue9_1.Text & " terá sua Data de Aprovação apagada e a informação de Empresas Participadas do Grupo necessitará de nova validação, deseja confirmar esta alteração?",
+                localLimpar And IsBlank(
+                    LookUp(
+                        'Empresas Participadas do Grupos',
+                        ID = _EmpresasParticipadas
+                    ).'Data aprovacao CA'
+                ) And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Empresas Participadas"
+                ).Aprovado,
+                "Após essa alteração, a informação de Empresas Participadas do Grupo necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                localLimpar And !IsBlank(
+                    LookUp(
+                        'Empresas Participadas do Grupos',
+                        ID = _EmpresasParticipadas
+                    ).'Data aprovacao CA'
+                ) And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Empresas Participadas"
+                ).Aprovado = false,
+                "A Empresa Participada do Grupo " & DataCardValue9_1.Text & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
+                "Tem certeza de que deseja eliminar a Empresa Participada do Grupo" & LookUp(
                 'Empresas Participadas do Grupos',
                 ThisRecord.ID = _EmpresasParticipadas
             ).Nome & "?"
+            )
+            
         Visible: =localShowModal
         ZIndex: =11
 
