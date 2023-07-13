@@ -966,9 +966,16 @@ ColaboradoresDetails As screen:
                     If(
                         SubmitForm(ColaboradorForm_1),
                         Back();
-                        Notify(
-                            "Registo de Colaborador criado com sucesso!",
-                            NotificationType.Success
+                        If(
+                            ColabFormMode = FormMode.Edit,
+                            Notify(
+                                "Registo de Colaborador alterado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Registo de Colaborador criado com sucesso!",
+                                NotificationType.Success
+                            )
                         ),
                         Notify(
                             "Por favor, tente novamente ou contacte o administrador da solução!",
@@ -1022,10 +1029,12 @@ ColaboradoresDetails As screen:
                         )
                     )
                 );
-                UpdateContext({
-                    localShowModal: false,
-                    localLimpar: false
-                })
+                UpdateContext(
+                    {
+                        localShowModal: false,
+                        localLimpar: false
+                    }
+                )
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
