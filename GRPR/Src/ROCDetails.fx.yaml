@@ -2,7 +2,8 @@ ROCDetails As screen:
     OnVisible: |-
         =UpdateContext({
             localShowModal: false,
-            localShowPrazo:false
+            localShowPrazo:false,
+            localLimpar:false
         })
 
     BackBtn_3 As BackBtn:
@@ -688,8 +689,24 @@ ROCDetails As screen:
                 =If(
                     ColabFormMode <> FormMode.View,
                     If(
-                        SubmitForm(ROCForm),
+                        !IsBlank(
+                            LookUp(
+                                ROCS,
+                                ID = _ROC
+                            ).'Data aprovacao CA'
+                        ) Or LookUp(
+                            Aprovacaos,
+                            ThisRecord.Tabela = "ROC"
+                        ).Aprovado,
+                        UpdateContext(
+                            {
+                                localLimpar: true,
+                                localShowModal: true
+                            }
+                        ),
                         If(
+                            SubmitForm(ROCForm),
+                        /*If(
                             LookUp(
                                 Aprovacaos,
                                 ThisRecord.Tabela = "ROC"
@@ -717,15 +734,16 @@ ROCDetails As screen:
                                 ),
                                 {'Data aprovacao CA': Blank()}
                             )
-                        );
-                        Back();
-                        Notify(
-                            "Registo de Colaborador criado com sucesso!",
-                            NotificationType.Success
-                        ),
-                        Notify(
-                            "Por favor, tente novamente ou contacte o administrador da solução!",
-                            NotificationType.Error
+                        );*/
+                            Back();
+                            Notify(
+                                "Registo de Colaborador criado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Por favor, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
                         )
                     ),
                     UpdateContext({ColabFormMode: FormMode.Edit})
@@ -895,16 +913,20 @@ ROCDetails As screen:
 
     HtmlText1_1 As htmlViewer:
         HtmlText: |-
-            ="<b>" & DataCardValue15.Text & "</b> " & If(
-                LookUp(
-                    ROCS,
-                    ID = _ROC
-                ).Ativo,
-                "",
-                " (eliminado)"
+            =If(
+                ColabFormMode = FormMode.New,
+                "<b>Criar novo ROC</b>",
+                "<b>" & DataCardValue15.Text & "</b> " & If(
+                    LookUp(
+                        ROCS,
+                        ID = _ROC
+                    ).Ativo,
+                    "",
+                    " (eliminado)"
+                )
             )
         Size: =14
-        Visible: =ColabFormMode <> FormMode.New
+        Visible: =true//ColabFormMode <> FormMode.New
         Width: =291
         X: =365
         Y: =124
