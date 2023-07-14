@@ -68,7 +68,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Atividades Content_3",
-      "ParentIndex": 13,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -237,7 +237,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Atividades Info_3",
-      "ParentIndex": 12,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -677,7 +677,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button2_16",
-      "ParentIndex": 11,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1011,7 +1011,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button2_2",
-      "ParentIndex": 7,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1679,7 +1679,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button2_7",
-      "ParentIndex": 10,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1941,7 +1941,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cargo (Categoria)_DataCard1_1",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2096,7 +2096,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cargo (Descricao)_DataCard1_1",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2320,7 +2320,7 @@
       "LayoutName": "vertical",
       "MetaDataIDKey": "",
       "Name": "ColaboradorForm_1",
-      "ParentIndex": 9,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5422,7 +5422,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%FieldName.ID%",
       "Name": "DataCardKey70",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9061,7 +9061,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "DynamicBtn_2",
-      "ParentIndex": 6,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9362,7 +9362,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "DynamicBtn_45",
-      "ParentIndex": 14,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9592,7 +9592,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "elim_btn_17",
-      "ParentIndex": 15,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12847,7 +12847,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "HtmlText1",
-      "ParentIndex": 8,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18977,7 +18977,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%FieldRequired.ID%",
       "Name": "StarVisible70",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

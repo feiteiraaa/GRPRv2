@@ -4,8 +4,67 @@ Atividade As screen:
             Reset(InputPesquisar),
             Refresh(Atividades)
         );
-        
-        ClearCollect(CollectAtividades, Atividades);
+        ClearCollect(
+            CollectAtividades,
+            If(
+                Or(
+                    DRI,
+                    DCOMP_Consulta,
+                    DAI_Consulta,
+                    godMode
+                ),
+                Atividades,
+                Or(
+                    DMK_Consulta,
+                    CCOMP_Consulta
+                ),
+                Filter(
+                    Atividades,
+                    ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Participadas' Or ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas'
+                ),
+                Or(
+                    DCRF_Editor,
+                    DCRF_Validador
+                ),
+                Filter(
+                    Atividades,
+                    ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Participadas'
+                ),
+                Or(
+                    DGP_Editor,
+                    DGP_Validador
+                ),
+                Filter(
+                    Atividades,
+                    ThisRecord.'Lista da atividade' = 'lista da atividade'.Colaboradores
+                ),
+                Or(
+                    DGC_Editor,
+                    DGC_Validador
+                ),
+                Filter(
+                    Atividades,
+                    (ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And LookUp(
+                        Membros_1,
+                        ID = Atividades[@Item]
+                    ).Grupo = Grupo.'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas'/*And LookUp(Membros_1,ID=Atividades[@Item]).Grupo=Grupo.MGAM*/) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares/*And LookUp(Membros_1,ID=Atividades[@Item]).Grupo=Grupo.MGAM*/) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.ROC And LookUp(
+                        ROCS,
+                        ID = Atividades[@Item]
+                    ).Grupo = Grupo.MGAM)
+                ),
+                Or(
+                    GCONT_Editor,
+                    GCONT_Validador
+                ),
+                Filter(
+                    Atividades,
+                    (ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And LookUp(
+                        Membros_1,
+                        ID = Atividades[@Item]
+                    ).Grupo = Grupo.MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas'/*And LookUp(Membros_1,ID=Atividades[@Item]).Grupo=Grupo.MGAM*/) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares/*And LookUp(Membros_1,ID=Atividades[@Item]).Grupo=Grupo.MGAM*/)
+                )
+            )
+        );
 
     Label1_9 As label:
         FontWeight: =FontWeight.Bold
