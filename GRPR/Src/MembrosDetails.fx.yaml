@@ -387,7 +387,7 @@ MembrosDetails As screen:
                     DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_grupo")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    Required: =false
+                    Required: =true
                     Update: =DataCardValue51.Selected.Value
                     Width: =266
                     X: =0
