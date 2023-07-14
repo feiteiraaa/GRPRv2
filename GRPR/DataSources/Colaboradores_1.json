@@ -202,6 +202,14 @@
       "OptionSetReferenceItem3": {
         "OptionSetReferenceColumnName": "uipp_grupo",
         "OptionSetReferenceEntityName": "ROCS"
+      },
+      "OptionSetReferenceItem4": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Empresas"
+      },
+      "OptionSetReferenceItem5": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Familiares"
       }
     },
     "OptionSetTypeKey": "PicklistType",
