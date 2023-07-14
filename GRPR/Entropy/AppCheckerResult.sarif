@@ -16438,127 +16438,47 @@
                 },
                 "region": {
                   "charLength": 6,
+                  "charOffset": 1623,
+                  "snippet": {
+                    "text": "[@Item"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnVisible",
+                "module": "Atividade",
+                "type": "Atividade"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "uipp_item"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Atividade.OnVisible"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Atividade.OnVisible",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
                   "charOffset": 1611,
-                  "snippet": {
-                    "text": "[@Item"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "Atividade",
-                "type": "Atividade"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "uipp_item"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Atividade.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Atividade.OnVisible",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 1,
-                  "charOffset": 1599,
-                  "snippet": {
-                    "text": "="
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "Atividade",
-                "type": "Atividade"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "LookUp"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Atividade.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Atividade.OnVisible",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 6,
-                  "charOffset": 1781,
-                  "snippet": {
-                    "text": "[@Item"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "Atividade",
-                "type": "Atividade"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "uipp_item"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Atividade.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Atividade.OnVisible",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 1,
-                  "charOffset": 1769,
                   "snippet": {
                     "text": "="
                   }
@@ -16798,7 +16718,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 1470,
+                  "charOffset": 1482,
                   "snippet": {
                     "text": "Or"
                   }
@@ -16838,7 +16758,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 1653,
+                  "charOffset": 1677,
                   "snippet": {
                     "text": "Or"
                   }
@@ -16878,7 +16798,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 2097,
+                  "charOffset": 2013,
                   "snippet": {
                     "text": "[@Item"
                   }
@@ -16918,7 +16838,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2085,
+                  "charOffset": 2001,
                   "snippet": {
                     "text": "="
                   }
@@ -16958,7 +16878,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 2289,
+                  "charOffset": 2205,
                   "snippet": {
                     "text": "[@Item"
                   }
@@ -16998,7 +16918,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2277,
+                  "charOffset": 2193,
                   "snippet": {
                     "text": "="
                   }
@@ -17038,7 +16958,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 2472,
+                  "charOffset": 2388,
                   "snippet": {
                     "text": "[@Item"
                   }
@@ -17078,7 +16998,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2460,
+                  "charOffset": 2376,
                   "snippet": {
                     "text": "="
                   }
@@ -17118,7 +17038,7 @@
                 },
                 "region": {
                   "charLength": 87,
-                  "charOffset": 2031,
+                  "charOffset": 1947,
                   "snippet": {
                     "text": "LookUp(\n                Membros_1,\n                ID = Atividades[@Item]\n            )"
                   }
@@ -17158,7 +17078,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 2118,
+                  "charOffset": 2034,
                   "snippet": {
                     "text": ".Grupo"
                   }
@@ -17198,7 +17118,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2125,
+                  "charOffset": 2041,
                   "snippet": {
                     "text": "="
                   }
@@ -17238,7 +17158,7 @@
                 },
                 "region": {
                   "charLength": 3,
-                  "charOffset": 2027,
+                  "charOffset": 1943,
                   "snippet": {
                     "text": "And"
                   }
@@ -17278,7 +17198,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2139,
+                  "charOffset": 2055,
                   "snippet": {
                     "text": "Or"
                   }
@@ -17318,7 +17238,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2331,
+                  "charOffset": 2247,
                   "snippet": {
                     "text": "Or"
                   }
