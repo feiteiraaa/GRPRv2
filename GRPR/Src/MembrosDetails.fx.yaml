@@ -4419,6 +4419,27 @@ MembrosDetails As screen:
                                 NotificationType.Error
                             )
                         )
+                    );
+                    ForAll(
+                        ligacaoRespetivas,
+                        If(
+                            Patch(
+                                Empresas,
+                                LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = ligacaoRespetivas[@ID_Empresa].ID
+                                ),
+                                {Bloqueado: true}
+                            ).Bloqueado = true,
+                            Notify(
+                                "Empresas Respetivas associadas ao membro bloqueado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Falha ao bloquear Empresas Respetivas associadas, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
+                        )
                     )
                 );
             PressedColor: =RGBA(0,0,0, 0)
