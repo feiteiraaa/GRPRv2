@@ -124,6 +124,75 @@ MembrosFamiDetails As screen:
                 Y: =50
                 ZIndex: =1
 
+                Grupo_DataCard5 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_grupo"
+                    Default: =ThisItem.Grupo
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_grupo")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue60.Selected.Value
+                    Width: =309
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey78 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue60 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =[Parent.Default]
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        IsSearchable: =false
+                        Items: =Choices(Grupo)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey78.Y + DataCardKey78.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage78 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue60.Y + DataCardValue60.Height
+                        ZIndex: =3
+
+                    StarVisible78 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey78.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey78.Y
+                        ZIndex: =4
+
                 Nome_DataCard1_2 As typedDataCard.textualEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="uipp_nome"
@@ -457,8 +526,8 @@ MembrosFamiDetails As screen:
                     Visible: |
                         =Informacao_1.Mode<>FormMode.New
                     Width: =266
-                    X: =1
-                    Y: =1
+                    X: =0
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey6_2 As label:
@@ -621,7 +690,7 @@ MembrosFamiDetails As screen:
                     Update: =DateValue2_1.SelectedDate
                     Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
                     Width: =266
-                    X: =0
+                    X: =1
                     Y: =2
                     ZIndex: =1
 
@@ -697,7 +766,7 @@ MembrosFamiDetails As screen:
                     Update: =DateValue3_1.SelectedDate 
                     Visible: =!IsBlank(ThisItem.'Data de saida')
                     Width: =266
-                    X: =1
+                    X: =2
                     Y: =2
                     ZIndex: =1
 
