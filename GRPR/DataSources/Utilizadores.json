@@ -1455,8 +1455,6 @@
       "user_cr364_config_notificacoes": "Config_Notificações (user_cr364_config_notificacoes)",
       "user_cr364_favoritos": "Favoritos (user_cr364_favoritos)",
       "user_customapi": "Custom APIs (user_customapi)",
-      "user_customapirequestparameter": "Custom API Request Parameters (user_customapirequestparameter)",
-      "user_customapiresponseproperty": "Custom API Response Properties (user_customapiresponseproperty)",
       "user_datalakefolder": "Data Lake Folders (user_datalakefolder)",
       "user_desktopflowbinary": "Desktop Flow Binaries (user_desktopflowbinary)",
       "user_desktopflowmodule": "Desktop Flow Modules (user_desktopflowmodule)",
