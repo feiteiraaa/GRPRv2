@@ -447,7 +447,7 @@ MembrosFamiDetails As screen:
                     DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_grupo")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    Required: =true
+                    Required: =false
                     Update: =DataCardValue60.Selected.Value
                     Width: =266
                     X: =1
