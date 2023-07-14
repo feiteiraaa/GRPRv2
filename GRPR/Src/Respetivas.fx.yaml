@@ -745,6 +745,7 @@ Respetivas As screen:
 
             StarVisible77 As label:
                 Align: =Align.Center
+                Color: =Color.Red
                 Height: =DataCardKey77.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
