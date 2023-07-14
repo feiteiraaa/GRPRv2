@@ -1,6 +1,6 @@
 MembrosDetails As screen:
     OnHidden: =
-    OnVisible: |
+    OnVisible: |-
         =UpdateContext(
             {
                 _Associar: false,
@@ -25,7 +25,7 @@ MembrosDetails As screen:
                 localShowPrazo: false,
                 localShowNewForm: false,
                 //localBloquear: true,
-                localLimpar:false
+                localLimpar: false
             }
         );
         Refresh('Membros-Familiares-Respetivas');
@@ -111,7 +111,17 @@ MembrosDetails As screen:
         Refresh('Membros-Familiares-Respetivas');
         Refresh('Membros-Participadas');
         Clear(atividadesFami);
-        //Set(DRI,false)
+        ClearCollect(
+            ligacaoRespetivaMF,
+            Filter(
+                'Membros-Familiares-Respetivas',
+                ID_Membro.ID = _Membro Or ID_Familiares.ID in Concat(ligacaoFamiliares,ID_Familiares.ID & ",")//[@ID_Familiares].ID
+            )
+        );
+        RemoveIf(
+            ligacaoRespetivaMF,
+            !IsBlank(ID_GrauParentesco.ID)
+        )
 
     "'Mid Section_Membros' As groupContainer.manualLayoutContainer":
         Height: =580
@@ -4363,13 +4373,13 @@ MembrosDetails As screen:
                         )
                     );
                     ForAll(
-                        ligacaoRespetivas,
+                        ligacaoRespetivaMF,
                         If(
                             Patch(
                                 Empresas,
                                 LookUp(
                                     Empresas,
-                                    ThisRecord.ID = ligacaoRespetivas[@ID_Empresa].ID
+                                    ThisRecord.ID = ligacaoRespetivaMF[@ID_Empresa].ID
                                 ),
                                 {Bloqueado: false}
                             ).Bloqueado = false,
@@ -4426,13 +4436,13 @@ MembrosDetails As screen:
                         )
                     );
                     ForAll(
-                        ligacaoRespetivas,
+                        ligacaoRespetivaMF,
                         If(
                             Patch(
                                 Empresas,
                                 LookUp(
                                     Empresas,
-                                    ThisRecord.ID = ligacaoRespetivas[@ID_Empresa].ID
+                                    ThisRecord.ID = ligacaoRespetivaMF[@ID_Empresa].ID
                                 ),
                                 {Bloqueado: true}
                             ).Bloqueado = true,
