@@ -73,34 +73,100 @@ Inicio As screen:
         Fill: =RGBA(219, 219, 219, 1)
         Height: =431
         Items: |-
-            =
-                With(
-                    {
-                        records: Ungroup(
+            =With(
+                {
+                    records: /*Ungroup(
                             Table(
-                                {Atividades: Atividades}/*,
-                                {Atividades: Listagens_1}*/
+                                {Atividades: Atividades},
+                                //{Atividades: Listagens_1}
                             ),
                             "Atividades"
-                        )
-                    },
-                    ForAll(
-                        Sequence(CountRows(records)),
-                        Patch(
-                            Last(
-                                FirstN(
-                                    SortByColumns(
-                                        records,
-                                        "createdon",
-                                        SortOrder.Descending
-                                    ),
-                                    Value
-                                )
-                            ),
-                            {rowNumber: Value}
+                        )*/
+            If(
+                        Or(
+                            DRI,
+                            DCOMP_Consulta,
+                            DAI_Consulta,
+                            godMode
+                        ),
+                        Atividades,
+                        Or(
+                            DMK_Consulta,
+                            CCOMP_Consulta
+                        ),
+                        Filter(
+                            Atividades,
+                            ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Participadas' Or ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas'
+                        ),
+                        Or(
+                            DCRF_Editor,
+                            DCRF_Validador
+                        ),
+                        Filter(
+                            Atividades,
+                            ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Participadas'
+                        ),
+                        Or(
+                            DGP_Editor,
+                            DGP_Validador
+                        ),
+                        Filter(
+                            Atividades,
+                            ThisRecord.'Lista da atividade' = 'lista da atividade'.Colaboradores
+                        ),
+                        Or(
+                            DGC_Editor,
+                            DGC_Validador
+                        ),
+                        Filter(
+                            Atividades,
+                            (ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And LookUp(
+                                Membros_1,
+                                ID = Atividades[@Item]
+                            ).Grupo = Grupo.'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And LookUp(
+                                Empresas,
+                                ID = Atividades[@Item]
+                            ).Grupo = Grupo.'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares And LookUp(
+                                Familiares,
+                                ID = Atividades[@Item]
+                            ).Grupo = Grupo.'Banco Montepio') Or ThisRecord.'Lista da atividade' = 'lista da atividade'.ROC
+                        ),
+                        Or(
+                            GCONT_Editor,
+                            GCONT_Validador
+                        ),
+                        Filter(
+                            Atividades,
+                            (ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And LookUp(
+                                Membros_1,
+                                ID = Atividades[@Item]
+                            ).Grupo = Grupo.MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And LookUp(
+                                Empresas,
+                                ID = Atividades[@Item]
+                            ).Grupo = Grupo.MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares And LookUp(
+                                Familiares,
+                                ID = Atividades[@Item]
+                            ).Grupo = Grupo.MGAM)
                         )
                     )
+                },
+                ForAll(
+                    Sequence(CountRows(records)),
+                    Patch(
+                        Last(
+                            FirstN(
+                                SortByColumns(
+                                    records,
+                                    "createdon",
+                                    SortOrder.Descending
+                                ),
+                                Value
+                            )
+                        ),
+                        {rowNumber: Value}
+                    )
                 )
+            )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         ShowScrollbar: =false

@@ -2843,7 +2843,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cargo (Categoria)_Column1",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7125,7 +7125,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconTipo",
-      "ParentIndex": 21,
+      "ParentIndex": 22,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7565,7 +7565,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconUO",
-      "ParentIndex": 22,
+      "ParentIndex": 21,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10175,7 +10175,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Legislacao aplicada_Column1",
-      "ParentIndex": 1,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10288,7 +10288,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Legislacao aplicada_Column2",
-      "ParentIndex": 0,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12151,7 +12151,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Nome_Column1",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12257,7 +12257,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Nome_Column2",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12702,7 +12702,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Numero Documento_Column2",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13967,7 +13967,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Tipo Documento_Column2",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16231,7 +16231,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "uipp_tipo_Column1",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16344,7 +16344,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "uipp_tipodedocumento_Column1",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16465,7 +16465,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unidade organica_Column1",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
