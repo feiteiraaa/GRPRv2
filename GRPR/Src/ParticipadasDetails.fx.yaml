@@ -1418,3 +1418,127 @@ ParticipadasDetails As screen:
             Y: =5
             ZIndex: =4
 
+    LabelMembroName_3 As label:
+        AutoHeight: =true
+        FontWeight: =FontWeight.Bold
+        Text: |-
+            =If(
+                !IsBlank(_EmpresasParticipadas),
+                If(
+                    LookUp(
+                        'Empresas Participadas do Grupos',
+                        ID = _EmpresasParticipadas
+                    ).Ativo,
+                    LookUp(
+                        'Empresas Participadas do Grupos',
+                        ID = _EmpresasParticipadas
+                    ).Nome,
+                    LookUp(
+                        'Empresas Participadas do Grupos',
+                        ID = _EmpresasParticipadas
+                    ).Nome & " (Eliminado)"
+                ),
+                "Criar nova Empresa Participada do Grupo"
+            )
+        Width: =Parent.Width/2
+        X: =385
+        Y: =144
+        ZIndex: =21
+
+    BloquearParticipadas As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =21
+
+        DynamicBtn_47 As DynamicBtn:
+            BtnText: |-
+                =If(
+                    LookUp(
+                        'Empresas Participadas do Grupos',
+                        ThisRecord.ID = _EmpresasParticipadas
+                    ).Bloqueado,
+                    
+                    "Bloqueado",
+                    "Desbloqueado"
+                )
+            BtnWidth: =200
+            ButtonIcon: |-
+                =If(
+                    LookUp(
+                        'Empresas Participadas do Grupos',
+                        ThisRecord.ID = _EmpresasParticipadas
+                    ).Bloqueado,    
+                    Icon.Lock,
+                    Icon.Unlock
+                )
+            Height: =40
+            Visible: ="eliminado" in HtmlText1_1.HtmlText
+            Width: =200
+            X: =1125
+            Y: =74
+            ZIndex: =19
+
+        elim_btn_19 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =If(
+                    LookUp(
+                        'Empresas Participadas do Grupos',
+                        ThisRecord.ID = _EmpresasParticipadas
+                    ).Bloqueado,
+                    If(
+                        Patch(
+                            'Empresas Participadas do Grupos',
+                            LookUp(
+                                'Empresas Participadas do Grupos',
+                                ThisRecord.ID = _EmpresasParticipadas
+                            ),
+                            {Bloqueado: false}
+                        ).Bloqueado = false,
+                        Notify(
+                            "Empresa Participada do Grupo desbloqueada com sucesso!",
+                            NotificationType.Success
+                        ),
+                        Notify(
+                            "Por favor, tente desbloquear a Empresa Participada do Grupo novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
+                    ),
+                    If(
+                        Patch(
+                            'Empresas Participadas do Grupos',
+                            LookUp(
+                                'Empresas Participadas do Grupos',
+                                ThisRecord.ID = _EmpresasParticipadas
+                            ),
+                            {Bloqueado: true}
+                        ).Bloqueado = true,
+                        Notify(
+                            "Empresa Participada do Grupo bloqueada com sucesso!",
+                            NotificationType.Success
+                        ),
+                        Notify(
+                            "Por favor, tente bloquear a Empresa Participada do Grupo novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
+                    )
+                )
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: ="eliminado" in HtmlText1_1.HtmlText
+            Width: =DynamicBtn_47.Width
+            X: =DynamicBtn_47.X
+            Y: =DynamicBtn_47.Y
+            ZIndex: =20
+

@@ -1053,7 +1053,7 @@ ROCDetails As screen:
                         ID = _ROC
                     ).Ativo,
                     "",
-                    " (eliminado)"
+                    "<b>(eliminado)</b>"
                 )
             )
         Size: =14

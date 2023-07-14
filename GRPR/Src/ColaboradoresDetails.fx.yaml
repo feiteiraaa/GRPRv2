@@ -1062,7 +1062,7 @@ ColaboradoresDetails As screen:
                         ID = _Colaborador
                     ).Ativo,
                     "",
-                    " (eliminado)"
+                    " <b>(eliminado)</b>"
                 )
             )
         Size: =14
