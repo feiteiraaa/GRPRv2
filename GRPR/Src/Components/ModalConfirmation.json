@@ -65,7 +65,7 @@
         "Name": "Rectangle1",
         "Parent": "ModalConfirmation",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1289,
+        "PublishOrderIndex": 1367,
         "Rules": [
           {
             "Category": "Design",
@@ -236,7 +236,7 @@
         "Name": "Icon4",
         "Parent": "ModalConfirmation",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1290,
+        "PublishOrderIndex": 1368,
         "Rules": [
           {
             "Category": "Design",
@@ -479,7 +479,7 @@
         "Name": "Label4",
         "Parent": "ModalConfirmation",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1291,
+        "PublishOrderIndex": 1369,
         "Rules": [
           {
             "Category": "Data",
@@ -898,7 +898,7 @@
         "Name": "Button1_2",
         "Parent": "ModalConfirmation",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1292,
+        "PublishOrderIndex": 1370,
         "Rules": [
           {
             "Category": "Data",
@@ -1313,7 +1313,7 @@
         "Name": "Button1_3",
         "Parent": "ModalConfirmation",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1293,
+        "PublishOrderIndex": 1371,
         "Rules": [
           {
             "Category": "Data",
@@ -1623,7 +1623,7 @@
         "Name": "Icon2_2",
         "Parent": "ModalConfirmation",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1294,
+        "PublishOrderIndex": 1372,
         "Rules": [
           {
             "Category": "Design",
@@ -1856,7 +1856,7 @@
         "Name": "Icon2_3",
         "Parent": "ModalConfirmation",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1295,
+        "PublishOrderIndex": 1373,
         "Rules": [
           {
             "Category": "Design",
@@ -2107,7 +2107,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638249404994565071",
+    "LastModifiedTimestamp": "638249529303909783",
     "Name": "ModalConfirmation",
     "Rules": [
       {
@@ -2287,7 +2287,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638249404994565071",
+  "LastModifiedTimestamp": "638249529303909783",
   "Name": "eb24e4724ed04a619ab834c43dfccdf3",
   "OverridableProperties": {},
   "Version": "638193246716139455"

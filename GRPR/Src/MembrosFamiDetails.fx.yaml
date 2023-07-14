@@ -447,12 +447,79 @@ MembrosFamiDetails As screen:
                     DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_grupo")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    Required: =false
-                    Update: =DataCardValue60.Selected.Value
+                    Required: =true
+                    Update: =DataCardValue58.Selected.Value
                     Width: =266
                     X: =1
                     Y: =1
                     ZIndex: =1
+
+                    DataCardKey77 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue58 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        ChevronBackground: =cores.amareloMontepio
+                        ChevronHoverBackground: =cores.amareloMontepio
+                        DefaultSelectedItems: |-
+                            =//[Parent.Default]
+                            [LookUp(Membros_1,ID=_MembroF).Grupo]
+                        DisplayFields: =["Value"]
+                        DisplayMode: |-
+                            =//Parent.DisplayMode
+                            If(
+                                Informacao_1.Mode = FormMode.New,
+                                DisplayMode.Disabled,
+                                Parent.DisplayMode
+                            )
+                        HoverFill: =cores.amareloMontepio
+                        IsSearchable: =false
+                        Items: =Choices(Grupo)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedFill: =cores.amareloMontepio
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: =cores.amareloMontepio
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey77.Y + DataCardKey77.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage77 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue58.Y + DataCardValue58.Height
+                        ZIndex: =3
+
+                    StarVisible77 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey77.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey77.Y
+                        ZIndex: =4
 
                 "'Legislacao aplicada_DataCard3_1' As typedDataCard.comboBoxEditCard":
                     BorderStyle: =BorderStyle.Solid
