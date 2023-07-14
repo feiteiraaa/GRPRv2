@@ -526,7 +526,14 @@ ColaboradoresDetails As screen:
             DateValue11 As datepicker:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 DefaultDate: |
-                    =If(ColaboradorForm_1.Mode=FormMode.New,Text(Today(),"dd/mm/yyyy"),Parent.Default)
+                    =If(
+                        ColaboradorForm_1.Mode = FormMode.New,
+                        Text(
+                            Today(),
+                            "dd/mm/yyyy"
+                        ),
+                        ThisItem.'Created On'
+                    )
                 DisplayMode: =Parent.DisplayMode
                 EndYear: =Year(Today())+100
                 Format: |-
@@ -544,7 +551,7 @@ ColaboradoresDetails As screen:
                 Tooltip: =Parent.DisplayName
                 Width: =(Parent.Width - 60)
                 X: =30
-                Y: =DataCardKey69.Y + DataCardKey69.Height + 5
+                Y: =45
                 ZIndex: =2
 
             ErrorMessage69 As label:
