@@ -4336,7 +4336,8 @@ MembrosDetails As screen:
                         ),
                         Notify(
                             "Por favor, tente desbloquear o Membro novamente ou contacte o administrador da solução!",
-                            NotificationType.Error
+                            NotificationType.Error,
+                            0
                         )
                     );
                     ForAll(
@@ -4356,7 +4357,8 @@ MembrosDetails As screen:
                             ),
                             Notify(
                                 "Falha ao desbloquear familiares associados, tente novamente ou contacte o administrador da solução!",
-                                NotificationType.Error
+                                NotificationType.Error,
+                                0
                             )
                         )
                     );
@@ -4377,7 +4379,8 @@ MembrosDetails As screen:
                             ),
                             Notify(
                                 "Falha ao desbloquear Empresas Respetivas associadas, tente novamente ou contacte o administrador da solução!",
-                                NotificationType.Error
+                                NotificationType.Error,
+                                0
                             )
                         )
                     ),
@@ -4396,10 +4399,11 @@ MembrosDetails As screen:
                         ),
                         Notify(
                             "Por favor, tente bloquear o Membro novamente ou contacte o administrador da solução!",
-                            NotificationType.Error
+                            NotificationType.Error,
+                            0
                         )
                     );
-                     ForAll(
+                    ForAll(
                         ligacaoFamiliares,
                         If(
                             Patch(
@@ -4416,7 +4420,8 @@ MembrosDetails As screen:
                             ),
                             Notify(
                                 "Falha ao bloquear familiares associados, tente novamente ou contacte o administrador da solução!",
-                                NotificationType.Error
+                                NotificationType.Error,
+                                0
                             )
                         )
                     );
@@ -4437,7 +4442,8 @@ MembrosDetails As screen:
                             ),
                             Notify(
                                 "Falha ao bloquear Empresas Respetivas associadas, tente novamente ou contacte o administrador da solução!",
-                                NotificationType.Error
+                                NotificationType.Error,
+                                0
                             )
                         )
                     )
