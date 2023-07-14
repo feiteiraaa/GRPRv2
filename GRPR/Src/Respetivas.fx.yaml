@@ -693,7 +693,7 @@ Respetivas As screen:
                 =!localFormRespetivasNew 
             Width: =490
             X: =1
-            Y: =1
+            Y: =2
             ZIndex: =1
 
             DataCardKey37 As label:
@@ -873,8 +873,8 @@ Respetivas As screen:
             Update: =DateValue4.SelectedDate
             Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
             Width: =490
-            X: =1
-            Y: =2
+            X: =0
+            Y: =3
             ZIndex: =1
 
             DataCardKey33 As label:
@@ -952,7 +952,7 @@ Respetivas As screen:
             Update: =DateValue6.SelectedDate
             Visible: =!IsBlank(ThisItem.'Data de saída')
             Width: =490
-            X: =0
+            X: =1
             Y: =3
             ZIndex: =1
 

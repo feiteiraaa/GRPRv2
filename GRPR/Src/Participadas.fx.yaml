@@ -1,6 +1,7 @@
 Participadas As screen:
     OnHidden: |
         = UpdateContext({ _Associar:false});
+         Reset(Checkbox1_2)
     OnVisible: |-
         =UpdateContext({localShowModal:false});
         Refresh('Empresas Participadas do Grupos')

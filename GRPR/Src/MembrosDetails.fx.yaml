@@ -1,6 +1,6 @@
 MembrosDetails As screen:
     OnHidden: =
-    OnVisible: |
+    OnVisible: |-
         =UpdateContext(
             {
                 _Associar: false,
@@ -25,7 +25,7 @@ MembrosDetails As screen:
                 localShowPrazo: false,
                 localShowNewForm: false,
                 //localBloquear: true,
-                localLimpar:false
+                localLimpar: false
             }
         );
         Refresh('Membros-Familiares-Respetivas');
@@ -111,7 +111,17 @@ MembrosDetails As screen:
         Refresh('Membros-Familiares-Respetivas');
         Refresh('Membros-Participadas');
         Clear(atividadesFami);
-        //Set(DRI,false)
+        ClearCollect(
+            ligacaoRespetivaMF,
+            Filter(
+                'Membros-Familiares-Respetivas',
+                ID_Membro.ID = _Membro Or ID_Familiares.ID in Concat(ligacaoFamiliares,ID_Familiares.ID & ",")//[@ID_Familiares].ID
+            )
+        );
+        RemoveIf(
+            ligacaoRespetivaMF,
+            !IsBlank(ID_GrauParentesco.ID)
+        )
 
     "'Mid Section_Membros' As groupContainer.manualLayoutContainer":
         Height: =580
@@ -377,7 +387,7 @@ MembrosDetails As screen:
                     DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_grupo")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    Required: =false
+                    Required: =true
                     Update: =DataCardValue51.Selected.Value
                     Width: =266
                     X: =0
@@ -4336,7 +4346,8 @@ MembrosDetails As screen:
                         ),
                         Notify(
                             "Por favor, tente desbloquear o Membro novamente ou contacte o administrador da solução!",
-                            NotificationType.Error
+                            NotificationType.Error,
+                            0
                         )
                     );
                     ForAll(
@@ -4356,7 +4367,30 @@ MembrosDetails As screen:
                             ),
                             Notify(
                                 "Falha ao desbloquear familiares associados, tente novamente ou contacte o administrador da solução!",
-                                NotificationType.Error
+                                NotificationType.Error,
+                                0
+                            )
+                        )
+                    );
+                    ForAll(
+                        ligacaoRespetivaMF,
+                        If(
+                            Patch(
+                                Empresas,
+                                LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = ligacaoRespetivaMF[@ID_Empresa].ID
+                                ),
+                                {Bloqueado: false}
+                            ).Bloqueado = false,
+                            Notify(
+                                "Empresas Respetivas associadas ao membro desbloqueado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Falha ao desbloquear Empresas Respetivas associadas, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error,
+                                0
                             )
                         )
                     ),
@@ -4375,10 +4409,11 @@ MembrosDetails As screen:
                         ),
                         Notify(
                             "Por favor, tente bloquear o Membro novamente ou contacte o administrador da solução!",
-                            NotificationType.Error
+                            NotificationType.Error,
+                            0
                         )
                     );
-                     ForAll(
+                    ForAll(
                         ligacaoFamiliares,
                         If(
                             Patch(
@@ -4395,7 +4430,30 @@ MembrosDetails As screen:
                             ),
                             Notify(
                                 "Falha ao bloquear familiares associados, tente novamente ou contacte o administrador da solução!",
-                                NotificationType.Error
+                                NotificationType.Error,
+                                0
+                            )
+                        )
+                    );
+                    ForAll(
+                        ligacaoRespetivaMF,
+                        If(
+                            Patch(
+                                Empresas,
+                                LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = ligacaoRespetivaMF[@ID_Empresa].ID
+                                ),
+                                {Bloqueado: true}
+                            ).Bloqueado = true,
+                            Notify(
+                                "Empresas Respetivas associadas ao membro bloqueado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Falha ao bloquear Empresas Respetivas associadas, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error,
+                                0
                             )
                         )
                     )

@@ -457,8 +457,8 @@ MembrosFamiDetails As screen:
                     Visible: |
                         =Informacao_1.Mode<>FormMode.New
                     Width: =266
-                    X: =1
-                    Y: =1
+                    X: =0
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey6_2 As label:
@@ -621,7 +621,7 @@ MembrosFamiDetails As screen:
                     Update: =DateValue2_1.SelectedDate
                     Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
                     Width: =266
-                    X: =0
+                    X: =1
                     Y: =2
                     ZIndex: =1
 
@@ -697,7 +697,7 @@ MembrosFamiDetails As screen:
                     Update: =DateValue3_1.SelectedDate 
                     Visible: =!IsBlank(ThisItem.'Data de saida')
                     Width: =266
-                    X: =1
+                    X: =2
                     Y: =2
                     ZIndex: =1
 
@@ -760,6 +760,21 @@ MembrosFamiDetails As screen:
                         Wrap: =false
                         Y: =DataCardKey30_1.Y
                         ZIndex: =7
+
+                Grupo_DataCard5 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_grupo"
+                    Default: =ThisItem.Grupo
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_grupo")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue60.Selected.Value
+                    Width: =266
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
 
             InfoRelaçãoFami As form:
                 DataSource: ='Membros-Familiares-Respetivas'
