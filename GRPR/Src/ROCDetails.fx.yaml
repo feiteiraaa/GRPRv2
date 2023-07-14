@@ -745,7 +745,7 @@ ROCDetails As screen:
                     Icon.Save,
                     Icon.Edit
                 )
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador)
+            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
             X: =1174
             Y: =74
             ZIndex: =6
@@ -805,7 +805,7 @@ ROCDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador)
+            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
             X: =1174
             Y: =75
             ZIndex: =7
@@ -831,7 +831,7 @@ ROCDetails As screen:
                     Icon.Cancel
                 )
             Height: =40
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador)
+            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
             Width: =160
             X: =1001
             Y: =74
@@ -863,7 +863,7 @@ ROCDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador)
+            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
             X: =1001
             Y: =74
             ZIndex: =10
@@ -1297,4 +1297,101 @@ ROCDetails As screen:
             X: =Parent.Width - (30 + 'Info Circle_15'.Width)
             Y: =5
             ZIndex: =4
+
+    BloquearROCs As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =21
+
+        DynamicBtn_46 As DynamicBtn:
+            BtnText: |-
+                =If(
+                    LookUp(
+                        ROCS,
+                        ThisRecord.ID = _ROC
+                    ).Bloqueado,
+                    
+                    "Bloqueado",
+                    "Desbloqueado"
+                )
+            BtnWidth: =200
+            ButtonIcon: |-
+                =If(
+                    LookUp(
+                        ROCS,
+                        ThisRecord.ID = _ROC
+                    ).Bloqueado,    
+                    Icon.Lock,
+                    Icon.Unlock
+                )
+            Height: =40
+            Visible: ="eliminado" in HtmlText1_1.HtmlText
+            Width: =200
+            X: =1125
+            Y: =74
+            ZIndex: =19
+
+        elim_btn_18 As button:
+            BorderColor: =RGBA(0,0,0, 0)
+            Color: =RGBA(0,0,0, 0)
+            DisabledBorderColor: =RGBA(0,0,0, 0)
+            DisabledColor: =RGBA(0,0,0, 0)
+            DisabledFill: =RGBA(0,0,0, 0)
+            Fill: =RGBA(0,0,0, 0)
+            Height: =39
+            HoverColor: =RGBA(0,0,0, 0)
+            HoverFill: =RGBA(0,0,0, 0)
+            OnSelect: |-
+                =If(
+                    LookUp(
+                        ROCS,
+                        ThisRecord.ID = _ROC
+                    ).Bloqueado,
+                    If(
+                        Patch(
+                            ROCS,
+                            LookUp(
+                                ROCS,
+                                ThisRecord.ID = _ROC
+                            ),
+                            {Bloqueado: false}
+                        ).Bloqueado = false,
+                        Notify(
+                            "ROC desbloqueado com sucesso!",
+                            NotificationType.Success
+                        ),
+                        Notify(
+                            "Por favor, tente desbloquear o ROC novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
+                    ),
+                    If(
+                        Patch(
+                            ROCS,
+                            LookUp(
+                                ROCS,
+                                ThisRecord.ID = _ROC
+                            ),
+                            {Bloqueado: true}
+                        ).Bloqueado = true,
+                        Notify(
+                            "ROC bloqueado com sucesso!",
+                            NotificationType.Success
+                        ),
+                        Notify(
+                            "Por favor, tente bloquear o ROC novamente ou contacte o administrador da solução!",
+                            NotificationType.Error
+                        )
+                    )
+                )
+            PressedColor: =RGBA(0,0,0, 0)
+            PressedFill: =RGBA(0,0,0, 0)
+            Text: =""
+            Visible: ="eliminado" in HtmlText1_1.HtmlText
+            Width: =DynamicBtn_46.Width
+            X: =DynamicBtn_46.X
+            Y: =DynamicBtn_46.Y
+            ZIndex: =20
 

@@ -54,8 +54,10 @@
     "BackgroundTopSection": 46,
     "backrespetivas": 903,
     "Bloquear": 403,
+    "BloquearColaborador": 1312,
     "BloquearMembro": 737,
     "BloquearRespetiva": 902,
+    "BloquearROCs": 1315,
     "btnBack": 239,
     "BtnDelete": 1248,
     "BtnDelete_1": 1213,
@@ -470,6 +472,7 @@
     "DynamicBtn_43": 170,
     "DynamicBtn_44": 204,
     "DynamicBtn_45": 1310,
+    "DynamicBtn_46": 1313,
     "DynamicBtn_5": 911,
     "DynamicBtn_6": 913,
     "DynamicBtn_7": 1189,
@@ -503,6 +506,7 @@
     "elim_btn_15": 253,
     "elim_btn_16": 989,
     "elim_btn_17": 1311,
+    "elim_btn_18": 1314,
     "elim_btn_2": 608,
     "elim_btn_3": 650,
     "elim_btn_4": 656,
@@ -1323,7 +1327,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "07/14/2023 10:47:41",
+  "HeaderLastSavedDateTimeUTC": "07/14/2023 11:07:14",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "06c7a476-789a-4373-9b2e-51a72677f474": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/56e87b286d585e6a9cd026d7623aba21-132cc1e39b199399\"",
@@ -1675,6 +1679,10 @@
       "DynamicBtn_36": 0,
       "elim_btn_12": 1
     },
+    "BloquearColaborador": {
+      "DynamicBtn_45": 1,
+      "elim_btn_17": 0
+    },
     "BloquearMembro": {
       "DynamicBtn_37": 0,
       "elim_btn_13": 1
@@ -1682,6 +1690,10 @@
     "BloquearRespetiva": {
       "DynamicBtn_38": 0,
       "elim_btn_14": 1
+    },
+    "BloquearROCs": {
+      "DynamicBtn_46": 1,
+      "elim_btn_18": 0
     },
     "btnBack": {
       "BackBtn_1": 0,
@@ -2099,8 +2111,10 @@
     "BackgroundTopSection": {},
     "backrespetivas": {},
     "Bloquear": {},
+    "BloquearColaborador": {},
     "BloquearMembro": {},
     "BloquearRespetiva": {},
+    "BloquearROCs": {},
     "btnBack": {},
     "BtnDelete": {},
     "BtnDelete_1": {},
@@ -2515,6 +2529,7 @@
     "DynamicBtn_43": {},
     "DynamicBtn_44": {},
     "DynamicBtn_45": {},
+    "DynamicBtn_46": {},
     "DynamicBtn_5": {},
     "DynamicBtn_6": {},
     "DynamicBtn_7": {},
@@ -2548,6 +2563,7 @@
     "elim_btn_15": {},
     "elim_btn_16": {},
     "elim_btn_17": {},
+    "elim_btn_18": {},
     "elim_btn_2": {},
     "elim_btn_3": {},
     "elim_btn_4": {},
@@ -3413,8 +3429,10 @@
     "BackgroundTopSection": 46,
     "backrespetivas": 1111,
     "Bloquear": 752,
+    "BloquearColaborador": 0,
     "BloquearMembro": 530,
     "BloquearRespetiva": 1110,
+    "BloquearROCs": 0,
     "btnBack": 412,
     "BtnDelete": 236,
     "BtnDelete_1": 208,
@@ -3829,6 +3847,7 @@
     "DynamicBtn_43": 446,
     "DynamicBtn_44": 454,
     "DynamicBtn_45": 518,
+    "DynamicBtn_46": 518,
     "DynamicBtn_5": 1175,
     "DynamicBtn_6": 1177,
     "DynamicBtn_7": 202,
@@ -3862,6 +3881,7 @@
     "elim_btn_15": 739,
     "elim_btn_16": 1253,
     "elim_btn_17": 519,
+    "elim_btn_18": 519,
     "elim_btn_2": 614,
     "elim_btn_3": 655,
     "elim_btn_4": 661,
@@ -4697,9 +4717,9 @@
       "202c7b9df8a3490fac9a819b5cf8e1b9": 16,
       "27efc5d32c9440cbba40590cf0e82b1e": 2,
       "64255e77132e4778a9d6598e5ede5bf5": 1,
-      "88985e4b12794b9786dc42a4eee25302": 58,
+      "88985e4b12794b9786dc42a4eee25302": 59,
       "attachments": 3,
-      "button": 95,
+      "button": 96,
       "c4a5d19b54264f7ba92ef2f2fdd8b339": 8,
       "checkbox": 7,
       "circle": 22,
