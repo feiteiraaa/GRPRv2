@@ -209,7 +209,7 @@ Inicio As screen:
             God: " & godMode
         Visible: =godMode
         Width: =227
-        X: =1010
+        X: =1120
         ZIndex: =6
 
     Label1_7 As label:
