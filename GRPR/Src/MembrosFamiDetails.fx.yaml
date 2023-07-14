@@ -132,9 +132,9 @@ MembrosFamiDetails As screen:
                     DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_grupo")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    Required: =false
+                    Required: =true
                     Update: =DataCardValue60.Selected.Value
-                    Width: =309
+                    Width: =266
                     X: =1
                     Y: =1
                     ZIndex: =1
@@ -152,15 +152,20 @@ MembrosFamiDetails As screen:
                         ZIndex: =1
 
                     DataCardValue60 As combobox:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        ChevronBackground: =cores.amareloMontepio
+                        ChevronHoverBackground: =cores.amareloMontepio
                         DefaultSelectedItems: =[Parent.Default]
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
+                        HoverFill: =cores.amareloMontepio
                         IsSearchable: =false
                         Items: =Choices(Grupo)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedFill: =cores.amareloMontepio
                         SearchFields: =["Value"]
                         SearchItems: =[]
+                        SelectionFill: =cores.amareloMontepio
                         SelectMultiple: =false
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
