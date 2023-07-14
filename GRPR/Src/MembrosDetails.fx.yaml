@@ -4359,6 +4359,27 @@ MembrosDetails As screen:
                                 NotificationType.Error
                             )
                         )
+                    );
+                    ForAll(
+                        ligacaoRespetivas,
+                        If(
+                            Patch(
+                                Empresas,
+                                LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = ligacaoRespetivas[@ID_Empresa].ID
+                                ),
+                                {Bloqueado: false}
+                            ).Bloqueado = false,
+                            Notify(
+                                "Empresas Respetivas associadas ao membro desbloqueado com sucesso!",
+                                NotificationType.Success
+                            ),
+                            Notify(
+                                "Falha ao desbloquear Empresas Respetivas associadas, tente novamente ou contacte o administrador da solução!",
+                                NotificationType.Error
+                            )
+                        )
                     ),
                     If(
                         Patch(
