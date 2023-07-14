@@ -106,14 +106,6 @@ Inicio As screen:
         ShowScrollbar: =false
         TemplatePadding: =0
         TemplateSize: =55
-        Visible: |-
-            =Or(
-                godMode,
-                DRI,
-                DGC_Editor,
-                DGC_Validador
-            
-            )
         Width: =692
         X: =365
         Y: =136

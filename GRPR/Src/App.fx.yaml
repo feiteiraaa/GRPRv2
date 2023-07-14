@@ -242,7 +242,7 @@ App As appinfo:
         
         
         //temporary - UO tests
-        If(User().Email = "grdias.ex@montepio.pt", Set(GCONT_Editor, false); Set(godMode, false), Set(godMode, true));
+        If(User().Email = "grdias.ex@montepio.pt", Set(GCONT_Editor, true); Set(godMode, false), Set(godMode, true));
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
