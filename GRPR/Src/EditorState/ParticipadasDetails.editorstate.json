@@ -68,7 +68,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Atividades Content_5",
-      "ParentIndex": 17,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -237,7 +237,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Atividades Info_5",
-      "ParentIndex": 16,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1018,7 +1018,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button2_3",
-      "ParentIndex": 8,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1395,7 +1395,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cancelar_btn",
-      "ParentIndex": 13,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1791,7 +1791,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "confirm_btn",
-      "ParentIndex": 12,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9456,7 +9456,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "DynamicBtn_3",
-      "ParentIndex": 9,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9610,7 +9610,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "DynamicBtn_47",
-      "ParentIndex": 6,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9840,7 +9840,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "elim_btn_19",
-      "ParentIndex": 7,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10051,7 +10051,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "elim_components",
-      "ParentIndex": 20,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12984,7 +12984,7 @@
       "LayoutName": "vertical",
       "MetaDataIDKey": "",
       "Name": "FormParticipadas",
-      "ParentIndex": 11,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13609,7 +13609,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon8",
-      "ParentIndex": 14,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13829,7 +13829,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon8_1",
-      "ParentIndex": 15,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17362,7 +17362,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LabelMembroName_3",
-      "ParentIndex": 10,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18615,7 +18615,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Particualres Edit Save Btn_4",
-      "ParentIndex": 18,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18666,7 +18666,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Particualres Edit Save Btn_5",
-      "ParentIndex": 19,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
