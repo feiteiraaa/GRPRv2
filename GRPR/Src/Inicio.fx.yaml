@@ -54,7 +54,6 @@ Inicio As screen:
 
     TopSectionComponent_1 As TopSectionComponent:
         X: =342
-        ZIndex: =2
 
     Label1 As label:
         FontWeight: =FontWeight.Bold
@@ -64,7 +63,7 @@ Inicio As screen:
         Width: =692
         X: =365
         Y: =26
-        ZIndex: =3
+        ZIndex: =2
 
     Gallery2 As gallery.variableTemplateHeightGallery:
         BorderColor: =RGBA(128, 128, 128, 1)
@@ -175,7 +174,7 @@ Inicio As screen:
         Width: =692
         X: =365
         Y: =136
-        ZIndex: =4
+        ZIndex: =3
 
         Rectangle1_1 As rectangle:
             Fill: |-
@@ -232,7 +231,7 @@ Inicio As screen:
         Width: =270
         X: =365
         Y: =93
-        ZIndex: =5
+        ZIndex: =4
 
     Label7 As label:
         Height: =299
@@ -267,7 +266,7 @@ Inicio As screen:
         Visible: =godMode
         Width: =227
         X: =1057
-        ZIndex: =6
+        ZIndex: =5
 
     Label1_7 As label:
         Color: =cores.cinzento
@@ -313,18 +312,18 @@ Inicio As screen:
         Width: =194
         X: =365
         Y: =65
-        ZIndex: =7
+        ZIndex: =6
 
     Label10 As label:
         Text: =appVersion
         Width: =51
         X: =1315
-        ZIndex: =8
+        ZIndex: =7
 
     LeftSectionComponent_1 As LeftSectionComponent:
         TabelaMenu: =menuTable
         VisibleConfigApp: =true
-        ZIndex: =9
+        ZIndex: =8
 
     FimPeriodoKPI As group:
         Height: =5
@@ -360,7 +359,7 @@ Inicio As screen:
             Width: =191
             X: =1138
             Y: =138
-            ZIndex: =10
+            ZIndex: =9
 
         Label8_1 As label:
             Align: =Align.Center
@@ -403,7 +402,7 @@ Inicio As screen:
             Width: =191
             X: =1138
             Y: =201
-            ZIndex: =11
+            ZIndex: =10
 
         Label8_2 As label:
             Align: =Align.Center
@@ -432,7 +431,7 @@ Inicio As screen:
             Width: =191
             X: =1138
             Y: =237
-            ZIndex: =12
+            ZIndex: =11
 
         Label8_3 As label:
             Align: =Align.Center
@@ -487,7 +486,7 @@ Inicio As screen:
             Width: =191
             X: =1138
             Y: =277
-            ZIndex: =13
+            ZIndex: =12
 
     FimPeriodoDecorrer As group:
         Height: =5
@@ -508,7 +507,7 @@ Inicio As screen:
             Width: =964
             X: =365
             Y: =580
-            ZIndex: =1
+            ZIndex: =20
 
             "Icon10_1 As icon.'3DPrinting'":
                 Color: |-
@@ -546,9 +545,9 @@ Inicio As screen:
             Text: ="Fim de periodo a decorrer"
             Visible: =Or(godMode,DRI)
             Width: =252
-            X: =611
-            Y: =587
-            ZIndex: =17
+            X: =720
+            Y: =593
+            ZIndex: =21
 
     DownloadListagem As group:
         Height: =5
@@ -583,7 +582,7 @@ Inicio As screen:
             Width: =191
             X: =1138
             Y: =355
-            ZIndex: =14
+            ZIndex: =13
 
         Label8_4 As label:
             Align: =Align.Center
@@ -616,7 +615,7 @@ Inicio As screen:
             Width: =191
             X: =1138
             Y: =471
-            ZIndex: =15
+            ZIndex: =14
 
         Icon9 As icon.Download:
             Color: =cores.amareloMontepio
@@ -657,7 +656,7 @@ Inicio As screen:
             Width: =191
             X: =1138
             Y: =407
-            ZIndex: =16
+            ZIndex: =15
 
     FimPeriodoDecorrerDate As group:
         Height: =5
@@ -684,7 +683,7 @@ Inicio As screen:
             Width: =692
             X: =365
             Y: =580
-            ZIndex: =18
+            ZIndex: =16
 
         Label14 As label:
             Align: =Align.Center
@@ -706,7 +705,7 @@ Inicio As screen:
             Width: =230
             X: =596
             Y: =587
-            ZIndex: =19
+            ZIndex: =17
 
         Label15 As label:
             Align: =Align.Center
@@ -729,7 +728,7 @@ Inicio As screen:
             Width: =597
             X: =413
             Y: =660
-            ZIndex: =20
+            ZIndex: =18
 
         Label16 As label:
             Align: =Align.Center
@@ -778,5 +777,5 @@ Inicio As screen:
             Width: =232
             X: =595
             Y: =613
-            ZIndex: =21
+            ZIndex: =19
 
