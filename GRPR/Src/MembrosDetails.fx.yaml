@@ -218,7 +218,7 @@ MembrosDetails As screen:
 
                     StarVisible1 As label:
                         Align: =Align.Center
-                        Color: =cores.cinzento
+                        Color: =Color.Red
                         Height: =DataCardKey3.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -296,7 +296,7 @@ MembrosDetails As screen:
 
                     StarVisible2 As label:
                         Align: =Align.Center
-                        Color: =cores.cinzento
+                        Color: =Color.Red
                         Height: =DataCardKey4.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -370,7 +370,7 @@ MembrosDetails As screen:
 
                     StarVisible3 As label:
                         Align: =Align.Center
-                        Color: =cores.cinzento
+                        Color: =Color.Red
                         Height: =DataCardKey5.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -445,6 +445,7 @@ MembrosDetails As screen:
 
                     StarVisible57 As label:
                         Align: =Align.Center
+                        Color: =Color.Red
                         Height: =DataCardKey57.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -1375,7 +1376,7 @@ MembrosDetails As screen:
 
                     StarVisible31 As label:
                         Align: =Align.Center
-                        Color: =cores.cinzento
+                        Color: =Color.Red
                         Height: =DataCardKey31.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -1519,7 +1520,7 @@ MembrosDetails As screen:
 
                     StarVisible34 As label:
                         Align: =Align.Center
-                        Color: =cores.cinzento
+                        Color: =Color.Red
                         Height: =DataCardKey34.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -2232,7 +2233,7 @@ MembrosDetails As screen:
 
                     StarVisible42 As label:
                         Align: =Align.Center
-                        Color: =cores.cinzento
+                        Color: =Color.Red
                         Height: =DataCardKey42.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -2378,7 +2379,7 @@ MembrosDetails As screen:
 
                     StarVisible46 As label:
                         Align: =Align.Center
-                        Color: =cores.cinzento
+                        Color: =Color.Red
                         Height: =DataCardKey46.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -3415,6 +3416,7 @@ MembrosDetails As screen:
         ZIndex: =4
 
     LeftSectionComponent_12 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =5
 
     LabelMembroName As label:

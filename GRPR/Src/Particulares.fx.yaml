@@ -745,7 +745,12 @@ Particulares As screen:
         "'Top Section Gallery Text 2' As label":
             Align: =Align.Center
             Color: =If(localFiltro = "Colaboradores", RGBA(240, 200, 0, 1), RGBA(130, 130, 130, 1))
-            DisplayMode: =If(DRI Or DCOMP_Consulta Or DAI_Consulta Or DGP_Validador Or DGP_Editor Or godMode, DisplayMode.Edit, DisplayMode.View)
+            DisplayMode: |-
+                =If(
+                    DRI Or DCOMP_Consulta Or DAI_Consulta Or DGP_Validador Or DGP_Editor Or godMode,
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
             FontWeight: =If(localFiltro = "Pendentes fora de prazo", FontWeight.Bold, FontWeight.Semibold)
             Height: =45
             OnSelect: |-
@@ -856,10 +861,11 @@ Particulares As screen:
                 Nome_Column2.X + 650
             )
         Y: |-
-            =If(
+            =//282
+            If(
                 Checkbox1_1.Visible,
-                Nome_Column1.Y + 212 + Label3_1.Height + Label3.Height,
-                Nome_Column1.Y + 212
+                'Tipo Documento_Column2'.Y + 212 + Label3_1.Height + Label3.Height,
+                'Tipo Documento_Column2'.Y + 212
             )
         ZIndex: =16
 
@@ -1452,6 +1458,7 @@ Particulares As screen:
             ZIndex: =23
 
     LeftSectionComponent_2 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =30
 
     ImportModal As group:

@@ -165,6 +165,7 @@ SearchAtividade As screen:
             ZIndex: =10
 
     LeftSectionComponent_19 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =15
 
     AtividadeForm As form:
@@ -196,6 +197,7 @@ SearchAtividade As screen:
 
             DataCardKey53 As label:
                 AutoHeight: =true
+                Color: =cores.cinzento
                 Height: =34
                 Text: ="Atividade"
                 Width: =Parent.Width - 60
@@ -205,10 +207,12 @@ SearchAtividade As screen:
                 ZIndex: =1
 
             DataCardValue47 As text:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderColor: =cores.cinzento
                 Default: =Parent.Default
                 DelayOutput: =true
                 DisplayMode: =Parent.DisplayMode
+                HoverBorderColor: =cores.cinzento
+                HoverFill: =
                 MaxLength: =Parent.MaxLength
                 PaddingLeft: =5
                 RadiusBottomLeft: =0
@@ -257,7 +261,13 @@ SearchAtividade As screen:
             ZIndex: =1
 
             CheckboxMinhaAtividade As checkbox:
+                BorderColor: =cores.cinzento
+                CheckboxBorderColor: =cores.cinzento
+                Color: =cores.cinzento
+                DisabledBorderColor: =cores.cinzento
                 FocusedBorderThickness: =0
+                HoverColor: =cores.cinzento
+                PressedColor: =cores.cinzento
                 Text: ="Minha Atividade"
                 Width: =203
                 X: =48
@@ -279,9 +289,9 @@ SearchAtividade As screen:
                 BorderThickness: |
                     =1
                 DefaultDate: =
+                EndYear: =Year(Now())
                 Fill: =ColorFade(cores.cinzento, 90%)
-                Format: |-
-                    ="dd/mm/yyyy hh:mm"
+                Format: ="dd/mm/yyyy"
                 IconBackground: =cores.amareloMontepio
                 InputTextPlaceholder: |-
                     =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
@@ -291,6 +301,8 @@ SearchAtividade As screen:
                     
                     Notify("A data inicial deve ser menor do que a data final",NotificationType.Warning, 2000))
                 PaddingTop: =5
+                StartOfWeek: =StartOfWeek.Monday
+                StartYear: =2023
                 Width: =206
                 X: =21
                 Y: =48
@@ -301,21 +313,24 @@ SearchAtividade As screen:
                 BorderThickness: |
                     =1
                 DefaultDate: =
+                EndYear: =Year(Now())
                 Fill: =ColorFade(cores.cinzento, 90%)
-                Format: |-
-                    ="dd/mm/yyyy hh:mm"
+                Format: ="dd/mm/yyyy"
                 Height: =43
                 IconBackground: =cores.amareloMontepio
                 InputTextPlaceholder: |-
                     =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
                     "dd/mm/yyyy"
                 PaddingTop: =5
+                StartOfWeek: =StartOfWeek.Monday
+                StartYear: =2023
                 Width: =203
                 X: =264
                 Y: =45
                 ZIndex: =2
 
             Label11_2 As label:
+                Color: =cores.cinzento
                 Height: =29
                 PaddingBottom: =
                 PaddingRight: =
@@ -354,6 +369,7 @@ SearchAtividade As screen:
 
             DataCardKey55 As label:
                 AutoHeight: =true
+                Color: =cores.cinzento
                 Height: =34
                 Text: =Parent.DisplayName
                 Width: =Parent.Width - 60
@@ -363,16 +379,20 @@ SearchAtividade As screen:
                 ZIndex: =1
 
             DataCardValue49 As combobox:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderColor: =cores.cinzento
                 ChevronBackground: =cores.amareloMontepio
+                ChevronHoverBackground: =cores.amareloMontepio
                 DefaultSelectedItems: =[Parent.Default]
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
+                HoverFill: =cores.amareloMontepio
                 IsSearchable: =false
                 Items: =Choices('lista da atividade')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedFill: =cores.amareloMontepio
                 SearchFields: =["Value"]
                 SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
@@ -422,8 +442,9 @@ SearchAtividade As screen:
 
             DataCardKey54 As label:
                 AutoHeight: =true
+                Color: =cores.cinzento
                 Height: =34
-                Text: =Parent.DisplayName
+                Text: ="Tipo de alteração"
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
@@ -431,17 +452,20 @@ SearchAtividade As screen:
                 ZIndex: =1
 
             DataCardValue48 As combobox:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderColor: =cores.cinzento
                 ChevronBackground: =cores.amareloMontepio
+                ChevronHoverBackground: =cores.amareloMontepio
                 DefaultSelectedItems: =[Parent.Default]
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
+                HoverFill: =cores.amareloMontepio
                 IsSearchable: =false
                 Items: =Choices('tipo de alteracao')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                PressedFill: =//RGBA(0, 18, 107, 1)
+                PressedFill: =cores.amareloMontepio
                 SearchFields: =["Value"]
                 SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
@@ -485,13 +509,17 @@ SearchAtividade As screen:
             ZIndex: =1
 
             Label13 As label:
+                Color: =cores.cinzento
                 Text: ="Criado Por"
                 X: =40
                 ZIndex: =2
 
             InputCriadoPor As text:
+                BorderColor: =cores.cinzento
                 Default: =""
                 Height: =42
+                HoverBorderColor: =cores.cinzento
+                HoverFill: =
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0

@@ -187,6 +187,7 @@ Atividade As screen:
             ZIndex: =8
 
     LeftSectionComponent_11 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =13
 
     PopUp As group:

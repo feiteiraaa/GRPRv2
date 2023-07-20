@@ -1625,6 +1625,7 @@ ListagensDetails As screen:
             ZIndex: =15
 
     LeftSectionComponent_20 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =4
 
     EditarMembrosInfo_1 As group:

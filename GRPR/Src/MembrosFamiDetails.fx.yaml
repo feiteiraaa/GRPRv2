@@ -188,7 +188,7 @@ MembrosFamiDetails As screen:
 
                     StarVisible1_2 As label:
                         Align: =Align.Center
-                        Color: =cores.cinzento
+                        Color: =Color.Red
                         Height: =DataCardKey3_2.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -267,7 +267,7 @@ MembrosFamiDetails As screen:
 
                     StarVisible2_2 As label:
                         Align: =Align.Center
-                        Color: =cores.cinzento
+                        Color: =Color.Red
                         Height: =DataCardKey4_2.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -341,7 +341,7 @@ MembrosFamiDetails As screen:
 
                     StarVisible3_2 As label:
                         Align: =Align.Center
-                        Color: =cores.cinzento
+                        Color: =Color.Red
                         Height: =DataCardKey5_2.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -513,6 +513,7 @@ MembrosFamiDetails As screen:
 
                     StarVisible77 As label:
                         Align: =Align.Center
+                        Color: =Color.Red
                         Height: =DataCardKey77.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -2544,6 +2545,7 @@ MembrosFamiDetails As screen:
         ZIndex: =4
 
     LeftSectionComponent_18 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =5
 
     LabelMembroName_1 As label:

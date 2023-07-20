@@ -1,6 +1,7 @@
 Developer As screen:
 
     LeftSectionComponent_17 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =7
 
     Form1 As form:

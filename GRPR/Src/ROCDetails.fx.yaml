@@ -246,6 +246,7 @@ ROCDetails As screen:
 
             StarVisible27 As label:
                 Align: =Align.Center
+                Color: =Color.Red
                 Height: =DataCardKey2.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -1064,6 +1065,7 @@ ROCDetails As screen:
         ZIndex: =15
 
     LeftSectionComponent_10 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =16
 
     "'Atividades Content_4' As groupContainer.manualLayoutContainer":

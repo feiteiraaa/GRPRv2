@@ -229,7 +229,6 @@ Inicio As screen:
         FontWeight: =FontWeight.Semibold
         Size: =15
         Text: ="Notificações"
-        Visible: =DRI
         Width: =270
         X: =365
         Y: =93
@@ -323,6 +322,8 @@ Inicio As screen:
         ZIndex: =8
 
     LeftSectionComponent_1 As LeftSectionComponent:
+        TabelaMenu: =menuTable
+        VisibleConfigApp: =true
         ZIndex: =9
 
     FimPeriodoKPI As group:
@@ -535,7 +536,7 @@ Inicio As screen:
                 Height: =47
                 Text: =ThisItem.Tabela
                 Width: =191
-                Y: =115
+                Y: =110
                 ZIndex: =2
 
         Label12 As label:
@@ -581,7 +582,7 @@ Inicio As screen:
                 )
             Width: =191
             X: =1138
-            Y: =363
+            Y: =355
             ZIndex: =14
 
         Label8_4 As label:
@@ -614,7 +615,7 @@ Inicio As screen:
                 )
             Width: =191
             X: =1138
-            Y: =479
+            Y: =471
             ZIndex: =15
 
         Icon9 As icon.Download:
@@ -655,7 +656,7 @@ Inicio As screen:
                 )
             Width: =191
             X: =1138
-            Y: =415
+            Y: =407
             ZIndex: =16
 
     FimPeriodoDecorrerDate As group:

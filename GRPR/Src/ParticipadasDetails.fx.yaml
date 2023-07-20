@@ -985,6 +985,7 @@ ParticipadasDetails As screen:
         ZIndex: =11
 
     LeftSectionComponent_14 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =16
 
     elim_components As group:

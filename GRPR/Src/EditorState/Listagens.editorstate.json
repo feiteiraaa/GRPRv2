@@ -6852,7 +6852,7 @@
         {
           "Category": "Data",
           "PropertyName": "TabelaMenu",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Data",

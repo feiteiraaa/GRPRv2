@@ -396,6 +396,7 @@ Participadas As screen:
         ZIndex: =12
 
     LeftSectionComponent_13 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =13
 
     ModalConfirmation_12 As ModalConfirmation:

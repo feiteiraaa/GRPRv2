@@ -204,6 +204,7 @@ Respetivas As screen:
             ZIndex: =9
 
     LeftSectionComponent_3 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =2
 
     ActionBar_3 As group:

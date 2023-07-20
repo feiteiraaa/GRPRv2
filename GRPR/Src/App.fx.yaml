@@ -243,8 +243,75 @@ App As appinfo:
         
         //temporary - UO tests
         //If(User().Email = "grdias.ex@montepio.pt",
-        Set(DRI, true); Set(godMode, false)//, Set(godMode, true)
+        Set(DGC_Validador, true); Set(godMode, false) ;//, Set(godMode, true)
         //);
+        
+        ClearCollect(
+            menuTable,
+            Table(
+            {
+                selected: true,
+                icon: Icon.Home,
+                text: "Inicio",
+                Navigate: Inicio,
+                VisivelPara: true
+            },
+            If(
+                Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta),
+                {
+                    selected: false,
+                    icon: Icon.People,
+                    text: "Particulares e empresas respetivas",
+                    Navigate: Particulares,
+                    VisivelPara: Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
+                }
+            ),
+            If(
+                Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta),
+                {
+                    selected: false,
+                    icon: Icon.OfficeBuilding,
+                    text: "Empresas respetivas",
+                    Navigate: Respetivas,
+                    VisivelPara: Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
+                }
+            ),
+            If(
+                Or(godMode, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta),
+                {
+                    selected: false,
+                    icon: Icon.OfficeBuilding,
+                    text: "Empresas participadas do grupo",
+                    Navigate: Participadas,
+                    VisivelPara: Or(godMode, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
+                }
+            ),
+            If(
+                Or(godMode, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta),
+                {
+                    selected: false,
+                    icon: Icon.Information,
+                    text: "Atividade",
+                    Navigate: Atividade,
+                    VisivelPara: Or(godMode, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta,  DAI_Consulta)
+                }
+            ),
+            {
+                selected: false,
+                icon: Icon.Notebook,
+                text: "Listagens",
+                Navigate: Listagens,
+                VisivelPara: Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta)
+            },
+            {
+                selected: false,
+                icon: Icon.Settings,
+                text: "Configurações",
+                Navigate: Configuracoes,
+                VisivelPara: Or(godMode, DRI)
+            }
+        ));
+        RemoveIf(menuTable, IsBlank(ThisRecord) )
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false

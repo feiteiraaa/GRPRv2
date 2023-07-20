@@ -4477,14 +4477,7 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "ShowNavigation",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        }
+        "ShowNavigation"
       ],
       "GalleryTemplateChildName": "galleryTemplate2_18",
       "HasDynamicProperties": false,

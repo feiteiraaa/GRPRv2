@@ -2091,6 +2091,7 @@ Configuracoes As screen:
         ZIndex: =5
 
     LeftSectionComponent_16 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =10
 
     elim_group As group:

@@ -10,6 +10,7 @@ Listagens As screen:
     OnVisible: =Set(varLastApproved,Text(First(SortByColumns(Filter(Listagens_1,ThisRecord.Estado_Aprovacao_CA=[@Estado].Aprovado),"uipp_datadereferencia",SortOrder.Descending)).'Data de referencia',"dd/mm/yyyy"))
 
     LeftSectionComponent_15 As LeftSectionComponent:
+        TabelaMenu: =menuTable
         ZIndex: =11
 
     GalleryListagens As gallery.galleryVertical:

@@ -161,7 +161,7 @@ LeftSectionComponent As CanvasComponent:
         Height: =529
         Items: =LeftSectionComponent.TabelaMenu
         Layout: =Layout.Vertical
-        ShowNavigation: =true
+        ShowNavigation: =
         ShowScrollbar: =false
         TemplatePadding: =0
         TemplateSize: =94
