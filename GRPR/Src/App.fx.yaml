@@ -296,20 +296,26 @@ App As appinfo:
                     VisivelPara: Or(godMode, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta,  DAI_Consulta)
                 }
             ),
-            {
-                selected: false,
-                icon: Icon.Notebook,
-                text: "Listagens",
-                Navigate: Listagens,
-                VisivelPara: Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta)
-            },
-            {
-                selected: false,
-                icon: Icon.Settings,
-                text: "Configurações",
-                Navigate: Configuracoes,
-                VisivelPara: Or(godMode, DRI)
-            }
+            If(
+                Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta),
+                {
+                    selected: false,
+                    icon: Icon.Notebook,
+                    text: "Listagens",
+                    Navigate: Listagens,
+                    VisivelPara: Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta)
+                }
+            ),
+            If(
+                Or(godMode, DRI),
+                {
+                    selected: false,
+                    icon: Icon.Settings,
+                    text: "Configurações",
+                    Navigate: Configuracoes,
+                    VisivelPara: Or(godMode, DRI)
+                }
+            )
         ));
         RemoveIf(menuTable, IsBlank(ThisRecord) )
 
