@@ -267,7 +267,7 @@ Inicio As screen:
             God: " & godMode
         Visible: =godMode
         Width: =227
-        X: =1120
+        X: =1057
         ZIndex: =6
 
     Label1_7 As label:
@@ -320,7 +320,6 @@ Inicio As screen:
         Text: =appVersion
         Width: =51
         X: =1315
-        Y: =728
         ZIndex: =8
 
     LeftSectionComponent_1 As LeftSectionComponent:
@@ -503,11 +502,9 @@ Inicio As screen:
             Items: =Aprovacaos
             LoadingSpinner: =LoadingSpinner.Data
             TemplatePadding: =0
-            TemplateSize: |+
-                =Gallery2.Width/4
-                
+            TemplateSize: =192
             Visible: =Or(godMode,DRI)
-            Width: =Gallery2.Width
+            Width: =964
             X: =365
             Y: =580
             ZIndex: =1
@@ -517,8 +514,9 @@ Inicio As screen:
                     =If(
                         ThisItem.Aprovado = true,
                         Color.Green,
-                        cores.cinzento
+                        Color.Red
                     )
+                DisplayMode: =DisplayMode.View
                 Height: =40
                 Icon: |-
                     =If(
@@ -527,16 +525,17 @@ Inicio As screen:
                         Icon.CancelBadge
                     )
                 Width: =40
-                X: =67
-                Y: =64
+                X: =75
+                Y: =61
                 ZIndex: =1
 
             Label14_1 As label:
                 Align: =Align.Center
+                DisplayMode: =DisplayMode.View
                 Height: =47
                 Text: =ThisItem.Tabela
-                X: =12
-                Y: =111
+                Width: =191
+                Y: =115
                 ZIndex: =2
 
         Label12 As label:
@@ -545,8 +544,8 @@ Inicio As screen:
             FontWeight: =FontWeight.Semibold
             Text: ="Fim de periodo a decorrer"
             Visible: =Or(godMode,DRI)
-            Width: =235
-            X: =594
+            Width: =252
+            X: =611
             Y: =587
             ZIndex: =17
 
