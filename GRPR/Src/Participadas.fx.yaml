@@ -224,7 +224,9 @@ Participadas As screen:
         Text: ="Empresas Participadas do Grupo"
         Width: =529
         X: =365
-        Y: =26
+        Y: |-
+            =//26
+            If(Label3_3.Visible, 26, TextInput2_1.Y-70)
         ZIndex: =3
 
     Icon7 As icon.ChevronDown:
@@ -424,7 +426,7 @@ Participadas As screen:
             Text: ="Fim de periodo a decorrer"
             Visible: |-
                 =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
-                And varFimPeriodo
+                And varFimPeriodo 
             Width: =961
             X: =373
             Y: =74
@@ -438,7 +440,7 @@ Participadas As screen:
             Text: ="Confirmo que toda a informação apresentada relativa às partes relacionadas está correta."
             Visible: |-
                 =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
-                And varFimPeriodo
+                And varFimPeriodo 
             Width: =961
             X: =373
             Y: =102
@@ -475,7 +477,7 @@ Participadas As screen:
             Text: =""
             Visible: |-
                 =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
-                And varFimPeriodo
+                And varFimPeriodo 
             Width: =48
             X: =1286
             Y: =85

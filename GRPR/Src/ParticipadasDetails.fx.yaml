@@ -640,35 +640,35 @@ ParticipadasDetails As screen:
                 Y: =DataCardKey29.Y
                 ZIndex: =4
 
-        "'Data aprovacao CA_DataCard5' As typedDataCard.dateTimeEditCard":
+        "'Data de saida_DataCard4' As typedDataCard.dateTimeEditCard":
             BorderStyle: =BorderStyle.Solid
-            DataField: ="uipp_dataaprovacaoca"
-            Default: =ThisItem.'Data aprovacao CA'
+            DataField: ="uipp_datadesaida"
+            Default: =ThisItem.'Data de saida'
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@'Empresas Participadas do Grupos'],DataSourceInfo.DisplayName,"uipp_dataaprovacaoca")
+            DisplayName: =DataSourceInfo([@'Empresas Participadas do Grupos'],DataSourceInfo.DisplayName,"uipp_datadesaida")
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
-            Update: =DateValue16.SelectedDate 
-            Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
+            Update: =DateValue18.SelectedDate 
+            Visible: =!IsBlank(ThisItem.'Data de saida')
             Width: =490
-            X: =0
+            X: =1
             Y: =4
             ZIndex: =1
 
-            DataCardKey74 As label:
+            DataCardKey76 As label:
                 AutoHeight: =true
                 Color: =cores.cinzento
                 FontWeight: =FontWeight.Semibold
                 Height: =34
-                Text: ="Data de Aprovação"//Parent.DisplayName
+                Text: ="Data de saída"//Parent.DisplayName
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
                 Y: =10
                 ZIndex: =1
 
-            DateValue16 As datepicker:
+            DateValue18 As datepicker:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 DefaultDate: =Parent.Default
                 DisplayMode: =Parent.DisplayMode
@@ -687,10 +687,10 @@ ParticipadasDetails As screen:
                 Tooltip: =Parent.DisplayName
                 Width: =(Parent.Width - 60)
                 X: =30
-                Y: =DataCardKey74.Y + DataCardKey74.Height + 5
+                Y: =DataCardKey76.Y + DataCardKey76.Height + 5
                 ZIndex: =2
 
-            ErrorMessage74 As label:
+            ErrorMessage76 As label:
                 AutoHeight: =true
                 Height: =10
                 Live: =Live.Assertive
@@ -702,18 +702,18 @@ ParticipadasDetails As screen:
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DateValue16.Y + DateValue16.Height
+                Y: =DateValue18.Y + DateValue18.Height
                 ZIndex: =6
 
-            StarVisible74 As label:
+            StarVisible76 As label:
                 Align: =Align.Center
                 Color: =cores.cinzento
-                Height: =DataCardKey74.Height
+                Height: =DataCardKey76.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                 Width: =30
                 Wrap: =false
-                Y: =DataCardKey74.Y
+                Y: =DataCardKey76.Y
                 ZIndex: =7
 
         "'Data de insercao_DataCard5' As typedDataCard.dateTimeEditCard":
@@ -805,35 +805,35 @@ ParticipadasDetails As screen:
                 Y: =DataCardKey75.Y
                 ZIndex: =7
 
-        "'Data de saida_DataCard4' As typedDataCard.dateTimeEditCard":
+        "'Data aprovacao CA_DataCard5' As typedDataCard.dateTimeEditCard":
             BorderStyle: =BorderStyle.Solid
-            DataField: ="uipp_datadesaida"
-            Default: =ThisItem.'Data de saida'
+            DataField: ="uipp_dataaprovacaoca"
+            Default: =ThisItem.'Data aprovacao CA'
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@'Empresas Participadas do Grupos'],DataSourceInfo.DisplayName,"uipp_datadesaida")
+            DisplayName: =DataSourceInfo([@'Empresas Participadas do Grupos'],DataSourceInfo.DisplayName,"uipp_dataaprovacaoca")
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
-            Update: =DateValue18.SelectedDate 
-            Visible: =!IsBlank(ThisItem.'Data de saida')
+            Update: =DateValue16.SelectedDate 
+            Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
             Width: =490
-            X: =1
+            X: =0
             Y: =4
             ZIndex: =1
 
-            DataCardKey76 As label:
+            DataCardKey74 As label:
                 AutoHeight: =true
                 Color: =cores.cinzento
                 FontWeight: =FontWeight.Semibold
                 Height: =34
-                Text: ="Data de saída"//Parent.DisplayName
+                Text: ="Data de Aprovação"//Parent.DisplayName
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
                 Y: =10
                 ZIndex: =1
 
-            DateValue18 As datepicker:
+            DateValue16 As datepicker:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 DefaultDate: =Parent.Default
                 DisplayMode: =Parent.DisplayMode
@@ -852,10 +852,10 @@ ParticipadasDetails As screen:
                 Tooltip: =Parent.DisplayName
                 Width: =(Parent.Width - 60)
                 X: =30
-                Y: =DataCardKey76.Y + DataCardKey76.Height + 5
+                Y: =DataCardKey74.Y + DataCardKey74.Height + 5
                 ZIndex: =2
 
-            ErrorMessage76 As label:
+            ErrorMessage74 As label:
                 AutoHeight: =true
                 Height: =10
                 Live: =Live.Assertive
@@ -867,18 +867,18 @@ ParticipadasDetails As screen:
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DateValue18.Y + DateValue18.Height
+                Y: =DateValue16.Y + DateValue16.Height
                 ZIndex: =6
 
-            StarVisible76 As label:
+            StarVisible74 As label:
                 Align: =Align.Center
                 Color: =cores.cinzento
-                Height: =DataCardKey76.Height
+                Height: =DataCardKey74.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                 Width: =30
                 Wrap: =false
-                Y: =DataCardKey76.Y
+                Y: =DataCardKey74.Y
                 ZIndex: =7
 
     "'Particualres Edit Save Btn_5' As group":
