@@ -529,7 +529,7 @@ ColaboradoresDetails As screen:
                     =If(
                         ColaboradorForm_1.Mode = FormMode.New,
                         Text(
-                            Today(),
+                            Now(),
                             "dd/mm/yyyy"
                         ),
                         ThisItem.'Created On'
@@ -538,12 +538,17 @@ ColaboradoresDetails As screen:
                 EndYear: =Year(Today())+100
                 Format: |-
                     =
-                    Text(
+                    /*Text(
                         Parent.Default,
-                        "dd-mm-yyyy",
+                        "dd/mm/yyyy",
                         "pt-PT"
+                    )*/
+                    Text(
+                        DateValue(Parent.Default),
+                        "dd/mm/yyyy",
+                        "en-GB"
                     )
-                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
+                InputTextPlaceholder: ="dd/mm/yyyy"//If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                 IsEditable: =true
                 PaddingBottom: =0
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
