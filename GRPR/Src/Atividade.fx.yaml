@@ -44,7 +44,8 @@ Atividade As screen:
                 ),
                 Filter(
                     Atividades,
-                    (ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And LookUp(
+                    (
+                        ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And LookUp(
                         Membros_1,
                         ID = Atividades[@Item]
                     ).Grupo = Grupo.'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And LookUp(

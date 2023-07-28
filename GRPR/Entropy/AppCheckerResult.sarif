@@ -17034,7 +17034,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 1270,
+                  "charOffset": 1241,
                   "snippet": {
                     "text": "[@Item"
                   }
@@ -17074,7 +17074,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 1258,
+                  "charOffset": 1229,
                   "snippet": {
                     "text": "="
                   }
@@ -17114,7 +17114,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 1477,
+                  "charOffset": 1445,
                   "snippet": {
                     "text": "[@Item"
                   }
@@ -17154,7 +17154,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 1465,
+                  "charOffset": 1433,
                   "snippet": {
                     "text": "="
                   }
@@ -17194,7 +17194,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 1675,
+                  "charOffset": 1640,
                   "snippet": {
                     "text": "[@Item"
                   }
@@ -17234,7 +17234,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 1663,
+                  "charOffset": 1628,
                   "snippet": {
                     "text": "="
                   }
@@ -17273,10 +17273,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 90,
-                  "charOffset": 1202,
+                  "charLength": 87,
+                  "charOffset": 1175,
                   "snippet": {
-                    "text": "LookUp(\r\n                Membros_1,\r\n                ID = Atividades[@Item]\r\n            )"
+                    "text": "LookUp(\n                Membros_1,\n                ID = Atividades[@Item]\n            )"
                   }
                 }
               },
@@ -17314,7 +17314,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 1292,
+                  "charOffset": 1262,
                   "snippet": {
                     "text": ".Grupo"
                   }
@@ -17354,7 +17354,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 1299,
+                  "charOffset": 1269,
                   "snippet": {
                     "text": "="
                   }
@@ -17394,7 +17394,7 @@
                 },
                 "region": {
                   "charLength": 3,
-                  "charOffset": 1198,
+                  "charOffset": 1171,
                   "snippet": {
                     "text": "And"
                   }
@@ -17434,7 +17434,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 1325,
+                  "charOffset": 1295,
                   "snippet": {
                     "text": "Or"
                   }
@@ -17474,7 +17474,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 1532,
+                  "charOffset": 1499,
                   "snippet": {
                     "text": "Or"
                   }
@@ -17514,7 +17514,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 1730,
+                  "charOffset": 1694,
                   "snippet": {
                     "text": "Or"
                   }
@@ -17554,7 +17554,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 2076,
+                  "charOffset": 2030,
                   "snippet": {
                     "text": "[@Item"
                   }
@@ -17594,7 +17594,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2064,
+                  "charOffset": 2018,
                   "snippet": {
                     "text": "="
                   }
@@ -17634,7 +17634,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 2271,
+                  "charOffset": 2222,
                   "snippet": {
                     "text": "[@Item"
                   }
@@ -17674,7 +17674,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2259,
+                  "charOffset": 2210,
                   "snippet": {
                     "text": "="
                   }
@@ -17714,7 +17714,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 2457,
+                  "charOffset": 2405,
                   "snippet": {
                     "text": "[@Item"
                   }
@@ -17754,7 +17754,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2445,
+                  "charOffset": 2393,
                   "snippet": {
                     "text": "="
                   }
@@ -17793,10 +17793,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 90,
-                  "charOffset": 2008,
+                  "charLength": 87,
+                  "charOffset": 1964,
                   "snippet": {
-                    "text": "LookUp(\r\n                Membros_1,\r\n                ID = Atividades[@Item]\r\n            )"
+                    "text": "LookUp(\n                Membros_1,\n                ID = Atividades[@Item]\n            )"
                   }
                 }
               },
@@ -17834,7 +17834,7 @@
                 },
                 "region": {
                   "charLength": 6,
-                  "charOffset": 2098,
+                  "charOffset": 2051,
                   "snippet": {
                     "text": ".Grupo"
                   }
@@ -17874,7 +17874,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2105,
+                  "charOffset": 2058,
                   "snippet": {
                     "text": "="
                   }
@@ -17914,7 +17914,7 @@
                 },
                 "region": {
                   "charLength": 3,
-                  "charOffset": 2004,
+                  "charOffset": 1960,
                   "snippet": {
                     "text": "And"
                   }
@@ -17954,7 +17954,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2119,
+                  "charOffset": 2072,
                   "snippet": {
                     "text": "Or"
                   }
@@ -17994,7 +17994,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 2314,
+                  "charOffset": 2264,
                   "snippet": {
                     "text": "Or"
                   }
