@@ -17,8 +17,8 @@ Respetivas As screen:
         Fill: =RGBA(0, 0, 0, 0)
         HeadingFill: =cores.cinzento
         Height: =500
-        Items: |-
-            =Search(
+        Items: |
+            =//Search(
                 SortByColumns(
                     Filter(
                         CollecRespectivas,
@@ -26,15 +26,16 @@ Respetivas As screen:
                             Checkbox1_4.Value = false,
                             ThisRecord.Ativo = true,
                             ThisRecord.Ativo = true Or ThisRecord.Ativo = false
-                        )
+                            
+                        ) And If(!IsBlank(TextInput2_3.Text),Or(TextInput2_3.Text in ThisRecord.'Numero Documento',TextInput2_3.Text in ThisRecord.Designacao),1=1)
                     ),
                     varSortCol1,
                     varSortDir
-                ),
+                )/*,
                 TextInput2_3.Text,
-                "uipp_designacao"
-            )
-            //Empresas
+                "uipp_designacao"*/
+                //,"uipp_numerodocumento"
+            //)
         SelectedFill: =cores.amareloMontepio
         Visible: =!localFormRespetivas And !localFormRespetivasNew
         Width: =980
