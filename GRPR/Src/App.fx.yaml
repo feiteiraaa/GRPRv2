@@ -245,8 +245,8 @@ App As appinfo:
         //If(User().Email = "grdias.ex@montepio.pt",
         //Set(DGC_Validador, true); Set(godMode, false) ;//, Set(godMode, true)
         //);
-        //Set(DMK_Consulta, true);
-        //Set(godMode,false);
+        Set(DMK_Consulta, true);
+        Set(godMode,false);
         ClearCollect(
             menuTable,
             Table(

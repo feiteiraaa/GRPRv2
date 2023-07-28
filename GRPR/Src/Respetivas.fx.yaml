@@ -308,7 +308,7 @@ Respetivas As screen:
         X: =365
         Y: |-
             =//26
-            TextInput2_3.Y -70
+            If(Button1_6.Visible, 26,TextInput2_3.Y -70)
         ZIndex: =8
 
     Icon7_8 As icon.ChevronDown:
