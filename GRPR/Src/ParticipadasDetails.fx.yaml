@@ -652,8 +652,8 @@ ParticipadasDetails As screen:
             Update: =DateValue16.SelectedDate 
             Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
             Width: =490
-            X: =1
-            Y: =3
+            X: =0
+            Y: =4
             ZIndex: =1
 
             DataCardKey74 As label:
@@ -728,8 +728,8 @@ ParticipadasDetails As screen:
             Update: =DateValue17.SelectedDate
             Visible: =FormParticipadas.Mode <> FormMode.New
             Width: =490
-            X: =0
-            Y: =4
+            X: =1
+            Y: =3
             ZIndex: =1
 
             DataCardKey75 As label:
@@ -747,14 +747,14 @@ ParticipadasDetails As screen:
             DateValue17 As datepicker:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 DefaultDate: |-
-                    =If(
+                    =/*If(
                         FormParticipadas.Mode = FormMode.New,
                         Text(
                             Today(),
                             "dd/mm/yyyy"
                         ),
                         ThisItem.'Created On'
-                    )
+                    )*/ThisItem.'Data de insercao'
                 DisplayMode: =Parent.DisplayMode
                 EndYear: =Year(Today())+100
                 Format: |-
