@@ -11,6 +11,9 @@ Listagens As screen:
 
     LeftSectionComponent_15 As LeftSectionComponent:
         TabelaMenu: =menuTable
+        VisibleConfigApp: |-
+            =//Adicionar permissões
+            Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =11
 
     GalleryListagens As gallery.galleryVertical:

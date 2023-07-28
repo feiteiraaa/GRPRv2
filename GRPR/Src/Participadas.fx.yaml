@@ -397,6 +397,9 @@ Participadas As screen:
 
     LeftSectionComponent_13 As LeftSectionComponent:
         TabelaMenu: =menuTable
+        VisibleConfigApp: |-
+            =//Adicionar permissões
+            Or(godMode, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
         ZIndex: =13
 
     ModalConfirmation_12 As ModalConfirmation:

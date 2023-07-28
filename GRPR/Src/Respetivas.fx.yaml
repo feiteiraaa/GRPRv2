@@ -205,6 +205,9 @@ Respetivas As screen:
 
     LeftSectionComponent_3 As LeftSectionComponent:
         TabelaMenu: =menuTable
+        VisibleConfigApp: |-
+            =//Adicionar permissões
+            Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
         ZIndex: =2
 
     ActionBar_3 As group:

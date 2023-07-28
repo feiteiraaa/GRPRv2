@@ -2092,6 +2092,9 @@ Configuracoes As screen:
 
     LeftSectionComponent_16 As LeftSectionComponent:
         TabelaMenu: =menuTable
+        VisibleConfigApp: |-
+            =//Adicionar permissões
+            Or(godMode, DRI)
         ZIndex: =10
 
     elim_group As group:

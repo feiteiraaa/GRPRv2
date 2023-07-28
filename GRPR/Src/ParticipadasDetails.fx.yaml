@@ -986,6 +986,9 @@ ParticipadasDetails As screen:
 
     LeftSectionComponent_14 As LeftSectionComponent:
         TabelaMenu: =menuTable
+        VisibleConfigApp: |-
+            =//Adicionar permissões
+            Or(godMode, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
         ZIndex: =16
 
     elim_components As group:

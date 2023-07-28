@@ -50,7 +50,9 @@ Inicio As screen:
             ),
             {FimPeriodo: true}
         );
-        Set(varFimPeriodo, true in collectDatas[@FimPeriodo])
+        Set(varFimPeriodo, true in collectDatas[@FimPeriodo]);
+        Set(DGC_Editor, true);
+        Set(godMode,false)
 
     TopSectionComponent_1 As TopSectionComponent:
         X: =342

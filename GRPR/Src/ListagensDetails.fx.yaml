@@ -1626,6 +1626,9 @@ ListagensDetails As screen:
 
     LeftSectionComponent_20 As LeftSectionComponent:
         TabelaMenu: =menuTable
+        VisibleConfigApp: |-
+            =//Adicionar permissões
+            Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =4
 
     EditarMembrosInfo_1 As group:

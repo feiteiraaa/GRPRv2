@@ -4702,7 +4702,7 @@
         {
           "Category": "Data",
           "PropertyName": "VisibleConfigApp",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Data",

@@ -1459,6 +1459,9 @@ Particulares As screen:
 
     LeftSectionComponent_2 As LeftSectionComponent:
         TabelaMenu: =menuTable
+        VisibleConfigApp: |-
+            =//Adicionar permissões
+            Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =30
 
     ImportModal As group:

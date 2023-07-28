@@ -2546,6 +2546,9 @@ MembrosFamiDetails As screen:
 
     LeftSectionComponent_18 As LeftSectionComponent:
         TabelaMenu: =menuTable
+        VisibleConfigApp: |-
+            =//Adicionar permissões
+            Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =5
 
     LabelMembroName_1 As label:

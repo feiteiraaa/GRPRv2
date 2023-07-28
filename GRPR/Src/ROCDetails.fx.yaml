@@ -1066,6 +1066,9 @@ ROCDetails As screen:
 
     LeftSectionComponent_10 As LeftSectionComponent:
         TabelaMenu: =menuTable
+        VisibleConfigApp: |-
+            =//Adicionar permissões
+            Or(godMode, DRI, DGC_Editor, DGC_Validador, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =16
 
     "'Atividades Content_4' As groupContainer.manualLayoutContainer":
