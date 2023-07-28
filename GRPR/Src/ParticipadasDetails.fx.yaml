@@ -173,6 +173,7 @@ ParticipadasDetails As screen:
 
             StarVisible8 As label:
                 Align: =Align.Center
+                Color: =Color.Red
                 Height: =DataCardKey9.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -248,7 +249,7 @@ ParticipadasDetails As screen:
 
             StarVisible56 As label:
                 Align: =Align.Center
-                Color: =cores.cinzento
+                Color: =Color.Red
                 FontWeight: =FontWeight.Semibold
                 Height: =DataCardKey56.Height
                 Text: ="*"
@@ -321,6 +322,7 @@ ParticipadasDetails As screen:
 
             StarVisible9 As label:
                 Align: =Align.Center
+                Color: =Color.Red
                 Height: =DataCardKey10.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -393,6 +395,7 @@ ParticipadasDetails As screen:
 
             StarVisible58 As label:
                 Align: =Align.Center
+                Color: =Color.Red
                 Height: =DataCardKey58.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
