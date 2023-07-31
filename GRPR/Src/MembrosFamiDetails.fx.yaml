@@ -526,7 +526,7 @@ MembrosFamiDetails As screen:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="uipp_Legislacaoaplicada"
                     Default: =ThisItem.'Legislacao aplicada'
-                    DisplayMode: =If(DRI And (localShowNewForm Or IsBlank(_Familiar)) ,DisplayMode.Edit,DisplayMode.View)
+                    DisplayMode: =If(Or(DRI,godMode) And (localShowNewForm Or IsBlank(_Familiar)) ,DisplayMode.Edit,DisplayMode.View)
                     DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_Legislacaoaplicada")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
