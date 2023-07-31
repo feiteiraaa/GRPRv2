@@ -245,7 +245,7 @@ App As appinfo:
         //If(User().Email = "grdias.ex@montepio.pt",
         //Set(DGC_Validador, true); Set(godMode, false) ;//, Set(godMode, true)
         //);
-        Set(DGP_Validador, true);
+        Set(DRI, true);
         Set(godMode,false);
         ClearCollect(
             menuTable,
@@ -288,13 +288,13 @@ App As appinfo:
                 }
             ),
             If(
-                Or(godMode, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta),
+                Or(godMode, DRI, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta),
                 {
                     selected: false,
                     icon: Icon.Information,
                     text: "Atividade",
                     Navigate: Atividade,
-                    VisivelPara: Or(godMode, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta,  DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
+                    VisivelPara: Or(godMode, DRI, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta,  DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
                 }
             ),
             If(

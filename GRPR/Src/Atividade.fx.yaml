@@ -1,4 +1,7 @@
 Atividade As screen:
+    OnHidden: |-
+        =Reset(DatePicker2);
+        Reset(DatePicker1)
     OnVisible: |
         =Concurrent(
             Reset(InputPesquisar),

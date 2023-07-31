@@ -387,7 +387,51 @@ SearchAtividade As screen:
                 DisplayMode: =Parent.DisplayMode
                 HoverFill: =cores.amareloMontepio
                 IsSearchable: =false
-                Items: =Choices('lista da atividade')
+                Items: |-
+                    =//Choices('lista da atividade')
+                    If(
+                        Or(
+                            DGC_Editor,
+                            DGC_Validador
+                        ),
+                        Filter(
+                            Choices('lista da atividade'),
+                            Value = 'lista da atividade'.Membros Or Value = 'lista da atividade'.Familiares Or Value = 'lista da atividade'.'Empresas Respetivas' Or Value = 'lista da atividade'.ROC
+                        ),
+                        Or(
+                            GCONT_Editor,
+                            GCONT_Validador
+                        ),
+                        Filter(
+                            Choices('lista da atividade'),
+                            Value = 'lista da atividade'.Membros Or Value = 'lista da atividade'.Familiares Or Value = 'lista da atividade'.'Empresas Respetivas'
+                        ),
+                        Or(
+                            DGP_Editor,
+                            DGP_Validador
+                        ),
+                        Filter(
+                            Choices('lista da atividade'),
+                            Value = 'lista da atividade'.Colaboradores
+                        ),
+                        Or(
+                            DCRF_Editor,
+                            DCRF_Validador
+                        ),
+                        Filter(
+                            Choices('lista da atividade'),
+                            Value = 'lista da atividade'.'Empresas Participadas'
+                        ),
+                        Or(
+                            DMK_Consulta,
+                            CCOMP_Consulta
+                        ),
+                        Filter(
+                            Choices('lista da atividade'),
+                            Value = 'lista da atividade'.'Empresas Participadas' Or Value = 'lista da atividade'.'Empresas Respetivas'
+                        ),
+                        Choices('lista da atividade')
+                    )
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =cores.amareloMontepio
                 SearchFields: =["Value"]
