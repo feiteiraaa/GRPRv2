@@ -3,7 +3,7 @@ Particulares As screen:
         =Concurrent(
             UpdateContext(
                 {
-                    localFiltro: "Membros dos Orgãos Sociais",
+                    localFiltro: If(DGP_Editor Or DGP_Validador,"Colaboradores","Membros dos Orgãos Sociais"),
                     localseta: false,
                     localShowModal: false
                 }
