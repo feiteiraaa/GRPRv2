@@ -39,7 +39,7 @@ ParticipadasDetails As screen:
                     Icon.Save,
                     Icon.Edit
                 )
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in LabelMembroName_3.Text)
+            Visible: =Or(godMode, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
             X: =1174
             Y: =74
             ZIndex: =5
@@ -93,7 +93,7 @@ ParticipadasDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in LabelMembroName_3.Text)
+            Visible: =Or(godMode, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
             X: =1173
             Y: =74
             ZIndex: =6
@@ -348,6 +348,8 @@ ParticipadasDetails As screen:
 
             DataCardKey58 As label:
                 AutoHeight: =true
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
                 Height: =34
                 Text: =Parent.DisplayName
                 Width: =Parent.Width - 60
@@ -765,7 +767,7 @@ ParticipadasDetails As screen:
                 Format: |-
                     =Text(
                         Parent.Default,
-                        "dd-mm-yyyy",
+                        "dd/mm/yyyy",
                         "pt-PT"
                     )
                 InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
@@ -902,7 +904,7 @@ ParticipadasDetails As screen:
                     Icon.Cancel
                 )
             Height: =40
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in LabelMembroName_3.Text)
+            Visible: =Or(godMode, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
             Width: =160
             X: =1001
             Y: =74
@@ -949,7 +951,7 @@ ParticipadasDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in LabelMembroName_3.Text)
+            Visible: =Or(godMode, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
             X: =1000
             Y: =73
             ZIndex: =9
@@ -1494,7 +1496,7 @@ ParticipadasDetails As screen:
                     Icon.Unlock
                 )
             Height: =40
-            Visible: ="eliminado" in LabelMembroName_3.Text
+            Visible: =("eliminado" in LabelMembroName_3.Text) And (DRI Or DCRF_Validador Or DCRF_Editor Or godMode)
             Width: =200
             X: =1125
             Y: =74
@@ -1556,7 +1558,7 @@ ParticipadasDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: ="eliminado" in LabelMembroName_3.Text
+            Visible: =("eliminado" in LabelMembroName_3.Text) And (DRI Or DCRF_Validador Or DCRF_Editor Or godMode)
             Width: =DynamicBtn_47.Width
             X: =DynamicBtn_47.X
             Y: =DynamicBtn_47.Y
