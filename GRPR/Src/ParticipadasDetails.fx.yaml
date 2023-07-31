@@ -1494,7 +1494,7 @@ ParticipadasDetails As screen:
                     Icon.Unlock
                 )
             Height: =40
-            Visible: ="eliminado" in HtmlText1_1.HtmlText
+            Visible: ="eliminado" in LabelMembroName_3.Text
             Width: =200
             X: =1125
             Y: =74
@@ -1556,7 +1556,7 @@ ParticipadasDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: ="eliminado" in HtmlText1_1.HtmlText
+            Visible: ="eliminado" in LabelMembroName_3.Text
             Width: =DynamicBtn_47.Width
             X: =DynamicBtn_47.X
             Y: =DynamicBtn_47.Y
