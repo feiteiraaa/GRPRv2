@@ -568,16 +568,8 @@ Inicio As screen:
                 =Or(
                     godMode,
                     DRI,
-                    DGC_Editor,
-                    DGC_Validador,
-                    DGC_Editor,
-                    DCRF_Editor,
-                    DGP_Editor,
-                    GCONT_Editor,
                     DCOMP_Consulta,
-                    DAI_Consulta,
-                    DMK_Consulta,
-                    CCOMP_Consulta
+                    DAI_Consulta
                 )
             Width: =191
             X: =1138
@@ -601,16 +593,8 @@ Inicio As screen:
                 =Or(
                     godMode,
                     DRI,
-                    DGC_Editor,
-                    DGC_Validador,
-                    DGC_Editor,
-                    DCRF_Editor,
-                    DGP_Editor,
-                    GCONT_Editor,
                     DCOMP_Consulta,
-                    DAI_Consulta,
-                    DMK_Consulta,
-                    CCOMP_Consulta
+                    DAI_Consulta
                 )
             Width: =191
             X: =1138
@@ -642,16 +626,8 @@ Inicio As screen:
                 =Or(
                     godMode,
                     DRI,
-                    DGC_Editor,
-                    DGC_Validador,
-                    DGC_Editor,
-                    DCRF_Editor,
-                    DGP_Editor,
-                    GCONT_Editor,
                     DCOMP_Consulta,
-                    DAI_Consulta,
-                    DMK_Consulta,
-                    CCOMP_Consulta
+                    DAI_Consulta
                 )
             Width: =191
             X: =1138
@@ -671,13 +647,9 @@ Inicio As screen:
             Visible: |-
                 =Or(
                     godMode,
-                    DGC_Editor,
                     DGC_Validador,
-                    DCRF_Editor,
                     DCRF_Validador,
-                    DGP_Editor,
                     DGP_Validador,
-                    GCONT_Editor,
                     GCONT_Validador
                 )
             Width: =692
@@ -693,13 +665,9 @@ Inicio As screen:
             Visible: |-
                 =Or(
                     godMode,
-                    DGC_Editor,
                     DGC_Validador,
-                    DCRF_Editor,
                     DCRF_Validador,
-                    DGP_Editor,
                     DGP_Validador,
-                    GCONT_Editor,
                     GCONT_Validador
                 )
             Width: =230
@@ -716,13 +684,9 @@ Inicio As screen:
             Visible: |-
                 =Or(
                     godMode,
-                    DGC_Editor,
                     DGC_Validador,
-                    DCRF_Editor,
                     DCRF_Validador,
-                    DGP_Editor,
                     DGP_Validador,
-                    GCONT_Editor,
                     GCONT_Validador
                 )
             Width: =597
@@ -765,13 +729,9 @@ Inicio As screen:
             Visible: |-
                 =Or(
                     godMode,
-                    DGC_Editor,
                     DGC_Validador,
-                    DCRF_Editor,
                     DCRF_Validador,
-                    DGP_Editor,
                     DGP_Validador,
-                    GCONT_Editor,
                     GCONT_Validador
                 )
             Width: =232
