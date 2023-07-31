@@ -1941,7 +1941,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cargo (Categoria)_DataCard1_1",
-      "ParentIndex": 8,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2096,7 +2096,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cargo (Descricao)_DataCard1_1",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2640,7 +2640,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Data aprovacao CA_DataCard3",
-      "ParentIndex": 10,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2800,7 +2800,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Data de insercao_DataCard3",
-      "ParentIndex": 6,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2960,7 +2960,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Data de saida_DataCard2",
-      "ParentIndex": 7,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14588,7 +14588,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Grupo_DataCard1_1",
-      "ParentIndex": 4,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18325,7 +18325,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Legislacao aplicada_DataCard1",
-      "ParentIndex": 5,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22576,7 +22576,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unidade organica_DataCard1_1",
-      "ParentIndex": 9,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

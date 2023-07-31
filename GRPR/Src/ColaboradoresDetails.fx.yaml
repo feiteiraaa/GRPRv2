@@ -254,6 +254,82 @@ ColaboradoresDetails As screen:
                 Y: =DataCardKey96.Y
                 ZIndex: =4
 
+        "'Cargo (Categoria)_DataCard1_1' As typedDataCard.comboBoxOptionSetSingleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_cargocategoria"
+            Default: =ThisItem.'Cargo (Categoria)'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Colaboradores_1],DataSourceInfo.DisplayName,"uipp_cargocategoria")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue5_1.Selected.Value
+            Width: =323
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey5_1 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue5_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                ChevronBackground: =cores.amareloMontepio
+                ChevronHoverBackground: =ColorFade(cores.amareloMontepio, -20%)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                HoverBorderColor: =cores.cinzento
+                HoverFill: =cores.amareloMontepio
+                IsSearchable: =false
+                Items: =Choices('cargo (categoria) ')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedFill: =cores.cinzento
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey5_1.Y + DataCardKey5_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage3_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue5_1.Y + DataCardValue5_1.Height
+                ZIndex: =3
+
+            StarVisible3_1 As label:
+                Align: =Align.Center
+                Color: =Color.Red
+                Height: =DataCardKey5_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey5_1.Y
+                ZIndex: =4
+
         "'Cargo (Descricao)_DataCard1_1' As typedDataCard.textualEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="uipp_cargodescricao"
@@ -401,6 +477,81 @@ ColaboradoresDetails As screen:
                 Width: =30
                 Wrap: =false
                 Y: =DataCardKey10_1.Y
+                ZIndex: =4
+
+        "'Unidade organica_DataCard1_1' As typedDataCard.comboBoxOptionSetSingleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_unidadeorganica"
+            Default: =ThisItem.'Unidade organica'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Colaboradores_1],DataSourceInfo.DisplayName,"uipp_unidadeorganica")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue10_1.Selected.Value
+            Width: =323
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey12_1 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Text: ="Unidade Orgânica"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue10_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                ChevronBackground: =cores.amareloMontepio
+                ChevronHoverBackground: =ColorFade(cores.amareloMontepio, -20%)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                HoverFill: =cores.amareloMontepio
+                IsSearchable: =false
+                Items: =Choices('unidade organica')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedFill: =cores.cinzento
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey12_1.Y + DataCardKey12_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage10_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue10_1.Y + DataCardValue10_1.Height
+                ZIndex: =3
+
+            StarVisible10_1 As label:
+                Align: =Align.Center
+                Color: =Color.Red
+                Height: =DataCardKey12_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey12_1.Y
                 ZIndex: =4
 
         "'Legislacao aplicada_DataCard1' As typedDataCard.comboBoxEditCard":
@@ -581,234 +732,6 @@ ColaboradoresDetails As screen:
                 Y: =DataCardKey69.Y
                 ZIndex: =7
 
-        "'Data de saida_DataCard2' As typedDataCard.dateTimeEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="uipp_datadesaida"
-            Default: =ThisItem.'Data de saida'
-            DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Colaboradores_1],DataSourceInfo.DisplayName,"uipp_datadesaida")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            Required: =false
-            Update: =DateValue12.SelectedDate
-            Visible: =!IsBlank(ThisItem.'Data de saida')
-            Width: =323
-            X: =1
-            Y: =3
-            ZIndex: =1
-
-            DataCardKey70 As label:
-                AutoHeight: =true
-                Color: =cores.cinzento
-                FontWeight: =FontWeight.Semibold
-                Height: =34
-                Text: |-
-                    =//Parent.DisplayName
-                    "Data de saída"
-                Width: =Parent.Width - 60
-                Wrap: =false
-                ZIndex: =1
-
-            DateValue12 As datepicker:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                DefaultDate: =Parent.Default
-                DisplayMode: =Parent.DisplayMode
-                EndYear: =Year(Today())+100
-                Format: |-
-                    =
-                    Text(
-                        Parent.Default,
-                        "dd-mm-yyyy",
-                        "pt-PT"
-                    )
-                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
-                IsEditable: =true
-                PaddingBottom: =0
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                StartYear: =1899
-                Tooltip: =Parent.DisplayName
-                Width: =(Parent.Width - 60)
-                X: =30
-                Y: =DataCardKey70.Y + DataCardKey70.Height + 5
-                ZIndex: =2
-
-            ErrorMessage70 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DateValue12.Y + DateValue12.Height
-                ZIndex: =6
-
-            StarVisible70 As label:
-                Align: =Align.Center
-                Color: =cores.cinzento
-                Height: =DataCardKey70.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey70.Y
-                ZIndex: =7
-
-        "'Cargo (Categoria)_DataCard1_1' As typedDataCard.comboBoxOptionSetSingleEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="uipp_cargocategoria"
-            Default: =ThisItem.'Cargo (Categoria)'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Colaboradores_1],DataSourceInfo.DisplayName,"uipp_cargocategoria")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            Required: =true
-            Update: =DataCardValue5_1.Selected.Value
-            Width: =323
-            X: =0
-            Y: =1
-            ZIndex: =1
-
-            DataCardKey5_1 As label:
-                AutoHeight: =true
-                Color: =cores.cinzento
-                FontWeight: =FontWeight.Semibold
-                Height: =34
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue5_1 As combobox:
-                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
-                ChevronBackground: =cores.amareloMontepio
-                ChevronHoverBackground: =ColorFade(cores.amareloMontepio, -20%)
-                DefaultSelectedItems: =[Parent.Default]
-                DisplayFields: =["Value"]
-                DisplayMode: =Parent.DisplayMode
-                HoverBorderColor: =cores.cinzento
-                HoverFill: =cores.amareloMontepio
-                IsSearchable: =false
-                Items: =Choices('cargo (categoria) ')
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                PressedFill: =cores.cinzento
-                SearchFields: =["Value"]
-                SearchItems: =[]
-                SelectionFill: =cores.amareloMontepio
-                SelectMultiple: =false
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey5_1.Y + DataCardKey5_1.Height + 5
-                ZIndex: =2
-
-            ErrorMessage3_1 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue5_1.Y + DataCardValue5_1.Height
-                ZIndex: =3
-
-            StarVisible3_1 As label:
-                Align: =Align.Center
-                Color: =Color.Red
-                Height: =DataCardKey5_1.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey5_1.Y
-                ZIndex: =4
-
-        "'Unidade organica_DataCard1_1' As typedDataCard.comboBoxOptionSetSingleEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="uipp_unidadeorganica"
-            Default: =ThisItem.'Unidade organica'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Colaboradores_1],DataSourceInfo.DisplayName,"uipp_unidadeorganica")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            Required: =true
-            Update: =DataCardValue10_1.Selected.Value
-            Width: =323
-            X: =0
-            Y: =2
-            ZIndex: =1
-
-            DataCardKey12_1 As label:
-                AutoHeight: =true
-                Color: =cores.cinzento
-                FontWeight: =FontWeight.Semibold
-                Height: =34
-                Text: ="Unidade Orgânica"
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue10_1 As combobox:
-                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
-                ChevronBackground: =cores.amareloMontepio
-                ChevronHoverBackground: =ColorFade(cores.amareloMontepio, -20%)
-                DefaultSelectedItems: =[Parent.Default]
-                DisplayFields: =["Value"]
-                DisplayMode: =Parent.DisplayMode
-                HoverFill: =cores.amareloMontepio
-                IsSearchable: =false
-                Items: =Choices('unidade organica')
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                PressedFill: =cores.cinzento
-                SearchFields: =["Value"]
-                SearchItems: =[]
-                SelectionFill: =cores.amareloMontepio
-                SelectMultiple: =false
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey12_1.Y + DataCardKey12_1.Height + 5
-                ZIndex: =2
-
-            ErrorMessage10_1 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue10_1.Y + DataCardValue10_1.Height
-                ZIndex: =3
-
-            StarVisible10_1 As label:
-                Align: =Align.Center
-                Color: =Color.Red
-                Height: =DataCardKey12_1.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey12_1.Y
-                ZIndex: =4
-
         "'Data aprovacao CA_DataCard3' As typedDataCard.dateTimeEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="uipp_dataaprovacaoca"
@@ -848,7 +771,7 @@ ColaboradoresDetails As screen:
                     =
                     Text(
                         Parent.Default,
-                        "dd-mm-yyyy",
+                        "dd/mm/yyyy",
                         "pt-PT"
                     )
                 InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
@@ -886,6 +809,83 @@ ColaboradoresDetails As screen:
                 Width: =30
                 Wrap: =false
                 Y: =DataCardKey67.Y
+                ZIndex: =7
+
+        "'Data de saida_DataCard2' As typedDataCard.dateTimeEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="uipp_datadesaida"
+            Default: =ThisItem.'Data de saida'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Colaboradores_1],DataSourceInfo.DisplayName,"uipp_datadesaida")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DateValue12.SelectedDate
+            Visible: =!IsBlank(ThisItem.'Data de saida')
+            Width: =323
+            X: =1
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey70 As label:
+                AutoHeight: =true
+                Color: =cores.cinzento
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Text: |-
+                    =//Parent.DisplayName
+                    "Data de saída"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                ZIndex: =1
+
+            DateValue12 As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                Format: |-
+                    =
+                    Text(
+                        Parent.Default,
+                        "dd/mm/yyyy",
+                        "pt-PT"
+                    )
+                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =(Parent.Width - 60)
+                X: =30
+                Y: =DataCardKey70.Y + DataCardKey70.Height + 5
+                ZIndex: =2
+
+            ErrorMessage70 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DateValue12.Y + DateValue12.Height
+                ZIndex: =6
+
+            StarVisible70 As label:
+                Align: =Align.Center
+                Color: =cores.cinzento
+                Height: =DataCardKey70.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey70.Y
                 ZIndex: =7
 
     "'Particualres Edit Save Btn_2' As group":

@@ -528,7 +528,7 @@ ROCDetails As screen:
                 Format: |
                     =Text(
                         Parent.Default,
-                        "dd-mm-yyyy",
+                        "dd/mm/yyyy",
                         "pt-PT"
                     )
                 InputTextPlaceholder: |
@@ -686,7 +686,7 @@ ROCDetails As screen:
                 Format: |
                     =Text(
                         Parent.Default,
-                        "dd-mm-yyyy",
+                        "dd/mm/yyyy",
                         "pt-PT"
                     )
                 InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
