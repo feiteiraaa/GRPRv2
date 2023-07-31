@@ -167,7 +167,7 @@ MembrosDetails As screen:
                         NotificationType.Success
                     );
                     If(
-                        Informacao.Mode = FormMode.New,
+                        IsBlank(_Membro),
                         Navigate(
                             Particulares,
                             ScreenTransition.None
@@ -489,7 +489,7 @@ MembrosDetails As screen:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="uipp_Legislacaoaplicada"
                     Default: =ThisItem.'Legislacao aplicada'
-                    DisplayMode: =If(DRI Or godMode And (localShowNewForm Or IsBlank(_Membro)) ,DisplayMode.Edit,DisplayMode.View) 
+                    DisplayMode: =If(Or(DRI, godMode) And (localShowNewForm Or IsBlank(_Membro)) ,DisplayMode.Edit,DisplayMode.View) 
                     DisplayName: =DataSourceInfo([@Membros_1],DataSourceInfo.DisplayName,"uipp_Legislacaoaplicada")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
@@ -860,7 +860,8 @@ MembrosDetails As screen:
                                         Aprovacaos,
                                         ThisRecord.Tabela = "Membros de Orgãos Sociais"
                                     ).Aprovado,
-                                    UpdateContext({localLimpar: true})
+                                    UpdateContext({localLimpar: true}),
+                                    SubmitForm(Informacao)
                                     /*If(
                                         SubmitForm(Informacao),
                                         Notify(
