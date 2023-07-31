@@ -135,15 +135,20 @@ ColaboradoresDetails As screen:
                 ZIndex: =1
 
             DataCardValue76 As combobox:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                ChevronBackground: =cores.amareloMontepio
+                ChevronHoverBackground: =ColorFade(cores.amareloMontepio, -20%)
                 DefaultSelectedItems: =[Parent.Default]
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
+                HoverFill: =cores.amareloMontepio
                 IsSearchable: =false
                 Items: =Choices('Tipo de Documento')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedFill: =cores.amareloMontepio
                 SearchFields: =["Value"]
                 SearchItems: =[]
+                SelectionFill: =cores.amareloMontepio
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
@@ -205,11 +210,13 @@ ColaboradoresDetails As screen:
                 ZIndex: =1
 
             DataCardValue75 As text:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
                 Default: =Parent.Default
                 DelayOutput: =true
                 DisplayMode: =Parent.DisplayMode
                 Format: =TextFormat.Number
+                HoverBorderColor: =cores.cinzento
+                HoverFill: =RGBA(186, 202, 226, 0)
                 PaddingLeft: =5
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
