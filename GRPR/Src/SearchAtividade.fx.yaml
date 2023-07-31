@@ -24,7 +24,7 @@ SearchAtividade As screen:
         Height: |
             =472
         Items: |-
-            =SortByColumns(
+            =//SortByColumns(
                 Filter(
                     CollectAtividades,
                     If(
@@ -68,9 +68,9 @@ SearchAtividade As screen:
                         InputCriadoPor.Text in ThisRecord.'Created By'.'Full Name',
                         true
                     )
-                ),
+                /*),
                 "uipp_data",
-                varSortDir
+                varSortDir*/
             )
         SelectedFill: =cores.amareloMontepio
         Visible: =ShowPesquisaAtividade
