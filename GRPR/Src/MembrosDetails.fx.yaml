@@ -149,6 +149,37 @@ MembrosDetails As screen:
                     )
                 Height: =Parent.Height-DynamicBtn_14.Height
                 Item: =LookUp(Membros_1, _Membro = ThisRecord.ID)
+                OnFailure: |-
+                    =Notify(
+                        "Por favor, tente novamente.",
+                        NotificationType.Error
+                    );
+                    If(
+                        Informacao.Mode = FormMode.New,
+                        Navigate(
+                            Particulares,
+                            ScreenTransition.None
+                        )
+                    )
+                OnSuccess: |-
+                    =Notify(
+                        "O registo foi submetido com sucesso!",
+                        NotificationType.Success
+                    );
+                    If(
+                        Informacao.Mode = FormMode.New,
+                        Navigate(
+                            Particulares,
+                            ScreenTransition.None
+                        )
+                    );
+                    UpdateContext(
+                        {
+                            localShowData: false,
+                            localShowNewForm: !localShowNewForm
+                        }
+                    );
+                    ResetForm(Informacao)
                 Width: =Parent.Width*0.95
                 X: =24
                 Y: =50
@@ -829,12 +860,19 @@ MembrosDetails As screen:
                                         Aprovacaos,
                                         ThisRecord.Tabela = "Membros de Orgãos Sociais"
                                     ).Aprovado,
-                                    UpdateContext({localLimpar: true}),
-                                    If(
+                                    UpdateContext({localLimpar: true})
+                                    /*If(
                                         SubmitForm(Informacao),
                                         Notify(
                                             "O registo foi submetido com sucesso!",
                                             NotificationType.Success
+                                        );
+                                        If(
+                                            Informacao.Mode = FormMode.New,
+                                            Navigate(
+                                                Particulares,
+                                                ScreenTransition.None
+                                            )
                                         );
                                         ResetForm(Informacao);
                                         UpdateContext(
@@ -843,19 +881,18 @@ MembrosDetails As screen:
                                                 localShowNewForm: !localShowNewForm
                                             }
                                         ),
+                                        Notify(
+                                            "Por favor, tente novamente.",
+                                            NotificationType.Error
+                                        ),
                                         If(
                                             Informacao.Mode = FormMode.New,
                                             Navigate(
                                                 Particulares,
                                                 ScreenTransition.None
                                             )
-                                        ),
-                                    //Back(),
-                                        Notify(
-                                            "Por favor, tente novamente.",
-                                            NotificationType.Error
                                         )
-                                    )
+                                    )*/
                                 ),
                                 Notify(
                                     "Por favor, preencha o número do documento corretamente.",
