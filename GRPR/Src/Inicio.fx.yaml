@@ -119,16 +119,7 @@ Inicio As screen:
                         ),
                         Filter(
                             Atividades,
-                            (ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And LookUp(
-                                Membros_1,
-                                ID = Atividades[@Item]
-                            ).Grupo = [@Grupo].'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And LookUp(
-                                Empresas,
-                                ID = Atividades[@Item]
-                            ).Grupo = [@Grupo].'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares And LookUp(
-                                Familiares,
-                                ID = Atividades[@Item]
-                            ).Grupo = [@Grupo].'Banco Montepio') Or ThisRecord.'Lista da atividade' = 'lista da atividade'.ROC
+                            (ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And ThisRecord.Grupo = [@Grupo].'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And ThisRecord.Grupo = [@Grupo].'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares And ThisRecord.Grupo = [@Grupo].'Banco Montepio') Or ThisRecord.'Lista da atividade' = 'lista da atividade'.ROC
                         ),
                         Or(
                             GCONT_Editor,
@@ -136,16 +127,7 @@ Inicio As screen:
                         ),
                         Filter(
                             Atividades,
-                            (ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And LookUp(
-                                Membros_1,
-                                ID = Atividades[@Item]
-                            ).Grupo = [@Grupo].MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And LookUp(
-                                Empresas,
-                                ID = Atividades[@Item]
-                            ).Grupo = [@Grupo].MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares And LookUp(
-                                Familiares,
-                                ID = Atividades[@Item]
-                            ).Grupo = [@Grupo].MGAM)
+                            (ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And ThisRecord.Grupo = [@Grupo].MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And ThisRecord.Grupo = [@Grupo].MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares And ThisRecord.Grupo = [@Grupo].MGAM)
                         )
                     )
                 },
