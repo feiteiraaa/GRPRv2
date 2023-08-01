@@ -210,6 +210,10 @@
       "OptionSetReferenceItem5": {
         "OptionSetReferenceColumnName": "uipp_grupo",
         "OptionSetReferenceEntityName": "ROCS"
+      },
+      "OptionSetReferenceItem6": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Atividades"
       }
     },
     "OptionSetTypeKey": "PicklistType",

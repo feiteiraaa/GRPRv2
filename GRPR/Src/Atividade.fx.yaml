@@ -51,13 +51,13 @@ Atividade As screen:
                         ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And LookUp(
                         Membros_1,
                         ID = Atividades[@Item]
-                    ).Grupo = Grupo.'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And LookUp(
+                    ).Grupo = [@Grupo].'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And LookUp(
                         Empresas,
                         ID = Atividades[@Item]
-                    ).Grupo = Grupo.'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares And LookUp(
+                    ).Grupo = [@Grupo].'Banco Montepio') Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares And LookUp(
                         Familiares,
                         ID = Atividades[@Item]
-                    ).Grupo = Grupo.'Banco Montepio') Or ThisRecord.'Lista da atividade' = 'lista da atividade'.ROC
+                    ).Grupo = [@Grupo].'Banco Montepio') Or ThisRecord.'Lista da atividade' = 'lista da atividade'.ROC
                 ),
                 Or(
                     GCONT_Editor,
@@ -68,13 +68,13 @@ Atividade As screen:
                     (ThisRecord.'Lista da atividade' = 'lista da atividade'.Membros And LookUp(
                         Membros_1,
                         ID = Atividades[@Item]
-                    ).Grupo = Grupo.MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And LookUp(
+                    ).Grupo = [@Grupo].MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.'Empresas Respetivas' And LookUp(
                         Empresas,
                         ID = Atividades[@Item]
-                    ).Grupo = Grupo.MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares And LookUp(
+                    ).Grupo = [@Grupo].MGAM) Or (ThisRecord.'Lista da atividade' = 'lista da atividade'.Familiares And LookUp(
                         Familiares,
                         ID = Atividades[@Item]
-                    ).Grupo = Grupo.MGAM)
+                    ).Grupo = [@Grupo].MGAM)
                 )
             )
         );

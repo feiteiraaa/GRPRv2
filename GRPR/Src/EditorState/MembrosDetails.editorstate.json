@@ -636,7 +636,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Atividades Info",
-      "ParentIndex": 8,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1808,7 +1808,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cargo (Categoria)_Column2",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2213,7 +2213,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cargo (Descricao)_Column1",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2673,7 +2673,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cargo e Relacao_1",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16524,7 +16524,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Designacao_Column1",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -23854,7 +23854,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Empresas Grupo",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24054,7 +24054,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Empresas Grupo Content",
-      "ParentIndex": 3,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24485,7 +24485,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Empresas Respetivas",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24685,7 +24685,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Empresas Respetivas Content",
-      "ParentIndex": 5,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30102,7 +30102,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Familiares Content",
-      "ParentIndex": 7,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30257,7 +30257,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Familiares1",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30907,7 +30907,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GalleryFamiliaresEmpresas_1",
-      "ParentIndex": 5,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31586,7 +31586,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon3_1",
-      "ParentIndex": 4,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -37871,7 +37871,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Informacao Content",
-      "ParentIndex": 1,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -43502,7 +43502,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "NIF Membro_1",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -44052,7 +44052,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Nome Membro_1",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -44761,7 +44761,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Participacao_Column1",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -45314,7 +45314,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Rectangle3_1",
-      "ParentIndex": 6,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -51439,7 +51439,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "uipp_id_Column2",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
