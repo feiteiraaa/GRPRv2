@@ -1295,8 +1295,8 @@ ColaboradoresDetails As screen:
                 =Or(
                     godMode,
                     DRI,
-                    DGC_Editor,
-                    DGC_Validador
+                    DGP_Editor,
+                    DGP_Validador
                 
                 ) And CountRows(atividadesColaboradores) <> 0
             Width: =Parent.Width * 0.95
