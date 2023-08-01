@@ -27,8 +27,7 @@ SearchAtividade As screen:
             =SortByColumns(
                 Filter(
                     CollectAtividades,
-                    ( Titulo in DataCardValue47.Text) &&
-                    ( 'Created By'.'Full Name' in InputCriadoPor.Text)
+                    (DataCardValue47.Text in ThisRecord.Titulo|| IsBlank(DataCardValue47.Text)) && (InputCriadoPor.Text in ThisRecord.'Created By'.'Full Name' || IsBlank(InputCriadoPor.Text))
                 ),
                 "uipp_data",
                 varSortDir
