@@ -27,7 +27,7 @@ SearchAtividade As screen:
             =SortByColumns(
                 Filter(
                     CollectAtividades,
-                    (DataCardValue47.Text in ThisRecord.Titulo|| IsBlank(DataCardValue47.Text)) && (InputCriadoPor.Text in ThisRecord.'Created By'.'Full Name' || IsBlank(InputCriadoPor.Text))
+                    (DataCardValue47.Text in ThisRecord.Titulo|| IsBlank(DataCardValue47.Text)) && (InputCriadoPor.Text in ThisRecord.'Created By'.'Full Name' || IsBlank(InputCriadoPor.Text)) && If(CheckboxMinhaAtividade.Value, User().FullName in ThisRecord.'Created By'.'Full Name',true) && (Text(DataCardValue49.Selected.Value) in ThisRecord.'Lista da atividade' || IsBlank(DataCardValue49.Selected.Value)) && (Text(DataCardValue48.Selected.Value) in ThisRecord.'Tipo de alteracao' || IsBlank(DataCardValue48.Selected.Value))
                 ),
                 "uipp_data",
                 varSortDir
