@@ -27,47 +27,8 @@ SearchAtividade As screen:
             =SortByColumns(
                 Filter(
                     CollectAtividades,
-                    If(
-                        !IsBlank(DataCardValue47.Text),
-                        DataCardValue47.Text in ThisRecord.Titulo,
-                        true
-                    ) And If(
-                        !IsBlank(DataCardValue49.Selected),
-                        Text(DataCardValue49.Selected.Value) in ThisRecord.'Lista da atividade',
-                        true
-                    ) And If(
-                        !IsBlank(DataCardValue48.Selected.Value),
-                        Text(DataCardValue48.Selected.Value) in ThisRecord.'Tipo de alteracao',
-                        true
-                    ) And If(
-                        !IsBlank(DatePicker1_1.SelectedDate),
-                        ThisRecord.'Created On' >= DatePicker1_1.SelectedDate,
-                        true
-                    ) And If(
-                        !IsBlank(DatePicker2_1.SelectedDate),
-                        ThisRecord.'Created On' <= DateAdd(
-                            DatePicker2_1.SelectedDate,
-                            1,
-                            TimeUnit.Days
-                        ),
-                        true
-                    ) And If(
-                        DatePicker1_1.SelectedDate = DatePicker2_1.SelectedDate,
-                        ThisRecord.'Created On' >= DatePicker1_1.SelectedDate Or ThisRecord.'Created On' < DateAdd(
-                            DatePicker2_1.SelectedDate,
-                            1,
-                            TimeUnit.Days
-                        ),
-                        true
-                    ) And If(
-                        !IsBlank(CheckboxMinhaAtividade.Value),
-                        User().FullName in ThisRecord.'Created By'.'Full Name',
-                        true
-                    ) And If(
-                        !IsBlank(InputCriadoPor.Text),
-                        InputCriadoPor.Text in ThisRecord.'Created By'.'Full Name',
-                        true
-                    )
+                    ( Titulo in DataCardValue47.Text) &&
+                    ( 'Created By'.'Full Name' in InputCriadoPor.Text)
                 ),
                 "uipp_data",
                 varSortDir
