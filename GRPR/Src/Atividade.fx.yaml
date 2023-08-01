@@ -171,7 +171,7 @@ Atividade As screen:
             Text: |-
                 =Text(DateTimeValue(ThisItem.'Created On'), "dd/mm/yyyy hh:mm")
             Width: =222
-            X: =0
+            X: =332
             Y: =0
             ZIndex: =7
 
