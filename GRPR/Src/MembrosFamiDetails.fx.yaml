@@ -522,158 +522,6 @@ MembrosFamiDetails As screen:
                         Y: =DataCardKey77.Y
                         ZIndex: =4
 
-                "'Data aprovacao CA_DataCard1_1' As typedDataCard.dateTimeEditCard":
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="uipp_dataaprovacaoca"
-                    Default: =ThisItem.'Data aprovacao CA'
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_dataaprovacaoca")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    Required: =false
-                    Update: =DateValue2_1.SelectedDate
-                    Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
-                    Width: =266
-                    X: =1
-                    Y: =2
-                    ZIndex: =1
-
-                    DataCardKey7_1 As label:
-                        AutoHeight: =true
-                        Color: =cores.cinzento
-                        FontWeight: =FontWeight.Semibold
-                        Height: =34
-                        Text: |-
-                            =//Parent.DisplayName
-                            "Data de Aprovação em CA"
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DateValue2_1 As datepicker:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultDate: =Parent.Default
-                        DisplayMode: =Parent.DisplayMode
-                        EndYear: =Year(Today())+100
-                        Format: |-
-                            =Text(
-                                Parent.Default,
-                                "dd-mm-yyyy",
-                                "pt-PT"
-                            )
-                        IsEditable: =true
-                        PaddingBottom: =0
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                        StartYear: =1899
-                        Tooltip: =Parent.DisplayName
-                        Width: =(Parent.Width - 60) / 2
-                        X: =30
-                        Y: =DataCardKey7_1.Y + DataCardKey7_1.Height + 5
-                        ZIndex: =2
-
-                    ErrorMessage5_1 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DateValue2_1.Y + DateValue2_1.Height
-                        ZIndex: =6
-
-                    StarVisible5_1 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey7_1.Height
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey7_1.Y
-                        ZIndex: =7
-
-                "'Data de saida_DataCard1_1' As typedDataCard.dateTimeEditCard":
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="uipp_datadesaida"
-                    Default: =ThisItem.'Data de saida'
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_datadesaida")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    Required: =false
-                    Update: =DateValue3_1.SelectedDate 
-                    Visible: =!IsBlank(ThisItem.'Data de saida')
-                    Width: =266
-                    X: =2
-                    Y: =2
-                    ZIndex: =1
-
-                    DataCardKey30_1 As label:
-                        AutoHeight: =true
-                        Color: =cores.cinzento
-                        FontWeight: =FontWeight.Semibold
-                        Height: =34
-                        Text: |-
-                            =//Parent.DisplayName
-                            "Data de saída"
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DateValue3_1 As datepicker:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultDate: =Parent.Default
-                        DisplayMode: =Parent.DisplayMode
-                        EndYear: =Year(Today())+100
-                        Format: |-
-                            =Text(
-                                Parent.Default,
-                                "dd-mm-yyyy",
-                                "pt-PT"
-                            )
-                        IsEditable: =true
-                        PaddingBottom: =0
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                        StartYear: =1899
-                        Tooltip: =Parent.DisplayName
-                        Width: =(Parent.Width - 60) / 2
-                        X: =30
-                        Y: =DataCardKey30_1.Y + DataCardKey30_1.Height + 5
-                        ZIndex: =2
-
-                    ErrorMessage30_1 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DateValue3_1.Y + DateValue3_1.Height
-                        ZIndex: =6
-
-                    StarVisible30_1 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey30_1.Height
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey30_1.Y
-                        ZIndex: =7
-
                 "'Data de insercao_DataCard1_1' As typedDataCard.dateTimeEditCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="uipp_datadeinsercao"
@@ -843,6 +691,158 @@ MembrosFamiDetails As screen:
                         Wrap: =false
                         Y: =DataCardKey8_1.Y
                         ZIndex: =4
+
+                "'Data aprovacao CA_DataCard1_1' As typedDataCard.dateTimeEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_dataaprovacaoca"
+                    Default: =ThisItem.'Data aprovacao CA'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_dataaprovacaoca")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DateValue2_1.SelectedDate
+                    Visible: =!IsBlank(ThisItem.'Data aprovacao CA')
+                    Width: =266
+                    X: =1
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey7_1 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Data de Aprovação em CA"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DateValue2_1 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultDate: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Format: |-
+                            =Text(
+                                Parent.Default,
+                                "dd-mm-yyyy",
+                                "pt-PT"
+                            )
+                        IsEditable: =true
+                        PaddingBottom: =0
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =(Parent.Width - 60) / 2
+                        X: =30
+                        Y: =DataCardKey7_1.Y + DataCardKey7_1.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage5_1 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DateValue2_1.Y + DateValue2_1.Height
+                        ZIndex: =6
+
+                    StarVisible5_1 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey7_1.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey7_1.Y
+                        ZIndex: =7
+
+                "'Data de saida_DataCard1_1' As typedDataCard.dateTimeEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_datadesaida"
+                    Default: =ThisItem.'Data de saida'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_datadesaida")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DateValue3_1.SelectedDate 
+                    Visible: =!IsBlank(ThisItem.'Data de saida')
+                    Width: =266
+                    X: =2
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey30_1 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Data de saída"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DateValue3_1 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultDate: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Format: |-
+                            =Text(
+                                Parent.Default,
+                                "dd-mm-yyyy",
+                                "pt-PT"
+                            )
+                        IsEditable: =true
+                        PaddingBottom: =0
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =(Parent.Width - 60) / 2
+                        X: =30
+                        Y: =DataCardKey30_1.Y + DataCardKey30_1.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage30_1 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DateValue3_1.Y + DateValue3_1.Height
+                        ZIndex: =6
+
+                    StarVisible30_1 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey30_1.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey30_1.Y
+                        ZIndex: =7
 
             InfoRelaçãoFami As form:
                 DataSource: ='Membros-Familiares-Respetivas'

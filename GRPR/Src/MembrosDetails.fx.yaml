@@ -3116,6 +3116,7 @@ MembrosDetails As screen:
                 CheckboxBackgroundFill: =ColorFade(cores.cinzento, 90%)
                 CheckboxBorderColor: =ColorFade(cores.cinzento, 80%)
                 CheckmarkFill: =cores.cinzento
+                Default: ="(Eliminado)" in LabelMembroName.Text
                 FocusedBorderThickness: =0
                 Height: =40
                 HoverColor: =//RGBA(0, 18, 107, 1)
@@ -3460,76 +3461,6 @@ MembrosDetails As screen:
             Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =5
 
-    LabelMembroName As label:
-        AutoHeight: =true
-        FontWeight: =FontWeight.Semibold
-        Text: |-
-            =If(
-                !IsBlank(_Membro),
-                If(
-                    LookUp(
-                        Membros_1,
-                        ID = _Membro
-                    ).Ativo,
-                    LookUp(
-                        Membros_1,
-                        ID = _Membro
-                    ).Nome,
-                    LookUp(
-                        Membros_1,
-                        ID = _Membro
-                    ).Nome & " (Eliminado)"
-                ),
-                "Criar novo Membro de Órgãos Sociais"
-            )
-        Width: =Parent.Width/2
-        X: =365
-        Y: =124
-        ZIndex: =8
-
-    ModalConfirmation_7 As ModalConfirmation:
-        ModalText: |-
-            =If(
-                localShowLeg,
-                "Tem certeza de que deseja dissociar a empresa " & 'empresas do grupo'.Selected.Designacao & " do membro " & LabelMembroName.Text & " ?",
-                localShowEliminacao,
-                "Tem certeza de que deseja eliminar a empresa " & 'empresas respetivas'.Selected.ID_Empresa.Designacao & " do membro " & LabelMembroName.Text & " ?",
-                localLimpar And LookUp(
-                    Aprovacaos,
-                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                ).Aprovado And IsBlank(
-                    LookUp(
-                        Membros_1,
-                        ID = _Membro
-                    ).'Data aprovacao CA'
-                ),
-                "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
-                localLimpar And LookUp(
-                    Aprovacaos,
-                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                ).Aprovado=false And !IsBlank(
-                    LookUp(
-                        Membros_1,
-                        ID = _Membro
-                    ).'Data aprovacao CA'
-                ),
-                "Após essa alteração, a informação do membro "& LabelMembroName.Text & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
-                localLimpar And LookUp(
-                    Aprovacaos,
-                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
-                ).Aprovado And !IsBlank(
-                    LookUp(
-                        Membros_1,
-                        ID = _Membro
-                    ).'Data aprovacao CA'
-                ),
-                "Após essa alteração, a informação do membro "& LabelMembroName.Text & " terá sua Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
-                //!localShowData And !localShowLeg And !localShowEliminacao And !localShowRelacao And !localShowPrazo And !localShowNewForm And !_AssociarR And !_Associar,
-                "Tem certeza de que deseja eliminar o membro " & LabelMembroName.Text & " ?"
-            )
-        Visible: =localShowModal Or localLimpar
-        ZIndex: =9
-
     EliminarMembro As group:
         Height: =5
         Width: =5
@@ -3642,6 +3573,76 @@ MembrosDetails As screen:
             Y: =74
             ZIndex: =7
 
+    LabelMembroName As label:
+        AutoHeight: =true
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            =If(
+                !IsBlank(_Membro),
+                If(
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).Ativo,
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).Nome,
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).Nome & " (Eliminado)"
+                ),
+                "Criar novo Membro de Órgãos Sociais"
+            )
+        Width: =Parent.Width/2
+        X: =365
+        Y: =124
+        ZIndex: =10
+
+    ModalConfirmation_7 As ModalConfirmation:
+        ModalText: |-
+            =If(
+                localShowLeg,
+                "Tem certeza de que deseja dissociar a empresa " & 'empresas do grupo'.Selected.Designacao & " do membro " & LabelMembroName.Text & " ?",
+                localShowEliminacao,
+                "Tem certeza de que deseja eliminar a empresa " & 'empresas respetivas'.Selected.ID_Empresa.Designacao & " do membro " & LabelMembroName.Text & " ?",
+                localLimpar And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado And IsBlank(
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).'Data aprovacao CA'
+                ),
+                "Após essa alteração, a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                localLimpar And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado=false And !IsBlank(
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).'Data aprovacao CA'
+                ),
+                "Após essa alteração, a informação do membro "& LabelMembroName.Text & " terá sua Data de Aprovação apagada, deseja confirmar esta alteração?",
+                localLimpar And LookUp(
+                    Aprovacaos,
+                    ThisRecord.Tabela = "Membros de Orgãos Sociais"
+                ).Aprovado And !IsBlank(
+                    LookUp(
+                        Membros_1,
+                        ID = _Membro
+                    ).'Data aprovacao CA'
+                ),
+                "Após essa alteração, a informação do membro "& LabelMembroName.Text & " terá sua Data de Aprovação apagada e a informação de Membros de Órgões Sociais necessitará de nova validação pelo perfil Validador correspondente, deseja confirmar esta alteração?",
+                //!localShowData And !localShowLeg And !localShowEliminacao And !localShowRelacao And !localShowPrazo And !localShowNewForm And !_AssociarR And !_Associar,
+                "Tem certeza de que deseja eliminar o membro " & LabelMembroName.Text & " ?"
+            )
+        Visible: =localShowModal Or localLimpar
+        ZIndex: =12
+
     elim_components_1 As group:
         Height: =5
         Width: =5
@@ -3674,7 +3675,7 @@ MembrosDetails As screen:
             Width: =165
             X: =717
             Y: =440
-            ZIndex: =10
+            ZIndex: =11
 
         confirm_btn_1 As button:
             Align: =Align.Left
@@ -4028,7 +4029,7 @@ MembrosDetails As screen:
             Width: =165
             X: =486
             Y: =440
-            ZIndex: =11
+            ZIndex: =13
 
         Icon8_2 As icon.Check:
             Color: =cores.amareloMontepio
@@ -4275,7 +4276,7 @@ MembrosDetails As screen:
             Width: =30
             X: =496
             Y: =445
-            ZIndex: =12
+            ZIndex: =14
 
         Icon8_3 As icon.Check:
             Color: =cores.amareloMontepio
@@ -4290,7 +4291,7 @@ MembrosDetails As screen:
             Width: =30
             X: =726
             Y: =445
-            ZIndex: =13
+            ZIndex: =15
 
     Back As group:
         Height: =5
@@ -4356,7 +4357,7 @@ MembrosDetails As screen:
             Width: =200
             X: =1125
             Y: =74
-            ZIndex: =14
+            ZIndex: =8
 
         elim_btn_13 As button:
             BorderColor: =RGBA(0,0,0, 0)
@@ -4508,5 +4509,5 @@ MembrosDetails As screen:
             Width: =DynamicBtn_37.Width
             X: =DynamicBtn_37.X
             Y: =DynamicBtn_37.Y
-            ZIndex: =15
+            ZIndex: =9
 
