@@ -968,14 +968,12 @@ Respetivas As screen:
                 DefaultDate: |-
                     =If(
                         localFormRespetivasNew,
-                        Now(),
-                        Parent.Default
-                        //ThisItem.'Data de insercao'
+                        Text(Today(),"mm/dd/yyyy"), ThisItem.'Created On'
                     )
                 DisplayMode: =DisplayMode.View
                 EndYear: =Year(Today())+100
                 Format: |-
-                    =If(
+                    =/*If(
                         localFormRespetivasNew,
                         Text(
                             Now(),
@@ -987,10 +985,14 @@ Respetivas As screen:
                             "dd/mm/yyyy",
                             "pt-PT"
                         )
+                    )*/
+                    Text(
+                        DateValue(ThisItem.'Created On'),
+                        "dd/mm/yyyy",
+                        "pt-PT"
                     )
-                InputTextPlaceholder: |-
+                InputTextPlaceholder: |
                     =//If(IsBlank(Self.SelectedDate), Text(Date(2001,12,31), Self.Format, Self.Language))
-                    "dd/mm/yyyy"
                 IsEditable: =true
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 8)
                 PaddingTop: =5

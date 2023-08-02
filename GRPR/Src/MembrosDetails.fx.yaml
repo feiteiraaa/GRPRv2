@@ -589,7 +589,7 @@ MembrosDetails As screen:
                     Update: =DateValue1.SelectedDate
                     Visible: |-
                         =//ColabFormMode<>FormMode.New
-                        Informacao.Mode <> FormMode.New
+                        true//Informacao.Mode <> FormMode.New
                     Width: =266
                     X: =2
                     Y: =1
@@ -611,14 +611,14 @@ MembrosDetails As screen:
 
                     DateValue1 As datepicker:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultDate: =If(IsBlank(_Membro),Text(Today(),"dd/mm/yyyy"),Parent.Default)
+                        DefaultDate: =If(IsBlank(_Membro),Text(Today(),"mm/dd/yyyy"), ThisItem.'Created On') //Parent.Default)
                         DisplayMode: =Parent.DisplayMode
                         EndYear: =Year(Today())+100
                         Format: |-
                             =Text(
-                                DateValue(Parent.Default),
+                                DateValue(ThisItem.'Created On'),
                                 "dd/mm/yyyy",
-                                "en-GB"
+                                "pt-PT"
                             )
                             /*DateValue(
                                 Left(

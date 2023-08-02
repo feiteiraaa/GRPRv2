@@ -522,176 +522,6 @@ MembrosFamiDetails As screen:
                         Y: =DataCardKey77.Y
                         ZIndex: =4
 
-                "'Legislacao aplicada_DataCard3_1' As typedDataCard.comboBoxEditCard":
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="uipp_Legislacaoaplicada"
-                    Default: =ThisItem.'Legislacao aplicada'
-                    DisplayMode: =If(Or(DRI,godMode) And (localShowNewForm Or IsBlank(_Familiar)) ,DisplayMode.Edit,DisplayMode.View)
-                    DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_Legislacaoaplicada")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    Required: =false
-                    Update: =DataCardValue6_2.Selected
-                    Visible: |-
-                        =If(
-                            DRI,
-                            true,
-                            IsBlank(_Familiar) And !DRI,
-                            false,
-                            IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
-                            false,
-                            true
-                        )
-                    Width: =266
-                    X: =2
-                    Y: =1
-                    ZIndex: =1
-
-                    DataCardKey8_1 As label:
-                        AutoHeight: =true
-                        Color: =cores.cinzento
-                        FontWeight: =FontWeight.Semibold
-                        Height: =34
-                        Text: |-
-                            =//Parent.DisplayName
-                            "Legislação aplicada"
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue6_2 As combobox:
-                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
-                        ChevronBackground: =cores.amareloMontepio
-                        DefaultSelectedItems: =Parent.Default
-                        DisplayFields: =["uipp_tipodeenquadramento"]
-                        DisplayMode: =Parent.DisplayMode
-                        HoverFill: =cores.amareloMontepio
-                        IsSearchable: =false
-                        Items: |-
-                            =Choices([@Familiares].'Legislacao aplicada')
-                            //[@Legislaçãos].uipp_tipodeenquadramento
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                        PressedFill: =cores.amareloMontepio
-                        SearchFields: =["uipp_tipodeenquadramento"]
-                        SearchItems: =[]
-                        SelectionFill: =cores.amareloMontepio
-                        SelectMultiple: =false
-                        Tooltip: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey8_1.Y + DataCardKey8_1.Height + 5
-                        ZIndex: =2
-
-                    ErrorMessage6_1 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue6_2.Y + DataCardValue6_2.Height
-                        ZIndex: =3
-
-                    StarVisible6_1 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey8_1.Height
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey8_1.Y
-                        ZIndex: =4
-
-                "'Data de insercao_DataCard1_1' As typedDataCard.dateTimeEditCard":
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="uipp_datadeinsercao"
-                    Default: =ThisItem.'Data de insercao'
-                    DisplayMode: |-
-                        =If(
-                            IsBlank(_Familiar),
-                            Parent.DisplayMode,
-                            DisplayMode.View
-                        )
-                    DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_datadeinsercao")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    Required: =false
-                    Update: =DateValue1_1.SelectedDate
-                    Visible: |
-                        =Informacao_1.Mode<>FormMode.New
-                    Width: =266
-                    X: =0
-                    Y: =2
-                    ZIndex: =1
-
-                    DataCardKey6_2 As label:
-                        AutoHeight: =true
-                        Color: =cores.cinzento
-                        FontWeight: =FontWeight.Semibold
-                        Height: =34
-                        Text: |-
-                            =//Parent.DisplayName
-                            "Data de inserção"
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DateValue1_1 As datepicker:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultDate: |-
-                            =If(IsBlank(_Familiar),Text(Now(),"yyyy-mm-dd hh:mm"),Parent.Default)
-                        DisplayMode: =Parent.DisplayMode
-                        EndYear: =Year(Today())+100
-                        Format: |-
-                            =Text(
-                                Parent.Default,
-                                "dd/mm/yyyy",
-                                "pt-PT"
-                            )
-                        IsEditable: =true
-                        PaddingBottom: =0
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                        StartYear: =1899
-                        Tooltip: =Parent.DisplayName
-                        Width: =(Parent.Width - 60)
-                        X: =30
-                        Y: =DataCardKey6_2.Y + DataCardKey6_2.Height + 5
-                        ZIndex: =2
-
-                    ErrorMessage4_2 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DateValue1_1.Y + DateValue1_1.Height
-                        ZIndex: =6
-
-                    StarVisible4_2 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey6_2.Height
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey6_2.Y
-                        ZIndex: =7
-
                 "'Data aprovacao CA_DataCard1_1' As typedDataCard.dateTimeEditCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="uipp_dataaprovacaoca"
@@ -843,6 +673,176 @@ MembrosFamiDetails As screen:
                         Wrap: =false
                         Y: =DataCardKey30_1.Y
                         ZIndex: =7
+
+                "'Data de insercao_DataCard1_1' As typedDataCard.dateTimeEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_datadeinsercao"
+                    Default: =ThisItem.'Data de insercao'
+                    DisplayMode: |-
+                        =If(
+                            IsBlank(_Familiar),
+                            Parent.DisplayMode,
+                            DisplayMode.View
+                        )
+                    DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_datadeinsercao")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DateValue1_1.SelectedDate
+                    Visible: |
+                        =Informacao_1.Mode<>FormMode.New
+                    Width: =266
+                    X: =2
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey6_2 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Data de inserção"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DateValue1_1 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultDate: |-
+                            =If(IsBlank(_Familiar),Text(Now(),"yyyy-mm-dd hh:mm"),Parent.Default)
+                        DisplayMode: =Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Format: |-
+                            =Text(
+                                Parent.Default,
+                                "dd/mm/yyyy",
+                                "pt-PT"
+                            )
+                        IsEditable: =true
+                        PaddingBottom: =0
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =(Parent.Width - 60)
+                        X: =30
+                        Y: =DataCardKey6_2.Y + DataCardKey6_2.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage4_2 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DateValue1_1.Y + DateValue1_1.Height
+                        ZIndex: =6
+
+                    StarVisible4_2 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey6_2.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey6_2.Y
+                        ZIndex: =7
+
+                "'Legislacao aplicada_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="uipp_Legislacaoaplicada"
+                    Default: =ThisItem.'Legislacao aplicada'
+                    DisplayMode: =If(Or(DRI,godMode) And (localShowNewForm Or IsBlank(_Familiar)) ,DisplayMode.Edit,DisplayMode.View)
+                    DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_Legislacaoaplicada")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue6_2.Selected
+                    Visible: |-
+                        =If(
+                            DRI,
+                            true,
+                            IsBlank(_Familiar) And !DRI,
+                            false,
+                            IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
+                            false,
+                            true
+                        )
+                    Width: =266
+                    X: =0
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey8_1 As label:
+                        AutoHeight: =true
+                        Color: =cores.cinzento
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Legislação aplicada"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue6_2 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), cores.cinzento, Color.Red)
+                        ChevronBackground: =cores.amareloMontepio
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["uipp_tipodeenquadramento"]
+                        DisplayMode: =Parent.DisplayMode
+                        HoverFill: =cores.amareloMontepio
+                        IsSearchable: =false
+                        Items: |-
+                            =Choices([@Familiares].'Legislacao aplicada')
+                            //[@Legislaçãos].uipp_tipodeenquadramento
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedFill: =cores.amareloMontepio
+                        SearchFields: =["uipp_tipodeenquadramento"]
+                        SearchItems: =[]
+                        SelectionFill: =cores.amareloMontepio
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey8_1.Y + DataCardKey8_1.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage6_1 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue6_2.Y + DataCardValue6_2.Height
+                        ZIndex: =3
+
+                    StarVisible6_1 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey8_1.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey8_1.Y
+                        ZIndex: =4
 
             InfoRelaçãoFami As form:
                 DataSource: ='Membros-Familiares-Respetivas'
