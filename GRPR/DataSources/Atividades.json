@@ -105,6 +105,50 @@
     "Type": "OptionSetInfo"
   },
   {
+    "DisplayName": "Grupo",
+    "Name": "uipp_grupo",
+    "OptionSetInfoNameMapping": {
+      "847700000": "Banco Montepio",
+      "847700001": "MGAM"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Atividades"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Colaboradores_1"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Empresas Participadas do Grupos"
+      },
+      "OptionSetReferenceItem3": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Empresas"
+      },
+      "OptionSetReferenceItem4": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Familiares"
+      },
+      "OptionSetReferenceItem5": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "Membros_1"
+      },
+      "OptionSetReferenceItem6": {
+        "OptionSetReferenceColumnName": "uipp_grupo",
+        "OptionSetReferenceEntityName": "ROCS"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "uipp_grupo",
+    "RelatedEntityName": "Atividades",
+    "Type": "OptionSetInfo"
+  },
+  {
     "DisplayName": "lista da atividade",
     "Name": "uipp_listadaatividade",
     "OptionSetInfoNameMapping": {
