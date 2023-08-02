@@ -1159,7 +1159,7 @@ Respetivas As screen:
                 Format: |-
                     =Text(
                         Parent.Default,
-                        "dd-mm-yyyy",
+                        "dd/mm/yyyy",
                         "pt-PT"
                     )
                 InputTextPlaceholder: |-
