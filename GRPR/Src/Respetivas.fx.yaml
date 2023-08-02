@@ -4,7 +4,23 @@ Respetivas As screen:
         Reset(Checkbox1_4)
     OnVisible: |-
         =UpdateContext({localFormRespetivasNew:false, localShowPrazo: false,localFormRespetivasEdit:false,localLimpar:false, localShowModal:false});
-        ClearCollect(CollecRespectivas, Empresas);
+        ClearCollect(
+           CollecRespectivas,
+            If(
+                GCONT_Editor Or GCONT_Validador,
+                Filter(
+                    Empresas,
+                    ThisRecord.Grupo = [@Grupo].MGAM
+                ),
+                DGC_Editor Or DGC_Validador,
+                Filter(
+                    Empresas,
+                    ThisRecord.Grupo = [@Grupo].'Banco Montepio'
+                ),
+                Empresas
+            )
+        );
+        
         Set(
             varSortCol1,
             "uipp_designacao"
@@ -98,7 +114,7 @@ Respetivas As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             OnSelect: |-
-                =If(
+                =/*If(
                     _AssociarR,
                     Navigate(
                         MembrosDetails,
@@ -110,6 +126,37 @@ Respetivas As screen:
                         }
                     ),
                     UpdateContext({localFormRespetivas: true})
+                )*/
+                If(
+                    _AssociarR,
+                    Navigate(
+                        MembrosDetails,
+                        ScreenTransition.None,
+                        {
+                            _AssociateRespetivas: EmpresasRespetivas1_1.Selected.ID,
+                            _AssociatedR: true,
+                            _AssociarR: false
+                        }
+                    ),
+                    _AssociarRF,
+                    Navigate(
+                        MembrosFamiDetails,
+                        ScreenTransition.None,
+                        {
+                            _AssociateRespetivas: EmpresasRespetivas1_1.Selected.ID,
+                            _AssociatedR: true,
+                            _AssociarRF: false
+                        }
+                    ),
+                    UpdateContext(
+                        {
+                            localFormRespetivas: true,
+                            localBloquear: LookUp(
+                                Empresas,
+                                ID = EmpresasRespetivas1_1.Selected.ID
+                            ).Bloqueado
+                        }
+                    )
                 )
             Order: =4
             Text: =ThisItem.'Tipo de documento'
@@ -134,10 +181,28 @@ Respetivas As screen:
                         {
                             _AssociateRespetivas: EmpresasRespetivas1_1.Selected.ID,
                             _AssociatedR: true,
-                            _AssociarR:false
+                            _AssociarR: false
                         }
                     ),
-                    UpdateContext({localFormRespetivas: true})
+                    _AssociarRF,
+                    Navigate(
+                        MembrosFamiDetails,
+                        ScreenTransition.None,
+                        {
+                            _AssociateRespetivas: EmpresasRespetivas1_1.Selected.ID,
+                            _AssociatedR: true,
+                            _AssociarRF: false
+                        }
+                    ),
+                    UpdateContext(
+                        {
+                            localFormRespetivas: true,
+                            localBloquear: LookUp(
+                                Empresas,
+                                ID = EmpresasRespetivas1_1.Selected.ID
+                            ).Bloqueado
+                        }
+                    )
                 )
             Order: =5
             Text: =ThisItem.'Numero Documento'
@@ -162,10 +227,28 @@ Respetivas As screen:
                         {
                             _AssociateRespetivas: EmpresasRespetivas1_1.Selected.ID,
                             _AssociatedR: true,
-                            _AssociarR:false
+                            _AssociarR: false
                         }
                     ),
-                    UpdateContext({localFormRespetivas: true})
+                    _AssociarRF,
+                    Navigate(
+                        MembrosFamiDetails,
+                        ScreenTransition.None,
+                        {
+                            _AssociateRespetivas: EmpresasRespetivas1_1.Selected.ID,
+                            _AssociatedR: true,
+                            _AssociarRF: false
+                        }
+                    ),
+                    UpdateContext(
+                        {
+                            localFormRespetivas: true,
+                            localBloquear: LookUp(
+                                Empresas,
+                                ID = EmpresasRespetivas1_1.Selected.ID
+                            ).Bloqueado
+                        }
+                    )
                 )
             Order: =6
             Text: =ThisItem.'Legislacao aplicada'.'Tipo de enquadramento'

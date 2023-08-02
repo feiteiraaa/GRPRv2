@@ -28594,36 +28594,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Respetivas.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Respetivas.OnVisible",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "Respetivas",
-                "type": "Respetivas"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 7
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "Particulares.OnVisible"
                 }
               ],
