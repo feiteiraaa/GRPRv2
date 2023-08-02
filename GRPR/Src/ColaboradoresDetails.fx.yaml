@@ -566,7 +566,7 @@ ColaboradoresDetails As screen:
             Update: =DataCardValue1.Selected
             Visible: |-
                 =If(
-                    DRI,
+                    Or(DRI,godMode),
                     true,
                     ColabFormMode = FormMode.New And !DRI,
                     false,
