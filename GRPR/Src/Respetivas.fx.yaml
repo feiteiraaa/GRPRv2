@@ -287,6 +287,21 @@ Respetivas As screen:
             Y: =0
             ZIndex: =9
 
+        createdon_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="createdon"
+            FieldName: ="createdon"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.createdon
+            Visible: =false
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =10
+
     LeftSectionComponent_3 As LeftSectionComponent:
         TabelaMenu: =menuTable
         VisibleConfigApp: |-
@@ -1184,43 +1199,6 @@ Respetivas As screen:
                 Wrap: =false
                 Y: =DataCardKey38.Y
                 ZIndex: =7
-
-        "'Created On_DataCard5' As typedDataCard.textualViewCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="createdon"
-            Default: =ThisItem.'Created On'
-            DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Empresas],DataSourceInfo.DisplayName,"createdon")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =40
-            Required: =false
-            Width: =490
-            X: =0
-            Y: =4
-            ZIndex: =1
-
-            DataCardKey101 As label:
-                AutoHeight: =true
-                Height: =34
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue80 As label:
-                AutoHeight: =true
-                DisplayMode: =Parent.DisplayMode
-                Height: =27
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Default
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey101.Y + DataCardKey101.Height + 5
-                ZIndex: =2
 
     LabelMembroName_2 As label:
         AutoHeight: =true
