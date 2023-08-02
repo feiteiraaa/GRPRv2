@@ -684,16 +684,10 @@ ColaboradoresDetails As screen:
                 DisplayMode: =Parent.DisplayMode
                 EndYear: =Year(Today())+100
                 Format: |-
-                    =
-                    /*Text(
-                        Parent.Default,
+                    =Text(
+                        DateValue(ThisItem.'Created On'),
                         "dd/mm/yyyy",
                         "pt-PT"
-                    )*/
-                    Text(
-                        DateValue(Parent.Default),
-                        "dd/mm/yyyy",
-                        "en-GB"
                     )
                 InputTextPlaceholder: ="dd/mm/yyyy"//If(IsBlank(Self.SelectedDate), "dd/mm/yyyy")//Text(Date(2001,12,31), Self.Format, Self.Language))
                 IsEditable: =true
