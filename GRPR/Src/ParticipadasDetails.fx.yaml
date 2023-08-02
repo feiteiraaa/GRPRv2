@@ -566,7 +566,7 @@ ParticipadasDetails As screen:
             Update: =DataCardValue29.Selected
             Visible: |-
                 =If(
-                    DRI,
+                    Or(DRI,godMode),
                     true,
                     IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
                     false,
