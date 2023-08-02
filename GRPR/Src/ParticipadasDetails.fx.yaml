@@ -1104,7 +1104,7 @@ ParticipadasDetails As screen:
                                 ),
                                 {
                                     Ativo: false,
-                                    Bloqueado: true,
+                                    //Bloqueado: true,
                                     'Data de saida': Now()
                                 }
                             ).Ativo = false,
