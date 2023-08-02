@@ -589,7 +589,7 @@ MembrosDetails As screen:
                     Update: =DateValue1.SelectedDate
                     Visible: |-
                         =//ColabFormMode<>FormMode.New
-                        true//Informacao.Mode <> FormMode.New
+                        Informacao.Mode <> FormMode.New
                     Width: =266
                     X: =2
                     Y: =1
