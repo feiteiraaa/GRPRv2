@@ -25,6 +25,7 @@
       "statecode": "Status",
       "statuscode": "Status Reason",
       "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uipp_alteradopor": "Alterado Por",
       "uipp_atividade_AsyncOperations": "System Jobs",
       "uipp_atividade_BulkDeleteFailures": "Bulk Delete Failures",
       "uipp_atividade_DuplicateBaseRecord": "Duplicate Records (uipp_atividade_DuplicateBaseRecord)",
