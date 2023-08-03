@@ -2228,7 +2228,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Controlo_DataCard2",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2375,7 +2375,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Created On_DataCard5",
-      "ParentIndex": 0,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2530,7 +2530,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Data aprovacao CA_DataCard5",
-      "ParentIndex": 10,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2690,7 +2690,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Data de insercao_DataCard5",
-      "ParentIndex": 8,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2850,7 +2850,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Data de saida_DataCard4",
-      "ParentIndex": 9,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14154,7 +14154,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Grupo_DataCard3",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18483,7 +18483,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Legislacao aplicada_DataCard4",
-      "ParentIndex": 7,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18843,7 +18843,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Nome_DataCard4",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18995,7 +18995,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Numero documento_DataCard2",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -19142,7 +19142,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Participacao efetiva_DataCard2",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22475,7 +22475,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Tipo de documento_DataCard4",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
