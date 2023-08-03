@@ -747,7 +747,8 @@ SearchAtividade As screen:
             BorderColor: =RGBA(0, 0, 0, 1)
             DisplayMode: =DisplayMode.View
             Text: |-
-                =Text(DateTimeValue(AtividadeTablePesquisa.Selected.Data), "dd/mm/yyyy hh:mm")
+                =//Text(DateTimeValue(AtividadeTable.Selected.Data), "dd/mm/yyyy hh:mm")
+                Text(DateTimeValue(AtividadeTable.Selected.'Created On'), "dd/mm/yyyy hh:mm")
             Visible: =ShowAtividadeAvancada
             Width: =349
             X: =836
