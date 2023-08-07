@@ -3273,6 +3273,29 @@ MembrosFamiDetails As screen:
                             ),
                             {Bloqueado: false}
                         ).Bloqueado = false,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    Familiares,
+                                    ThisRecord.ID = _Familiar
+                                ).Familiares,
+                                ItemID: _Familiar,
+                                'Lista da atividade': 'lista da atividade'.Familiares,
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "Familiar " & LookUp(
+                                    Familiares,
+                                    ThisRecord.ID = _Familiar
+                                ).Nome & " foi desbloqueado",
+                                Grupo: LookUp(
+                                    Familiares,
+                                    ThisRecord.ID = _Familiar
+                                ).Grupo
+                            }
+                        );
                         Notify(
                             "Familiar foi desbloqueado com sucesso!",
                             NotificationType.Success
@@ -3291,6 +3314,29 @@ MembrosFamiDetails As screen:
                             ),
                             {Bloqueado: true}
                         ).Bloqueado = true,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    Familiares,
+                                    ThisRecord.ID = _Familiar
+                                ).Familiares,
+                                ItemID: _Familiar,
+                                'Lista da atividade': 'lista da atividade'.Familiares,
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "Familiar " & LookUp(
+                                    Familiares,
+                                    ThisRecord.ID = _Familiar
+                                ).Nome & " foi bloqueado",
+                                Grupo: LookUp(
+                                    Familiares,
+                                    ThisRecord.ID = _Familiar
+                                ).Grupo
+                            }
+                        );
                         Notify(
                             "Familiar foi bloqueado com sucesso!",
                             NotificationType.Success
