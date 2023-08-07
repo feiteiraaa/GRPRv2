@@ -1188,7 +1188,11 @@ ColaboradoresDetails As screen:
                                     Titulo: "Colaborador(a) " & LookUp(
                                         Colaboradores_1,
                                         _Colaborador = ID
-                                    ).Nome & " foi inativado(a)"
+                                    ).Nome & " foi inativado(a)",
+                                    Grupo: LookUp(
+                                        Colaboradores_1,
+                                        _Colaborador = ID
+                                    ).Grupo
                                 }
                             );
                             Back();
@@ -1597,7 +1601,11 @@ ColaboradoresDetails As screen:
                                 Titulo: "Colaborador(a) " & LookUp(
                                     Colaboradores_1,
                                     ID = _Colaborador
-                                ).Nome & " foi desbloqueado"
+                                ).Nome & " foi desbloqueado",
+                                 Grupo: LookUp(
+                                        Colaboradores_1,
+                                        _Colaborador = ID
+                                    ).Grupo
                             }
                         );
                         Notify(
@@ -1634,7 +1642,11 @@ ColaboradoresDetails As screen:
                                 Titulo: "Colaborador(a) " & LookUp(
                                     Colaboradores_1,
                                     ID = _Colaborador
-                                ).Nome & " foi bloqueado"
+                                ).Nome & " foi bloqueado",
+                                 Grupo: LookUp(
+                                        Colaboradores_1,
+                                        _Colaborador = ID
+                                    ).Grupo
                             }
                         );
                         Notify(
