@@ -1703,7 +1703,62 @@ Respetivas As screen:
                                 'Data de saída': Now()
                             }
                         ).Ativo = false,
-                        //Back();
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: If(
+                                    !IsBlank(_selectedRespetivas),
+                                    LookUp(
+                                        Empresas,
+                                        ID = _selectedRespetivas
+                                    ).Empresas,
+                                    !IsBlank(_selectedRespetivasF),
+                                    LookUp(
+                                        Empresas,
+                                        ID = _selectedRespetivasF
+                                    ).Empresas,
+                                    EmpresasRespetivas1_1.Selected.Empresas
+                                ),
+                                ItemID: If(
+                                    !IsBlank(_selectedRespetivas),
+                                    _selectedRespetivas,
+                                    !IsBlank(_selectedRespetivasF),
+                                    _selectedRespetivasF,
+                                    EmpresasRespetivas1_1.Selected.ID
+                                ),
+                                'Lista da atividade': 'lista da atividade'.'Empresas Respetivas',
+                                'Tipo de alteracao': 'tipo de alteracao'.Inativo,
+                                Titulo: "Empresa Respetiva " & If(
+                                    !IsBlank(_selectedRespetivas),
+                                    LookUp(
+                                        Empresas,
+                                        ID = _selectedRespetivas
+                                    ).Designacao,
+                                    !IsBlank(_selectedRespetivasF),
+                                    LookUp(
+                                        Empresas,
+                                        ID = _selectedRespetivasF
+                                    ).Designacao,
+                                    EmpresasRespetivas1_1.Selected.Designacao
+                                ) & " foi inativada",
+                                Grupo: If(
+                                    !IsBlank(_selectedRespetivas),
+                                    LookUp(
+                                        Empresas,
+                                        ID = _selectedRespetivas
+                                    ).Grupo,
+                                    !IsBlank(_selectedRespetivasF),
+                                    LookUp(
+                                        Empresas,
+                                        ID = _selectedRespetivasF
+                                    ).Grupo,
+                                    EmpresasRespetivas1_1.Selected.Grupo
+                                )
+                            }
+                        );
                         Navigate(
                             Inicio,
                             ScreenTransition.None
@@ -1977,7 +2032,11 @@ Respetivas As screen:
                                 Titulo: "Empresa Respetiva " & LookUp(
                                     Empresas,
                                     ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
-                                ).Designacao & " foi desbloqueada"
+                                ).Designacao & " foi desbloqueada",
+                                Grupo: LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
+                                ).Grupo
                             }
                         );
                         Notify(
@@ -2017,7 +2076,11 @@ Respetivas As screen:
                                 Titulo: "Empresa Respetiva " & LookUp(
                                     Empresas,
                                     ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
-                                ).Designacao & " foi bloqueada"
+                                ).Designacao & " foi bloqueada",
+                                Grupo: LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
+                                ).Grupo
                             }
                         );
                         Notify(
