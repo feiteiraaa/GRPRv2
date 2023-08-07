@@ -4535,7 +4535,11 @@ MembrosDetails As screen:
                                 Titulo: "Membro " & LookUp(
                                     Membros_1,
                                     ID = _Membro
-                                ).Nome & " foi desbloqueado"
+                                ).Nome & " foi desbloqueado",
+                                Grupo: LookUp(
+                                    Membros_1,
+                                    ID = _Membro
+                                ).Grupo
                             }
                         );
                         Notify(
@@ -4575,7 +4579,11 @@ MembrosDetails As screen:
                                     Titulo: "Familiar " & LookUp(
                                         Familiares,
                                         ThisRecord.ID = ligacaoFamiliares[@ID_Familiares].ID
-                                    ).Nome & " foi desbloqueado"
+                                    ).Nome & " foi desbloqueado",
+                                    Grupo: LookUp(
+                                        Familiares,
+                                        ThisRecord.ID = ligacaoFamiliares[@ID_Familiares].ID
+                                    ).Grupo
                                 }
                             );
                             Notify(
@@ -4613,7 +4621,8 @@ MembrosDetails As screen:
                                     ItemID: ligacaoRespetivaMF[@ID_Empresa].ID,
                                     'Lista da atividade': 'lista da atividade'.'Empresas Respetivas',
                                     'Tipo de alteracao': 'tipo de alteracao'.Edição,
-                                    Titulo: "Empresa Respetiva " & ligacaoRespetivaMF[@ID_Empresa].Designacao & " foi desbloqueada"
+                                    Titulo: "Empresa Respetiva " & ligacaoRespetivaMF[@ID_Empresa].Designacao & " foi desbloqueada",
+                                    Grupo: ligacaoRespetivaMF[@ID_Empresa].Grupo
                                 }
                             );
                             Notify(
@@ -4652,7 +4661,11 @@ MembrosDetails As screen:
                                 Titulo: "Membro " & LookUp(
                                     Membros_1,
                                     ID = _Membro
-                                ).Nome & " foi bloqueado"
+                                ).Nome & " foi bloqueado",
+                                Grupo: LookUp(
+                                    Membros_1,
+                                    ID = _Membro
+                                ).Grupo
                             }
                         );
                         Notify(
@@ -4692,7 +4705,11 @@ MembrosDetails As screen:
                                     Titulo: "Familiar " & LookUp(
                                         Familiares,
                                         ThisRecord.ID = ligacaoFamiliares[@ID_Familiares].ID
-                                    ).Nome & " foi bloqueado"
+                                    ).Nome & " foi bloqueado",
+                                    Grupo: LookUp(
+                                        Familiares,
+                                        ThisRecord.ID = ligacaoFamiliares[@ID_Familiares].ID
+                                    ).Grupo
                                 }
                             );
                             Notify(
@@ -4730,7 +4747,11 @@ MembrosDetails As screen:
                                     ItemID: ligacaoRespetivaMF[@ID_Empresa].ID,
                                     'Lista da atividade': 'lista da atividade'.'Empresas Respetivas',
                                     'Tipo de alteracao': 'tipo de alteracao'.Edição,
-                                    Titulo: "Empresa Respetiva " & ligacaoRespetivaMF[@ID_Empresa].Designacao & " foi bloqueada"
+                                    Titulo: "Empresa Respetiva " & ligacaoRespetivaMF[@ID_Empresa].Designacao & " foi bloqueada",
+                                    Grupo: LookUp(
+                                        Empresas,
+                                        ThisRecord.ID = ligacaoRespetivaMF[@ID_Empresa].ID
+                                    ).Grupo
                                 }
                             );
                             Notify(

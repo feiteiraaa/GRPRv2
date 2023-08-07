@@ -1172,6 +1172,25 @@ ColaboradoresDetails As screen:
                                     'Data de saida': Now()
                                 }
                             ).Ativo = false,
+                            Patch(
+                                Atividades,
+                                Defaults(Atividades),
+                                {
+                                    'Alterado Por': User().FullName,
+                                    Data: Now(),
+                                    ItemGUID: LookUp(
+                                        Colaboradores_1,
+                                        _Colaborador = ID
+                                    ).Colaboradores,
+                                    ItemID: _Colaborador,
+                                    'Lista da atividade': 'lista da atividade'.Colaboradores,
+                                    'Tipo de alteracao': 'tipo de alteracao'.Inativo,
+                                    Titulo: "Colaborador(a) " & LookUp(
+                                        Colaboradores_1,
+                                        _Colaborador = ID
+                                    ).Nome & " foi inativado(a)"
+                                }
+                            );
                             Back();
                             Notify(
                                 "Registo de Colaborador Eliminado com sucesso!",

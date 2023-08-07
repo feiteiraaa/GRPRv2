@@ -1018,6 +1018,29 @@ ROCDetails As screen:
                                     'Data de saida': Now()
                                 }
                             ).Ativo = false,
+                            Patch(
+                                Atividades,
+                                Defaults(Atividades),
+                                {
+                                    'Alterado Por': User().FullName,
+                                    Data: Now(),
+                                    ItemGUID: LookUp(
+                                        ROCS,
+                                        ThisRecord.ID = _ROC
+                                    ).ROC,
+                                    ItemID: _ROC,
+                                    'Lista da atividade': 'lista da atividade'.ROC,
+                                    'Tipo de alteracao': 'tipo de alteracao'.Inativo,
+                                    Titulo: "ROC " & LookUp(
+                                        ROCS,
+                                        ThisRecord.ID = _ROC
+                                    ).Nome & " foi inativado()",
+                                    Grupo:LookUp(
+                                        ROCS,
+                                        ThisRecord.ID = _ROC
+                                    ).Grupo
+                                }
+                            );
                             Back();
                             Notify(
                                 "Registo de ROC Eliminado com sucesso!",
@@ -1417,7 +1440,11 @@ ROCDetails As screen:
                                 Titulo: "ROC " & LookUp(
                                     ROCS,
                                     ID = _ROC
-                                ).Nome & " foi desbloqueado"
+                                ).Nome & " foi desbloqueado",
+                                Grupo: LookUp(
+                                    ROCS,
+                                    ThisRecord.ID = _ROC
+                                ).Grupo
                             }
                         );
                         Notify(
@@ -1454,7 +1481,11 @@ ROCDetails As screen:
                                 Titulo: "ROC " & LookUp(
                                     ROCS,
                                     ID = _ROC
-                                ).Nome & " foi bloqueado"
+                                ).Nome & " foi bloqueado",
+                                Grupo: LookUp(
+                                    ROCS,
+                                    ThisRecord.ID = _ROC
+                                ).Grupo
                             }
                         );
                         Notify(
