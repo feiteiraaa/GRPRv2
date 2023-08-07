@@ -2828,7 +2828,25 @@ MembrosFamiDetails As screen:
                                     'Data de saída': Now()
                                 }
                             ).Ativo = false,
-                            //Back();
+                            Patch(
+                                Atividades,
+                                Defaults(Atividades),
+                                {
+                                    'Alterado Por': User().FullName,
+                                    Data: Now(),
+                                    ItemGUID: LookUp(
+                                        Empresas,
+                                        ThisRecord.ID = 'empresas respetivas fami'.Selected.ID
+                                    ).Empresas,
+                                    ItemID: 'empresas respetivas fami'.Selected.ID,
+                                    'Lista da atividade': 'lista da atividade'.'Empresas Respetivas',
+                                    'Tipo de alteracao': 'tipo de alteracao'.Inativo,
+                                    Titulo: "Empresa Respetiva " & LookUp(
+                                        Empresas,
+                                        ThisRecord.ID = 'empresas respetivas fami'.Selected.ID
+                                    ).Designacao & " foi inativada"
+                                }
+                            );
                             Notify(
                                 "Empresa Respetiva foi eliminada com sucesso!",
                                 NotificationType.Success
@@ -2931,7 +2949,7 @@ MembrosFamiDetails As screen:
                             )
                         ),
                         localShowEliminacao,
-                         If(
+                        If(
                             SubmitForm(FormRespetivas_1),
                             Notify(
                                 "O registo foi submetido com sucesso!",
@@ -2977,6 +2995,25 @@ MembrosFamiDetails As screen:
                                 'Data de saida': Now()
                             }
                         ).Ativo = false,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    Familiares,
+                                    ThisRecord.ID = _Familiar
+                                ).Familiares,
+                                ItemID: _Familiar,
+                                'Lista da atividade': 'lista da atividade'.Familiares,
+                                'Tipo de alteracao': 'tipo de alteracao'.Inativo,
+                                Titulo: "Familiar " & LookUp(
+                                    Familiares,
+                                    ThisRecord.ID = _Familiar
+                                ).Nome & " foi inativado"
+                            }
+                        );
                         Notify(
                             "Familiar foi eliminado com sucesso!",
                             NotificationType.Success
@@ -3004,6 +3041,25 @@ MembrosFamiDetails As screen:
                                         'Data de saída': Now()
                                     }
                                 ).Ativo = false,
+                                Patch(
+                                    Atividades,
+                                    Defaults(Atividades),
+                                    {
+                                        'Alterado Por': User().FullName,
+                                        Data: Now(),
+                                        ItemGUID: LookUp(
+                                            Empresas,
+                                            ThisRecord.ID = RespetivasFamiliar[@ID_Empresa].ID
+                                        ).Empresas,
+                                        ItemID: RespetivasFamiliar[@ID_Empresa].ID,
+                                        'Lista da atividade': 'lista da atividade'.'Empresas Respetivas',
+                                        'Tipo de alteracao': 'tipo de alteracao'.Inativo,
+                                        Titulo: "Empresa Respetiva " & LookUp(
+                                            Empresas,
+                                            ThisRecord.ID = RespetivasFamiliar[@ID_Empresa].ID
+                                        ).Designacao & " foi inativada"
+                                    }
+                                );
                                 Notify(
                                     "A empresa respetiva " & RespetivasFamiliar[@ID_Empresa].Designacao & " estava associada apenas ao Familiar eliminado, portanto foi eliminada com sucesso!",
                                     NotificationType.Success
@@ -3031,6 +3087,25 @@ MembrosFamiDetails As screen:
                                             'Data de saída': Now()
                                         }
                                     ).Ativo = false,
+                                    Patch(
+                                        Atividades,
+                                        Defaults(Atividades),
+                                        {
+                                            'Alterado Por': User().FullName,
+                                            Data: Now(),
+                                            ItemGUID: LookUp(
+                                                Empresas,
+                                                ThisRecord.ID = RespetivasFamiliar[@ID_Empresa].ID
+                                            ).Empresas,
+                                            ItemID: RespetivasFamiliar[@ID_Empresa].ID,
+                                            'Lista da atividade': 'lista da atividade'.'Empresas Respetivas',
+                                            'Tipo de alteracao': 'tipo de alteracao'.Inativo,
+                                            Titulo: "Empresa Respetiva " & LookUp(
+                                                Empresas,
+                                                ThisRecord.ID = RespetivasFamiliar[@ID_Empresa].ID
+                                            ).Designacao & " foi inativada"
+                                        }
+                                    );
                                     Notify(
                                         "A empresa respetiva " & RespetivasFamiliar[@ID_Empresa].Designacao & " estava associada apenas ao Familiar eliminado, portanto foi eliminada com sucesso!",
                                         NotificationType.Success
