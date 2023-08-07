@@ -4422,6 +4422,25 @@ MembrosDetails As screen:
                             ),
                             {Bloqueado: false}
                         ).Bloqueado = false,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    Membros_1,
+                                    ID = _Membro
+                                ).Membros,
+                                ItemID: _Membro,
+                                'Lista da atividade': 'lista da atividade'.Membros,
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "Membro " & LookUp(
+                                    Membros_1,
+                                    ID = _Membro
+                                ).Nome & " foi desbloqueado"
+                            }
+                        );
                         Notify(
                             "Membro desbloqueado com sucesso!",
                             NotificationType.Success
@@ -4443,6 +4462,25 @@ MembrosDetails As screen:
                                 ),
                                 {Bloqueado: false}
                             ).Bloqueado = false,
+                            Patch(
+                                Atividades,
+                                Defaults(Atividades),
+                                {
+                                    'Alterado Por': User().FullName,
+                                    Data: Now(),
+                                    ItemGUID: LookUp(
+                                        Familiares,
+                                        ThisRecord.ID = ligacaoFamiliares[@ID_Familiares].ID
+                                    ).Familiares,
+                                    ItemID: ligacaoFamiliares[@ID_Familiares].ID,
+                                    'Lista da atividade': 'lista da atividade'.Familiares,
+                                    'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                    Titulo: "Familiar " & LookUp(
+                                        Familiares,
+                                        ThisRecord.ID = ligacaoFamiliares[@ID_Familiares].ID
+                                    ).Nome & " foi desbloqueado"
+                                }
+                            );
                             Notify(
                                 "Familiares associados ao membro desbloqueado com sucesso!",
                                 NotificationType.Success
@@ -4465,6 +4503,22 @@ MembrosDetails As screen:
                                 ),
                                 {Bloqueado: false}
                             ).Bloqueado = false,
+                            Patch(
+                                Atividades,
+                                Defaults(Atividades),
+                                {
+                                    'Alterado Por': User().FullName,
+                                    Data: Now(),
+                                    ItemGUID: LookUp(
+                                        Empresas,
+                                        ThisRecord.ID = ligacaoRespetivaMF[@ID_Empresa].ID
+                                    ).Empresas,
+                                    ItemID: ligacaoRespetivaMF[@ID_Empresa].ID,
+                                    'Lista da atividade': 'lista da atividade'.'Empresas Respetivas',
+                                    'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                    Titulo: "Empresa Respetiva " & ligacaoRespetivaMF[@ID_Empresa].Designacao & " foi desbloqueada"
+                                }
+                            );
                             Notify(
                                 "Empresas Respetivas associadas ao membro desbloqueado com sucesso!",
                                 NotificationType.Success
@@ -4485,6 +4539,25 @@ MembrosDetails As screen:
                             ),
                             {Bloqueado: true}
                         ).Bloqueado = true,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    Membros_1,
+                                    ID = _Membro
+                                ).Membros,
+                                ItemID: _Membro,
+                                'Lista da atividade': 'lista da atividade'.Membros,
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "Membro " & LookUp(
+                                    Membros_1,
+                                    ID = _Membro
+                                ).Nome & " foi bloqueado"
+                            }
+                        );
                         Notify(
                             "Membro bloqueado com sucesso!",
                             NotificationType.Success
@@ -4506,6 +4579,25 @@ MembrosDetails As screen:
                                 ),
                                 {Bloqueado: true}
                             ).Bloqueado = true,
+                            Patch(
+                                Atividades,
+                                Defaults(Atividades),
+                                {
+                                    'Alterado Por': User().FullName,
+                                    Data: Now(),
+                                    ItemGUID: LookUp(
+                                        Familiares,
+                                        ThisRecord.ID = ligacaoFamiliares[@ID_Familiares].ID
+                                    ).Familiares,
+                                    ItemID: ligacaoFamiliares[@ID_Familiares].ID,
+                                    'Lista da atividade': 'lista da atividade'.Familiares,
+                                    'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                    Titulo: "Familiar " & LookUp(
+                                        Familiares,
+                                        ThisRecord.ID = ligacaoFamiliares[@ID_Familiares].ID
+                                    ).Nome & " foi bloqueado"
+                                }
+                            );
                             Notify(
                                 "Familiares associados ao membro bloqueado com sucesso!",
                                 NotificationType.Success
@@ -4528,6 +4620,22 @@ MembrosDetails As screen:
                                 ),
                                 {Bloqueado: true}
                             ).Bloqueado = true,
+                            Patch(
+                                Atividades,
+                                Defaults(Atividades),
+                                {
+                                    'Alterado Por': User().FullName,
+                                    Data: Now(),
+                                    ItemGUID: LookUp(
+                                        Empresas,
+                                        ThisRecord.ID = ligacaoRespetivaMF[@ID_Empresa].ID
+                                    ).Empresas,
+                                    ItemID: ligacaoRespetivaMF[@ID_Empresa].ID,
+                                    'Lista da atividade': 'lista da atividade'.'Empresas Respetivas',
+                                    'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                    Titulo: "Empresa Respetiva " & ligacaoRespetivaMF[@ID_Empresa].Designacao & " foi bloqueada"
+                                }
+                            );
                             Notify(
                                 "Empresas Respetivas associadas ao membro bloqueado com sucesso!",
                                 NotificationType.Success

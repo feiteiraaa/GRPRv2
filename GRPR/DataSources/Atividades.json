@@ -180,7 +180,8 @@
     "OptionSetInfoNameMapping": {
       "847700000": "Inserção",
       "847700001": "Edição",
-      "847700002": "Eliminação"
+      "847700002": "Eliminação",
+      "847700003": "Inativo"
     },
     "OptionSetIsBooleanValued": false,
     "OptionSetIsGlobal": true,

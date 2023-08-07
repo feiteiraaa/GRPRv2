@@ -1943,7 +1943,7 @@ Respetivas As screen:
             Height: =39
             HoverColor: =RGBA(0,0,0, 0)
             HoverFill: =RGBA(0,0,0, 0)
-            OnSelect: |+
+            OnSelect: |
                 =If(
                     LookUp(
                         Empresas,
@@ -1958,6 +1958,28 @@ Respetivas As screen:
                             ),
                             {Bloqueado: false}
                         ).Bloqueado = false,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
+                                ).Empresas,
+                                ItemID: LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
+                                ).ID,
+                                'Lista da atividade': 'lista da atividade'.'Empresas Respetivas',
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "Empresa Respetiva " & LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
+                                ).Designacao & " foi desbloqueada"
+                            }
+                        );
                         Notify(
                             "Empresa Respetiva bloqueada com sucesso!",
                             NotificationType.Success
@@ -1976,6 +1998,28 @@ Respetivas As screen:
                             ),
                             {Bloqueado: true}
                         ).Bloqueado = true,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
+                                ).Empresas,
+                                ItemID: LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
+                                ).ID,
+                                'Lista da atividade': 'lista da atividade'.'Empresas Respetivas',
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "Empresa Respetiva " & LookUp(
+                                    Empresas,
+                                    ThisRecord.ID = _selectedRespetivas Or ThisRecord.ID = _selectedRespetivasF Or ThisRecord.ID = EmpresasRespetivas1_1.Selected.ID
+                                ).Designacao & " foi bloqueada"
+                            }
+                        );
                         Notify(
                             "Empresa Respetiva bloqueada com sucesso!",
                             NotificationType.Success
@@ -1986,7 +2030,6 @@ Respetivas As screen:
                         )
                     )
                 );
-                
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""

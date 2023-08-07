@@ -1401,6 +1401,25 @@ ROCDetails As screen:
                             ),
                             {Bloqueado: false}
                         ).Bloqueado = false,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    ROCS,
+                                    ID = _ROC
+                                ).ROC,
+                                ItemID: _ROC,
+                                'Lista da atividade': 'lista da atividade'.ROC,
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "ROC " & LookUp(
+                                    ROCS,
+                                    ID = _ROC
+                                ).Nome & " foi desbloqueado"
+                            }
+                        );
                         Notify(
                             "ROC desbloqueado com sucesso!",
                             NotificationType.Success
@@ -1419,6 +1438,25 @@ ROCDetails As screen:
                             ),
                             {Bloqueado: true}
                         ).Bloqueado = true,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    ROCS,
+                                    ID = _ROC
+                                ).ROC,
+                                ItemID: _ROC,
+                                'Lista da atividade': 'lista da atividade'.ROC,
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "ROC " & LookUp(
+                                    ROCS,
+                                    ID = _ROC
+                                ).Nome & " foi bloqueado"
+                            }
+                        );
                         Notify(
                             "ROC bloqueado com sucesso!",
                             NotificationType.Success

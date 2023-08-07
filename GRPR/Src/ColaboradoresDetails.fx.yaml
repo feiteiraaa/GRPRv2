@@ -1562,6 +1562,25 @@ ColaboradoresDetails As screen:
                             ),
                             {Bloqueado: false}
                         ).Bloqueado = false,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    Colaboradores_1,
+                                    ID = _Colaborador
+                                ).Colaboradores,
+                                ItemID: _Colaborador,
+                                'Lista da atividade': 'lista da atividade'.Colaboradores,
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "Colaborador(a) " & LookUp(
+                                    Colaboradores_1,
+                                    ID = _Colaborador
+                                ).Nome & " foi desbloqueado"
+                            }
+                        );
                         Notify(
                             "Colaborador desbloqueado com sucesso!",
                             NotificationType.Success
@@ -1580,6 +1599,25 @@ ColaboradoresDetails As screen:
                             ),
                             {Bloqueado: true}
                         ).Bloqueado = true,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    Colaboradores_1,
+                                    ID = _Colaborador
+                                ).Colaboradores,
+                                ItemID: _Colaborador,
+                                'Lista da atividade': 'lista da atividade'.Colaboradores,
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "Colaborador(a) " & LookUp(
+                                    Colaboradores_1,
+                                    ID = _Colaborador
+                                ).Nome & " foi bloqueado"
+                            }
+                        );
                         Notify(
                             "Colaborador bloqueado com sucesso!",
                             NotificationType.Success

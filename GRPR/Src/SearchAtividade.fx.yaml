@@ -156,7 +156,7 @@ SearchAtividade As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =7
-            Text: =ThisItem.uipp_item
+            Text: =ThisItem.Item
             Visible: =true
             Width: =100
             X: =0

@@ -1565,6 +1565,25 @@ ParticipadasDetails As screen:
                             ),
                             {Bloqueado: false}
                         ).Bloqueado = false,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    'Empresas Participadas do Grupos',
+                                    ThisRecord.ID = _EmpresasParticipadas
+                                ).'Empresas Participadas do Grupo',
+                                ItemID: _EmpresasParticipadas,
+                                'Lista da atividade': 'lista da atividade'.'Empresas Participadas',
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "Empresa Participada " & LookUp(
+                                    'Empresas Participadas do Grupos',
+                                    ThisRecord.ID = _EmpresasParticipadas
+                                ).Nome & " foi desbloqueado"
+                            }
+                        );
                         Notify(
                             "Empresa Participada do Grupo desbloqueada com sucesso!",
                             NotificationType.Success
@@ -1583,6 +1602,25 @@ ParticipadasDetails As screen:
                             ),
                             {Bloqueado: true}
                         ).Bloqueado = true,
+                        Patch(
+                            Atividades,
+                            Defaults(Atividades),
+                            {
+                                'Alterado Por': User().FullName,
+                                Data: Now(),
+                                ItemGUID: LookUp(
+                                    'Empresas Participadas do Grupos',
+                                    ThisRecord.ID = _EmpresasParticipadas
+                                ).'Empresas Participadas do Grupo',
+                                ItemID: _EmpresasParticipadas,
+                                'Lista da atividade': 'lista da atividade'.'Empresas Participadas',
+                                'Tipo de alteracao': 'tipo de alteracao'.Edição,
+                                Titulo: "Empresa Participada " & LookUp(
+                                    'Empresas Participadas do Grupos',
+                                    ThisRecord.ID = _EmpresasParticipadas
+                                ).Nome & " foi bloqueado"
+                            }
+                        );
                         Notify(
                             "Empresa Participada do Grupo bloqueada com sucesso!",
                             NotificationType.Success
