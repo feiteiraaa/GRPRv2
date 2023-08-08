@@ -1401,7 +1401,7 @@ ColaboradoresDetails As screen:
                 Height: =53
                 OnSelect: =Select(Parent)
                 Size: =12
-                Text: =ThisItem.'Created By'.'Full Name'
+                Text: =ThisItem.'Alterado Por'
                 Width: =Label6_17.Width
                 X: =Label6_17.X
                 ZIndex: =4

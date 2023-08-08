@@ -117,6 +117,7 @@ Atividade As screen:
                 =UpdateContext({ShowDetails: true})
             Order: =9
             Text: =ThisItem.'Created By'.'Full Name'
+            Visible: =false
             Width: =100
             X: =657
             Y: =0
@@ -178,13 +179,27 @@ Atividade As screen:
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
-            Order: =10
+            Order: =11
             Text: =ThisItem.uipp_item
             Visible: =false
             Width: =100
             X: =0
             Y: =0
             ZIndex: =9
+
+        uipp_alteradopor_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Autor"
+            FieldName: ="uipp_alteradopor"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.'Alterado Por'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =10
 
     LeftSectionComponent_11 As LeftSectionComponent:
         TabelaMenu: =menuTable
