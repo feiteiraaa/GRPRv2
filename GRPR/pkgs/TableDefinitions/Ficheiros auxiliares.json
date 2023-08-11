@@ -17,5 +17,6 @@
     "TableName": "uipp_ficheirosauxiliares",
     "Views": "{\"@odata.context\":\"https://simactiond.crm4.dynamics.com/api/data/v9.0/$metadata#savedqueries(savedqueryid,name,querytype)\",\"value\":[{\"@odata.etag\":\"W/\\\"283423512\\\"\",\"savedqueryid\":\"eeb5d1a4-ce38-49ee-a2fb-25d87bf869ea\",\"name\":\"Active Ficheiros auxiliares\",\"querytype\":0},{\"@odata.etag\":\"W/\\\"283423604\\\"\",\"savedqueryid\":\"59c72d0d-eef3-4c1d-bad1-82fe723eca60\",\"name\":\"Ficheiros auxiliares Advanced Find View\",\"querytype\":1},{\"@odata.etag\":\"W/\\\"283423558\\\"\",\"savedqueryid\":\"6fdf7232-cb16-408a-a02d-896f7021c221\",\"name\":\"Ficheiros auxiliares Associated View\",\"querytype\":2},{\"@odata.etag\":\"W/\\\"283423581\\\"\",\"savedqueryid\":\"8a51d741-4a67-46fd-b6e0-95856cbc8da7\",\"name\":\"Ficheiros auxiliares Lookup View\",\"querytype\":64},{\"@odata.etag\":\"W/\\\"283423535\\\"\",\"savedqueryid\":\"0108e14b-3d24-4db5-b024-cab9c092fc62\",\"name\":\"Inactive Ficheiros auxiliares\",\"querytype\":0}]}"
   },
+  "UnusedDataSources": {},
   "webApiVersion": "v9.0"
 }

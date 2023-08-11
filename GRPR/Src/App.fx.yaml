@@ -319,6 +319,7 @@ App As appinfo:
             )
         ));
         RemoveIf(menuTable, IsBlank(ThisRecord) )
+    Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
