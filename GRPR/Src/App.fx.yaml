@@ -55,7 +55,8 @@ App As appinfo:
                         "lssales" in User().Email,
                         "cnpedroso" in User().Email,
                         "pvveras" in User().Email,
-                        "grdias" in User().Email
+                        "grdias" in User().Email,
+                        "pvsilva" in User().Email
                     ),
                     true,
                     false
