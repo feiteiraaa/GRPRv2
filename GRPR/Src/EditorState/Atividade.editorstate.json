@@ -1225,7 +1225,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Criado Por_Column1",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1337,7 +1337,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Data_Column1",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8299,7 +8299,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "uipp_alteradopor_Column1",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8400,7 +8400,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "uipp_item_Column2",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8506,7 +8506,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "uipp_tipodealteracao_Column1",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
