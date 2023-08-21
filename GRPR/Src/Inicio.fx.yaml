@@ -37,7 +37,7 @@ Inicio As screen:
                             DRI,
                             DCOMP_Consulta,
                             DAI_Consulta,
-                            godMode
+                            UIP
                         ),
                         Atividades,
                         Or(
@@ -195,8 +195,8 @@ Inicio As screen:
             "
             CCOMP Consulta: " & CCOMP_Consulta &
             "
-            God: " & godMode
-        Visible: =godMode
+            God: " & UIP
+        Visible: =UIP
         Width: =227
         X: =1057
         ZIndex: =5
@@ -238,7 +238,7 @@ Inicio As screen:
                 CCOMP_Consulta,
                 "CCOMP - Consulta",
             
-                godMode,
+                UIP,
                 "Unipartner"
             )
             &")"
@@ -274,7 +274,7 @@ Inicio As screen:
             Text: ="Fim do próximo periodo"
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DGC_Editor,
                     DGC_Validador,
@@ -317,7 +317,7 @@ Inicio As screen:
                 //Text(DateTimeValue(Label8_3.Text),"yyyy-mm-dd","pt-PT"))
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DGC_Editor,
                     DGC_Validador,
@@ -346,7 +346,7 @@ Inicio As screen:
             Text: ="dias restantes"
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DGC_Editor,
                     DGC_Validador,
@@ -401,7 +401,7 @@ Inicio As screen:
                 )
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DGC_Editor,
                     DGC_Validador,
