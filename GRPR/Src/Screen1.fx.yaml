@@ -1,0 +1,14 @@
+Screen1 As screen:
+    OnVisible: |
+        =ClearCollect(
+            ISGCentral,
+            Office365Groups.ListGroupMembers("f7f8687b-41a3-4111-976d-1a2f84fc458c"//LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "Gestor Central").Value
+            ).value
+        );
+        
+        If(
+            User().Email in ISGCentral.mail ,
+            Set(VarISGCentral,true), 
+            Set(VarISGCentral, false)
+        )
+

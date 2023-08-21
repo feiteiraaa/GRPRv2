@@ -95,7 +95,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 0,
+    "BindingErrorCount": 234,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "DesktopOrTablet",
@@ -142,6 +142,7 @@
     "Listagens",
     "ListagensDetails",
     "Configuracoes",
-    "Developer"
+    "Developer",
+    "Screen1"
   ]
 }

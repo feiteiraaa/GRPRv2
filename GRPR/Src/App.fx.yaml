@@ -46,8 +46,50 @@ App As appinfo:
                     azulTitulo: RGBA(50, 86, 160, 1)
                 }
             ),
+            Set(Admin, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_Unipartner").Value).value.mail
+        ),
+        Set(DRI, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_DRI_Gestor").Value).value.mail
+        ),
+        Set(DGC_Editor, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_DGC_Editor").Value).value.mail
+        ),
+        Set(DCRF_Editor, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_DCRF_Editor").Value).value.mail
+        ),
+        Set(DGP_Editor, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_DGP_Editor").Value).value.mail
+        ),
+        Set(GCONT_Editor, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_GCONT_MGAM_Editor").Value).value.mail
+        ),
+        Set(DGC_Validador, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_DGC_Validador").Value).value.mail
+        ),
+        Set(DCRF_Validador, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_DCRF_Validador").Value).value.mail
+        ),
+        Set(DGP_Validador, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_DGP_Validador").Value).value.mail
+        ),
+        Set(GCONT_Validador, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_GCONT_MGAM_Validador").Value).value.mail
+        ),
+        Set(DCOMP_Consulta, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_DCOMP_Consulta").Value).value.mail
+        ),
+        Set(DAI_Consulta, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_DAI_Consulta").Value).value.mail
+        ),
+        Set(DMK_Consulta, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_DMK_Consulta").Value).value.mail
+        ),
+        Set(CCOMP_Consulta, User().Email in
+        Office365Groups.ListGroupMembers(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "GRPR_CCOMP_Consulta").Value).value.mail
+        )/*,
             Set(
-                godMode,
+                Admin,
                 If(
                     Or(
                         "gvfeiteira" in User().Email,
@@ -76,6 +118,7 @@ App As appinfo:
                     true
                 )
             ),
+        
             Set(
                 DGC_Editor,
                 If(
@@ -231,8 +274,9 @@ App As appinfo:
                     false,
                     true
                 )
-            )
+            )*/
         );
+        
         Set(
             varSortCol,
             "uipp_nome"
@@ -242,13 +286,12 @@ App As appinfo:
             SortOrder.Descending
         );
         
-        
         //temporary - UO tests
         //If(User().Email = "grdias.ex@montepio.pt",
-        //Set(DGC_Validador, true); Set(godMode, false) ;//, Set(godMode, true)
+        //Set(DGC_Validador, true); Set(Admin, false) ;//, Set(Admin, true)
         //);
         //Set(DMK_Consulta, true);
-        //Set(godMode,false);
+        //Set(Admin,false);
         ClearCollect(
             menuTable,
             Table(
@@ -260,63 +303,63 @@ App As appinfo:
                 VisivelPara: true
             },
             If(
-                Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta),
+                Or(Admin, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta),
                 {
                     selected: false,
                     icon: Icon.People,
                     text: "Particulares e empresas respetivas",
                     Navigate: Particulares,
-                    VisivelPara: Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
+                    VisivelPara: Or(Admin, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
                 }
             ),
             If(
-                Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta),
+                Or(Admin, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta),
                 {
                     selected: false,
                     icon: Icon.OfficeBuilding,
                     text: "Empresas respetivas",
                     Navigate: Respetivas,
-                    VisivelPara: Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
+                    VisivelPara: Or(Admin, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
                 }
             ),
             If(
-                Or(godMode, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta),
+                Or(Admin, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta),
                 {
                     selected: false,
                     icon: Icon.OfficeBuilding,
                     text: "Empresas participadas do grupo",
                     Navigate: Participadas,
-                    VisivelPara: Or(godMode, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
+                    VisivelPara: Or(Admin, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
                 }
             ),
             If(
-                Or(godMode, DRI, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta),
+                Or(Admin, DRI, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta),
                 {
                     selected: false,
                     icon: Icon.Information,
                     text: "Atividade",
                     Navigate: Atividade,
-                    VisivelPara: Or(godMode, DRI, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta,  DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
+                    VisivelPara: Or(Admin, DRI, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta,  DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
                 }
             ),
             If(
-                Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta),
+                Or(Admin, DRI, DCOMP_Consulta, DAI_Consulta),
                 {
                     selected: false,
                     icon: Icon.Notebook,
                     text: "Listagens",
                     Navigate: Listagens,
-                    VisivelPara: Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta)
+                    VisivelPara: Or(Admin, DRI, DCOMP_Consulta, DAI_Consulta)
                 }
             ),
             If(
-                Or(godMode, DRI),
+                Or(Admin, DRI),
                 {
                     selected: false,
                     icon: Icon.Settings,
                     text: "Configurações",
                     Navigate: Configuracoes,
-                    VisivelPara: Or(godMode, DRI)
+                    VisivelPara: Or(Admin, DRI)
                 }
             )
         ));
