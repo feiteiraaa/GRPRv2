@@ -14,7 +14,7 @@ Atividade As screen:
                     DRI,
                     DCOMP_Consulta,
                     DAI_Consulta,
-                    godMode
+                    UIP
                 ),
                 Atividades,
                 Or(

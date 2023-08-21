@@ -566,7 +566,7 @@ ColaboradoresDetails As screen:
             Update: =DataCardValue1.Selected
             Visible: |-
                 =If(
-                    Or(DRI,godMode),
+                    Or(DRI,UIP),
                     true,
                     ColabFormMode = FormMode.New And !DRI,
                     false,
@@ -940,7 +940,7 @@ ColaboradoresDetails As screen:
                     Icon.Save,
                     Icon.Edit
                 )
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in HtmlText1.HtmlText)
+            Visible: =Or(UIP, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in HtmlText1.HtmlText)
             X: =1174
             Y: =74
             ZIndex: =6
@@ -1000,7 +1000,7 @@ ColaboradoresDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in HtmlText1.HtmlText)
+            Visible: =Or(UIP, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in HtmlText1.HtmlText)
             X: =1174
             Y: =75
             ZIndex: =7
@@ -1026,7 +1026,7 @@ ColaboradoresDetails As screen:
                     Icon.Cancel
                 )
             Height: =40
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in HtmlText1.HtmlText)
+            Visible: =Or(UIP, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in HtmlText1.HtmlText)
             Width: =160
             X: =1001
             Y: =74
@@ -1059,7 +1059,7 @@ ColaboradoresDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in HtmlText1.HtmlText)
+            Visible: =Or(UIP, DRI, DGP_Editor, DGP_Validador) And Not("eliminado" in HtmlText1.HtmlText)
             X: =1001
             Y: =74
             ZIndex: =10
@@ -1236,7 +1236,7 @@ ColaboradoresDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador)
+            Visible: =Or(UIP, DRI, DGP_Editor, DGP_Validador)
             X: =485
             Y: =440
             ZIndex: =12
@@ -1259,7 +1259,7 @@ ColaboradoresDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador)
+            Visible: =Or(UIP, DRI, DGP_Editor, DGP_Validador)
             X: =718
             Y: =440
             ZIndex: =13
@@ -1290,7 +1290,7 @@ ColaboradoresDetails As screen:
         TabelaMenu: =menuTable
         VisibleConfigApp: |-
             =//Adicionar permissões
-            Or(godMode, DRI,  DGP_Editor, DGP_Validador, DCOMP_Consulta, DAI_Consulta)
+            Or(UIP, DRI,  DGP_Editor, DGP_Validador, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =16
 
     "'Atividades Content_3' As groupContainer.manualLayoutContainer":
@@ -1348,7 +1348,7 @@ ColaboradoresDetails As screen:
             TemplateSize: =55
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DGP_Editor,
                     DGP_Validador

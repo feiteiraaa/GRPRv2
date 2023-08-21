@@ -712,7 +712,7 @@ Particulares As screen:
         "'Top Section Gallery Text 1' As label":
             Align: =Align.Center
             Color: =If(localFiltro = "Membros dos Orgãos Sociais", RGBA(240, 200, 0, 1), RGBA(130, 130, 130, 1))
-            DisplayMode: =If(DRI Or DCOMP_Consulta Or DAI_Consulta Or DGC_Validador Or DGC_Editor Or GCONT_Editor Or GCONT_Validador Or godMode, DisplayMode.Edit, DisplayMode.View)
+            DisplayMode: =If(DRI Or DCOMP_Consulta Or DAI_Consulta Or DGC_Validador Or DGC_Editor Or GCONT_Editor Or GCONT_Validador Or UIP, DisplayMode.Edit, DisplayMode.View)
             FontWeight: =If(localFiltro = "Lista de Reportes", FontWeight.Bold, FontWeight.Semibold)
             Height: =45
             OnSelect: |-
@@ -752,7 +752,7 @@ Particulares As screen:
             Color: =If(localFiltro = "Colaboradores", RGBA(240, 200, 0, 1), RGBA(130, 130, 130, 1))
             DisplayMode: |-
                 =If(
-                    DRI Or DCOMP_Consulta Or DAI_Consulta Or DGP_Validador Or DGP_Editor Or godMode,
+                    DRI Or DCOMP_Consulta Or DAI_Consulta Or DGP_Validador Or DGP_Editor Or UIP,
                     DisplayMode.Edit,
                     DisplayMode.Disabled
                 )
@@ -792,7 +792,7 @@ Particulares As screen:
         "'Top Section Gallery Text 3' As label":
             Align: =Align.Center
             Color: =If(localFiltro = "ROC", RGBA(240, 200, 0, 1), RGBA(130, 130, 130, 1))
-            DisplayMode: =If(DRI Or DCOMP_Consulta Or DAI_Consulta Or DGC_Validador Or DGC_Editor Or godMode, DisplayMode.Edit, DisplayMode.View)
+            DisplayMode: =If(DRI Or DCOMP_Consulta Or DAI_Consulta Or DGC_Validador Or DGC_Editor Or UIP, DisplayMode.Edit, DisplayMode.View)
             FontWeight: =If(localFiltro = "A submeter nos próximos 60 dias", FontWeight.Bold, FontWeight.Semibold)
             Height: =45
             OnSelect: |-
@@ -982,13 +982,13 @@ Particulares As screen:
                 =Switch(
                     localFiltro,
                     "Colaboradores",
-                    Or(godMode, DRI, DGP_Editor, DGP_Validador),
+                    Or(UIP, DRI, DGP_Editor, DGP_Validador),
                     
                     "ROC",
-                    Or(godMode, DRI, DGC_Editor, DGC_Validador),
+                    Or(UIP, DRI, DGC_Editor, DGC_Validador),
                 
                     "Membros dos Orgãos Sociais",
-                    Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
                 )
             X: =1166
             Y: =146
@@ -1021,13 +1021,13 @@ Particulares As screen:
                 =Switch(
                     localFiltro,
                     "Colaboradores",
-                    Or(godMode, DRI, DGP_Editor, DGP_Validador),
+                    Or(UIP, DRI, DGP_Editor, DGP_Validador),
                     
                     "ROC",
-                    Or(godMode, DRI, DGC_Editor, DGC_Validador),
+                    Or(UIP, DRI, DGC_Editor, DGC_Validador),
                 
                     "Membros dos Orgãos Sociais",
-                    Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
                 )
             X: =1166
             Y: =146
@@ -1087,7 +1087,7 @@ Particulares As screen:
             PaddingTop: =0
             Text: ="Fim de periodo a decorrer"
             Visible: |-
-                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,UIP)
                 And /*Switch(
                     localFiltro,
                     "Colaboradores",
@@ -1118,7 +1118,7 @@ Particulares As screen:
             PaddingTop: =0
             Text: ="Confirmo que toda a informação apresentada relativa às partes relacionadas está correta."
             Visible: |-
-                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,UIP)
                 And /*Switch(
                     localFiltro,
                     "Colaboradores",
@@ -1238,7 +1238,7 @@ Particulares As screen:
                 })
             Text: =""
             Visible: |-
-                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,UIP)
                 And /*Switch(
                     localFiltro,
                     "Colaboradores",
@@ -1466,7 +1466,7 @@ Particulares As screen:
         TabelaMenu: =menuTable
         VisibleConfigApp: |-
             =//Adicionar permissões
-            Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
+            Or(UIP, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =30
 
     ImportModal As group:

@@ -306,7 +306,7 @@ Respetivas As screen:
         TabelaMenu: =menuTable
         VisibleConfigApp: |-
             =//Adicionar permissões
-            Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
+            Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
         ZIndex: =2
 
     ActionBar_3 As group:
@@ -367,7 +367,7 @@ Respetivas As screen:
         ParticularesAdd_11 As DynamicBtn:
             BtnOnSelect: =
             BtnText: ="Novo"
-            Visible: =(!localFormRespetivas And !localFormRespetivasNew) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+            Visible: =(!localFormRespetivas And !localFormRespetivasNew) And Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
             X: =1166
             Y: =156
             ZIndex: =6
@@ -392,7 +392,7 @@ Respetivas As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =(!localFormRespetivas And !localFormRespetivasNew) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+            Visible: =(!localFormRespetivas And !localFormRespetivasNew) And Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
             X: =1165
             Y: =159
             ZIndex: =7
@@ -1305,7 +1305,7 @@ Respetivas As screen:
             TemplateSize: =55
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DGC_Editor,
                     DGC_Validador
@@ -2175,7 +2175,7 @@ Respetivas As screen:
             BtnText: =If(localFormRespetivasEdit Or localFormRespetivasNew,"Guardar","Editar")
             ButtonIcon: =If(localFormRespetivasEdit Or localFormRespetivasNew,Icon.Save,Icon.Edit)
             Height: =40
-            Visible: =EmpresasRespetivas.Visible And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
+            Visible: =EmpresasRespetivas.Visible And Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
             Width: =160
             X: =1150
             Y: =131
@@ -2323,7 +2323,7 @@ Respetivas As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =EmpresasRespetivas.Visible And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
+            Visible: =EmpresasRespetivas.Visible And Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
             X: =DynamicBtn_20.X
             Y: =131
             ZIndex: =21
@@ -2339,7 +2339,7 @@ Respetivas As screen:
             BtnText: =If(localFormRespetivasEdit Or localFormRespetivasNew,"Cancelar","Eliminar")
             ButtonIcon: =If(localFormRespetivasEdit Or localFormRespetivasNew,Icon.Cancel,Icon.Trash)
             Height: =40
-            Visible: =EmpresasRespetivas.Visible And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
+            Visible: =EmpresasRespetivas.Visible And Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
             Width: =160
             X: =949
             Y: =131
@@ -2364,7 +2364,7 @@ Respetivas As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =EmpresasRespetivas.Visible And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
+            Visible: =EmpresasRespetivas.Visible And Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("(Eliminado)" in LabelMembroName_2.Text)
             X: =DynamicBtn_22.X
             Y: =DynamicBtn_22.Y
             ZIndex: =23

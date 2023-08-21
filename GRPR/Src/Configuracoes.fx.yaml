@@ -2094,7 +2094,7 @@ Configuracoes As screen:
         TabelaMenu: =menuTable
         VisibleConfigApp: |-
             =//Adicionar permissões
-            Or(godMode, DRI)
+            Or(UIP, DRI)
         ZIndex: =10
 
     elim_group As group:

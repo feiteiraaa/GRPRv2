@@ -609,7 +609,7 @@ MembrosFamiDetails As screen:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="uipp_Legislacaoaplicada"
                     Default: =ThisItem.'Legislacao aplicada'
-                    DisplayMode: =If(Or(DRI,godMode) And (localShowNewForm Or IsBlank(_Familiar)) ,DisplayMode.Edit,DisplayMode.View)
+                    DisplayMode: =If(Or(DRI,UIP) And (localShowNewForm Or IsBlank(_Familiar)) ,DisplayMode.Edit,DisplayMode.View)
                     DisplayName: =DataSourceInfo([@Familiares],DataSourceInfo.DisplayName,"uipp_Legislacaoaplicada")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
@@ -1085,7 +1085,7 @@ MembrosFamiDetails As screen:
                     Height: =40
                     Visible: |-
                         =Not("[Eliminado]" in LabelMembroName_1.Text) And Or(
-                            godMode,
+                            UIP,
                             DRI,
                             DGC_Editor,
                             DGC_Validador,
@@ -1236,7 +1236,7 @@ MembrosFamiDetails As screen:
                     Text: =""
                     Visible: |-
                         =Not("[Eliminado]" in LabelMembroName_1.Text) And Or(
-                            godMode,
+                            UIP,
                             DRI,
                             DGC_Editor,
                             DGC_Validador,
@@ -1931,7 +1931,7 @@ MembrosFamiDetails As screen:
                             false,
                             true
                         ) And Not("[Eliminado]" in LabelMembroName_1.Text) And Or(
-                            godMode,
+                            UIP,
                             DRI,
                             DGC_Editor,
                             DGC_Validador,
@@ -1964,7 +1964,7 @@ MembrosFamiDetails As screen:
                             false,
                             true
                         ) And Not("[Eliminado]" in LabelMembroName_1.Text) And Or(
-                            godMode,
+                            UIP,
                             DRI,
                             DGC_Editor,
                             DGC_Validador,
@@ -1992,7 +1992,7 @@ MembrosFamiDetails As screen:
                             false,
                             true
                         ) And Not("[Eliminado]" in LabelMembroName_1.Text) And Or(
-                            godMode,
+                            UIP,
                             DRI,
                             DGC_Editor,
                             DGC_Validador,
@@ -2041,7 +2041,7 @@ MembrosFamiDetails As screen:
                             false,
                             true
                         ) And Not("[Eliminado]" in LabelMembroName_1.Text) And Or(
-                            godMode,
+                            UIP,
                             DRI,
                             DGC_Editor,
                             DGC_Validador,
@@ -2063,7 +2063,7 @@ MembrosFamiDetails As screen:
                     BtnText: =If(_AssociatedR Or localShowEditForm,"Guardar","Novo")
                     ButtonIcon: =If(_AssociatedR Or localShowEditForm,Icon.Save,Icon.Add)
                     Height: =40
-                    Visible: =Not("[Eliminado]" in LabelMembroName_1.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Visible: =Not("[Eliminado]" in LabelMembroName_1.Text) And Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
                     Width: =160
                     X: =Parent.X+800
                     Y: =7
@@ -2148,7 +2148,7 @@ MembrosFamiDetails As screen:
                     PressedColor: =RGBA(0,0,0, 0)
                     PressedFill: =RGBA(0,0,0, 0)
                     Text: =""
-                    Visible: =Not("[Eliminado]" in LabelMembroName_1.Text) And Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                    Visible: =Not("[Eliminado]" in LabelMembroName_1.Text) And Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
                     X: =DynamicBtn_33.X
                     Y: =DynamicBtn_33.Y
                     ZIndex: =18
@@ -2170,7 +2170,7 @@ MembrosFamiDetails As screen:
                             false,
                             true
                         ) And Not("[Eliminado]" in LabelMembroName_1.Text) And Or(
-                            godMode,
+                            UIP,
                             DRI,
                             DGC_Editor,
                             DGC_Validador,
@@ -2205,7 +2205,7 @@ MembrosFamiDetails As screen:
                             false,
                             true
                         ) And Not("[Eliminado]" in LabelMembroName_1.Text) And Or(
-                            godMode,
+                            UIP,
                             DRI,
                             DGC_Editor,
                             DGC_Validador,
@@ -2344,7 +2344,7 @@ MembrosFamiDetails As screen:
                 TemplateSize: =55
                 Visible: |-
                     =Or(
-                        godMode,
+                        UIP,
                         DRI,
                         DGC_Editor,
                         DGC_Validador
@@ -2548,7 +2548,7 @@ MembrosFamiDetails As screen:
         TabelaMenu: =menuTable
         VisibleConfigApp: |-
             =//Adicionar permissões
-            Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
+            Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =5
 
     LabelMembroName_1 As label:
@@ -2653,7 +2653,7 @@ MembrosFamiDetails As screen:
             BtnText: ="Eliminar"
             ButtonIcon: =Icon.Trash
             Height: =40
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("Eliminado" in LabelMembroName_1.Text)
+            Visible: =Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("Eliminado" in LabelMembroName_1.Text)
             Width: =160
             X: =1186
             Y: =74
@@ -2720,7 +2720,7 @@ MembrosFamiDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("Eliminado" in LabelMembroName_1.Text)
+            Visible: =Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador) And Not("Eliminado" in LabelMembroName_1.Text)
             X: =DynamicBtn_35.X
             Y: =DynamicBtn_35.Y
             ZIndex: =8

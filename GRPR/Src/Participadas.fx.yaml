@@ -306,7 +306,7 @@ Participadas As screen:
         ParticularesAdd_8 As DynamicBtn:
             BtnOnSelect: =
             BtnText: ="Novo"
-            Visible: =If(_Associar,false,true) And (DRI Or DCRF_Validador Or DCRF_Editor Or godMode)
+            Visible: =If(_Associar,false,true) And (DRI Or DCRF_Validador Or DCRF_Editor Or UIP)
             X: =1166
             Y: =156
             ZIndex: =7
@@ -326,7 +326,7 @@ Participadas As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =If(_Associar,false,true) And (DRI Or DCRF_Validador Or DCRF_Editor Or godMode)
+            Visible: =If(_Associar,false,true) And (DRI Or DCRF_Validador Or DCRF_Editor Or UIP)
             X: =1165
             Y: =159
             ZIndex: =8
@@ -401,7 +401,7 @@ Participadas As screen:
         TabelaMenu: =menuTable
         VisibleConfigApp: |-
             =//Adicionar permissões
-            Or(godMode, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
+            Or(UIP, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
         ZIndex: =13
 
     ModalConfirmation_12 As ModalConfirmation:
@@ -425,7 +425,7 @@ Participadas As screen:
             PaddingTop: =0
             Text: ="Fim de periodo a decorrer"
             Visible: |-
-                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,UIP)
                 And varFimPeriodo 
             Width: =961
             X: =373
@@ -439,7 +439,7 @@ Participadas As screen:
             PaddingTop: =0
             Text: ="Confirmo que toda a informação apresentada relativa às partes relacionadas está correta."
             Visible: |-
-                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,UIP)
                 And varFimPeriodo 
             Width: =961
             X: =373
@@ -476,7 +476,7 @@ Participadas As screen:
             OnSelect: =
             Text: =""
             Visible: |-
-                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,godMode)
+                =Or(DCRF_Validador, DGC_Validador, DGP_Validador, GCONT_Validador,UIP)
                 And varFimPeriodo 
             Width: =48
             X: =1286

@@ -436,7 +436,7 @@ Inicio As screen:
             LoadingSpinner: =LoadingSpinner.Data
             TemplatePadding: =0
             TemplateSize: =192
-            Visible: =Or(godMode,DRI)
+            Visible: =Or(UIP,DRI)
             Width: =964
             X: =365
             Y: =580
@@ -476,7 +476,7 @@ Inicio As screen:
             Color: =cores.azulTitulo
             FontWeight: =FontWeight.Semibold
             Text: ="Fim de periodo a decorrer"
-            Visible: =Or(godMode,DRI)
+            Visible: =Or(UIP,DRI)
             Width: =252
             X: =720
             Y: =593
@@ -499,7 +499,7 @@ Inicio As screen:
             Text: ="Listagem ativa"
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DCOMP_Consulta,
                     DAI_Consulta
@@ -524,7 +524,7 @@ Inicio As screen:
                 ).'Created On',"dd/mm/yyyy")
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DCOMP_Consulta,
                     DAI_Consulta
@@ -557,7 +557,7 @@ Inicio As screen:
             TabIndex: =0
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DCOMP_Consulta,
                     DAI_Consulta
@@ -579,7 +579,7 @@ Inicio As screen:
             Height: =171
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DGC_Validador,
                     DCRF_Validador,
                     DGP_Validador,
@@ -597,7 +597,7 @@ Inicio As screen:
             Text: ="Fim de periodo a decorrer"
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DGC_Validador,
                     DCRF_Validador,
                     DGP_Validador,
@@ -616,7 +616,7 @@ Inicio As screen:
             VerticalAlign: =VerticalAlign.Top
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DGC_Validador,
                     DCRF_Validador,
                     DGP_Validador,
@@ -661,7 +661,7 @@ Inicio As screen:
                 ) & "h " & "restantes"
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DGC_Validador,
                     DCRF_Validador,
                     DGP_Validador,

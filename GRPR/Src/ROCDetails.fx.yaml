@@ -423,7 +423,7 @@ ROCDetails As screen:
                     IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
                     false,
                     true
-                ) Or godMode
+                ) Or UIP
             Width: =323
             X: =2
             Y: =1
@@ -784,7 +784,7 @@ ROCDetails As screen:
                     Icon.Save,
                     Icon.Edit
                 )
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
+            Visible: =Or(UIP, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
             X: =1174
             Y: =74
             ZIndex: =6
@@ -844,7 +844,7 @@ ROCDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
+            Visible: =Or(UIP, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
             X: =1174
             Y: =75
             ZIndex: =7
@@ -870,7 +870,7 @@ ROCDetails As screen:
                     Icon.Cancel
                 )
             Height: =40
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
+            Visible: =Or(UIP, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
             Width: =160
             X: =1001
             Y: =74
@@ -902,7 +902,7 @@ ROCDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
+            Visible: =Or(UIP, DRI, DGC_Editor, DGC_Validador) And Not("eliminado" in HtmlText1_1.HtmlText)
             X: =1001
             Y: =74
             ZIndex: =10
@@ -1077,7 +1077,7 @@ ROCDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador)
+            Visible: =Or(UIP, DRI, DGP_Editor, DGP_Validador)
             X: =485
             Y: =440
             ZIndex: =12
@@ -1099,7 +1099,7 @@ ROCDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DGP_Editor, DGP_Validador)
+            Visible: =Or(UIP, DRI, DGP_Editor, DGP_Validador)
             X: =718
             Y: =440
             ZIndex: =13
@@ -1129,7 +1129,7 @@ ROCDetails As screen:
         TabelaMenu: =menuTable
         VisibleConfigApp: |-
             =//Adicionar permissões
-            Or(godMode, DRI, DGC_Editor, DGC_Validador, DCOMP_Consulta, DAI_Consulta)
+            Or(UIP, DRI, DGC_Editor, DGC_Validador, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =16
 
     "'Atividades Content_4' As groupContainer.manualLayoutContainer":
@@ -1187,7 +1187,7 @@ ROCDetails As screen:
             TemplateSize: =55
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DGC_Editor,
                     DGC_Validador

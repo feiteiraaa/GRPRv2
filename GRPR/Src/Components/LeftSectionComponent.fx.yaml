@@ -19,49 +19,49 @@ LeftSectionComponent As CanvasComponent:
                 icon: Icon.Bug,
                 text: "Developer",
                 Navigate: Developer,
-                VisivelPara: godMode
+                VisivelPara: UIP
             },*/
             {
                 selected: false,
                 icon: Icon.People,
                 text: "Particulares e empresas respetivas",
                 Navigate: Particulares,
-                VisivelPara: Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
+                VisivelPara: Or(UIP, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
             },
                 {
                 selected: false,
                 icon: Icon.OfficeBuilding,
                 text: "Empresas respetivas",
                 Navigate: Respetivas,
-                VisivelPara: Or(godMode, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
+                VisivelPara: Or(UIP, DRI, DGC_Editor, DGC_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta,CCOMP_Consulta, DMK_Consulta)
             },
             {
                 selected: false,
                 icon: Icon.OfficeBuilding,
                 text: "Empresas participadas do grupo",
                 Navigate: Participadas,
-                VisivelPara: Or(godMode, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
+                VisivelPara: Or(UIP, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
             },
             {
                 selected: false,
                 icon: Icon.Information,
                 text: "Atividade",
                 Navigate: Atividade,
-                VisivelPara: true//Or(godMode, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
+                VisivelPara: true//Or(UIP, DGC_Editor, DGC_Validador, DCRF_Editor, DCRF_Validador, DGP_Editor, DGP_Validador, GCONT_Editor, GCONT_Validador, DCOMP_Consulta, DAI_Consulta)
             },
             {
                 selected: false,
                 icon: Icon.Notebook,
                 text: "Listagens",
                 Navigate: Listagens,
-                VisivelPara: Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta)
+                VisivelPara: Or(UIP, DRI, DCOMP_Consulta, DAI_Consulta)
             },
             {
                 selected: false,
                 icon: Icon.Settings,
                 text: "Configurações",
                 Navigate: Configuracoes,
-                VisivelPara: Or(godMode, DRI)
+                VisivelPara: Or(UIP, DRI)
             }
         )
     VisibleConfigApp: |-

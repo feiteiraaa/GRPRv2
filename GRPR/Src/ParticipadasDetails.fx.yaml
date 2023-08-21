@@ -39,7 +39,7 @@ ParticipadasDetails As screen:
                     Icon.Save,
                     Icon.Edit
                 )
-            Visible: =Or(godMode, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
+            Visible: =Or(UIP, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
             X: =1174
             Y: =74
             ZIndex: =5
@@ -93,7 +93,7 @@ ParticipadasDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
+            Visible: =Or(UIP, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
             X: =1173
             Y: =74
             ZIndex: =6
@@ -566,14 +566,14 @@ ParticipadasDetails As screen:
             Update: =DataCardValue29.Selected
             Visible: |-
                 =If(
-                    Or(DRI,godMode),
+                    Or(DRI,UIP),
                     true,
                     IsBlank(ThisItem.'Legislacao aplicada') And !DRI,
                     false,
                     ColabFormMode = FormMode.New And !DRI,
                     false,
                     true
-                ) Or godMode
+                ) Or UIP
             Width: =484
             X: =0
             Y: =3
@@ -942,7 +942,7 @@ ParticipadasDetails As screen:
                     Icon.Cancel
                 )
             Height: =40
-            Visible: =Or(godMode, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
+            Visible: =Or(UIP, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
             Width: =160
             X: =1001
             Y: =74
@@ -989,7 +989,7 @@ ParticipadasDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =Or(godMode, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
+            Visible: =Or(UIP, DRI, DCRF_Editor, DCRF_Validador) And Not("eliminado" in LabelMembroName_3.Text)
             X: =1000
             Y: =73
             ZIndex: =9
@@ -1044,7 +1044,7 @@ ParticipadasDetails As screen:
         TabelaMenu: =menuTable
         VisibleConfigApp: |-
             =//Adicionar permissões
-            Or(godMode, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
+            Or(UIP, DRI, DCRF_Editor, DCRF_Validador, DCOMP_Consulta, DAI_Consulta, CCOMP_Consulta, DMK_Consulta)
         ZIndex: =16
 
     elim_components As group:
@@ -1324,7 +1324,7 @@ ParticipadasDetails As screen:
             TemplateSize: =55
             Visible: |-
                 =Or(
-                    godMode,
+                    UIP,
                     DRI,
                     DGC_Editor,
                     DGC_Validador
@@ -1562,7 +1562,7 @@ ParticipadasDetails As screen:
                     Icon.Unlock
                 )
             Height: =40
-            Visible: =("eliminado" in LabelMembroName_3.Text) And (DRI Or DCRF_Validador Or DCRF_Editor Or godMode)
+            Visible: =("eliminado" in LabelMembroName_3.Text) And (DRI Or DCRF_Validador Or DCRF_Editor Or UIP)
             Width: =200
             X: =1125
             Y: =74
@@ -1670,7 +1670,7 @@ ParticipadasDetails As screen:
             PressedColor: =RGBA(0,0,0, 0)
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
-            Visible: =("eliminado" in LabelMembroName_3.Text) And (DRI Or DCRF_Validador Or DCRF_Editor Or godMode)
+            Visible: =("eliminado" in LabelMembroName_3.Text) And (DRI Or DCRF_Validador Or DCRF_Editor Or UIP)
             Width: =DynamicBtn_47.Width
             X: =DynamicBtn_47.X
             Y: =DynamicBtn_47.Y

@@ -13,7 +13,7 @@ Listagens As screen:
         TabelaMenu: =menuTable
         VisibleConfigApp: |-
             =//Adicionar permissões
-            Or(godMode, DRI, DCOMP_Consulta, DAI_Consulta)
+            Or(UIP, DRI, DCOMP_Consulta, DAI_Consulta)
         ZIndex: =11
 
     GalleryListagens As gallery.galleryVertical:
@@ -286,7 +286,7 @@ Listagens As screen:
                     localShowModal: true
                 })
             Text: =""
-            Visible: =Or(godMode,DRI)
+            Visible: =Or(UIP,DRI)
             Width: =DynamicBtn_26.Width
             X: =1120
             Y: =DynamicBtn_26.Y
