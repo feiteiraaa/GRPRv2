@@ -1,6 +1,6 @@
 App As appinfo:
     BackEnabled: =false
-    OnStart: |-
+    OnStart: |
         =Concurrent(
             Set(
                 appVersion,
@@ -374,11 +374,6 @@ App As appinfo:
             menuTable,
             IsBlank(ThisRecord)
         );
-        //apagar depois o Set abaixo
-        Set(
-            UIP,
-            User().Email = "ldsales.ex@montepio.pt"
-        )
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
