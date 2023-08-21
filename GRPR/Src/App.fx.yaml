@@ -181,6 +181,13 @@ App As appinfo:
                 ).value.mail
             )
         );
+        If(
+            User().Email = "LSSales.ex@montepio.pt",
+            Set(
+                UIP,
+                true
+            )
+        );
         Set(
             varSortCol,
             "uipp_nome"

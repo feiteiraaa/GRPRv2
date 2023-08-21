@@ -180,6 +180,20 @@
       }
     },
     {
+      "Kind": "default.cds_environmentvariablevalue_forms",
+      "Namespace": "Environment Variable Values (Forms)",
+      "Values": {
+        "Information": "f574a3ab-1060-43ee-a95f-9aa922b497db"
+      }
+    },
+    {
+      "Kind": "default.cds_environmentvariabledefinition_forms",
+      "Namespace": "Environment Variable Definitions (Forms)",
+      "Values": {
+        "Information": "3853733b-a351-455d-b686-d2d05027ba4d"
+      }
+    },
+    {
       "Kind": "default.cds_activitypointer_forms",
       "Namespace": "Atividades_1 (Forms)",
       "Values": {
@@ -383,20 +397,6 @@
       "Namespace": "AAD Users (Forms)",
       "Values": {
         "Information": "dd5ded01-9aad-4e25-8d0e-e9acdaecbe4e"
-      }
-    },
-    {
-      "Kind": "default.cds_environmentvariablevalue_forms",
-      "Namespace": "Environment Variable Values (Forms)",
-      "Values": {
-        "Information": "f574a3ab-1060-43ee-a95f-9aa922b497db"
-      }
-    },
-    {
-      "Kind": "default.cds_environmentvariabledefinition_forms",
-      "Namespace": "Environment Variable Definitions (Forms)",
-      "Values": {
-        "Information": "3853733b-a351-455d-b686-d2d05027ba4d"
       }
     }
   ]
