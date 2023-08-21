@@ -181,13 +181,7 @@ App As appinfo:
                 ).value.mail
             )
         );
-        If(
-            User().Email = "LSSales.ex@montepio.pt",
-            Set(
-                UIP,
-                true
-            )
-        );
+        
         Set(
             varSortCol,
             "uipp_nome"
@@ -379,6 +373,11 @@ App As appinfo:
         RemoveIf(
             menuTable,
             IsBlank(ThisRecord)
+        );
+        //apagar depois o Set abaixo
+        Set(
+            UIP,
+            User().Email = "ldsales.ex@montepio.pt"
         )
     Theme: =PowerAppsTheme
 
