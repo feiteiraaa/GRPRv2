@@ -1411,18 +1411,18 @@ Particulares As screen:
             BtnWidth: =285
             ButtonIcon: =Icon.AddDocument
             Visible: |-
-                =/*Switch(
+                =Switch(
                     localFiltro,
                     "Colaboradores",
-                    Or(godMode, DRI, DGP_Editor, DGP_Validador),
+                    Or(UIP, DRI, DGP_Editor, DGP_Validador),
                     
                     "ROC",
-                    Or(godMode, DRI, DGC_Editor, DGC_Validador),
+                    Or(UIP, DRI, DGC_Editor, DGC_Validador),
                 
                     "Membros dos Orgãos Sociais",
-                    Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
-                );*/
-                false//localFiltro= "Colaboradores"
+                    Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                )
+                //false//localFiltro= "Colaboradores"
             X: =1041
             Y: =30
             ZIndex: =22
@@ -1445,18 +1445,18 @@ Particulares As screen:
             PressedFill: =RGBA(0,0,0, 0)
             Text: =""
             Visible: |-
-                =/*Switch(
+                =Switch(
                     localFiltro,
                     "Colaboradores",
-                    Or(godMode, DRI, DGP_Editor, DGP_Validador),
+                    Or(UIP, DRI, DGP_Editor, DGP_Validador),
                     
                     "ROC",
-                    Or(godMode, DRI, DGC_Editor, DGC_Validador),
+                    Or(UIP, DRI, DGC_Editor, DGC_Validador),
                 
                     "Membros dos Orgãos Sociais",
-                    Or(godMode, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
-                );*/
-                false//localFiltro= "Colaboradores"
+                    Or(UIP, DRI, DGC_Editor, DGC_Validador, GCONT_Editor, GCONT_Validador)
+                )
+                //false//localFiltro= "Colaboradores"
             Width: =285
             X: =1041
             Y: =30
