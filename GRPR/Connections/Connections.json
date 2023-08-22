@@ -80,7 +80,7 @@
     "dependents": [
       "06c7a476-789a-4373-9b2e-51a72677f474",
       "dc1f299b-6701-4280-adf8-a7f992e04351",
-      "7103e40c-0ba9-48a2-995e-be4715c3b8ba"
+      "dd0de1f9-3645-42c6-b1bc-9cd4a9e285a3"
     ],
     "id": "1e4ee4cb-5e99-4c90-bf9b-05b93b030792"
   },
@@ -95,7 +95,7 @@
     "dependencies": {},
     "dependents": [
       "06c7a476-789a-4373-9b2e-51a72677f474",
-      "7103e40c-0ba9-48a2-995e-be4715c3b8ba"
+      "dd0de1f9-3645-42c6-b1bc-9cd4a9e285a3"
     ],
     "id": "78ea185a-ffc0-4bca-946b-e249b2c1a73a"
   },
@@ -137,6 +137,40 @@
     "dependents": [],
     "id": "dc1f299b-6701-4280-adf8-a7f992e04351"
   },
+  "dd0de1f9-3645-42c6-b1bc-9cd4a9e285a3": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1645/1.0.1645.3345/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowEntityId": {
+          "value": "d2bc14b9-0af3-ed11-8849-000d3a64981b"
+        },
+        "workflowName": {
+          "value": "bf1b4a30-ccb8-c69d-3e89-f4095191c177"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowEntityId": {
+          "value": "d2bc14b9-0af3-ed11-8849-000d3a64981b"
+        },
+        "workflowName": {
+          "value": "bf1b4a30-ccb8-c69d-3e89-f4095191c177"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ColaboradoresImportarExcel"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps_1": "1e4ee4cb-5e99-4c90-bf9b-05b93b030792",
+      "shared_excelonlinebusiness_1": "fa0b83cf-5a61-420a-a651-407f66c83be9",
+      "shared_sharepointonline_1": "78ea185a-ffc0-4bca-946b-e249b2c1a73a"
+    },
+    "dependents": [],
+    "id": "dd0de1f9-3645-42c6-b1bc-9cd4a9e285a3"
+  },
   "fa0b83cf-5a61-420a-a651-407f66c83be9": {
     "connectionRef": {
       "displayName": "Excel Online (Business)",
@@ -148,7 +182,7 @@
     "dependencies": {},
     "dependents": [
       "06c7a476-789a-4373-9b2e-51a72677f474",
-      "7103e40c-0ba9-48a2-995e-be4715c3b8ba"
+      "dd0de1f9-3645-42c6-b1bc-9cd4a9e285a3"
     ],
     "id": "fa0b83cf-5a61-420a-a651-407f66c83be9"
   }
