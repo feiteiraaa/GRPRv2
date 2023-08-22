@@ -619,13 +619,6 @@ Inicio As screen:
             Y: =407
             ZIndex: =15
 
-    Button10 As button:
-        OnSelect: =Navigate(Screen2)
-        Text: ="Button"
-        X: =1063
-        Y: =53
-        ZIndex: =22
-
     FimPeriodoDecorrerDate As group:
         Height: =5
         Width: =5
