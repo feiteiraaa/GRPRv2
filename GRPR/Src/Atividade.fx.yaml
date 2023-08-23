@@ -174,8 +174,7 @@ Atividade As screen:
         ZIndex: =13
 
     ModalConfirmation_14 As ModalConfirmation_13:
-        ChildTabPriority: =
-        DataTable: ="JSONTable"
+        DataTable: =JSONTable
         ModalText: |-
             ="Deseja exportar a listagem completa de Atividades para um ficheiro Excel?
             
@@ -612,7 +611,7 @@ Atividade As screen:
                    JSONFormat.IndentFour
                  ));
                 
-                 UpdateContext({ShowExportar: true})
+                Set(ShowExportar, true)
             Text: =""
             Width: =DynamicBtn_1.Width
             X: =DynamicBtn_1.X

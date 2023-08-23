@@ -28846,36 +28846,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.JSONTable"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.JSONTable",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "JSONTable",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.Loading_icon"
                 }
               ],
