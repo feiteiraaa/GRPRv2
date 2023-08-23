@@ -174,26 +174,6 @@ Atividade As screen:
         TabelaMenu: =menuTable
         ZIndex: =13
 
-    ModalConfirmation_14 As ModalConfirmation_13:
-        DataTable: =JSONTable
-        ModalText: |-
-            ="Deseja exportar a listagem completa de Atividades para um ficheiro Excel?
-            
-            Será efetuado o download após a confirmação."
-        Visible: =ShowExportar
-        ZIndex: =28
-
-    Icon11 As icon.CancelBadge:
-        Color: =Color.Transparent
-        Height: =73
-        Icon: =Icon.CancelBadge
-        OnSelect: |-
-            =UpdateContext({ShowExpotar: false})
-        Width: =52
-        X: =844
-        Y: =219
-        ZIndex: =29
-
     PopUp As group:
         Height: =5
         Width: =5
@@ -462,6 +442,34 @@ Atividade As screen:
                 X: =ContainerAlteracoes.X
                 Y: =ContainerAlteracoes.Y
                 ZIndex: =1
+
+    PopUpExportar As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =30
+
+        ModalConfirmation_14 As ModalConfirmation_13:
+            DataTable: =JSONTable
+            ModalText: |-
+                ="Deseja exportar a listagem completa de Atividades para um ficheiro Excel?
+                
+                Será efetuado o download após a confirmação."
+            Visible: =ShowExportar
+            ZIndex: =28
+
+        Icon11 As icon.CancelBadge:
+            Color: =Color.Transparent
+            Height: =73
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =UpdateContext({ShowExportar: false})
+            Visible: =ShowExportar
+            Width: =52
+            X: =844
+            Y: =219
+            ZIndex: =29
 
     Pesquisa As group:
         Height: =5

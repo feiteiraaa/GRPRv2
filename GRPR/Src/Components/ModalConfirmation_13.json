@@ -65,7 +65,7 @@
         "Name": "Rectangle1_8",
         "Parent": "ModalConfirmation_13",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1414,
+        "PublishOrderIndex": 1420,
         "Rules": [
           {
             "Category": "Design",
@@ -236,7 +236,7 @@
         "Name": "Icon4_2",
         "Parent": "ModalConfirmation_13",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1415,
+        "PublishOrderIndex": 1421,
         "Rules": [
           {
             "Category": "Design",
@@ -449,7 +449,7 @@
         "Name": "Icon15",
         "Parent": "ModalConfirmation_13",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1416,
+        "PublishOrderIndex": 1422,
         "Rules": [
           {
             "Category": "Design",
@@ -698,7 +698,7 @@
         "Name": "Label4_2",
         "Parent": "ModalConfirmation_13",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1417,
+        "PublishOrderIndex": 1423,
         "Rules": [
           {
             "Category": "Data",
@@ -1003,7 +1003,7 @@
         "Name": "JsonTableExport1",
         "Parent": "ModalConfirmation_13",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1418,
+        "PublishOrderIndex": 1424,
         "Rules": [
           {
             "Category": "Data",

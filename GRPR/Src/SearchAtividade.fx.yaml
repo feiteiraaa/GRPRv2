@@ -132,23 +132,6 @@ SearchAtividade As screen:
             Y: =0
             ZIndex: =9
 
-        createdby_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Criado por"
-            FieldName: ="createdby"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            OnSelect: |-
-                =UpdateContext({ShowAtividadeAvancada: true})
-            Order: =6
-            Text: =ThisItem.'Created By'.'Full Name'
-            Visible: =false
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =10
-
         uipp_item_Column1 As dataTableColumn.textualColumn:
             DisplayMode: =DisplayMode.Edit
             FieldDisplayName: ="uipp_item"
@@ -952,4 +935,121 @@ SearchAtividade As screen:
                 X: =ContainerAlteracoes_1.X
                 Y: =ContainerAlteracoes_1.Y
                 ZIndex: =1
+
+    BtnExportarAvanc As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =41
+
+        DynamicBtn_48 As DynamicBtn:
+            BtnText: ="Exportar"
+            ButtonIcon: =Icon.Download
+            Visible: =ShowPesquisaAtividade
+            X: =968
+            Y: =74
+            ZIndex: =38
+
+        Button7_5 As button:
+            Color: =Color.Transparent
+            DisabledBorderColor: =Color.Transparent
+            DisabledColor: =Color.Transparent
+            DisabledFill: =Color.Transparent
+            Fill: =Color.Transparent
+            Height: =DynamicBtn_48.Height
+            HoverBorderColor: =Color.Transparent
+            HoverColor: =Color.Transparent
+            HoverFill: =Color.Transparent
+            OnSelect: |-
+                =ClearCollect(
+                    DadosFiltradosAvanc,
+                    Filter(
+                        CollectAtividades,
+                        (DataCardValue47.Text in ThisRecord.Titulo || IsBlank(DataCardValue47.Text)) && (InputCriadoPor.Text in ThisRecord.'Created By'.'Full Name' || IsBlank(InputCriadoPor.Text)) && If(
+                            CheckboxMinhaAtividade.Value,
+                            User().FullName in ThisRecord.'Created By'.'Full Name',
+                            true
+                        ) && (Text(DataCardValue49.Selected.Value) in ThisRecord.'Lista da atividade' || IsBlank(DataCardValue49.Selected.Value)) && (Text(DataCardValue48.Selected.Value) in ThisRecord.'Tipo de alteracao' || IsBlank(DataCardValue48.Selected.Value)) && If(
+                            !IsBlank(DatePicker1_1.SelectedDate),
+                            ThisRecord.'Created On' >= DatePicker1_1.SelectedDate,
+                            true
+                        ) And If(
+                            !IsBlank(DatePicker2_1.SelectedDate),
+                            ThisRecord.'Created On' <= DateAdd(
+                                DatePicker2_1.SelectedDate,
+                                1,
+                                TimeUnit.Days
+                            ),
+                            true
+                        ) And If(
+                            DatePicker1_1.SelectedDate = DatePicker2_1.SelectedDate,
+                            ThisRecord.'Created On' >= DatePicker1_1.SelectedDate Or ThisRecord.'Created On' < DateAdd(
+                                DatePicker2_1.SelectedDate,
+                                1,
+                                TimeUnit.Days
+                            ),
+                            true
+                        )
+                    )
+                );
+                
+                
+                // Quando houver alterações nos campos Choices, alterar os campos necessários para aparecer a label
+                Set(JSONTableAvanc,
+                         JSON(
+                          ForAll(
+                      ShowColumns(
+                        DadosFiltradosAvanc,
+                        "uipp_titulo",
+                        "uipp_tipodealteracao",
+                        "uipp_listadaatividade",
+                        "uipp_grupo",
+                        "createdon",
+                        "uipp_alteradopor"),
+                      {
+                        Titulo: uipp_titulo,
+                        'Tipo de Alteração': Switch(LookUp(Choices('tipo de alteracao'), Value = uipp_tipodealteracao).Value, 'tipo de alteracao'.Edição, "Edição",'tipo de alteracao'.Eliminação, "Eliminação", 'tipo de alteracao'.Inativo, "Inativo", 'tipo de alteracao'.Inserção, "Inserção"),
+                        'Lista da Atividade':Switch(LookUp(Choices('lista da atividade'), Value = uipp_listadaatividade).Value,'lista da atividade'.Colaboradores,"Colaboradores", 'lista da atividade'.'Empresas Participadas', "Empresas Participadas", 'lista da atividade'.'Empresas Respetivas', "Empresas Respetivas", 'lista da atividade'.Familiares, "Familiares", 'lista da atividade'.Listagens,"Listagens", 'lista da atividade'.Membros, "Membros", 'lista da atividade'.ROC, "ROC") ,
+                        Grupo:Switch(LookUp(Choices(Grupo), Value = uipp_grupo).Value , Grupo.'Banco Montepio', "Banco Montepio",Grupo.MGAM, "MGAM"),
+                        Data: Text(createdon, "dd/mm/yyyy hh:mm"),
+                        'Alterado Por': uipp_alteradopor
+                      }
+                   ),
+                   JSONFormat.IndentFour
+                 ));
+                
+                UpdateContext({ShowExportarAvanc:true})
+            Text: =""
+            Visible: =ShowPesquisaAtividade
+            Width: =DynamicBtn_48.Width
+            X: =968
+            Y: =74
+            ZIndex: =39
+
+    PopUpExportarAvanc As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =42
+
+        ModalConfirmation_15 As ModalConfirmation_13:
+            DataTable: =JSONTableAvanc
+            ModalText: |-
+                ="Deseja exportar a listagem completa de Atividades para um ficheiro Excel?
+                
+                Será efetuado o download após a confirmação."
+            Visible: =ShowExportarAvanc
+            ZIndex: =40
+
+        Icon12 As icon.CancelBadge:
+            Color: =Color.Transparent
+            Height: =53
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =UpdateContext({ShowExportarAvanc:false})
+            X: =836
+            Y: =228
+            ZIndex: =41
 
