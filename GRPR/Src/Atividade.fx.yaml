@@ -79,7 +79,8 @@ Atividade As screen:
             =472
         Items: |+
             =SortByColumns(
-                    Filter (
+                   
+                     Filter (
             
                         CollectAtividades, 
                         If(!IsBlank(InputPesquisar.Text), InputPesquisar.Text in ThisRecord.Titulo, true)
@@ -94,8 +95,7 @@ Atividade As screen:
                         ThisRecord.'Created On' >= DatePicker1.SelectedDate
                         Or
                           ThisRecord.'Created On'  < DateAdd( DatePicker2.SelectedDate, 1, TimeUnit.Days), true)
-                       
-                
+                     
                 
                 ),"uipp_data",varSortDir
             )
@@ -105,23 +105,6 @@ Atividade As screen:
         X: =357
         Y: =200
         ZIndex: =11
-
-        "'Criado Por_Column1' As dataTableColumn.complexTypeColumn":
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Criado Por"
-            FieldName: ="createdby"
-            FieldVariantName: ="complexTypeColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            OnSelect: |-
-                =UpdateContext({ShowDetails: true})
-            Order: =9
-            Text: =ThisItem.'Created By'.'Full Name'
-            Visible: =false
-            Width: =100
-            X: =657
-            Y: =0
-            ZIndex: =3
 
         Atividade_Column1 As dataTableColumn.textualColumn:
             DisplayMode: =DisplayMode.Edit
@@ -171,21 +154,6 @@ Atividade As screen:
             X: =0
             Y: =0
             ZIndex: =8
-
-        uipp_item_Column2 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="uipp_item"
-            FieldName: ="uipp_item"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =11
-            Text: =ThisItem.uipp_item
-            Visible: =false
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =9
 
         uipp_alteradopor_Column1 As dataTableColumn.textualColumn:
             DisplayMode: =DisplayMode.Edit
@@ -557,7 +525,7 @@ Atividade As screen:
         DynamicBtn_1 As DynamicBtn:
             BtnText: ="Exportar"
             ButtonIcon: =Icon.Download
-            Visible: =false
+            Visible: =true
             X: =1177
             Y: =151
             ZIndex: =6
@@ -572,8 +540,44 @@ Atividade As screen:
             HoverBorderColor: =Color.Transparent
             HoverColor: =Color.Transparent
             HoverFill: =Color.Transparent
+            OnSelect: |-
+                =ClearCollect(
+                    DadosFiltrados,
+                    Filter (
+                        CollectAtividades,
+                        If(
+                            !IsBlank(InputPesquisar.Text),
+                            InputPesquisar.Text in ThisRecord.Titulo,
+                            true
+                        ) And If(
+                            !IsBlank(DatePicker1.SelectedDate),
+                            ThisRecord.'Created On' >= DatePicker1.SelectedDate,
+                            true
+                        ) And If(
+                            !IsBlank(DatePicker2.SelectedDate),
+                            ThisRecord.'Created On' <= DateAdd(
+                                DatePicker2.SelectedDate,
+                                1,
+                                TimeUnit.Days
+                            ),
+                            true
+                        ) And If(
+                            DatePicker1.SelectedDate = DatePicker2.SelectedDate,
+                            ThisRecord.'Created On' >= DatePicker1.SelectedDate Or ThisRecord.'Created On' < DateAdd(
+                                DatePicker2.SelectedDate,
+                                1,
+                                TimeUnit.Days
+                            ),
+                            true
+                        )
+                    ));
+                    
+                 Set(JSONTable, JSON(DadosFiltrados), JSONFormat.IndentFour);
+                
+                
+                
+                 
             Text: =""
-            Visible: =false
             Width: =DynamicBtn_1.Width
             X: =DynamicBtn_1.X
             Y: =DynamicBtn_1.Y
