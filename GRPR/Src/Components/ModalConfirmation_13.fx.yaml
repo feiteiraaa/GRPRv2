@@ -48,44 +48,22 @@ ModalConfirmation_13 As CanvasComponent:
         Y: =230//271
         ZIndex: =3
 
-    Button1_9 As button:
-        Align: =Align.Left
-        BorderThickness: =0
-        Color: =RGBA(70, 70, 70, 1)
-        Fill: =ModalConfirmation_13.RightBtnFill
-        FontWeight: =FontWeight.Normal
-        HoverColor: =RGBA(70, 70, 70, 1)
-        HoverFill: =ModalConfirmation_13.RightBtnFill
-        OnSelect: =
-        PaddingLeft: =50
-        PressedFill: =ModalConfirmation_13.RightBtnFill
-        RadiusBottomLeft: =5
-        RadiusBottomRight: =5
-        RadiusTopLeft: =5
-        RadiusTopRight: =5
-        Text: =ModalConfirmation_13.RightBtnText
-        Width: =165
-        X: =715
-        Y: |
-            =440
-        ZIndex: =4
-
-    "Icon2_9 As icon.'3DPrinting'":
-        Color: =RGBA(255, 191, 0, 1)
-        Height: =30
-        Icon: =ModalConfirmation_13.RightBtnIcon
-        Width: =30
-        X: =725
-        Y: |
-            =445
-        ZIndex: =5
-
     JsonTableExport1 As JsonTableExport:
         Data: =ModalConfirmation_13.DataTable
         DisplayMode: =DisplayMode.Edit
         Height: =40
         Width: =136
-        X: =535
-        Y: =440
+        X: =615
+        Y: =451
         ZIndex: =7
+
+    Icon15 As icon.CancelBadge:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =52
+        Icon: =Icon.CancelBadge
+        OnSelect: =
+        Width: =43
+        X: =849
+        Y: =230
+        ZIndex: =8
 
