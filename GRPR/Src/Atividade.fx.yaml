@@ -549,11 +549,13 @@ Atividade As screen:
                             !IsBlank(InputPesquisar.Text),
                             InputPesquisar.Text in ThisRecord.Titulo,
                             true
-                        ) And If(
+                        ) && 
+                        If(
                             !IsBlank(DatePicker1.SelectedDate),
                             ThisRecord.'Created On' >= DatePicker1.SelectedDate,
                             true
-                        ) And If(
+                        ) && 
+                        If(
                             !IsBlank(DatePicker2.SelectedDate),
                             ThisRecord.'Created On' <= DateAdd(
                                 DatePicker2.SelectedDate,
@@ -561,22 +563,42 @@ Atividade As screen:
                                 TimeUnit.Days
                             ),
                             true
-                        ) And If(
+                        ) && 
+                        If(
                             DatePicker1.SelectedDate = DatePicker2.SelectedDate,
-                            ThisRecord.'Created On' >= DatePicker1.SelectedDate Or ThisRecord.'Created On' < DateAdd(
+                            ThisRecord.'Created On' >= DatePicker1.SelectedDate || 
+                            ThisRecord.'Created On' < DateAdd(
                                 DatePicker2.SelectedDate,
                                 1,
                                 TimeUnit.Days
                             ),
                             true
                         )
-                    ));
-                    
-                 Set(JSONTable, JSON(DadosFiltrados), JSONFormat.IndentFour);
+                    )
+                );
                 
-                
-                
-                 
+                Set(JSONTable,
+                         JSON(
+                          ForAll(
+                      ShowColumns(
+                        DadosFiltrados,
+                        "uipp_titulo",
+                        "uipp_tipodealteracao",
+                        "uipp_listadaatividade",
+                        "uipp_grupo",
+                        "createdon",
+                        "uipp_alteradopor"),
+                      {
+                        Titulo: uipp_titulo,
+                        'Tipo de Alteração': uipp_tipodealteracao,
+                        'Lista da Atividade':Switch(LookUp(Choices('lista da atividade'), Value = uipp_listadaatividade).Value,'lista da atividade'.Colaboradores,"Colaboradores", 'lista da atividade'.'Empresas Participadas', "Empresas Participadas", 'lista da atividade'.'Empresas Respetivas', "Empresas Respetivas", 'lista da atividade'.Familiares, "Familiares", 'lista da atividade'.Listagens,"Listagens", 'lista da atividade'.Membros, "Membros", 'lista da atividade'.ROC, "ROC") ,
+                        Grupo:Switch(LookUp(Choices(Grupo), Value = uipp_grupo).Value , Grupo.'Banco Montepio', "Banco Montepio",Grupo.MGAM, "MGAM"),
+                        Data: Text(createdon, "dd/mm/yyyy hh:mm"),
+                        'Alterado Por': uipp_alteradopor
+                      }
+                   ),
+                   JSONFormat.IndentFour
+                 ));
             Text: =""
             Width: =DynamicBtn_1.Width
             X: =DynamicBtn_1.X
