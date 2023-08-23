@@ -53,8 +53,8 @@ ModalConfirmation_13 As CanvasComponent:
         DisplayMode: =DisplayMode.Edit
         Height: =40
         Width: =136
-        X: =615
-        Y: =451
+        X: =(Parent.Width - Self.Width) / 2
+        Y: =Label4_2.Y + Label4_2.Height
         ZIndex: =7
 
     Icon15 As icon.CancelBadge:
