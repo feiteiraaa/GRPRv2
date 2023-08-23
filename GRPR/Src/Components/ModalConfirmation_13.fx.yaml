@@ -61,7 +61,7 @@ ModalConfirmation_13 As CanvasComponent:
         Color: =RGBA(0, 0, 0, 1)
         Height: =52
         Icon: =Icon.CancelBadge
-        OnSelect: =Set(ShowExportar,false)
+        OnSelect: =
         Width: =43
         X: =849
         Y: =230

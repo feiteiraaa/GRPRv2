@@ -17226,6 +17226,18 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 11
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
             }
           ]
         }
@@ -28696,19 +28708,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModalConfirmation_13.Icon15.AccessibleLabel"
+                  "fullyQualifiedName": "Atividade.Icon11.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ModalConfirmation_13.Icon15.AccessibleLabel",
+                  "fullyQualifiedName": "Atividade.Icon11.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "ModalConfirmation_13",
-                "type": "ModalConfirmation_13.Icon15"
+                "module": "Atividade",
+                "type": "Atividade.Icon11"
               }
             }
           ],
@@ -28726,19 +28738,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModalConfirmation_13.Icon15.TabIndex"
+                  "fullyQualifiedName": "Atividade.Icon11.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ModalConfirmation_13.Icon15.TabIndex",
+                  "fullyQualifiedName": "Atividade.Icon11.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "ModalConfirmation_13",
-                "type": "ModalConfirmation_13.Icon15"
+                "module": "Atividade",
+                "type": "Atividade.Icon11"
               }
             }
           ],
@@ -29086,19 +29098,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModalConfirmation_13.ShowExportar"
+                  "fullyQualifiedName": "Atividade.ShowExpotar"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ModalConfirmation_13.ShowExportar",
+                  "fullyQualifiedName": "Atividade.ShowExpotar",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "ShowExportar",
-                "module": "ModalConfirmation_13",
-                "type": "ModalConfirmation_13"
+                "member": "ShowExpotar",
+                "module": "Atividade",
+                "type": "Atividade"
               }
             }
           ],

@@ -2,7 +2,7 @@ Atividade As screen:
     OnHidden: |-
         =Reset(DatePicker2);
         Reset(DatePicker1)
-    OnVisible: |
+    OnVisible: |+
         =Concurrent(
             Reset(InputPesquisar),
             Refresh(Atividades)
@@ -59,6 +59,7 @@ Atividade As screen:
                 )
             )
         );
+        
 
     Label1_9 As label:
         FontWeight: =FontWeight.Bold
@@ -181,6 +182,17 @@ Atividade As screen:
             Será efetuado o download após a confirmação."
         Visible: =ShowExportar
         ZIndex: =28
+
+    Icon11 As icon.CancelBadge:
+        Color: =Color.Transparent
+        Height: =73
+        Icon: =Icon.CancelBadge
+        OnSelect: |-
+            =UpdateContext({ShowExpotar: false})
+        Width: =52
+        X: =844
+        Y: =219
+        ZIndex: =29
 
     PopUp As group:
         Height: =5
@@ -611,7 +623,7 @@ Atividade As screen:
                    JSONFormat.IndentFour
                  ));
                 
-                Set(ShowExportar, true)
+                UpdateContext({ShowExportar:true})
             Text: =""
             Width: =DynamicBtn_1.Width
             X: =DynamicBtn_1.X
