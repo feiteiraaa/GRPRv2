@@ -452,10 +452,6 @@ Atividade As screen:
 
         ModalConfirmation_14 As ModalConfirmation_13:
             DataTable: =JSONTable
-            ModalText: |-
-                ="Deseja exportar a listagem completa de Atividades para um ficheiro Excel?
-                
-                Será efetuado o download após a confirmação."
             Visible: =ShowExportar
             ZIndex: =28
 

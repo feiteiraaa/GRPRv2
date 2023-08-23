@@ -5,7 +5,7 @@ ModalConfirmation_13 As CanvasComponent:
     LeftBtnIcon: =Icon.Check
     LeftBtnText: ="Confirmar"
     ModalIcon: =Icon.Error
-    ModalIconColor: =Color.Red
+    ModalIconColor: =Color.Green
     ModalText: |-
         ="Deseja exportar a listagem completa de Atividades para um ficheiro Excel?
         

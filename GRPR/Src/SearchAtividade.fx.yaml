@@ -1036,10 +1036,6 @@ SearchAtividade As screen:
 
         ModalConfirmation_15 As ModalConfirmation_13:
             DataTable: =JSONTableAvanc
-            ModalText: |-
-                ="Deseja exportar a listagem completa de Atividades para um ficheiro Excel?
-                
-                Será efetuado o download após a confirmação."
             Visible: =ShowExportarAvanc
             ZIndex: =40
 
