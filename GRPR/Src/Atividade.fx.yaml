@@ -590,7 +590,7 @@ Atividade As screen:
                         "uipp_alteradopor"),
                       {
                         Titulo: uipp_titulo,
-                        'Tipo de Alteração': uipp_tipodealteracao,
+                        'Tipo de Alteração': Switch(LookUp(Choices('tipo de alteracao'), Value = uipp_tipodealteracao).Value, 'tipo de alteracao'.Edição, "Edição",'tipo de alteracao'.Eliminação, "Eliminação", 'tipo de alteracao'.Inativo, "Inativo", 'tipo de alteracao'.Inserção, "Inserção"),
                         'Lista da Atividade':Switch(LookUp(Choices('lista da atividade'), Value = uipp_listadaatividade).Value,'lista da atividade'.Colaboradores,"Colaboradores", 'lista da atividade'.'Empresas Participadas', "Empresas Participadas", 'lista da atividade'.'Empresas Respetivas', "Empresas Respetivas", 'lista da atividade'.Familiares, "Familiares", 'lista da atividade'.Listagens,"Listagens", 'lista da atividade'.Membros, "Membros", 'lista da atividade'.ROC, "ROC") ,
                         Grupo:Switch(LookUp(Choices(Grupo), Value = uipp_grupo).Value , Grupo.'Banco Montepio', "Banco Montepio",Grupo.MGAM, "MGAM"),
                         Data: Text(createdon, "dd/mm/yyyy hh:mm"),
