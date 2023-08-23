@@ -352,7 +352,7 @@ Atividade As screen:
             Width: =154
             X: =188
             Y: =355
-            ZIndex: =27
+            ZIndex: =26
 
         ContainerAlteracoes As groupContainer.verticalAutoLayoutContainer:
             Height: =152
@@ -363,7 +363,7 @@ Atividade As screen:
             Width: =847
             X: =342
             Y: =355
-            ZIndex: =28
+            ZIndex: =27
 
             Label18_5 As label:
                 BorderColor: =RGBA(0, 0, 0, 1)
@@ -577,6 +577,8 @@ Atividade As screen:
                     )
                 );
                 
+                
+                // Quando houver alterações nos campos Choices, alterar os campos necessários para aparecer a label
                 Set(JSONTable,
                          JSON(
                           ForAll(

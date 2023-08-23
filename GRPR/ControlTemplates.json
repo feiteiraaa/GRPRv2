@@ -266,6 +266,21 @@
     "OverridableProperties": {},
     "Version": "2.2.2"
   },
+  "JsonTableExport": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/uipp_codidharma.canvas.pcf.components.JsonTableExport",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "uipp_codidharma.canvas.pcf.components.JsonTableExport",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "JsonTableExport",
+    "Version": "11.0.1"
+  },
   "label": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,

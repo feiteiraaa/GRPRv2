@@ -1,0 +1,91 @@
+ModalConfirmation_13 As CanvasComponent:
+    DataTable: ="Text"
+    Fill: =RGBA(77, 77, 77, 0.3)
+    Height: =App.Height
+    LeftBtnIcon: =Icon.Check
+    LeftBtnText: ="Confirmar"
+    ModalIcon: =Icon.Error
+    ModalIconColor: =Color.Red
+    ModalText: |-
+        ="Deseja exportar a listagem completa de Atividades para um ficheiro Excel?
+        
+        Será efetuado o download após a confirmação."
+    RightBtnFill: =ColorFade(Color.Red, 0.9)
+    RightBtnIcon: =Icon.Cancel
+    RightBtnText: ="CANCELAR"
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Rectangle1_8 As rectangle:
+        Fill: =Color.White
+        Height: |
+            =300//259
+        Width: |-
+            =//456
+            460
+        X: =455
+        Y: =215//255
+        ZIndex: =1
+
+    Label4_2 As label:
+        Align: =Align.Center
+        Height: =112
+        Text: |-
+            ="Deseja exportar a listagem completa de Atividades para um ficheiro Excel?
+            
+            Será efetuado o download após a confirmação."
+        Width: =374
+        X: =496
+        Y: =300//341
+        ZIndex: =2
+
+    "Icon4_2 As icon.'3DPrinting'":
+        Color: =ModalConfirmation_13.ModalIconColor
+        Icon: =ModalConfirmation_13.ModalIcon
+        X: =651
+        Y: =230//271
+        ZIndex: =3
+
+    Button1_9 As button:
+        Align: =Align.Left
+        BorderThickness: =0
+        Color: =RGBA(70, 70, 70, 1)
+        Fill: =ModalConfirmation_13.RightBtnFill
+        FontWeight: =FontWeight.Normal
+        HoverColor: =RGBA(70, 70, 70, 1)
+        HoverFill: =ModalConfirmation_13.RightBtnFill
+        OnSelect: =
+        PaddingLeft: =50
+        PressedFill: =ModalConfirmation_13.RightBtnFill
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Text: =ModalConfirmation_13.RightBtnText
+        Width: =165
+        X: =715
+        Y: |
+            =440
+        ZIndex: =4
+
+    "Icon2_9 As icon.'3DPrinting'":
+        Color: =RGBA(255, 191, 0, 1)
+        Height: =30
+        Icon: =ModalConfirmation_13.RightBtnIcon
+        Width: =30
+        X: =725
+        Y: |
+            =445
+        ZIndex: =5
+
+    JsonTableExport1 As JsonTableExport:
+        Data: =ModalConfirmation_13.DataTable
+        DisplayMode: =DisplayMode.Edit
+        Height: =40
+        Width: =136
+        X: =535
+        Y: =440
+        ZIndex: =7
+

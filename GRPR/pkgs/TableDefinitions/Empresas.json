@@ -1,4 +1,14 @@
 {
+  "components": [
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "uipp_codidharma.canvas.pcf.components.JsonTableExport",
+      "IdentifierType": 0
+    }
+  ],
   "DatasetName": "default.cds",
   "EntityName": "Empresas",
   "InstanceUrl": "https://bmpowerappsd.crm4.dynamics.com/",
