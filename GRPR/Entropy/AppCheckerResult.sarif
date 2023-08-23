@@ -28696,6 +28696,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ModalConfirmation_13.Icon15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModalConfirmation_13.Icon15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModalConfirmation_13",
+                "type": "ModalConfirmation_13.Icon15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModalConfirmation_13.Icon15.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModalConfirmation_13.Icon15.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "ModalConfirmation_13",
+                "type": "ModalConfirmation_13.Icon15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.Notificacoes"
                 }
               ],
@@ -29039,6 +29099,36 @@
                 "member": "localShowRep",
                 "module": "Configuracoes",
                 "type": "Configuracoes"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModalConfirmation_13.ShowExportar"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModalConfirmation_13.ShowExportar",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "ShowExportar",
+                "module": "ModalConfirmation_13",
+                "type": "ModalConfirmation_13"
               }
             }
           ],

@@ -591,7 +591,7 @@
           },
           {
             "Category": "Behavior",
-            "InvariantScript": "",
+            "InvariantScript": "Set(ShowExportar,false)",
             "Property": "OnSelect",
             "RuleProviderType": "Unknown"
           }
@@ -1161,7 +1161,7 @@
       },
       "DataTable"
     ],
-    "LastModifiedTimestamp": "638283978168269955",
+    "LastModifiedTimestamp": "638283980234702887",
     "Name": "ModalConfirmation_13",
     "Rules": [
       {
@@ -1356,7 +1356,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638283978168269955",
+  "LastModifiedTimestamp": "638283980234702887",
   "Name": "c900749a7ca4421ca38a9c72a1fc5675",
   "OverridableProperties": {},
   "TemplateOriginalName": "eb24e4724ed04a619ab834c43dfccdf3",
