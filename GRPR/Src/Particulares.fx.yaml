@@ -62,6 +62,8 @@ Particulares As screen:
                 "",
                 "FamiNIF",
                 "",
+                "Cargo",
+                "",
                 "RespName",
                 "",
                 "RespNIPC",
@@ -89,6 +91,17 @@ Particulares As screen:
                             CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_Empresa.ID)
                         ).ID_Familiares,
                         ID_Familiares.'Numero documento'
+                        
+                    ).Value,
+                    Value & ";"
+                ),
+                Cargo: Concat(
+                    ForAll(
+                        Filter(
+                            CollectMFR,
+                            CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_GrauParentesco.ID)
+                        ).'Cargo (Categoria)',
+                        'Cargo (Categoria)'
                     ).Value,
                     Value & ";"
                 ),
@@ -474,7 +487,11 @@ Particulares As screen:
                         "uipp_nome",
                         "FamiName",
                         "numeroDocumento",
-                        "FamiNIF"
+                        "FamiNIF",
+                        "RespName",
+                        "RespNIPC",
+                        "Cargo"
+                
                     )
                 )/*,
                     Search(
@@ -979,7 +996,7 @@ Particulares As screen:
                     "ROC",
                     "Pesquisar Nome, NIF/NIPC ou Tipo",
                     "Membros dos Orgãos Sociais",
-                    "Pesquisar Nome ou NIF"
+                    "Pesquisar Nome, NIF, Cargo ou Relação"
                 )
             HoverBorderColor: =RGBA(128, 128, 128, 1)
             HoverFill: =
