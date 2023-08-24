@@ -271,6 +271,7 @@ Participadas As screen:
             HoverBorderColor: =RGBA(128, 128, 128, 1)
             HoverFill: =
             PaddingLeft: =40
+            Size: =11
             Tooltip: =
             Width: =366
             X: =385

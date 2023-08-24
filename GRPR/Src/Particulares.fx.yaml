@@ -64,6 +64,8 @@ Particulares As screen:
                 "",
                 "Cargo",
                 "",
+                "Relação",
+                "",
                 "RespName",
                 "",
                 "RespNIPC",
@@ -102,6 +104,16 @@ Particulares As screen:
                             CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_GrauParentesco.ID)
                         ).'Cargo (Categoria)',
                         'Cargo (Categoria)'
+                    ).Value,
+                    Value & ";"
+                ),
+                Relação: Concat(
+                    ForAll(
+                        Filter(
+                            CollectMFR,
+                            CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_Empresa.ID)
+                        ).ID_GrauParentesco,
+                        ID_GrauParentesco.'Grau de parentesco'
                     ).Value,
                     Value & ";"
                 ),
@@ -490,7 +502,8 @@ Particulares As screen:
                         "FamiNIF",
                         "RespName",
                         "RespNIPC",
-                        "Cargo"
+                        "Cargo",
+                        "Relação"
                 
                     )
                 )/*,
@@ -996,11 +1009,12 @@ Particulares As screen:
                     "ROC",
                     "Pesquisar Nome, NIF/NIPC ou Tipo",
                     "Membros dos Orgãos Sociais",
-                    "Pesquisar Nome, NIF, Cargo ou Relação"
+                    "Pesquisar Nome, NIF/NIPC ou Cargo/Relação"
                 )
             HoverBorderColor: =RGBA(128, 128, 128, 1)
             HoverFill: =
             PaddingLeft: =40
+            Size: =11
             Tooltip: =
             Width: =366
             X: =365

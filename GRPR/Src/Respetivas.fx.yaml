@@ -329,6 +329,7 @@ Respetivas As screen:
             HoverBorderColor: =RGBA(128, 128, 128, 1)
             HoverFill: =
             PaddingLeft: =40
+            Size: =11
             Tooltip: =
             Visible: =!localFormRespetivas And !localFormRespetivasNew
             Width: =366

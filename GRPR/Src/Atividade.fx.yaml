@@ -484,10 +484,11 @@ Atividade As screen:
             Default: =
             Fill: =ColorFade(cores.cinzento, 90%)
             Height: =DynamicBtn_1.Height
-            HintText: ="Pesquisar"
+            HintText: ="Pesquisar Atividade"
             HoverBorderColor: =RGBA(128, 128, 128, 1)
             HoverFill: =
             PaddingLeft: =40
+            Size: =11
             Tooltip: =
             Width: =290
             X: =364
