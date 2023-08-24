@@ -262,11 +262,12 @@ Particulares As screen:
                             varSortDir
                         ),
                         "CargoCategoria",
-                        'Cargo (Categoria)'
+                        Text('Cargo (Categoria)')
                     ),
                     TextInput2.Text,
                     "uipp_nome",
-                    "uipp_cargodescricao"
+                    "uipp_cargodescricao",
+                    "CargoCategoria"
                 ),
                 Search(
                     AddColumns(
