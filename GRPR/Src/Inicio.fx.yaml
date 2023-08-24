@@ -1,5 +1,5 @@
 Inicio As screen:
-    OnVisible: |
+    OnVisible: |-
         =//UpdateContext({ _Associar:false});
         Set(
             varMaxNdias,
@@ -54,6 +54,7 @@ Inicio As screen:
             varFimPeriodo,
             true in collectDatas[@FimPeriodo]
         );
+        Set(UIP,true)
 
     TopSectionComponent_1 As TopSectionComponent:
         X: =342
