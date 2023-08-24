@@ -59,7 +59,12 @@ Particulares As screen:
             AddColumns(
                 CollectMembros,
                 "FamiName",
-                //[]
+                "",
+                "FamiNIF",
+                "",
+                "RespName",
+                "",
+                "RespNIPC",
                 ""
             )
         );
@@ -74,6 +79,36 @@ Particulares As screen:
                             CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_Empresa.ID)
                         ).ID_Familiares,
                         ID_Familiares.Nome
+                    ).Value,
+                    Value & ";"
+                ),
+                FamiNIF: Concat(
+                    ForAll(
+                        Filter(
+                            CollectMFR,
+                            CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_Empresa.ID)
+                        ).ID_Familiares,
+                        ID_Familiares.'Numero documento'
+                    ).Value,
+                    Value & ";"
+                ),
+                RespName: Concat(
+                    ForAll(
+                        Filter(
+                            CollectMFR,
+                            CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_GrauParentesco.ID)
+                        ).ID_Empresa,
+                        ID_Empresa.Designacao
+                    ).Value,
+                    Value & ";"
+                ),
+                RespNIPC: Concat(
+                    ForAll(
+                        Filter(
+                            CollectMFR,
+                            CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_GrauParentesco.ID)
+                        ).ID_Empresa,
+                        ID_Empresa.'Numero Documento'
                     ).Value,
                     Value & ";"
                 )
@@ -418,23 +453,30 @@ Particulares As screen:
                 =If(
                     localFiltro = "Membros dos Orgãos Sociais",
                     Search(
-                        SortByColumns(
-                            Filter(
+                        AddColumns(
+                            SortByColumns(
+                                Filter(
                                 //CollectMembros,
-                                MembroFamiliar,
-                                If(
-                                    Checkbox1.Value = false,
-                                    ThisRecord.Ativo = true,
-                                    ThisRecord.Ativo = true Or ThisRecord.Ativo = false
-                                )
+                                    MembroFamiliar,
+                                    If(
+                                        Checkbox1.Value = false,
+                                        ThisRecord.Ativo = true,
+                                        ThisRecord.Ativo = true Or ThisRecord.Ativo = false
+                                    )
+                                ),
+                                varSortCol,
+                                varSortDir
                             ),
-                            varSortCol,
-                            varSortDir
+                            "numeroDocumento",
+                            Text('Numero documento')
                         ),
                         TextInput2.Text,
                         "uipp_nome",
-                         "FamiName"
-                    ),
+                        "FamiName",
+                        "numeroDocumento",
+                        "FamiNIF"
+                    )
+                )/*,
                     Search(
                         Filter(
                             //CollectMembros,
@@ -447,10 +489,8 @@ Particulares As screen:
                         ),
                         TextInput2.Text,
                         "uipp_nome"
-                        
-                        
                     )
-                )
+                )*/
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
             OnSelect: |-
@@ -479,7 +519,7 @@ Particulares As screen:
             "'Cargo e Relacao' As label":
                 OnSelect: =Select(Parent)
                 Text: |
-                    =//Filter('Membros-Familiares-Respetivas',ID_Membro.ID=ThisItem.ID 
+                    =//Filter('Membros-Familiares-Respetivas',ID_Membro.ID=ThisItem.ID)
                 Width: =341
                 X: =598
                 ZIndex: =3
@@ -939,7 +979,7 @@ Particulares As screen:
                     "ROC",
                     "Pesquisar Nome, NIF/NIPC ou Tipo",
                     "Membros dos Orgãos Sociais",
-                    "Pesquisar nome Membro ou Familiar"
+                    "Pesquisar Nome ou NIF"
                 )
             HoverBorderColor: =RGBA(128, 128, 128, 1)
             HoverFill: =
