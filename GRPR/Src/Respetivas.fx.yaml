@@ -325,7 +325,7 @@ Respetivas As screen:
                 cores.cinzento
             Default: =
             Fill: =ColorFade(cores.cinzento, 90%)
-            HintText: ="Pesquisar"
+            HintText: ="Pesquisar Designação ou NIF/NIPC"
             HoverBorderColor: =RGBA(128, 128, 128, 1)
             HoverFill: =
             PaddingLeft: =40

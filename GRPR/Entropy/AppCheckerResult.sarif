@@ -17569,10 +17569,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 201,
-                  "charOffset": 155,
+                  "charLength": 185,
+                  "charOffset": 134,
                   "snippet": {
-                    "text": "If(\n                        Checkbox1_2.Value = false,\n                        ThisRecord.Ativo = true,\n                        ThisRecord.Ativo = true Or ThisRecord.Ativo = false\n                    )"
+                    "text": "If(\n                    Checkbox1_2.Value = false,\n                    ThisRecord.Ativo = true,\n                    ThisRecord.Ativo = true Or ThisRecord.Ativo = false\n                )"
                   }
                 }
               },

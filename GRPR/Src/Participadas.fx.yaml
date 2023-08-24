@@ -13,29 +13,29 @@ Participadas As screen:
         HeadingFill: =cores.cinzento
         Height: =500
         Items: |-
-            = Search(
-                    AddColumns(
-                        SortByColumns(
-                            Filter(
-                                'Empresas Participadas do Grupos',
-                                If(
-                                    Checkbox1_2.Value = false,
-                                    ThisRecord.Ativo = true,
-                                    ThisRecord.Ativo = true Or ThisRecord.Ativo = false
-                                )
-                            ),
-                            varSortCol,
-                            varSortDir
+            =Search(
+                AddColumns(
+                    SortByColumns(
+                        Filter(
+                            'Empresas Participadas do Grupos',
+                            If(
+                                Checkbox1_2.Value = false,
+                                ThisRecord.Ativo = true,
+                                ThisRecord.Ativo = true Or ThisRecord.Ativo = false
+                            )
                         ),
-                        "numeroDocumento",
-                        Text('Numero documento'),
-                        "nome",
-                        Text(Nome)
+                        varSortCol,
+                        varSortDir
                     ),
-                    TextInput2_1.Text,
                     "numeroDocumento",
-                    "nome"
-                )
+                    Text('Numero documento'),
+                    "nome",
+                    Text(Nome)
+                ),
+                TextInput2_1.Text,
+                "numeroDocumento",
+                "nome"
+            )
         SelectedFill: =cores.amareloMontepio
         Width: =980
         X: =364
@@ -267,7 +267,7 @@ Participadas As screen:
                 cores.cinzento
             Default: =
             Fill: =ColorFade(cores.cinzento, 90%)
-            HintText: ="Pesquisar"
+            HintText: ="Pesquisar Designação ou NIPC"
             HoverBorderColor: =RGBA(128, 128, 128, 1)
             HoverFill: =
             PaddingLeft: =40
