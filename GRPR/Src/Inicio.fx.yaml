@@ -54,7 +54,6 @@ Inicio As screen:
             varFimPeriodo,
             true in collectDatas[@FimPeriodo]
         );
-        Set(UIP,true)
 
     TopSectionComponent_1 As TopSectionComponent:
         X: =342
