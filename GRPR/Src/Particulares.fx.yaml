@@ -935,7 +935,7 @@ Particulares As screen:
                 =Switch(
                     localFiltro,
                     "Colaboradores",
-                    "Pesquisar nome Colaborador",
+                    "Pesquisar Nome, NIF ou Cargo",
                     "ROC",
                     "Pesquisar nome ROC",
                     "Membros dos Orgãos Sociais",
