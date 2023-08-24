@@ -110,15 +110,15 @@ Particulares As screen:
                             varSortCol,
                             varSortDir
                         ),
-                        "tipoDocumento",
-                        Text('Tipo de documento'),
-                        "grupo",
-                        Text("uipp_Grupo")
+                        "numeroDocumento",
+                        Text('Numero Documento'),
+                        "tipo",
+                        Text(Tipo)
                     ),
                     TextInput2.Text,
                     "uipp_nome",
-                    "tipoDocumento",
-                    "grupo"
+                    "numeroDocumento",
+                    "tipo"
                 ),
                 Search(
                     AddColumns(
@@ -132,15 +132,15 @@ Particulares As screen:
                                 )
                          
                         ),
-                        "tipoDocumento",
-                        Text('Tipo de documento'),
-                        "grupo",
-                        Text("uipp_Grupo")
+                        "numeroDocumento",
+                        Text('Numero Documento'),
+                        "tipo",
+                        Text("uipp_tipo")
                     ),
                     TextInput2.Text,
                     "uipp_nome",
-                    "tipoDocumento",
-                    "grupo"
+                    "numeroDocumento",
+                    "tipo"
                 )
             )
         NoDataText: ="Não existem registos a apresentar, de momento"
@@ -937,7 +937,7 @@ Particulares As screen:
                     "Colaboradores",
                     "Pesquisar Nome, NIF ou Cargo",
                     "ROC",
-                    "Pesquisar nome ROC",
+                    "Pesquisar Nome, NIF/NIPC ou Tipo",
                     "Membros dos Orgãos Sociais",
                     "Pesquisar nome Membro ou Familiar"
                 )
