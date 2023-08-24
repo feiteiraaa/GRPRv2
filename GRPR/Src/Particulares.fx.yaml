@@ -3,7 +3,11 @@ Particulares As screen:
         =Concurrent(
             UpdateContext(
                 {
-                    localFiltro: If(DGP_Editor Or DGP_Validador,"Colaboradores","Membros dos Orgãos Sociais"),
+                    localFiltro: If(
+                        DGP_Editor Or DGP_Validador,
+                        "Colaboradores",
+                        "Membros dos Orgãos Sociais"
+                    ),
                     localseta: false,
                     localShowModal: false
                 }
@@ -55,6 +59,10 @@ Particulares As screen:
             'Membros-Familiares-Respetivas'
         );
         ClearCollect(
+            CollectMP,
+            'Membros-Participadas'
+        );
+        ClearCollect(
             MembroFamiliar,
             AddColumns(
                 CollectMembros,
@@ -62,13 +70,19 @@ Particulares As screen:
                 "",
                 "FamiNIF",
                 "",
-                "Cargo",
+                "FamiRelação",
                 "",
-                "Relação",
+                "RespCargo",
                 "",
                 "RespName",
                 "",
                 "RespNIPC",
+                "",
+                "PartName",
+                "",
+                "PartNIPC",
+                "",
+                "PartCargo",
                 ""
             )
         );
@@ -93,27 +107,26 @@ Particulares As screen:
                             CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_Empresa.ID)
                         ).ID_Familiares,
                         ID_Familiares.'Numero documento'
-                        
                     ).Value,
                     Value & ";"
                 ),
-                Cargo: Concat(
-                    ForAll(
-                        Filter(
-                            CollectMFR,
-                            CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_GrauParentesco.ID)
-                        ).'Cargo (Categoria)',
-                        'Cargo (Categoria)'
-                    ).Value,
-                    Value & ";"
-                ),
-                Relação: Concat(
+                FamiRelação: Concat(
                     ForAll(
                         Filter(
                             CollectMFR,
                             CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_Empresa.ID)
                         ).ID_GrauParentesco,
                         ID_GrauParentesco.'Grau de parentesco'
+                    ).Value,
+                    Value & ";"
+                ),
+                RespCargo: Concat(
+                    ForAll(
+                        Filter(
+                            CollectMFR,
+                            CollectMFR[@ID_Membro].ID = MembroFamiliar[@ID] And IsBlank(ID_GrauParentesco.ID)
+                        ).'Cargo (Categoria)',
+                        'Cargo (Categoria)'
                     ).Value,
                     Value & ";"
                 ),
@@ -135,6 +148,36 @@ Particulares As screen:
                         ).ID_Empresa,
                         ID_Empresa.'Numero Documento'
                     ).Value,
+                    Value & ";"
+                ),
+                PartName: Concat(
+                    ForAll(
+                        Filter(
+                            CollectMP,
+                            CollectMP[@'Child ID'].ID = MembroFamiliar[@ID]
+                        ).'Parent ID',
+                        'Parent ID'.Nome
+                    ),
+                    Value & ";"
+                ),
+                PartNIPC: Concat(
+                    ForAll(
+                        Filter(
+                            CollectMP,
+                            CollectMP[@'Child ID'].ID = MembroFamiliar[@ID]
+                        ).'Parent ID',
+                        'Parent ID'.'Numero documento'
+                    ),
+                    Value & ";"
+                ),
+                PartCargo: Concat(
+                    ForAll(
+                        Filter(
+                            CollectMP,
+                            CollectMP[@'Child ID'].ID = MembroFamiliar[@ID]
+                        ).'Cargo (Categoria)',
+                        'Cargo (Categoria)'
+                    ),
                     Value & ";"
                 )
             }
@@ -502,8 +545,11 @@ Particulares As screen:
                         "FamiNIF",
                         "RespName",
                         "RespNIPC",
-                        "Cargo",
-                        "Relação"
+                        "RespCargo",
+                        "FamiRelação",
+                        "PartName",
+                        "PartNIPC",
+                        "PartCargo"
                 
                     )
                 )/*,
